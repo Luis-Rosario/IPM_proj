@@ -11,5 +11,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+  //lol
 
 }
