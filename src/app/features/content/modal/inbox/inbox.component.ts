@@ -10,14 +10,12 @@ export class InboxComponent implements OnInit {
   
   borrowedGames: any[];
   chats: any[];
+  users: any[];
   lentGames: any[];
 
   constructor() { }
 
   ngOnInit() {
-
-
-
   }
 
 }

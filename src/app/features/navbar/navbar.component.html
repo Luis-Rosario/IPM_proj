@@ -1,32 +1,21 @@
-<div>
-    <div>
+
+
+<div class="nav">
+	<input type="text" placeholder="Search for a game..." class="abs-input">
+	<div class="navbar-brand">
         <a routerLink="/home" routerLinkActive="active">
-            <img class="img_navbar" src="assets/llamma.png">
-        </a>
-        <label>
-            <a routerLink="/home" routerLinkActive="active">
-                <h6 class="tittle">Llamma Squad</h6>
-            </a>
-        </label>
-
-        <!--  <searchbar></searchbar> -->
-
-        <label>
-            <a routerLink= "/user/library" routerLinkActive="active">
-                <h6 class="library">My Libray</h6>
-            </a>
-        </label>
-
-        <label>
-            <a routerLink="/user/inbox" routerLinkActive="active">
-                <h6 h6 class="inbox">Inbox</h6>
-            </a>
-        </label>
-
-        <label>
-            <h6 class="notific">Notific</h6>
-        </label>
-
-        <!--  <dropdown></dropdown> -->
-    </div>
+        <img class="logo" src="assets/llamma.png">
+    </a>
+    <a routerLink= "/home" routerLinkActive="active">Lleme Play</a></div>
+	<input class="norm-input" type="text" placeholder="...">
+			<ul class="links">
+			<li><a routerLink= "/user/library" routerLinkActive="active">My Library</a></li>
+			<li><a routerLink="/user/inbox" routerLinkActive="active">Inbox</a></li>
+		</ul>
+	<div class="right-hand">
+		<div class="user-info">
+			<div class="row user">My username</div>
+			<div class="row points">500 *</div>
+		</div>
+	</div>
 </div>
