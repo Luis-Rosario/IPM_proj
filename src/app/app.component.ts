@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
+import { LoggedInGuard } from './login/logged-in.guard';
 
 
 @Component({
@@ -7,13 +8,17 @@ import {Router} from '@angular/router'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
- 
-ngOnInit(): void {
- 
 
-  
+  logged: Boolean = false;
 
-}
+  ngOnInit(): void {
 
+
+  }
+
+  logUser() {
+    this.logged = true;
+  }
 }

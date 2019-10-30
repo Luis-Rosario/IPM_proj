@@ -1,0 +1,74 @@
+.logo {
+    width: 40px;
+    height: 40px;
+    background: #EEEEEE;
+    display: inline-block;
+}
+
+.title {
+    display: inline-block;
+}
+
+.boxElem {
+    margin-bottom: 10px;
+    width: 350px;
+}
+
+.box {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 200px;
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    background: white;
+    padding: 25px;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Need a specific value to work */
+}
+
+.submit {
+    box-shadow: inset 0px 1px 0px 0px #fce2c1;
+    background-color: #ffc477;
+    border-radius: 6px;
+    border: 1px solid #db9c2e;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 9px 36px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #cc9f52;
+}
+
+.submit:hover {
+    background-color: #fb9e25;
+}
+
+.submit:active {
+    position: relative;
+    top: 1px;
+}
+
+.row-box {
+    width: 100%;
+    padding: 10px;
+}
+
+.register {
+    color: saddlebrown;
+    text-align: center;
+}
+
+.row-button {
+    align-self: center;
+    padding-top: 10px;
+}

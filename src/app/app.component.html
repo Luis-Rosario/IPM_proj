@@ -1,4 +1,12 @@
-<app-navbar></app-navbar>
-<div class="content">
+<!-- If not logged shows entire screen -->
+
+<div *ngIf="logged == false">
     <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="logged == true">
+    <app-navbar></app-navbar>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
 </div>
