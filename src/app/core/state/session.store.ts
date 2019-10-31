@@ -3,7 +3,7 @@ import { Store, StoreConfig } from '@datorama/akita';
 
 
 export interface Session {
-    username: string;
+    email: string;
     data: any;
     logged: boolean;
 }
@@ -11,7 +11,7 @@ export interface Session {
 /**Creates the model to be stored in the store, in our case it will store the logged user's permissions and it's role */
 export function createInitialState(): Session {
     return {
-        username: '',
+        email: '',
         data: '',
         logged: false
     };

@@ -1,1 +1,57 @@
-<p>profile works!</p>
+<div>
+    <div class="row">
+        <h3>{{userInfo.first_name}} {{userInfo.last_name}}</h3>
+
+    </div>
+
+    <div class="row">
+        <h3>Date of Birth: </h3>
+        <h4 style="display: inline-block;">{{userInfo.birthdate}}</h4>
+        <h3 style="display: inline-block;"> Gender: </h3>
+        <h4 style="display: inline-block;">{{userInfo.gender}}</h4>
+    </div>
+
+    <h2>Address Information</h2>
+    <div class="row">
+
+        <h3>Address</h3>
+        <h4>{{userInfo.street_address}}</h4>
+    </div>
+
+    <div class="row">
+        <h3>Postal code: </h3>
+        <h4 style="display: inline-block;">{{userInfo.postal_code}}</h4>
+        <h3 style="display: inline-block;"> City: </h3>
+        <h4 style="display: inline-block;">{{userInfo.city}}</h4>
+    </div>
+
+    <h2>Account Information: </h2>
+    <div class="row">
+        <h3>Email: </h3>
+        <h4>{{userInfo.email}}</h4>
+    </div>
+    <div class="row">
+        <h3>Password: </h3>
+        <h4>{{userInfo.password}}</h4>
+        <!--      <h4 *ngFor="let leter of {{userInfo.password}}.length" style="display: inline-block;">*</h4> -->
+    </div>
+
+    <h2>Payment Information: </h2>
+    <div class="row">
+        <h3>Card number: </h3>
+        <h4>{{userInfo.card_number}}</h4>
+    </div>
+    <div class="row">
+        <h3>Expiration date: </h3>
+        <h4>{{userInfo.expiration_date}}</h4>
+        <h3>CCV: </h3>
+        <h4>{{userInfo.security_code}}.</h4>
+        <!-- <h4 *ngFor="let leter of {{userInfo.security_code}}.length" style="display: inline-block;">*</h4> -->
+    </div>
+
+
+    <div class="row">
+
+    </div>
+
+</div>

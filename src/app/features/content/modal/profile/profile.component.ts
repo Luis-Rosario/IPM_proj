@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionQuery } from 'src/app/core/state/session.query';
+declare const getUser: any;
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  userInfo: any;
+  email: any;
+ 
+  constructor(
+    private sessionQuery: SessionQuery,
+  ) { }
 
-  constructor() { }
 
   ngOnInit() {
+    this.email= this.sessionQuery.getValue().email; 
+    this.userInfo=getUser(this.email);
   }
 
 }

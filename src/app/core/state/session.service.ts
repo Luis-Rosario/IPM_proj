@@ -14,9 +14,9 @@ export class SessionService {
   ) { }
 
 
-  logUser(name){
+  logUser(email){
     this.sessionStore.update({
-        username: name,
+        email: email,
         data: '',
         logged: true, 
       })
