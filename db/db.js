@@ -249,21 +249,29 @@ function getDistance(city1,city2){
   return cities[city1][city2]
 }
 
+function getGameInfo(userId, gameName) {
+    for(i in json.game_rentals){
+        if(json.game_rentals[i].user_email == userId && json.game_rentals[i].game_name == gameName){
+            return json.game_rentals[i];
+        }
+    }
+}
+
 function getGamesBorrowing(userId){
-  gamesRenting=[]
+  gamesRenting={}
   for(lender in json.rental_history.lenders){
       for(game in json.rental_history.lenders[lender].games){
           if(json.rental_history.lenders[lender].games[game].borrowers[userId].lent=="accepted")
-              gamesRenting.push(game);
+              gamesRenting[game]= getGameInfo(lender, game);
       }
   }
   return gamesRenting;
 }
 
 function getGamesLending(userId){
-  gamesLending=[]
+  gamesLending={}
   for(game in json.rental_history.lenders[userId].games){
-      gamesLending.push(game);
+      gamesLending[game] = getGameInfo(userId,game);
   }
   return gamesLending;
 }
@@ -330,6 +338,10 @@ function deleteGame(userId,game_name){
           json.game_rentals.splice(json.game_rentals.indexOf(game),1);
       }
   }
+}
+
+function addUser (userObj){
+    users_db[userObj.user_email]=userObj;
 }
 
 //peer js
