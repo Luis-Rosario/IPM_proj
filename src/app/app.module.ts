@@ -8,7 +8,7 @@ import  {HttpClientModule} from '@angular/common/http';
 import { ContentModule } from './features/content/content.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,9 +22,8 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-  /*   RouterModule.forRoot(
-      /* appRoutes, 
-    ), */
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     ContentModule,

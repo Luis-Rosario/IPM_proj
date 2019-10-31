@@ -9,28 +9,53 @@
     display: inline-block;
 }
 
-.boxElem {
-    margin-bottom: 10px;
-    width: 350px;
-}
+
+/*box principal*/
 
 .box {
+    width: 600px;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    min-height: 200px;
-    display: flex;
     align-items: flex-start;
     position: fixed;
     flex-direction: column;
-    top: 50%;
+    top: 10%;
     left: 50%;
     justify-content: center;
     background: white;
     padding: 25px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.5);
-    /* Need a specific value to work */
+}
+
+
+/*sub boxes*/
+
+.section {
+    box-shadow: 0px 0px 0px 1px #010101cc;
+    margin: 15px;
+}
+
+.row {
+    margin: 5px;
+}
+
+.col-6 {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.subtitles {
+    box-sizing: unset;
+}
+
+.boxElem {
+    width: 246px;
+}
+
+.boxElem-single {
+    width: 500px;
 }
 
 .button {
@@ -56,23 +81,4 @@
 .button:active {
     position: relative;
     top: 1px;
-}
-
-.row-box {
-    width: 100%;
-    padding: 10px;
-}
-
-.register {
-    color: saddlebrown;
-    text-align: center;
-}
-
-.row-button {
-    align-self: center;
-    padding-top: 10px;
-}
-
-.error {
-    color: red
 }

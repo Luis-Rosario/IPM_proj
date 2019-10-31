@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'
-import { LoggedInGuard } from './login/logged-in.guard';
+import { SessionQuery } from './core/state/session.query';
+
 
 
 @Component({
@@ -10,15 +10,16 @@ import { LoggedInGuard } from './login/logged-in.guard';
 })
 
 export class AppComponent {
-
-  logged: Boolean = false;
+  constructor(
+    private sessionQuery: SessionQuery,
+  ) { }
 
   ngOnInit(): void {
 
 
   }
 
-  logUser() {
-    this.logged = true;
+  isLogged(): Boolean {
+    return this.sessionQuery.getValue().logged;
   }
 }

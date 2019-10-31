@@ -1,21 +1,19 @@
-
-
 <div class="nav">
-	<input type="text" placeholder="Search for a game..." class="abs-input">
-	<div class="navbar-brand">
+    <input type="text" placeholder="Search for a game..." class="abs-input">
+    <div class="navbar-brand">
         <a routerLink="/home" routerLinkActive="active">
-        <img class="logo" src="assets/llamma.png">
-    </a>
-    <a routerLink= "/home" routerLinkActive="active">Lleme Play</a></div>
-	<input class="norm-input" type="text" placeholder="...">
-			<ul class="links">
-			<li><a routerLink= "/user/library" routerLinkActive="active">My Library</a></li>
-			<li><a routerLink="/user/inbox" routerLinkActive="active">Inbox</a></li>
-		</ul>
-	<div class="right-hand">
-		<div class="user-info">
-			<div class="row user">My username</div>
-			<div class="row points">500 *</div>
-		</div>
-	</div>
+            <img class="logo" src="assets/llamma.png">
+        </a>
+        <a routerLink="/home" routerLinkActive="active">Lleme Play</a></div>
+    <input class="norm-input" type="text" placeholder="...">
+    <ul class="links">
+        <li><a routerLink="/user/library" routerLinkActive="active">My Library</a></li>
+        <li><a routerLink="/user/inbox" routerLinkActive="active">Inbox</a></li>
+    </ul>
+    <div class="right-hand">
+        <div class="user-info">
+            <div class="row user">{{username}}</div>
+            <div class="row points">500 *</div>
+        </div>
+    </div>
 </div>

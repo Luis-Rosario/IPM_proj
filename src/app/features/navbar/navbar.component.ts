@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionQuery } from 'src/app/core/state/session.query';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  username: String;
+
+  constructor(
+    private sessionQuery: SessionQuery,
+  ) { }
 
   ngOnInit() {
+    this.username= this.sessionQuery.getValue().username;
   }
 
 }

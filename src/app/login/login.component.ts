@@ -1,24 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from '../core/state/session.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
+  showerror: Boolean = false;
 
-
-  username: String;
-  password: String;
-
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private sessionService: SessionService,
+    ) { }
 
   ngOnInit() {
   }
 
 
-  login(){
-    this.router.navigateByUrl("/home")
+  login(username){
+    if(username == null || username == '' || username ==undefined)
+      this.showerror= true;
+
+    else{
+      this.showerror= true;
+      this.sessionService.logUser(username);
+      this.router.navigateByUrl('/home');
+    }
+    
   }
 }

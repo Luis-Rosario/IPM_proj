@@ -1,1 +1,116 @@
-<p>register works!</p>
+<div class="row">
+    <div class="col-12">
+        <img class="logo" src="assets/llamma.png">
+        <h3 class="title">Lleme Play</h3>
+    </div>
+</div>
+
+
+<form [formGroup]="form">
+
+
+    <div class="box">
+
+        <div class="row">
+            <h3 class="box-title pull-left">Register</h3>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles">First Name</h6>
+                    <input type="text" class="boxElem" [formControlName]="FirsName">
+                </div>
+
+                <div class="col-6">
+                    <h6 class="subtitles ">Last Name</h6>
+                    <input type="text" class="boxElem" [formControlName]="LastName">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles">Date of Birth</h6>
+                    <input type="text" class="boxElem" [formControlName]="DateOfBirth">
+                </div>
+
+                <div class="col-6">
+                    <h6 class="subtitles ">Gender</h6>
+                    <input type="text" class="boxElem" [formControlName]="Gender">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles">Street Address</h6>
+                    <input type="text" class="boxElem-single" [formControlName]="Address">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles ">Postal Code</h6>
+                    <input type="text" class="boxElem" [formControlName]="PostalCode1">
+                    <!--  <input type="text" class="boxElem" [formControlName]="PostalCode2"> -->
+                </div>
+
+                <div class="col-6">
+                    <h6 class="subtitles ">City</h6>
+                    <input type="text" class="boxElem" [formControlName]="City">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles ">Email</h6>
+                    <input type="text" class="boxElem-single" [formControlName]="Email">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles ">Pasword</h6>
+                    <input type="text" class="boxElem" [formControlName]="Password">
+                </div>
+
+                <div class="col-6">
+                    <h6 class="subtitles ">Pasword Confirmation</h6>
+                    <input type="text" class="boxElem" [formControlName]="PasswordConfim">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles ">Card Number</h6>
+                    <input type="text" class="boxElem-single" [formControlName]="CardNumber">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="subtitles ">Expiration Date</h6>
+                    <input type="text" class="boxElem" [formControlName]="ExpirationDate1">
+                    <!-- <input type="text" class="boxElem" [formControlName]="ExpirationDate2" style="display: inline-block;"> -->
+                </div>
+
+                <div class="col-6">
+                    <h6 class="subtitles ">Security Code</h6>
+                    <input type="text " class="boxElem" [formControlName]="SecurityCode">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="button " (click)="register() ">Register</button>
+            </div>
+        </div>
+
+    </div>
+
+</form>

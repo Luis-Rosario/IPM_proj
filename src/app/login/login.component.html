@@ -11,24 +11,29 @@
         <h3 class="box-title pull-left">Log In</h3>
     </div>
 
-    <div class="row-box">
-        <div class="col-12">
-            <h6 class="subtitles">Username</h6>
-            <input type="text" class="boxElem" placeholder="Username">
+
+    <div class=" row-box ">
+        <div class="col-12 ">
+            <h6 class="subtitles ">Username</h6>
+            <input type="text " class="boxElem " placeholder="Username " #username>
         </div>
     </div>
 
-    <div class="row-box">
-        <div class="col-12">
-            <h6 class="subtitles">Password</h6>
-            <input type="text" class="boxElem" placeholder="Insert a password">
+    <div class="row-box ">
+        <div class="col-12 ">
+            <h6 class="subtitles ">Password</h6>
+            <input type="text " class="boxElem " placeholder="Insert a password ">
         </div>
     </div>
 
-    <div class="row-button">
-        <input type="submit" class="submit" value="Log In" (click)='login()'>
-        <div class="register">
-            <a class="register" routerLink="/register" routerLinkActive="active">Register</a>
+    <div class="col-12" *ngIf="showerror" style="padding-left: 25px;">
+        <p class=error>Incorrect username or password</p>
+    </div>
+
+    <div class="row-button ">
+        <button type="submit" class="button" (click)="login(username.value) ">Log in</button>
+        <div class="register ">
+            <a class="register " routerLink="/register" routerLinkActive="active ">Register</a>
         </div>
     </div>
 
