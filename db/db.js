@@ -347,53 +347,19 @@ function addUser (userObj){
 //peer js
 //https://codepen.io/KicoPT/pen/eYYGxaZ?editors=1010
 
+
+/*----------TO DO----------*/
 /*
-getDistance(city1,city2) done
-
-getGames() - done
-
-getGamesLending(userId) done
-
-getGamesBorrowing(userId) done
-
-getNotifications(userId) done
-
-
-
-
-
-getLendingMessages(userId) done
-
-getLenderMessagesByGame(userId,game) done
-
-getBorrowerMessagesByGame(userId,game) done
-
-getChat(userId1,userId2,game) done
-
-//PUT SHIT
-
-addGame()...
-
-markGamesAs()...
-
-removeGame()...
-
-sendRentalRequest(borrowerEmail,gameName,lenderEmail)... //um id da combinação lender/jogo ou whatever??
-
-sendMsg(borrowerEmail, lenderEmail, gameName, msg)... //lembrar que o email do user vai estar no borrower ou no lender dependendo
-
-acceptRental(lenderEmail, gameName, borrowerEmail)...
-
-refuseRental(lenderEmail, gameName, borrowerEmail)...
-
-markAsReturned(lenderEmail, gameName)...
-
-getNotifications(userEmail)...
-
-getBorrowedGames(userEmail)...
-
-
-
+addGame()
+markGamesAs()
+removeGame()
+sendRentalRequest(borrowerEmail,gameName,lenderEmail)//um id da combinação lender/jogo ou whatever??
+sendMsg(borrowerEmail, lenderEmail, gameName, msg)//lembrar que o email do user vai estar no borrower ou no lender dependendo
+acceptRental(lenderEmail, gameName, borrowerEmail)
+refuseRental(lenderEmail, gameName, borrowerEmail)
+markAsReturned(lenderEmail, gameName)
+getNotifications(userEmail)
+getBorrowedGames(userEmail)
 */
   //game_rental e os jogos da pessoa na pratica
   //func. para juntar os jogos com o mesmo nome, para fazer pesquisas e tal
@@ -406,7 +372,15 @@ getBorrowedGames(userEmail)...
   } */
 
 
-
-
-
-
+/*----------DONE----------*/
+/*
+getDistance(city1,city2)
+getGames()
+getGamesLending(userId)
+getGamesBorrowing(userId)
+getNotifications(userId)
+getLendingMessages(userId)
+getLenderMessagesByGame(userId,game)
+getBorrowerMessagesByGame(userId,game)
+getChat(userId1,userId2,game)
+*/
