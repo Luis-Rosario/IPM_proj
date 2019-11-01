@@ -408,9 +408,7 @@ function addUser (userObj){
 
 /*----------TO DO----------*/
 /*
-addGame()
 markGamesAs()
-removeGame()
 sendRentalRequest(borrowerEmail,gameName,lenderEmail)//um id da combinação lender/jogo ou whatever??
 sendMsg(borrowerEmail, lenderEmail, gameName, msg)//lembrar que o email do user vai estar no borrower ou no lender dependendo
 acceptRental(lenderEmail, gameName, borrowerEmail)
@@ -441,4 +439,7 @@ getLendingMessages(userId)
 getLenderMessagesByGame(userId,game)
 getBorrowerMessagesByGame(userId,game)
 getChat(userId1,userId2,game)
+deleteGame()
+addGame()
+addUser()
 */
