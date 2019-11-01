@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.email= this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo =getUser(this.email);
-    console.log(this.userInfo)
+    /* console.log(this.userInfo) */
   }
 
 }
