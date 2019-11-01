@@ -286,23 +286,22 @@ json= {
                                         "user":"borrower", /*lender, borrower, system*/
                                         "content":"Hello, darling! Lend me this game! Muah",
                                         "date":"2019/09/07",
-                                        "time":"12:02",
+                                        "time":"12:02"
                                   },
                                   {
                                         "user":"lender",
                                         "content":"Okay, I will!",
                                         "date":"2019/09/07",
-                                        "time":"12:32",
+                                        "time":"12:32"
                                   },
                                   {
                                         "user":"system",
                                         "content":"Please return this game!",
                                         "date":"2019/09/14",
-                                        "time":"12:40",
-                                }
-
-                              ]
-                          },
+                                        "time":"12:40"
+                                   }
+                                ]
+                            },
                           "aventureiro101@hotmail.com":{
                               "lent":"pending",
                               "messages":[
@@ -310,23 +309,48 @@ json= {
                                         "user":"borrower", /*lender, borrower, system*/
                                         "content":"Hi! I wanna borrow this game!",
                                         "date":"2019/09/07",
-                                        "time":"12:00",
+                                        "time":"12:00"
                                     },
                                     {
                                         "user":"lender",
                                         "content":"I can't lend it right now, but maybe later.",
                                         "date":"2019/09/07",
-                                        "time":"12:35",
+                                        "time":"12:35"
                                     }
-                              ]
-                          }
-                      }
-                  }
-              }
-          }
-      }
-  }
-}
+                                ]
+                            }
+                        }
+                    }
+                } 
+            },
+            "rui_maritimo@gmail.com":{
+                "games":{
+                    "FIFA 19":{
+                        "borrowers":{
+                            "docinho2019@hotmail.com":{
+                                "lent":"pending",
+                                "messages":[
+                                    {
+                                          "user":"borrower",
+                                          "content":"Hello, can you lend me this game?",
+                                          "date":"2019/10/12",
+                                          "time":"09:00"
+                                    },
+                                    {
+                                          "user":"lender",
+                                          "content":"Yes, ofc",
+                                          "date":"2019/10/13",
+                                          "time":"11:00"
+                                    }
+                                  ]
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 currentUser = "assuncao-martins.verified@gmail.com"
 
@@ -441,7 +465,7 @@ function getLendingTo(userId){
     for(game in json.rental_history.lenders[userId].games){
         for(borrower in json.rental_history.lenders[userId].games[game].borrowers){
             if(json.rental_history.lenders[userId].games[game].borrowers[borrower].lent=="accepted"){
-                trades[game]= borrower;
+                trades[game] = borrower;
             }
         }
     }
@@ -491,19 +515,33 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
 }
 
+function getNotifications(userEmail) {
+    return json.notifications[userEmail]
+}
+
+function acceptRental(lenderEmail, borrowerEmail, gameName) {
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+    
+    for(game in json.game_rentals) {
+        if(json.game_rentals[game].user_email == lenderEmail && json.game_rentals[game].game_name == gameName) {
+            json.game_rentals[game].active = false
+        }
+    }
+}
+
+function refuseRental(lenderEmail, borrowerEmail, gameName) {
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
+}
+
+
 //peer js
 //https://codepen.io/KicoPT/pen/eYYGxaZ?editors=1010
 
 
 /*----------TO DO----------*/
 /*
-mark()
 sendRentalRequest(borrowerEmail,gameName,lenderEmail)//um id da combinação lender/jogo ou whatever??
-sendMsg(borrowerEmail, lenderEmail, gameName, msg)//lembrar que o email do user vai estar no borrower ou no lender dependendo
-acceptRental(lenderEmail, gameName, borrowerEmail)
-refuseRental(lenderEmail, gameName, borrowerEmail)
-markAsReturned(lenderEmail, gameName)
-getNotifications(userEmail)
+sendMsg(borrowerEmail, lenderEmail, gameName, msg)//lembrar que o email do user vai estar no borrower ou no lender dependend
 getBorrowedGames(userEmail)
 */
   //game_rental e os jogos da pessoa na pratica
@@ -520,7 +558,8 @@ getBorrowedGames(userEmail)
 /*----------DONE----------*/
 /*
 getDistance(city1,city2)
-getGames()
+getDistance(userEmail1, userEmail2)
+getGames(filters)
 getGamesLending(userId)
 getGamesBorrowing(userId)
 getNotifications(userId)
@@ -528,7 +567,12 @@ getLendingMessages(userId)
 getLenderMessagesByGame(userId,game)
 getBorrowerMessagesByGame(userId,game)
 getChat(userId1,userId2,game)
-deleteGame()
-addGame()
-addUser()
+deleteGame(userEmail, gameName)
+addGame(userEmail, gameObj)
+addUser(userObj)
+markGameAsReturned(lenderEmail, gameName)
+markGameAsBorrowed(lenderEmail, borrowerEmail, gameName)
+getNotifications(userEmail)
+acceptRental(lenderEmail, borrowerEmail, gameName)
+refuseRental(lenderEmail, borrowerEmail, gameName)
 */
