@@ -402,13 +402,26 @@ function addUser (userObj){
     users_db[userObj.user_email]=userObj;
 }
 
+function markGameAsReturned(lenderEmail, gameName) {
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers
+    for(b in borrowers) {
+        if(json.rental_history.lenders[lenderEmail].games[gameName].borrowers[b].lent == "accepted") {
+            json.rental_history.lenders[lenderEmail].games[gameName].borrowers[b].lent = "past"
+        }
+    }
+}
+
+function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+}
+
 //peer js
 //https://codepen.io/KicoPT/pen/eYYGxaZ?editors=1010
 
 
 /*----------TO DO----------*/
 /*
-markGamesAs()
+mark()
 sendRentalRequest(borrowerEmail,gameName,lenderEmail)//um id da combinação lender/jogo ou whatever??
 sendMsg(borrowerEmail, lenderEmail, gameName, msg)//lembrar que o email do user vai estar no borrower ou no lender dependendo
 acceptRental(lenderEmail, gameName, borrowerEmail)
