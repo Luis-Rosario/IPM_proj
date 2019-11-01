@@ -252,6 +252,16 @@ json = {
             "image_url": "url.com/image",
             "duration_range": [2, 3],
             "active": true
+        },
+        {
+            "user_email": "marcelo_the_usurper@hotmail.com",
+            "game_name": "Super Smash Bros Ultimate",
+            "year": 2019,
+            "category": ["A", "B", "C"],
+            "console": ["PSP", "Switch"],
+            "image_url": "url.com/image",
+            "duration_range": [3, 6],
+            "active": true
         }
     ],
 
