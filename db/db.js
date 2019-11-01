@@ -425,8 +425,9 @@ function getGamesBorrowing(userId) {
     gamesRenting = {}
     for (lender in json.rental_history.lenders) {
         for (game in json.rental_history.lenders[lender].games) {
-            if (json.rental_history.lenders[lender].games[game].borrowers[userId].lent == "accepted")
-                gamesRenting[game] = getGameInfo(lender, game);
+            if (json.rental_history.lenders[lender].games[game].borrowers[userId] !== undefined)
+                if (json.rental_history.lenders[lender].games[game].borrowers[userId].lent == "accepted")
+                    gamesRenting[game] = getGameInfo(lender, game);
         }
     }
     return gamesRenting;
@@ -434,9 +435,10 @@ function getGamesBorrowing(userId) {
 
 function getGamesLending(userId) {
     gamesLending = {}
-    for (game in json.rental_history.lenders[userId].games) {
-        gamesLending[game] = getGameInfo(userId, game);
-    }
+    if (json.rental_history.lenders[userId] != undefined)
+        for (game in (json.rental_history.lenders[userId].games)) {
+            gamesLending[game] = getGameInfo(userId, game);
+        }
     return gamesLending;
 }
 
