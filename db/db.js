@@ -59,7 +59,9 @@ json= {
           "security_code":"099",
           "lender_rating":1.3,
           "borrower_rating":2.1,
-          "llama_points":400
+          "llama_points":400,
+          "total_borrowed": 2,
+          "total_lent": 3
       },
       "castelo_branquinho@gmail.com":{
           "email":"castelo_branquinho@gmail.com",
@@ -80,7 +82,9 @@ json= {
           "security_code":"123",
           "lender_rating":3.8,
           "borrower_rating":4.1,
-          "llama_points":690
+          "llama_points":690,
+          "total_borrowed": 32,
+          "total_lent": 20
       },
       "rui_maritimo@gmail.com":{
         "email":"rui_maritimo@gmail.com",
@@ -101,7 +105,9 @@ json= {
         "security_code":"111",
         "lender_rating":4.3,
         "borrower_rating":4.0,
-        "llama_points":800
+        "llama_points":800,
+        "total_borrowed": 35,
+        "total_lent": 30
     },
     "assuncao-martins.verified@gmail.com":{
       "email":"assuncao-martins.verified@gmail.com",
@@ -122,7 +128,9 @@ json= {
       "security_code":"500",
       "lender_rating":3.3,
       "borrower_rating":2.9,
-      "llama_points":100
+      "llama_points":100,
+      "total_borrowed": 21,
+      "total_lent": 32
   },
   "manel_tristonho@hotmail.com":{
     "email":"manel_tristonho@hotmail.com",
@@ -143,7 +151,55 @@ json= {
     "security_code":"100",
     "lender_rating":3.7,
     "borrower_rating":3.9,
-    "llama_points":235
+    "llama_points":235,
+    "total_borrowed": 10,
+    "total_lent": 15
+},
+"marcelo_the_usurper@hotmail.com":{
+  "email":"marcelo_the_usurper@hotmail.com",
+  "password":"presiboy54321",
+
+  "first_name":"Marcelo",
+  "last_name":"Costa",
+  "birthdate":"1965/11/03",
+  "gender":"M",
+
+  "street_address":"Palácio de Belém",
+  "postal_code":"6666-666",
+  "city":"Lisboa",
+  "city_id":2,
+
+  "card_number":"2222222222222222",
+  "expiration_date":"05/24",
+  "security_code":"222",
+  "lender_rating":4.0,
+  "borrower_rating":3.4,
+  "llama_points":300,
+  "total_borrowed": 3,
+  "total_lent": 1
+},
+"docinho2019@hotmail.com":{
+  "email":"docinho2019@hotmail.com",
+  "password":"pipocas_salgadas",
+
+  "first_name":"Ricardo",
+  "last_name":"Doce",
+  "birthdate":"1971/05/20",
+  "gender":"M",
+
+  "street_address":"Rua das Cabaças, nº13",
+  "postal_code":"1111-234",
+  "city":"Santarém",
+  "city_id":5,
+
+  "card_number":"6666777788889999",
+  "expiration_date":"04/20",
+  "security_code":"111",
+  "lender_rating":2.3,
+  "borrower_rating":2.7,
+  "llama_points":50,
+  "total_borrowed": 13,
+  "total_lent": 7
 }
   },
 
@@ -205,6 +261,7 @@ json= {
       "a@a.com":[
           {
               "date":"2019/07/07",
+              "time":"h:m",
               "game":"Uncharted",
               "user":"Mr. Borrower",
               "content":"Quero",
@@ -218,30 +275,49 @@ json= {
   //uma func. para ver se um jogo foi aceite ou nao, nao e dificil
   "rental_history":{
       "lenders":{
-          "a@a.com":{
+          "marcelo_the_usurper@hotmail.com":{
               "games":{
-                  "Smash":{
+                  "Super Smash Bros Ultimate":{
                       "borrowers":{
-                          "b@b.com":{
-                              "lent":"accepted",
+                          "castelo_branquinho@gmail.com":{
+                              "lent":"accepted",/*pending,accepted,past*/
                               "messages":[
                                   {
-                                      "user":"borrower",
-                                      "content":"oi"
+                                        "user":"borrower", /*lender, borrower, system*/
+                                        "content":"Hello, darling! Lend me this game! Muah",
+                                        "date":"2019/09/07",
+                                        "time":"12:02",
                                   },
                                   {
-                                      "user":"lender",
-                                      "content":"aceito"
-                                  }
+                                        "user":"lender",
+                                        "content":"Okay, I will!",
+                                        "date":"2019/09/07",
+                                        "time":"12:32",
+                                  },
+                                  {
+                                        "user":"system",
+                                        "content":"Please return this game!",
+                                        "date":"2019/09/14",
+                                        "time":"12:40",
+                                }
+
                               ]
                           },
-                          "c@c.com":{
-                              "lent":"pending" /*pending,accepted,past*/,
+                          "aventureiro101@hotmail.com":{
+                              "lent":"pending",
                               "messages":[
-                                  {
-                                      "user":"lender ou borrower ou system",
-                                      "content":"texto"
-                                  }
+                                    {
+                                        "user":"borrower", /*lender, borrower, system*/
+                                        "content":"Hi! I wanna borrow this game!",
+                                        "date":"2019/09/07",
+                                        "time":"12:00",
+                                    },
+                                    {
+                                        "user":"lender",
+                                        "content":"I can't lend it right now, but maybe later.",
+                                        "date":"2019/09/07",
+                                        "time":"12:35",
+                                    }
                               ]
                           }
                       }
