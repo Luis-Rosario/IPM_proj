@@ -1,4 +1,7 @@
-<div *ngFor="let game of myGames">
-    <!-- <game-card [game]=game></game-card> -->
-    <game-card></game-card>
+<div *ngFor="let game of lendingGames">
+    <game-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></game-card>
+</div>
+
+<div *ngFor="let game of borrowingGames">
+    <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
 </div>

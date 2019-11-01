@@ -433,7 +433,7 @@ function getGamesBorrowing(userId) {
 }
 
 function getGamesLending(userId) {
-    gamesLending = []
+    gamesLending = {}
     for (game in json.rental_history.lenders[userId].games) {
         gamesLending[game] = getGameInfo(userId, game);
     }

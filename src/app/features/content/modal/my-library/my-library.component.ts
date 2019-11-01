@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
+import { Key } from 'protractor';
 /* import { GameCardComponent } from 'src/app/shared/game-card/game-card.component'; */
 
 declare const getGamesLending: any;
@@ -12,8 +13,12 @@ declare const getGamesBorrowing: any;
 })
 export class LibraryComponent implements OnInit {
 
-  myGames: any[]
-  borrowedGames: any;
+  lendingGamesInfo: Map<String, any> = new Map();
+  lendingGames: String[] = [];
+
+  borrowingGamesInfo: Map<String, any> = new Map();
+  borrowingGames: String[] = [];
+  
   user: any;
 
   constructor(
@@ -23,21 +28,38 @@ export class LibraryComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.sessionQuery.getValue().email;
-    this.myGames = getGamesLending(this.user);
-       
-    
-  /*   this.borrowedGames =getGamesBorrowing(this.user);  ta a dar erro*/
-  console.log(this.myGames)
-    console.log(getGamesLending(this.user))
+    this.getLendingGames();
+    this.getBorrowingGames();
   }
 
+
+  getLendingGames() {
+    let game;
+    let myGamesJSON = getGamesLending(this.user);
+    let index = 0;
+    let keys = Object.keys(myGamesJSON);
+
+
+    for (game of keys) {
+      this.lendingGames[index] = game;
+      this.lendingGamesInfo.set(game, myGamesJSON[game])
+
+      index++;
+    }
+  }
+
+  getBorrowingGames() {
+    let game;
+    let myBorrowedGamesJSON = getGamesBorrowing(this.user);
+    let index = 0;
+    let keys = Object.keys(myBorrowedGamesJSON);
+
+
+    for (game of keys) {
+      this.borrowingGames[index] = game;
+      this.borrowingGamesInfo.set(game, myBorrowedGamesJSON[game])
+
+      index++;
+    }
+  }
 }
-/* Smash:
-active: true
-category: (3) ["A", "B", "C"]
-console: (2) ["PSP", "Switch"]
-duration_range: (2) [3, 6]
-game_name: "Smash"
-image_url: "url.com/image"
-user_email: "a@a.com"
-year: 2019 */
