@@ -40,102 +40,163 @@ json= {
   },
 
   "users_db":{
-      "a@a.com":{
-          "email":"a@a.com",
-          "password":"abc",
+      "aventureiro101@hotmail.com":{
+          "email":"aventureiro101@hotmail.com",
+          "password":"bastaUmaAventura2019",
 
-          "first_name":"First",
-          "last_name":"Last",
-          "birthdate":"2019/01/09",
+          "first_name":"André",
+          "last_name":"Aventura",
+          "birthdate":"1986/02/15",
           "gender":"M",
 
-          "street_address":"Rua cenas",
+          "street_address":"Avenida de Belise, nº76",
           "postal_code":"7100-111",
-          "city":"Lissabona",
+          "city":"Braga",
           "city_id":1,
 
-          "card_number":"00000000",
+          "card_number":"1234567812345678",
           "expiration_date":"09/20",
           "security_code":"099",
-          "lender_rating":4.8,
-          "borrower_rating":3.0,
+          "lender_rating":1.3,
+          "borrower_rating":2.1,
           "llama_points":400
       },
-      "b@a.com":{
-          "email":"a@a.com",
-          "password":"abc",
+      "castelo_branquinho@gmail.com":{
+          "email":"castelo_branquinho@gmail.com",
+          "password":"leaveMeAloneEstupida",
 
-          "first_name":"First",
-          "last_name":"Last",
-          "birthdate":"2019/01/09",
+          "first_name":"Zé",
+          "last_name":"Casa Branca",
+          "birthdate":"1962/12/08",
           "gender":"M",
 
-          "street_address":"Rua cenas",
-          "postal_code":"7100-111",
-          "city":"Lissabona",
-          "city_id":3,
+          "street_address":"Rua da Fortuna, nº69",
+          "postal_code":"7201-001",
+          "city":"Lisboa",
+          "city_id":2,
 
-          "card_number":"00000000",
-          "expiration_date":"09/20",
-          "security_code":"099",
-          "lender_rating":4.8,
-          "borrower_rating":3.0,
-          "llama_points":400
-      }
+          "card_number":"0000000000000000",
+          "expiration_date":"08/23",
+          "security_code":"123",
+          "lender_rating":3.8,
+          "borrower_rating":4.1,
+          "llama_points":690
+      },
+      "rui_maritimo@gmail.com":{
+        "email":"rui_maritimo@gmail.com",
+        "password":"omarenrolanaareia",
+
+        "first_name":"Rui",
+        "last_name":"Mar",
+        "birthdate":"1957/09/06",
+        "gender":"M",
+
+        "street_address":"Avenida da Boavista, nº1, R/ch Esq",
+        "postal_code":"4202-011",
+        "city":"Porto",
+        "city_id":3,
+
+        "card_number":"1111111111111111",
+        "expiration_date":"02/21",
+        "security_code":"111",
+        "lender_rating":4.3,
+        "borrower_rating":4.0,
+        "llama_points":800
+    },
+    "assuncao-martins.verified@gmail.com":{
+      "email":"assuncao-martins.verified@gmail.com",
+      "password":"geringonça2019",
+
+      "first_name":"Assunção",
+      "last_name":"Martins",
+      "birthdate":"1983/09/25",
+      "gender":"F",
+
+      "street_address":"Rua das flores, nº46, 2ºE",
+      "postal_code":"7543-767",
+      "city":"Lisboa",
+      "city_id":2,
+
+      "card_number":"1000200030004000",
+      "expiration_date":"07/20",
+      "security_code":"500",
+      "lender_rating":3.3,
+      "borrower_rating":2.9,
+      "llama_points":100
+  },
+  "manel_tristonho@hotmail.com":{
+    "email":"manel_tristonho@hotmail.com",
+    "password":"behappy12345",
+
+    "first_name":"Manuel",
+    "last_name":"Triste",
+    "birthdate":"1995/10/22",
+    "gender":"M",
+
+    "street_address":"Rua da Miséria, nº2",
+    "postal_code":"1234-777",
+    "city":"Almada",
+    "city_id":4,
+
+    "card_number":"1234567890123456",
+    "expiration_date":"01/24",
+    "security_code":"100",
+    "lender_rating":3.7,
+    "borrower_rating":3.9,
+    "llama_points":235
+}
   },
 
   "game_db":[
       {
-          "name":"Name name",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["PSP","Switch"],
+          "name":"FIFA 19",
+          "year":2018,
+          "category":["sports","football"],
+          "console":["PS4","Switch", "Xbox", "PC"],
           "image_url":"url.com/image"
       },
       {
-          "name":"Name name",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["PSP","Switch"],
+          "name":"Overcooked 2",
+          "year":2018,
+          "category":["cooking","co-op"],
+          "console":["PS4","Switch", "Xbox"],
           "image_url":"url.com/image"
       },
       {
-          "name":"Name name",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["PSP","Switch"],
+          "name":"Uncharted 4: A Thief's End",
+          "year":2016,
+          "category":["action","adventure"],
+          "console":["PS4"],
           "image_url":"url.com/image"
       },
       {
-          "name":"Name name",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["PSP","Switch"],
+          "name":"Super Smash Bros Ultimate",
+          "year":2018,
+          "category":["action"],
+          "console":["Switch"],
           "image_url":"url.com/image"
       }
   ],
 
   "game_rentals":[
       {
-          "user_email":"a@a.com",
-          "game_name":"Fufa",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["Xbox"],
+          "user_email":"rui_maritimo@gmail.com",
+          "game_name":"FIFA 19",
+          "year":2018,
+          "category":["sports","football"],
+          "console":["PS4","Switch", "Xbox", "PC"],
           "image_url":"url.com/image",
           "duration_range":[3,6],
-          //??? deduzivel pelo rental history
           "active":true
       },
       {
-          "user_email":"a@a.com",
-          "game_name":"Smash",
-          "year":2019,
-          "category":["A","B","C"],
-          "console":["PSP","Switch"],
+          "user_email":"manel_tristonho@hotmail.com",
+          "game_name":"Overcooked 2",
+          "year":2018,
+          "category":["cooking","co-op"],
+          "console":["PS4","Switch", "Xbox"],
           "image_url":"url.com/image",
-          "duration_range":[3,6],
-          //??? deduzivel pelo rental history
+          "duration_range":[2,3],
           "active":true
       }
   ],
@@ -191,62 +252,59 @@ json= {
   }
 }
 
-currentUser = "a@a.com"
+currentUser = "assuncao-martins.verified@gmail.com"
 
 
-function getGames(filterObj){
-games = [];
-borrower = filterObj.byUser
-
-for(i=0;i<json.game_rentals.length;i++){
-  gameRental = json.game_rentals[i]
-  lender = gameRental.user_email
-
-  alreadySaved  = games[gameRental.game_name]
-
-  respectsFilters = (filterObj.gameName   ? gameRental.game_name.indexOf(filterObj.gameName)!=-1 : true) &&
-            (filterObj.gameYear   ? gameRental.year == filterObj.gameYear : true) &&
-            (filterObj.consoles   ? gameRental.console.some((val)=>{return filterObj.consoles.includes(val)}) : true) &&
-            (filterObj.categories ? gameRental.category.some((val)=>{return filterObj.categories.includes(val)}) : true) &&
-            (filterObj.distance   ? getDistance(lender, borrower) <= filterObj.distance : true) &&
-            (filterObj.duration   ? (gameRental.duration_range[0] <= filterObj.duration && gameRental.duration_range[1] >= filterObj.duration) : true);
-
-  if(!alreadySaved && respectsFilters)
-    games.push(gameRental)
-
-}
-return games;
-}
-
-
+/*
 getGames({
-"gameName":"Fuf",
-"gameYear":2019,
-"consoles":["Xbox"],
-"categories":null,
-"distance":null,
-"duration": null,
-"byUser":"b@a.com"
+"gameName":"name",
+"gameYear":year,
+"consoles":["console"],
+"categories":["category"],
+"distance":distance,
+"duration":duration,
+"byUser":"email"
 })
+*/
+function getGames(filterObj){
+    games = [];
+    borrower = filterObj.byUser;
 
+    for(i=0;i<json.game_rentals.length;i++){
+        gameRental = json.game_rentals[i];
+        lender = gameRental.user_email;
+        alreadySaved  = games[gameRental.game_name];
+
+        respectsFilters = (filterObj.gameName   ? gameRental.game_name.indexOf(filterObj.gameName)!=-1 : true) &&
+                    (filterObj.gameYear   ? gameRental.year == filterObj.gameYear : true) &&
+                    (filterObj.consoles   ? gameRental.console.some((val)=>{return filterObj.consoles.includes(val)}) : true) &&
+                    (filterObj.categories ? gameRental.category.some((val)=>{return filterObj.categories.includes(val)}) : true) &&
+                    (filterObj.distance   ? getDistance(lender, borrower) <= filterObj.distance : true) &&
+                    (filterObj.duration   ? (gameRental.duration_range[0] <= filterObj.duration && gameRental.duration_range[1] >= filterObj.duration) : true);
+
+        if(!alreadySaved && respectsFilters)
+            games.push(gameRental);
+    }
+    return games;
+}
 
 function getUser(userEmail){
-return json.users_db[userEmail]
+    return json.users_db[userEmail]
 }
 
 function getCurrentUser(){
-  return currentUser;
+    return currentUser;
 }
 
 function getDistance(userEmail1, userEmail2){
-city1 = json.users_db[userEmail1].city_id
-city2 = json.users_db[userEmail2].city_id
+    city1 = json.users_db[userEmail1].city_id;
+    city2 = json.users_db[userEmail2].city_id;
 
-return json.cities[city1][city2]
+    return json.cities[city1][city2];
 }
 
 function getDistance(city1,city2){
-  return cities[city1][city2]
+    return cities[city1][city2]
 }
 
 function getGameInfo(userId, gameName) {
@@ -258,77 +316,77 @@ function getGameInfo(userId, gameName) {
 }
 
 function getGamesBorrowing(userId){
-  gamesRenting={}
-  for(lender in json.rental_history.lenders){
-      for(game in json.rental_history.lenders[lender].games){
-          if(json.rental_history.lenders[lender].games[game].borrowers[userId].lent=="accepted")
-              gamesRenting[game]= getGameInfo(lender, game);
-      }
-  }
-  return gamesRenting;
+    gamesRenting={}
+    for(lender in json.rental_history.lenders){
+        for(game in json.rental_history.lenders[lender].games){
+            if(json.rental_history.lenders[lender].games[game].borrowers[userId].lent=="accepted")
+                gamesRenting[game]= getGameInfo(lender, game);
+        }
+    }
+    return gamesRenting;
 }
 
 function getGamesLending(userId){
-  gamesLending={}
-  for(game in json.rental_history.lenders[userId].games){
-      gamesLending[game] = getGameInfo(userId,game);
-  }
-  return gamesLending;
+gamesLending={}
+    for(game in json.rental_history.lenders[userId].games){
+        gamesLending[game] = getGameInfo(userId,game);
+    }
+    return gamesLending;
 }
 
 function getNotifications(userId){
-  return notifications[userId];
+    return notifications[userId];
 }
 
 function getLendingMessages(userId,game){
-  messages ={}
-  borrowers  = json.rental_history.lenders[userId].games[game].borrowers
-  for(borrower in borrowers){
-      messages[borrower]= json.rental_history.lenders[userId].games[game].borrowers[borrower].messages
-  }
-  return messages
+    messages ={}
+    borrowers  = json.rental_history.lenders[userId].games[game].borrowers
+    for(borrower in borrowers){
+        messages[borrower]= json.rental_history.lenders[userId].games[game].borrowers[borrower].messages
+    }
+    return messages
 }
 
 function getBorrowingMessages(userId,game){
-  messages = {}
-  for(lender in json.rental_history.lenders){
-          messages[lender]= json.rental_history.lenders[lender].games[game].borrowers[userId].messages
-      }
-  return messages
+    messages = {}
+    for(lender in json.rental_history.lenders){
+        messages[lender]= json.rental_history.lenders[lender].games[game].borrowers[userId].messages
+    }
+    return messages
 }
 
 function getChat(userId1,userId2,game){
-  return json.rental_history.lenders[userId1].games[game].borrowers[userId2].messages
+    return json.rental_history.lenders[userId1].games[game].borrowers[userId2].messages
 }
 
 //only active trades
 function getLendingTo(userId){
-  trades={}
-  for(game in json.rental_history.lenders[userId].games){
-      for(borrower in json.rental_history.lenders[userId].games[game].borrowers){
-          if(json.rental_history.lenders[userId].games[game].borrowers[borrower].lent=="accepted"){
-              trades[game]= borrower;
-          }
-      }
-  }
-  return trades;
+    trades={}
+    for(game in json.rental_history.lenders[userId].games){
+        for(borrower in json.rental_history.lenders[userId].games[game].borrowers){
+            if(json.rental_history.lenders[userId].games[game].borrowers[borrower].lent=="accepted"){
+                trades[game]= borrower;
+            }
+        }
+    }
+    return trades;
 }
 
 function getBorrowingFrom(userId){
-  trades={}
-  for(lender in json.rental_history.lenders){
-      for(game in json.rental_history.lenders[lender].games){
-          if(json.rental_history.lenders[lender].games[game].borrowers[userId].lent=="accepted"){
-              trades[game]= lender;
-          }
-      }
-  }
-  return trades;
+    trades={}
+    for(lender in json.rental_history.lenders){
+        for(game in json.rental_history.lenders[lender].games){
+            if(json.rental_history.lenders[lender].games[game].borrowers[userId].lent=="accepted"){
+                trades[game]= lender;
+            }
+        }
+    }
+    return trades;
 }
 
 function addGame(userId,gameObj){
-  gameObj[user_email]=userId;
-  json.game_rentals.push(gameObj);
+    gameObj[user_email]=userId;
+    json.game_rentals.push(gameObj);
 }
 
 function deleteGame(userId,game_name){
