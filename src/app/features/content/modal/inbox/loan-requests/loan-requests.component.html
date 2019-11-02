@@ -1,0 +1,11 @@
+<div class="game-info">
+    <h4>{{this.game.game_name}}</h4>
+    <h4>{{this.game.category}}</h4>
+    <h4>descrição n vem aqui no obj??</h4>
+    <h4>{{this.game.image_url}}</h4>
+</div>
+
+
+<div class="request-list" *ngFor="let user of users">
+    <h6 (click)=selectRequest(user)>{{user}}</h6>
+</div>

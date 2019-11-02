@@ -1,1 +1,29 @@
-<p>inbox works!</p>
+<div class="row">
+
+    <div class="col-4">
+        <select #select (change)="changeSelect()">
+            <option value="true" selected>Borrowing</option>
+            <option value="false">Lending</option>
+        </select>
+
+        <div *ngIf="showBorrowed === 'true'">
+            <div class="gameList" *ngFor="let game of borrowingGames">
+                <h3 (click)=selectGame(game)>{{game}}</h3>
+            </div>
+        </div>
+
+        <div *ngIf="showBorrowed === 'false'">
+            <div class="gameList" *ngFor="let game of lendingGames">
+                <h3 (click)=selectGame(game)>{{game}}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <loan-requests *ngIf="messages !== undefined" [messages]="messages" [game]="game" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
+    </div>
+
+    <div class=" col-4 ">
+        <chat *ngIf="chatMessages !== undefined " [chat]="chatMessages"></chat>
+    </div>
+</div>

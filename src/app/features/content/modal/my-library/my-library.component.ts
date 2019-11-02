@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
-import { Key } from 'protractor';
-/* import { GameCardComponent } from 'src/app/shared/game-card/game-card.component'; */
 
 declare const getGamesLending: any;
 declare const getGamesBorrowing: any;

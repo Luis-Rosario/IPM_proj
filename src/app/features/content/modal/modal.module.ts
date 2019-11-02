@@ -7,6 +7,8 @@ import { LibraryComponent } from './my-library/my-library.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ChatComponent } from './inbox/chat/chat.component';
+import { LoanRequestsComponent } from './inbox/loan-requests/loan-requests.component';
 
 
 
@@ -16,6 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LibraryComponent,
     InboxComponent,
     ProfileComponent,
+    ChatComponent,
+    LoanRequestsComponent,
   ],
   imports: [
     CommonModule,
