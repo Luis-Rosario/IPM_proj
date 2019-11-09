@@ -40,12 +40,26 @@ export class InboxComponent implements OnInit {
     this.user = this.sessionQuery.getValue().email;
     this.getLendingGames();
     this.getBorrowingGames();
-   
+
+  }
+
+  ngAfterViewInit(): void {
+    this.cd.detectChanges();
+
   }
 
   changeSelect() {
+
+    if (this.messages != undefined || this.chatMessages != undefined) {
+      this.messages == undefined
+      this.chatMessages = undefined
+      this.game = undefined
+    }
+
     this.showBorrowed = this.select.nativeElement.value
-    console.log(this.showBorrowed)
+    document.getElementById("inbox-wrapper").className = this.showBorrowed ? "borrowing row" : "lender row";
+   
+
   }
 
 
@@ -85,7 +99,7 @@ export class InboxComponent implements OnInit {
 
 
   selectGame(game) {
-    
+
     if (this.showBorrowed === 'true') {
       this.messages = getBorrowingMessages(this.user, game)
       /* console.log(this.messages) */
@@ -94,13 +108,13 @@ export class InboxComponent implements OnInit {
 
     else {
       this.messages = getLendingMessages(this.user, game)
-    /*   console.log(this.messages) */
+      /*   console.log(this.messages) */
       this.game = this.lendingGamesInfo.get(game)
     }
 
   }
 
-  handleSelectedRequest(chat){
+  handleSelectedRequest(chat) {
     this.chatMessages = chat;
   }
 }

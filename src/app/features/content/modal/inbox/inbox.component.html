@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row borrowing" id="inbox-wrapper">
 
     <div class="col-4">
         <select #select (change)="changeSelect()">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-4">
-        <loan-requests *ngIf="messages !== undefined" [messages]="messages" [game]="game" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
+        <loan-requests *ngIf="messages !== undefined && game !== undefined" [messages]="messages" [game]="game" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
     </div>
 
     <div class=" col-4 ">
