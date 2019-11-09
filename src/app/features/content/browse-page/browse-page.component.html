@@ -1,35 +1,64 @@
-<div class="row">
+<div class="row p">
 
-
-    <div class="col-3">
+    <div class="col-3 result-filter">
         <h4>Filter Results</h4>
         <div class="row">
-            <h5>Genre</h5>
             <div class="col-12">
-                <h6>Action</h6>
-                <h6>Sports</h6>
-                <h6>Cooking</h6>
-                <h6>Simulation</h6>
-                <h6>Puzzle</h6>
-                <h6>Adventure</h6>
+                <h5>Genre</h5>
+                <div class="categories">
+                    <h6 class="pill">Action</h6>
+                    <h6 class="pill">Sports</h6>
+                    <h6 class="pill">Cooking</h6>
+                    <h6 class="pill">Simulation</h6>
+                    <h6 class="pill">Puzzle</h6>
+                    <h6 class="pill">Adventure</h6>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <h5>Console</h5>
             <div class="col-12">
-                <div class="option">
-                    <h6>Ps4</h6>
-                    <h6>Xbox One</h6>
-                    <h6>PsP</h6>
-                    <h6>PC</h6>
-                    <h6>PS3</h6>
-                    <h6>Xbox 360</h6>
-                    <h6>Switch</h6>
+                <h5>Console</h5>
+                <div class="consoles">
+                    <h6 class="pill">PS4</h6>
+                    <h6 class="pill">Xbox One</h6>
+                    <h6 class="pill">PsP</h6>
+                    <h6 class="pill">PC</h6>
+                    <h6 class="pill">PS3</h6>
+                    <h6 class="pill">Xbox 360</h6>
+                    <h6 class="pill">Switch</h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Release year</h5>
+                <div class="input-group year-group">
+                    <input type="range" class="year-range" multiple min="1970" max="2019" value="1970,2019" step="1">
+                    <label for="year-min"></label>
+                    <label for="year-max"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Loan Duration</h5>
+                <div class="input-group">
+                    <input type="range" class="loan-range" name="points" min="0" max="10">
+                    <label for="loan"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Maximum distance</h5>
+                <div class="input-group">
+                    <input type="range" class="distance-range" name="points" min="0" max="10">
+                    <label for="distance"></label>
                 </div>
             </div>
         </div>
     </div>
 
-    <browse-results class="col-9"></browse-results>
+    <browse-results class="col-9" [games]="this.results"></browse-results>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'browse-results',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browse-results.component.scss']
 })
 export class BrowseResultsComponent implements OnInit {
+  @Input() games;
 
   constructor() { }
 
   ngOnInit() {
+
+    console.log(this.games)
   }
 
 }

@@ -1,57 +1,64 @@
-
 <div class="content">
-	<div class="container">
-	<div class="trending-section section">
-		<div class="row first">
-			<span class="title">Trending</span>
-			<a routerLink="/browse" routerLinkActive="active" class="link">See all games</a>
-		</div>
-		<div class="caroussel">
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-		</div>
-		<div class="caroussel">
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-			<div class="game"></div>
-		</div>
-	</div>
-		
-		
-		<div class="activity-section section">
-		<div class="row first">
-			<span>Games I'm Borrowing / Lending</span>
-		</div>
-			<div class="group-group row">
-				<div class="group lent">
-					<div class="row"><span>Games Lent</span></div>
+    <div class="container">
+        <div class="trending-section section">
+            <div class="row first">
+                <span class="title">Trending</span>
+                <a [routerLink]="['/browse']" [queryParams]="getAllGames" routerLinkActive="active" class="link">See all games</a>
+            </div>
+            <div class="caroussel">
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+            </div>
+            <div class="caroussel">
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+                <div class="game"></div>
+            </div>
+        </div>
 
-						<div class="caroussel">
-							<div class="game lent almost"><div class="info">2 days left</div></div>
-							<div class="game lent"><div class="info">1 week left</div></div>
-					</div>
-				</div>
-			<div class="group borrow">
-					<div class="row"><span>Games Borrowed</span></div>
 
-						<div class="caroussel">
-							<div class="game lent warn"><div class="info ">2 days <b>delayed</b></div></div>
-							<div class="game lent"><div class="info">2 weeks left</div></div>
-					</div>
-				</div>
-				</div>
-	</div>
-		
-		
-		
-		
-	</div>
+        <div class="activity-section section">
+            <div class="row first">
+                <span>Games I'm Borrowing / Lending</span>
+            </div>
+            <div class="group-group row">
+                <div class="group lent">
+                    <div class="row"><span>Games Lent</span></div>
+
+                    <div class="caroussel">
+                        <div class="game lent almost">
+                            <div class="info">2 days left</div>
+                        </div>
+                        <div class="game lent">
+                            <div class="info">1 week left</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group borrow">
+                    <div class="row"><span>Games Borrowed</span></div>
+
+                    <div class="caroussel">
+                        <div class="game lent warn">
+                            <div class="info ">2 days <b>delayed</b></div>
+                        </div>
+                        <div class="game lent">
+                            <div class="info">2 weeks left</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
 
 </div>

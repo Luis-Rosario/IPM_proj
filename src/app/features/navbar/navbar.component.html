@@ -1,5 +1,5 @@
 <div class="nav">
-    <input type="text" placeholder="Search for a game..." class="abs-input">
+    <input type="text" placeholder="Search for a game..." class="abs-input" #search (keyup)="searchGame($event)">
     <div class="navbar-brand">
         <a routerLink="/home" routerLinkActive="active">
             <img class="logo" src="assets/llamma.png">

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
+import { Router } from '@angular/router';
+
 declare const getUser: any;
 
 @Component({
@@ -8,36 +10,43 @@ declare const getUser: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('search', null) search: ElementRef;
 
   email: String;
   userInfo: any;
 
   constructor(
     private sessionQuery: SessionQuery,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.email= this.sessionQuery.getValue().email; //na store estara guardado o email
-    this.userInfo =getUser(this.email);
+    this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
+    this.userInfo = getUser(this.email);
     /* console.log(this.userInfo) */
   }
 
+  searchGame(event) {
+    if(this.search.nativeElement.value.length==0){
+      console.log("i'm going home")
+      this.router.navigate(["home"])
+    }
+    else{
+      console.log(this.search.nativeElement.value)
+      this.router.navigate(['browse'], {
+        queryParams: {
+          "gameName":  this.search.nativeElement.value,
+          "consoles": [],
+          "categories": [],
+          "distance": 50000,
+          "duration": [0, 1000],
+          "byUser": this.email,
+
+        }
+      });
+    }
+  
+
+  }
+
 }
-/*
-birthdate: "2019/01/09"
-borrower_rating: 3
-card_number: "00000000"
-city: "Lissabona"
-city_id: 1
-email: "a@a.com"
-expiration_date: "09/20"
-first_name: "First"
-gender: "M"
-last_name: "Last"
-lender_rating: 4.8
-llama_points: 400
-password: "abc"
-postal_code: "7100-111"
-security_code: "099"
-street_address: "Rua cenas"
-*/ 

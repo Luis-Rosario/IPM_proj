@@ -1,1 +1,17 @@
-<p>browse-results works!</p>
+<div class="row">
+    <div class="col-12">
+
+        <div class="search-title">
+            Results for "<b> INSERT CENAS AQUI CRL</b>"
+        </div>
+
+        <div class="result-list">
+
+            <!--   {{game.game_name}} -->
+            <div class="non-owner game-card" *ngFor="let game of games">
+                <img src='{{game.image_url}}' alt="">
+            </div>
+
+        </div>
+    </div>
+</div>

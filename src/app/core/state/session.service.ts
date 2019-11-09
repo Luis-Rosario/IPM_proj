@@ -26,4 +26,8 @@ export class SessionService {
       return this.sessionQuery.getValue().logged;
   }
 
+  getLoggedUser(){
+    return  this.sessionQuery.getValue().email;
+  }
+
 }

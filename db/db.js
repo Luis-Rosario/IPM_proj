@@ -234,12 +234,12 @@ json = {
     ],
 
     "game_rentals": [{
-            "user_email": "rui_maritimo@gmail.com",
+            "user_email": "a@a.com",
             "game_name": "FIFA 19",
             "year": 2018,
             "category": ["sports", "football"],
-            "console": ["PS4", "Switch", "Xbox", "PC"],
-            "image_url": "url.com/image",
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [3, 6],
             "active": true
         },
@@ -248,8 +248,8 @@ json = {
             "game_name": "Overcooked 2",
             "year": 2018,
             "category": ["cooking", "co-op"],
-            "console": ["PS4", "Switch", "Xbox"],
-            "image_url": "url.com/image",
+            "console": "Switch",
+            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true
         },
@@ -257,9 +257,9 @@ json = {
             "user_email": "marcelo_the_usurper@hotmail.com",
             "game_name": "Super Smash Bros Ultimate",
             "year": 2019,
-            "category": ["A", "B", "C"],
-            "console": ["PSP", "Switch"],
-            "image_url": "url.com/image",
+            "category": ["action"],
+            "console": "Switch",
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": true
         }
@@ -330,7 +330,7 @@ json = {
                     }
                 }
             },
-            "rui_maritimo@gmail.com": {
+            "a@a.com": {
                 "games": {
                     "FIFA 19": {
                         "borrowers": {
@@ -380,18 +380,24 @@ function getGames(filterObj) {
         gameRental = json.game_rentals[i];
         lender = gameRental.user_email;
         alreadySaved = games[gameRental.game_name];
-
-        respectsFilters = (filterObj.gameName ? gameRental.game_name.indexOf(filterObj.gameName) != -1 : true) &&
+        console.log(filterObj.consoles, gameRental.console)
+        respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
             (filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
-            (filterObj.consoles ? gameRental.console.some((val) => { return filterObj.consoles.includes(val) }) : true) &&
-            (filterObj.categories ? gameRental.category.some((val) => { return filterObj.categories.includes(val) }) : true) &&
-            (filterObj.distance ? getDistance(lender, borrower) <= filterObj.distance : true) &&
-            (filterObj.duration ? (gameRental.duration_range[0] <= filterObj.duration && gameRental.duration_range[1] >= filterObj.duration) : true);
+
+            ((filterObj.consoles && filterObj.consoles.length) ? (filterObj.consoles.some((val) => { return val.toLowerCase() == gameRental.console.toLowerCase() })) : true) &&
+
+            ((filterObj.categories && filterObj.categories.length) ? gameRental.category.some((val) => { return filterObj.categories.includes(val) }) : true) &&
+            (filterObj.distance ? getDistanceByUser(lender, borrower) <= filterObj.distance : true) &&
+            ((filterObj.duration && filterObj.duration.length) ? ((gameRental.duration_range[0] >= filterObj.duration[0]) && (gameRental.duration_range[1] <= filterObj.duration[1])) : true);
 
         if (!alreadySaved && respectsFilters)
             games.push(gameRental);
     }
     return games;
+}
+
+function getAllGames() {
+
 }
 
 function getUser(userEmail) {
@@ -402,7 +408,8 @@ function getCurrentUser() {
     return currentUser;
 }
 
-function getDistance(userEmail1, userEmail2) {
+function getDistanceByUser(userEmail1, userEmail2) {
+
     city1 = json.users_db[userEmail1].city_id;
     city2 = json.users_db[userEmail2].city_id;
 
@@ -410,7 +417,7 @@ function getDistance(userEmail1, userEmail2) {
 }
 
 function getDistance(city1, city2) {
-    return cities[city1][city2]
+    return json.cities[city1][city2]
 }
 
 function getGameInfo(userId, gameName) {

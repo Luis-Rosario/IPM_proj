@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/core/state/session.service';
 
 
 @Component({
@@ -8,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+  getAllGames = {
+    "consoles": [],
+    "categories": [],
+    "distance": 50000,
+    "duration": [0, 1000],
+    "byUser": "",
+  }
   
-  constructor() { }
+  constructor(
+    private sessionService: SessionService,
+  ) { }
 
   ngOnInit() {
-
+    this.getAllGames.byUser = this.sessionService.getLoggedUser();
   }
 
 }
