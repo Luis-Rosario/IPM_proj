@@ -86,8 +86,8 @@ json = {
             "total_borrowed": 32,
             "total_lent": 20
         },
-        "rui_maritimo@gmail.com": {
-            "email": "rui_maritimo@gmail.com",
+        "a@a.com": {
+            "email": "a@a.com",
             "password": "omarenrolanaareia",
 
             "first_name": "Rui",
@@ -507,6 +507,12 @@ function deleteGame(userId, game_name) {
 }
 
 function addUser(userObj) {
+    userObj.city_id = Math.ceil(Math.random()*4)
+    userObj.lender_rating=5,
+    userObj.borrower_rating=5,
+    userObj.llama_points=100,
+    userObj.total_borrowed=0,
+    userObj.total_lent=0
     users_db[userObj.user_email] = userObj;
 }
 
