@@ -513,7 +513,7 @@ function addUser(userObj) {
     userObj.llama_points=100,
     userObj.total_borrowed=0,
     userObj.total_lent=0
-    users_db[userObj.user_email] = userObj;
+    json.users_db[userObj.user_email] = userObj;
 }
 
 function markGameAsReturned(lenderEmail, gameName) {
