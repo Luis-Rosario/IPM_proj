@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
+declare const addUser: any;
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,28 +25,30 @@ export class RegisterComponent implements OnInit {
 
   register() {
     //logic to update the JSON object
-    this.router.navigateByUrl('/login');
-
+    /*   */
+ 
+    if(this.form.valid){
+      addUser(this.form.value)
+      this.router.navigateByUrl('/login');
+    }
   }
 
-  
+
   initForm() {
     this.form = this.fb.group({
-      FirsName: '',
-      LastName: '',
-      DateOfBirth: '',
-      Gender: '',
-      Address: '',
-      PostalCode1: '',
-      PostalCode2: '',
-      City: '',
-      Email: '',
-      Password: '',
+      first_name: '',
+      last_name: '',
+      birthdate: '',
+      gender: '',
+      street_address: '',
+      postal_code: '',
+      city: '',
+      email: '',
+      password: '',
       PasswordConfim: '',
-      CardNumber: '',
-      ExpirationDate: '',
-      SecurityCode1: '',
-      SecurityCode2: ''
+      card_number: '',
+      expiration_date: '',
+      security_code: '',
     })
   }
 

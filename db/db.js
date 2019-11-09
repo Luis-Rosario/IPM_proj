@@ -507,13 +507,13 @@ function deleteGame(userId, game_name) {
 }
 
 function addUser(userObj) {
-    userObj.city_id = Math.ceil(Math.random()*4)
-    userObj.lender_rating=5,
-    userObj.borrower_rating=5,
-    userObj.llama_points=100,
-    userObj.total_borrowed=0,
-    userObj.total_lent=0
-    json.users_db[userObj.user_email] = userObj;
+    userObj.city_id = Math.ceil(Math.random() * 4)
+    userObj.lender_rating = 5,
+        userObj.borrower_rating = 5,
+        userObj.llama_points = 100,
+        userObj.total_borrowed = 0,
+        userObj.total_lent = 0
+    json.users_db[userObj.email] = userObj;
 }
 
 function markGameAsReturned(lenderEmail, gameName) {
