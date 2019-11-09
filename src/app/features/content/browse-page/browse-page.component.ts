@@ -12,30 +12,20 @@ declare const getGames: any;
 export class BrowsePageComponent implements OnInit {
 
   results: any;
-  genreFilter: any[];
-  consoleFilters: any[];
-  yearFilter: any[];
-  loanDuration: any;
-  maximumDistance: any;
-  loggedEmail: any;
-
   query: any = null;
   filter: any = {};
 
   constructor(
-    private sessionService: SessionService,
+   
     private _route: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
 
-
-    this.dund()
+    this.JSfilters()
   
-
-
-    this.loggedEmail = this.sessionService.getLoggedUser();
+    
     this._route.queryParams.subscribe(params => {
       this.query = params;
       this.filter = Object.assign({},this.query)
@@ -55,7 +45,7 @@ export class BrowsePageComponent implements OnInit {
 
 
 
-  dund(){
+  JSfilters(){
     $(".pill").click(function() {
       $(this).toggleClass("active");
     });

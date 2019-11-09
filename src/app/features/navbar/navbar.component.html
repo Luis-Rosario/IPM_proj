@@ -7,13 +7,18 @@
         <a routerLink="/home" routerLinkActive="active">Lleme Play</a></div>
     <input class="norm-input" type="text" placeholder="...">
     <ul class="links">
-        <li><a routerLink="/user/library" routerLinkActive="active">My Library</a></li>
-        <li><a routerLink="/user/inbox" routerLinkActive="active">Inbox</a></li>
+        <li><a routerLink="/user/library" routerLinkActive="active"><b>My Library</b></a></li>
+        <li><a routerLink="/user/profile" routerLinkActive="active"><b>My Account</b></a></li>
+        <li><a routerLink="/user/inbox" routerLinkActive="active"><b>Inbox</b></a></li>
+
     </ul>
     <div class="right-hand">
         <div class="user-info">
             <div class="row user">{{userInfo.first_name}} {{userInfo.last_name}}</div>
             <div class="row points">{{userInfo.llama_points}}*</div>
+            <div class="row logout">
+                <li (click)="logout()">Logout</li>
+            </div>
         </div>
     </div>
 </div>

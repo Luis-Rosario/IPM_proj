@@ -14,20 +14,28 @@ export class SessionService {
   ) { }
 
 
-  logUser(email){
+  logUser(email) {
     this.sessionStore.update({
-        email: email,
-        data: '',
-        logged: true, 
-      })
+      email: email,
+      data: '',
+      logged: true,
+    })
   }
 
-  isLogged() : Boolean{
-      return this.sessionQuery.getValue().logged;
+  isLogged(): Boolean {
+    return this.sessionQuery.getValue().logged;
   }
 
-  getLoggedUser(){
-    return  this.sessionQuery.getValue().email;
+  getLoggedUser() {
+    return this.sessionQuery.getValue().email;
+  }
+
+  logout() {
+    this.sessionStore.update({
+      email: null,
+      data: '',
+      logged: false,
+    })
   }
 
 }

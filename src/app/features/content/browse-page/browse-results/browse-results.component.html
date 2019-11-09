@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-12">
 
-        <div class="search-title">
-            Results for "<b> INSERT CENAS AQUI CRL</b>"
+        <div class="search-title" *ngIf="showResultMessage">
+            Results for "<b>{{this.searchTerm}}</b>"
         </div>
 
         <div class="result-list">

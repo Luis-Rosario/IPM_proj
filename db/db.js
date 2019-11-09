@@ -208,14 +208,14 @@ json = {
             "year": 2018,
             "category": ["sports", "football"],
             "console": ["PS4", "Switch", "Xbox", "PC"],
-            "image_url": "url.com/image"
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
         },
         {
             "name": "Overcooked 2",
             "year": 2018,
             "category": ["cooking", "co-op"],
             "console": ["PS4", "Switch", "Xbox"],
-            "image_url": "url.com/image"
+            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
         },
         {
             "name": "Uncharted 4: A Thief's End",
@@ -229,8 +229,8 @@ json = {
             "year": 2018,
             "category": ["action"],
             "console": ["Switch"],
-            "image_url": "url.com/image"
-        }
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+        },
     ],
 
     "game_rentals": [{
@@ -380,7 +380,7 @@ function getGames(filterObj) {
         gameRental = json.game_rentals[i];
         lender = gameRental.user_email;
         alreadySaved = games[gameRental.game_name];
-        console.log(filterObj.consoles, gameRental.console)
+        //console.log(filterObj.consoles, gameRental.console)
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
             (filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
 
