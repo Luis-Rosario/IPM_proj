@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -29,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     AppRoutingModule,
     ContentModule,
-    SharedModule
+    SharedModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

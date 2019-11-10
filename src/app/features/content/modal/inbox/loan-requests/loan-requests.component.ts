@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
+import * as $ from 'jquery';
 
 declare const getChat: any;
 
@@ -11,8 +12,9 @@ declare const getChat: any;
 export class LoanRequestsComponent implements OnInit {
   @Input() messages: any;
   @Input() game: any;
-  @Output() selectedPerson  = new EventEmitter();
-  
+  @Input() lender: any;
+  @Output() selectedPerson = new EventEmitter();
+
   users: any[] = [];
   userRequestInfo: Map<String, any> = new Map();
   chatMessages: any;
@@ -24,11 +26,12 @@ export class LoanRequestsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.game)
-   this.getUsers();
+    this.getUsers();
+    console.log(this.lender)
   }
 
 
-  getUsers(){
+  getUsers() {
     let index = 0;
     let keys = Object.keys(this.messages);
     let user;
@@ -41,11 +44,21 @@ export class LoanRequestsComponent implements OnInit {
     }
 
 
-    console.log(this.users)
   }
 
-  selectRequest(userRequest){
-    this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name)
+  selectRequest(userRequest, event) {
+
+    $(".request-list .user").removeClass("active")
+    var target = event.target.classList.contains("user") ? event.target : event.target.parentElement;
+    target.classList.add("active")
+    console.log(this.lender)
+
+    if (this.lender)
+      this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name)
+
+    if (!this.lender)
+      this.chatMessages = getChat(userRequest, this.sessionQuery.getValue().email, this.game.game_name)
+
     this.selectedPerson.emit(this.chatMessages)
   }
 

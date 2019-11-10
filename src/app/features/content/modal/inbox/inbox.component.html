@@ -1,29 +1,38 @@
 <div class="row borrowing" id="inbox-wrapper">
-
-    <div class="col-4">
-        <select #select (change)="changeSelect()">
+    <!--CHANGES:
+			Os links dos jogos e dos users têm de ter uma class "active" para saber o que está seleccionado
+			-->
+    <div class="col-3 games-col">
+        <div class="select-area">
+            <span>Games I am:</span>
+            <select #select (change)="changeSelect()" data-width="auto">
+            <!-- class="selectpicker" -->
             <option value="true" selected>Borrowing</option>
             <option value="false">Lending</option>
         </select>
+        </div>
 
-        <div *ngIf="showBorrowed === 'true'">
-            <div class="gameList" *ngFor="let game of borrowingGames">
-                <h3 (click)=selectGame(game)>{{game}}</h3>
+        <div *ngIf="showBorrowed === 'true'" class="col-12">
+            <div class="gameList col-12" *ngFor="let game of borrowingGames">
+                <h3 (click)=selectGame(game,$event)>{{game}}</h3>
+                <!-- meter as classes active <h3 class="active"  -->
             </div>
         </div>
 
         <div *ngIf="showBorrowed === 'false'">
             <div class="gameList" *ngFor="let game of lendingGames">
-                <h3 (click)=selectGame(game)>{{game}}</h3>
+                <h3 (click)=selectGame(game,$event)>{{game}}</h3>
+                <!-- meter as classes active <h3 class="active"  -->
             </div>
         </div>
+
     </div>
 
-    <div class="col-4">
-        <loan-requests *ngIf="messages !== undefined && game !== undefined" [messages]="messages" [game]="game" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
+    <div class="col-5 info-col">
+        <loan-requests *ngIf="messages !== undefined && game !== undefined" [messages]="messages" [game]="game" [lender]="(showBorrowed=='false') ? true: false" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
     </div>
 
-    <div class=" col-4 ">
-        <chat *ngIf="chatMessages !== undefined " [chat]="chatMessages"></chat>
+    <div class=" col-4 chat-col">
+        <chat *ngIf="chatMessages !== undefined " [chat]="chatMessages" [lender]="(showBorrowed=='false') ? true: false"></chat>
     </div>
 </div>

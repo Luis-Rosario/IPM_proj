@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { SessionQuery } from './core/state/session.query';
-
+import * as $ from 'jquery';
 
 
 @Component({
@@ -15,9 +15,11 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-
-
+  /*   setTimeout(()=>{
+      $('<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>').appendTo(document.body);
+    },200); */
   }
+  
 
   isLogged(): Boolean {
     return this.sessionQuery.getValue().logged;

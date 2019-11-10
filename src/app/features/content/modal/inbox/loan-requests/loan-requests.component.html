@@ -1,11 +1,39 @@
-<div class="game-info">
-    <h4>{{this.game.game_name}}</h4>
-    <h4>{{this.game.category}}</h4>
-    <h4>descrição n vem aqui no obj??</h4>
-    <h4>{{this.game.image_url}}</h4>
+<div class="game-info row">
+    <div class="col-4 img-col">
+        <img src="{{this.game.image_url}}" alt="">
+    </div>
+    <div class="col-8 text-col">
+        <h4>{{this.game.game_name}}</h4>
+        <!--this changed, tem de se por aqui um ngFor-->
+        <div class="categories">
+
+            <div class="pill active" *ngFor="let category of this.game.category">{{this.category}}</div>
+
+        </div>
+        <!--   <h6>Não tenho a descrição do jogo no obj :)</h6> -->
+    </div>
+
+    <div class="request-list" *ngFor="let user of users">
+        <div class="user" (click)="selectRequest(user, $event)">
+
+            <span class="read">
+                    {{user}}<span class="unread-count">(1)</span>
+            </span>
+
+            <!-- meter aqui nº de msgs por ler -->
+        </div>
+
+        <!--  <div class="user active read" (click)=selectRequest(user)> -->
+
+    </div>
+
 </div>
 
-
-<div class="request-list" *ngFor="let user of users">
-    <h6 (click)=selectRequest(user)>{{user}}</h6>
-</div>
+<!-- 
+<div class="user unread" (click)=selectRequest(user)>
+        Manel da esquina <span class="unread-count">(1)</span>
+    </div>
+    <div class="user active read" (click)=selectRequest(user)>
+        Rui Ribeiro <span class="unread-count">(1)</span>
+    </div>
+</div> -->

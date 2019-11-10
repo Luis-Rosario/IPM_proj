@@ -5,9 +5,11 @@
 }
 
 .content {
-    margin-top: 60px;
     padding: 50px 30px;
     background: #FAFAFA;
     min-height: 100vh;
     width: 100%;
+    &.space-nav {
+        margin-top: 60px;
+    }
 }

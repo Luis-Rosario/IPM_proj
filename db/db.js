@@ -465,12 +465,15 @@ function getLendingMessages(userId, game) {
 function getBorrowingMessages(userId, game) {
     messages = {}
     for (lender in json.rental_history.lenders) {
-        messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages
+        if (json.rental_history.lenders[lender].games[game] !== undefined)
+            messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages
     }
     return messages
 }
 
 function getChat(userId1, userId2, game) {
+    console.log(userId1, userId2)
+
     return json.rental_history.lenders[userId1].games[game].borrowers[userId2].messages
 }
 

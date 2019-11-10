@@ -1,3 +1,20 @@
-<div *ngFor="let message of chat">
+<!-- <div *ngFor="let message of chat">
     <h5 class="{{message.user}}">{{message.user}}: {{message.content}} </h5>
+</div> -->
+
+<div class="header">
+    como fica aqui?
+    <!--what?-->
+</div>
+<div class="chat-list">
+    <div *ngFor="let message of chat" [ngClass]="((message.user == 'lender' && lender) || (message.user == 'borrower' && !lender))? 'chat-bubble me':'chat-bubble other'">
+        <div class="text">{{message.content}}</div>
+    </div>
+
+</div>
+<div class="chat-form">
+    <div class="form-group">
+        <input type="text" placeholder="Send a message" id="chat-input">
+        <a class="btn" id="send-msg" (click)="sendMessage()">Send</a>
+    </div>
 </div>
