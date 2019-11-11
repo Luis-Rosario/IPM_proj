@@ -76,7 +76,7 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    console.log(this.lendingGamesInfo)
+  /*   console.log(this.lendingGamesInfo) */
   }
 
 

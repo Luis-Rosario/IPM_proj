@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as $ from 'jquery';
+import * as bootstrap from 'node_modules/bootstrap/js/dist/';
+
 
 @Component({
   selector: 'game-card',
@@ -8,12 +11,25 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GameCardComponent implements OnInit {
   @Input() gameName: String;
   @Input() gameInfo: any
+  display = 'none';
+
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.gameInfo)
+    /*    console.log(this.gameInfo) */
   }
+
+  modalClick(ev){
+    if($(ev.target).hasClass("modal")){
+      $(".modal").fadeOut();
+    }
+  }
+  
+  openModal(ev) {
+    $(ev.target.parentElement.parentElement).find(".game-page").fadeToggle(); 
+  }
+
 
 }
 
