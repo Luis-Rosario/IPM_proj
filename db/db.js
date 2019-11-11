@@ -1,29 +1,28 @@
 var peer = new Peer();
 var serverID = "lleme-play-server"
 
-function pushData(){
+function pushData() {
     console.log("temp function, no connection to PEERJS")
 }
 
 //ligou-se ao peerjs
-peer.on("open", (id)=>{
-    console.log("peerid: "+id);
+peer.on("open", (id) => {
+    console.log("peerid: " + id);
     //tentar ligar ao pseudo-server
     conn = peer.connect(serverID);
     //connectou-se ao pseudo-server
     conn.on("open", function() {
         console.log("connected to pseudo-server")
-        //change push function to send update
-        pushData = function(){
-            conn.send(json);
-        }
-        //recieved update
-        conn.on("data", function(newJSON){
-            if(newJSON.consoles){
+            //change push function to send update
+        pushData = function() {
+                conn.send(json);
+            }
+            //recieved update
+        conn.on("data", function(newJSON) {
+            if (newJSON.consoles) {
                 json = newJSON;
                 console.log("got a json")
-            }
-            else{
+            } else {
                 console.log("server message")
                 console.log(newJSON)
             }
@@ -433,6 +432,8 @@ json = {
     }
 }
 
+
+
 currentUser = "assuncao-martins.verified@gmail.com"
 
 
@@ -588,6 +589,16 @@ function getNotifications(userEmail) {
     return json.notifications[userEmail]
 }
 
+function getAllGameLenders(gameName) {
+    userList = [];
+    for (users in json.game_rentals) {
+        if (json.game_rentals[users].game_name == gameName) {
+            userList.push(json.users_db[json.game_rentals[users].user_email])
+        }
+    }
+    return userList;
+}
+
 //------------------------------------------------
 //------------------------------------------------
 //---------------ACTION functions-----------------
@@ -597,6 +608,8 @@ function getNotifications(userEmail) {
 function addGame(userId, gameObj) {
     gameObj[user_email] = userId;
     json.game_rentals.push(gameObj);
+    json.rental_history.lenders[userId].games[gameObj[game_name]]={}
+    json.rental_history.lenders[userId].games[gameObj[game_name]][borrowers]={}
     pushData();
 }
 
@@ -618,6 +631,10 @@ function addUser(userObj) {
         userObj.total_borrowed = 0,
         userObj.total_lent = 0
     json.users_db[userObj.email] = userObj;
+
+    json.rental_history.lender[userObj.email] = {}
+    json.rental_history.lender[userObj.email][games]={}
+
     pushData();
 }
 
@@ -651,6 +668,35 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
     pushData();
 }
+
+/*"castelo_branquinho@gmail.com": {
+  "lent": "accepted",
+  pending,accepted,past
+  "messages": [{
+          "user": "borrower",
+          lender, borrower, system
+          "content": "Hello, darling! Lend me this game! Muah",
+          "date": "2019/09/07",
+          "time": "12:02"
+      },*/
+
+function sendMsg(lender,borrower,msg,gameName){
+  if(json.rental_history.lenders[lender]==undefined){
+    json.rental_history.lender[lender] = {}
+    json.rental_history.lender[lender][gameName]={}
+  }
+  entry = json.rental_history.lenders[lender].games[gameName].borrowers[borrower]
+  if(entry == undefined){
+    newEntry={}
+    newEntry["lent"]="pending"
+    newEntry["messages"]=[]
+    json.rental_history.lenders[lender].games[gameName].borrowers[borrower]=newEntry
+  }
+  json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
+  pushData();
+}
+
+
 
 
 //peer js

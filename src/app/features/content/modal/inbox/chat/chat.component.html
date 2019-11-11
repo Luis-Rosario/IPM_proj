@@ -1,6 +1,6 @@
 <div class="header row">
-    <div class="col-6 text-center" id="accept" style="border-right:1px solid gainsboro;"><b style="color: #5aac44">Accept Loan</b></div>
-    <div class="col-6 text-center" id="refuse"><b style="color: #b22222">Refuse Loan</b></div>
+    <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro;"><b style="color: #5aac44">Accept Loan</b></div>
+    <div class="col-6 text-center chat-button" id="refuse"><b style="color: #b22222">Refuse Loan</b></div>
 </div>
 <div class="chat-list">
     <div *ngFor="let message of chat" [ngClass]="((message.user == 'lender' && lender) || (message.user == 'borrower' && !lender))? 'chat-bubble me':'chat-bubble other'">

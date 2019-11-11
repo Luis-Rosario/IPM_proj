@@ -4,33 +4,87 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap";
 @import "../node_modules/bootstrap-select/dist/css/bootstrap-select.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.11/css/bootstrap-select.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css";
+@import "https://cdn.jsdelivr.net/npm/multirange@2.0.0/multirange.css";
+
 *,
 *:active,
 *:hover,
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .games-col .bootstrap-select {
-    width: 110px !important;
-    position: relative;
-    top: -2px;
+  width: 110px !important;
+  position: relative;
+  top: -2px;
 }
 
 .games-col .bootstrap-select * {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 .games-col .bootstrap-select .dropdown-menu a.active,
 .games-col .bootstrap-select .dropdown-menu a:focus,
 .games-col .bootstrap-select .dropdown-menu a:active {
-    background: #fbab5b;
+  background: #fbab5b;
 }
 
 .games-col .bootstrap-select button {
-    background: white;
-    border: none;
-    border-radius: 0;
-    margin-left: 5px;
-    padding-left: 5px;
+  background: white;
+  border: none;
+  border-radius: 0;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.modal-backdrop {
+  display: none;
+}
+
+.pill {
+  font-size: 12px;
+  margin: 4px;
+  cursor: pointer;
+  background: #dfdfdf;
+  padding: 2px 10px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  display: inline-block;
+  order: 2;
+}
+.pill.interactive:not(.active):hover {
+  border-color: rgba(251, 171, 91, 0.5);
+  background: rgba(251, 171, 91, 0.1);
+}
+.pill.active {
+  order: 1;
+  border: 2px solid rgba(251, 171, 91, 0.5);
+  background: rgba(251, 171, 91, 0.8);
+}
+.pill.active.interactive:hover {
+  border-color: rgba(178, 34, 34, 0.5);
+  background: rgba(178, 34, 34, 0.2);
+  position: relative;
+  color: rgba(0, 0, 0, 0.2);
+}
+.pill.active.interactive:hover:after {
+  content: "x";
+  color: #b22222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 16px;
+}
+img {
+  max-width: 100%;
+}
+a {
+  cursor: pointer;
 }

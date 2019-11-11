@@ -3,6 +3,7 @@ import { SessionQuery } from 'src/app/core/state/session.query';
 import * as $ from 'jquery';
 
 declare const getChat: any;
+declare const getUser: any;
 
 @Component({
   selector: 'loan-requests',
@@ -37,13 +38,13 @@ export class LoanRequestsComponent implements OnInit {
     let user;
 
     for (user of keys) {
-      this.users[index] = user;
+      this.users[index] =  getUser(user);
       this.userRequestInfo.set(user, this.messages[user])
 
       index++;
     }
 
-
+    console.log(this.users)
   }
 
   selectRequest(userRequest, event) {
