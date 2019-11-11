@@ -1,3 +1,85 @@
 <div class="game-card non-owner">
-    <img src="{{this.gameInfo.image_url}}">
+    <img src="{{this.gameInfo.image_url}}" (click)="openModal($event)">
+</div>
+
+
+<div class="game-page modal" id="game-modal" role="dialog " (click)="modalClick($event)">
+    <div class="modal-content ">
+        <div class="row ">
+            <div class="col-9 game-col ">
+                <div class="game-info row ">
+                    <div class="col-4 img-col ">
+                        <img src="{{this.gameInfo.image_url}}" alt=" ">
+                    </div>
+                    <div class="col-8 text-col ">
+                        <h4>Overcooked 2</h4>
+                        <!--this changed, tem de se por aqui um ngFor-->
+                        <div class="categories ">
+                            <div class="pill active" *ngFor="let cat of this.gameInfo.category">{{cat}}</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="filter-section ">
+                    <div class="form-group ">
+                        <label for=" ">Loan Duration:</label>
+                        <select name=" " id="duration-select ">
+												<option value="1 ">1 week</option>
+												<option value="2 ">2 weeks</option>
+												<option value="3 ">3 weeks</option>
+												<option value="4 ">4 weeks</option>
+												<option value="5 ">5 weeks</option>
+												<option value="6 ">6 weeks</option>
+											</select>
+                    </div>
+                    <div class="form-group ">
+                        <label for=" ">Maximum Distance:</label>
+                        <select name=" " id="distance-select ">
+												<option value="50 ">50 kms</option>
+												<option value="100 ">100 kms</option>
+												<option value="150 ">150 kms</option>
+												<option value="200 ">200 kms</option>
+												<option value="250 ">250 kms</option>
+												<option value="300 ">300 kms</option>
+											</select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 users-col ">
+                <div class="user ">
+                    <div class="img "></div>
+                    <div class="user-info ">
+                        <div class="user-name ">Rui Mar</div>
+                        <div class="user-ratings ">
+                            <span class="star-rating ">4.6</span><i class="fas fa-star "></i> /
+                            <span class="loan-count ">3</span> Loans
+                        </div>
+                        <a class="rent-btn ">→</a>
+                    </div>
+                </div>
+                <div class="user ">
+                    <div class="img "></div>
+                    <div class="user-info ">
+                        <div class="user-name ">José Casa Branca</div>
+                        <div class="user-ratings ">
+                            <span class="star-rating ">4.9</span><i class="fas fa-star "></i> /
+                            <span class="loan-count ">10</span> Loans
+                        </div>
+                        <a class="rent-btn ">→</a>
+                    </div>
+                </div>
+                <div class="user ">
+                    <div class="img "></div>
+                    <div class="user-info ">
+                        <div class="user-name ">André Aventura</div>
+                        <div class="user-ratings ">
+                            <span class="star-rating ">1.6</span><i class="fas fa-star "></i> /
+                            <span class="loan-count ">1</span> Loans
+                        </div>
+                        <a class="rent-btn ">→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
