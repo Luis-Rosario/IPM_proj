@@ -588,6 +588,16 @@ function getNotifications(userEmail) {
     return json.notifications[userEmail]
 }
 
+function getAllGameBorrowers(gameName){
+  users=[];
+  for(users in json.game_rentals){
+    if(json.game_rentals[users].game_name==gameName){
+      users.push(json.users_db[json.game_rentals[users].user_email])
+    }
+  }
+  return users;
+}
+
 //------------------------------------------------
 //------------------------------------------------
 //---------------ACTION functions-----------------
@@ -651,6 +661,8 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
     pushData();
 }
+
+
 
 
 //peer js
