@@ -433,6 +433,8 @@ json = {
     }
 }
 
+
+
 currentUser = "assuncao-martins.verified@gmail.com"
 
 
@@ -592,7 +594,7 @@ function getAllGameBorrowers(gameName){
   users=[];
   for(users in json.game_rentals){
     if(json.game_rentals[users].game_name==gameName){
-      users.push(json.users_db[json.game_rentals[users].user_email])
+      users.push(users_db[json.game_rentals[users].user_email])
     }
   }
   return users;
@@ -660,6 +662,11 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
 function refuseRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
     pushData();
+}
+
+function sendMsg(lender,borrower,msg,gameName){
+  json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
+  pushData();
 }
 
 
