@@ -46,35 +46,12 @@
                 </div>
             </div>
             <div class="col-3 users-col ">
-                <div class="user ">
-                    <div class="img "></div>
+                <div class="user" *ngFor="let lender of this.lendersOfGame">
                     <div class="user-info ">
-                        <div class="user-name ">Rui Mar</div>
+                        <div class="user-name ">{{lender.first_name}} {{lender.last_name}}</div>
                         <div class="user-ratings ">
-                            <span class="star-rating ">4.6</span><i class="fas fa-star "></i> /
-                            <span class="loan-count ">3</span> Loans
-                        </div>
-                        <a class="rent-btn ">→</a>
-                    </div>
-                </div>
-                <div class="user ">
-                    <div class="img "></div>
-                    <div class="user-info ">
-                        <div class="user-name ">José Casa Branca</div>
-                        <div class="user-ratings ">
-                            <span class="star-rating ">4.9</span><i class="fas fa-star "></i> /
-                            <span class="loan-count ">10</span> Loans
-                        </div>
-                        <a class="rent-btn ">→</a>
-                    </div>
-                </div>
-                <div class="user ">
-                    <div class="img "></div>
-                    <div class="user-info ">
-                        <div class="user-name ">André Aventura</div>
-                        <div class="user-ratings ">
-                            <span class="star-rating ">1.6</span><i class="fas fa-star "></i> /
-                            <span class="loan-count ">1</span> Loans
+                            <span class="star-rating ">{{lender.lender_rating}}</span><i class="fas fa-star "></i> /
+                            <span class="loan-count ">{{lender.total_lent}}</span> Loans
                         </div>
                         <a class="rent-btn ">→</a>
                     </div>
