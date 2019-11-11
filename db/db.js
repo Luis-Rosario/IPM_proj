@@ -1,3 +1,44 @@
+var peer = new Peer();
+var serverID = "lleme-play-server"
+
+function pushData(){
+    console.log("temp function, no connection to PEERJS")
+}
+
+//ligou-se ao peerjs
+peer.on("open", (id)=>{
+    console.log("peerid: "+id);
+    //tentar ligar ao pseudo-server
+    conn = peer.connect(serverID);
+    //connectou-se ao pseudo-server
+    conn.on("open", function() {
+        console.log("connected to pseudo-server")
+        //change push function to send update
+        pushData = function(){
+            conn.send(json);
+        }
+        //recieved update
+        conn.on("data", function(newJSON){
+            if(newJSON.consoles){
+                json = newJSON;
+                console.log("got a json")
+            }
+            else{
+                console.log("server message")
+                console.log(newJSON)
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
 json = {
     "consoles": ["PS4", "Switch", "PC", "Xbox"],
 
@@ -406,6 +447,13 @@ getGames({
 "byUser":"email"
 })
 */
+
+//------------------------------------------------
+//------------------------------------------------
+//---------------GET functions--------------------
+//------------------------------------------------
+//------------------------------------------------
+
 function getGames(filterObj) {
     games = [];
     borrower = filterObj.byUser;
@@ -536,9 +584,20 @@ function getBorrowingFrom(userId) {
     return trades;
 }
 
+function getNotifications(userEmail) {
+    return json.notifications[userEmail]
+}
+
+//------------------------------------------------
+//------------------------------------------------
+//---------------ACTION functions-----------------
+//------------------------------------------------
+//------------------------------------------------
+
 function addGame(userId, gameObj) {
     gameObj[user_email] = userId;
     json.game_rentals.push(gameObj);
+    pushData();
 }
 
 function deleteGame(userId, game_name) {
@@ -548,6 +607,7 @@ function deleteGame(userId, game_name) {
             json.game_rentals.splice(json.game_rentals.indexOf(game), 1);
         }
     }
+    pushData();
 }
 
 function addUser(userObj) {
@@ -558,6 +618,7 @@ function addUser(userObj) {
         userObj.total_borrowed = 0,
         userObj.total_lent = 0
     json.users_db[userObj.email] = userObj;
+    pushData();
 }
 
 function markGameAsReturned(lenderEmail, gameName) {
@@ -567,14 +628,12 @@ function markGameAsReturned(lenderEmail, gameName) {
             json.rental_history.lenders[lenderEmail].games[gameName].borrowers[b].lent = "past"
         }
     }
+    pushData();
 }
 
 function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
-}
-
-function getNotifications(userEmail) {
-    return json.notifications[userEmail]
+    pushData()
 }
 
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
@@ -585,10 +644,12 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
             json.game_rentals[game].active = false
         }
     }
+    pushData();
 }
 
 function refuseRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
+    pushData();
 }
 
 
