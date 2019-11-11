@@ -108,7 +108,7 @@ router-outlet {
     }
 }
 
-.game {
+.activity-section ::ng-deep .game-card {
     background: #EEEEEE;
     width: 85px;
     height: 110px;
@@ -142,7 +142,11 @@ router-outlet {
 .caroussel {
     display: flex;
     justify-content: space-around;
-    padding: 15px 2px 10px 2px;
+    flex-wrap: wrap;
+    >div {
+        margin-bottom: 15px;
+    }
+    padding: 35px 2px 10px 2px;
 }
 
 .trending-section {}

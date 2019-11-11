@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
     else{
       this.showerror= true;
       this.sessionService.logUser(username);
-      this.router.navigateByUrl('/home');
+      setTimeout(()=>{
+        this.router.navigate(['home']);
+      },1); //lol 
+      
     }
     
   }

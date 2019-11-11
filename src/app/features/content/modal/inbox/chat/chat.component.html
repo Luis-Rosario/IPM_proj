@@ -1,10 +1,6 @@
-<!-- <div *ngFor="let message of chat">
-    <h5 class="{{message.user}}">{{message.user}}: {{message.content}} </h5>
-</div> -->
-
-<div class="header">
-    como fica aqui?
-    <!--what?-->
+<div class="header row">
+    <div class="col-6 text-center" id="accept" style="border-right:1px solid gainsboro;"><b style="color: #5aac44">Accept Loan</b></div>
+    <div class="col-6 text-center" id="refuse"><b style="color: #b22222">Refuse Loan</b></div>
 </div>
 <div class="chat-list">
     <div *ngFor="let message of chat" [ngClass]="((message.user == 'lender' && lender) || (message.user == 'borrower' && !lender))? 'chat-bubble me':'chat-bubble other'">
@@ -14,7 +10,7 @@
 </div>
 <div class="chat-form">
     <div class="form-group">
-        <input type="text" placeholder="Send a message" id="chat-input">
-        <a class="btn" id="send-msg" (click)="sendMessage()">Send</a>
+        <input type="text" placeholder="Send a message" id="chat-input" (keyup)="sendMessage($event)">
+        <a class=" btn " id="send-msg " (click)="sendMessage($event) ">Send</a>
     </div>
 </div>

@@ -222,7 +222,7 @@ json = {
             "year": 2016,
             "category": ["action", "adventure"],
             "console": ["PS4"],
-            "image_url": "url.com/image"
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg"
         },
         {
             "name": "Super Smash Bros Ultimate",
@@ -260,6 +260,16 @@ json = {
             "category": ["action"],
             "console": "Switch",
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+            "duration_range": [3, 6],
+            "active": true
+        },
+        {
+            "user_email": "aventureiro101@hotmail.com",
+            "game_name": "Uncharted 4: A Thief's End",
+            "year": 2016,
+            "category": ["action", "adventure"],
+            "console": ["PS4"],
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true
         }
@@ -333,6 +343,30 @@ json = {
             "a@a.com": {
                 "games": {
                     "FIFA 19": {
+                        "borrowers": {
+                            "docinho2019@hotmail.com": {
+                                "lent": "pending",
+                                "messages": [{
+                                        "user": "borrower",
+                                        "content": "Hello, can you lend me this game?",
+                                        "date": "2019/10/12",
+                                        "time": "09:00"
+                                    },
+                                    {
+                                        "user": "lender",
+                                        "content": "Yes, ofc",
+                                        "date": "2019/10/13",
+                                        "time": "11:00"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "aventureiro101@hotmail.com": {
+                "games": {
+                    "Uncharted 4: A Thief's End": {
                         "borrowers": {
                             "docinho2019@hotmail.com": {
                                 "lent": "pending",

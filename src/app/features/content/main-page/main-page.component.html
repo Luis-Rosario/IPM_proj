@@ -3,23 +3,14 @@
         <div class="trending-section section">
             <div class="row first">
                 <span class="title">Trending</span>
-                <a [routerLink]="['/browse']" [queryParams]="getAllGames" routerLinkActive="active" class="link">See all games</a>
+                <a [routerLink]="['/browse']" [queryParams]="getAllGames" routerLinkActive="active" class="link">See all
+                    games</a>
             </div>
             <div class="caroussel">
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-            </div>
-            <div class="caroussel">
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
-                <div class="game"></div>
+                <div *ngFor="let game of featuredGames">
+                    <game-card *ngIf="game !== undefined" [gameName]="game.game_name" [gameInfo]="game"></game-card>
+                </div>
+
             </div>
         </div>
 
@@ -33,24 +24,30 @@
                     <div class="row"><span>Games Lent</span></div>
 
                     <div class="caroussel">
-                        <div class="game lent almost">
+                        <!--   <div class="game lent almost">
                             <div class="info">2 days left</div>
+                        </div> -->
+                        <div class="game lent" *ngFor="let game of gameLendig">
+                            <game-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></game-card>
                         </div>
-                        <div class="game lent">
+                        <!--  <div class="game lent">
                             <div class="info">1 week left</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="group borrow">
                     <div class="row"><span>Games Borrowed</span></div>
 
                     <div class="caroussel">
-                        <div class="game lent warn">
+                        <!--  <div class="game lent warn">
                             <div class="info ">2 days <b>delayed</b></div>
+                        </div> -->
+                        <div class="game lent" *ngFor="let game of gamesBorrowed">
+                            <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
                         </div>
-                        <div class="game lent">
+                        <!--  <div class="game lent">
                             <div class="info">2 weeks left</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
