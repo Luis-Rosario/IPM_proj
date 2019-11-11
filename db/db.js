@@ -127,7 +127,7 @@ json = {
             "total_lent": 20
         },
         "a@a.com": {
-            "email": "a@a.com",
+            "email": "a@a.com", //ruizinho@hotmail.com
             "password": "omarenrolanaareia",
 
             "first_name": "Rui",
@@ -248,39 +248,123 @@ json = {
             "year": 2018,
             "category": ["sports", "football"],
             "console": ["PS4", "Switch", "Xbox", "PC"],
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191"
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "description": "FIFA 19 is a football simulation video game developed by EA Vancouver as part of Electronic Arts' FIFA series. It is the 26th installment in the FIFA series."
         },
         {
             "name": "Overcooked 2",
             "year": 2018,
             "category": ["cooking", "co-op"],
             "console": ["PS4", "Nintendo Switch", "Xbox One"],
-            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png"
+            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
+            "description": "In the cooking simulator game Overcooked 2, teams of up to four players cooperatively prepare and cook orders in absurd restaurants."
         },
         {
             "name": "Uncharted 4: A Thief's End",
             "year": 2016,
             "category": ["action", "adventure"],
             "console": ["PS4"],
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg"
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
+            "description": "Uncharted 4: A Thief's End is an action-adventure game developed by Naughty Dog and published by Sony Computer Entertainment. It is the fourth main entry in the Uncharted series."
         },
         {
             "name": "Super Smash Bros Ultimate",
             "year": 2018,
-            "category": ["action"],
+            "category": ["action", "fighting"],
             "console": ["Nintendo Switch"],
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png"
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+            "description": "Super Smash Bros. Ultimate is a 2018 crossover fighting game developed by Bandai Namco Studios and Sora Ltd., and published by Nintendo for the Nintendo Switch. It is the fifth installment in the Super Smash Bros. series."
+        },
+        {
+            "name": "Death Stranding",
+            "year": 2019,
+            "category": ["action", "adventure"],
+            "console": ["PS4"],
+            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=hNTJXbq6MoeyUrmTu7gN&q=death+stranding+ps4+cover&oq=death+stranding+ps4+cover&gs_l=img.3..0j0i333.25493.26186..26300...0.0..0.105.565.4j2......0....1..gws-wiz-img.......0i30j0i8i30.acmJgfDdExs&ved=0ahUKEwi6jJ_4juPlAhUHmRQKHbnJDtcQ4dUDCAc&uact=5#imgrc=EvNK02QrycP0yM:",
+            "description": "Death Stranding is an action, strand video game developed by Kojima Productions, and published by Sony Interactive Entertainment for the PlayStation 4."
+        },
+        {
+            "name": "The Legend of Zelda: Link's Awakening",
+            "year": 1993,
+            "category": ["action", "adventure"],
+            "console": ["Nintendo Switch"],
+            "image_url": "https://www.google.com/search?q=the+legend+of+zelda+link%27s+awakening+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj2-ZrUkOPlAhUL6OAKHXjBB1kQ_AUIEigB&biw=1278&bih=621#imgrc=1G3JvcYC-74hbM:",
+            "description": "Link's Awakening is one of the few Zelda games not to take place in the land of Hyrule, and does not feature Princess Zelda or the Triforce relic."
+        },
+        {
+            "name": "Borderlands 3",
+            "year": 2019,
+            "category": ["action", "adventure"],
+            "console": ["PS4", "Xbox One", "PC"],
+            "image_url": "https://www.google.com/search?q=borderlands+3+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjLs6_2kePlAhUCcBQKHYp3BuEQ_AUIEigB&biw=1278&bih=621#imgrc=0y7gxJhoSxfhlM:",
+            "description": "Borderlands 3 is the fourth main and fifth overall entry in Gearbox Software's Borderlands game series."
+        }, 
+        {
+            "name": "Minecraft",
+            "year": 2009,
+            "category": ["sandbox", "survival", "action", "adventure"],
+            "console": ["PS4", "Xbox One", "PC", "PS3", "Xbox 360", "Nintendo Switch", "PSP"],
+            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=8djJXYekKNvKgwek-oWIBg&q=minecraft+cover&oq=minecraft+cover&gs_l=img.3..0j0i30l9.8986.67154..94500...0.0..0.123.766.8j1......0....1..gws-wiz-img.......0i67j0i7i30j0i8i30.nrMhraT1trU&ved=0ahUKEwjH4LWUk-PlAhVb5eAKHSR9AWEQ4dUDCAc&uact=5#imgrc=wst2a1ymmOtx7M:",
+            "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items."
+        },
+        {
+            "name": "Sims 4",
+            "year": 2014,
+            "category": ["simulation"],
+            "console": ["PS4", "Xbox One", "PC"],
+            "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjGn_WQlePlAhUi5uAKHRlTDC8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.saraiva.com.br%2Fthe-sims-4-ps4-9894062%2Fp&psig=AOvVaw1nVSUT-LiLeoAQfWlkB_Bu&ust=1573596289043932",
+            "description": "The Sims 4 is a life simulation game, similar to its predecessors. Players create a Sim character and control their life to explore different personalities which change the way the game plays out."
+        },
+        {
+            "name": "Far Cry 4",
+            "year": 2014,
+            "category": ["fps", "action", "adventure"],
+            "console": ["PS4", "Xbox One", "PC"],
+            "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwia_f_ZlePlAhUZ6OAKHd3DDwYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.lojapsngames.com.br%2Ffar-cry-4-midia-digital-xbox-one&psig=AOvVaw3DRWSX4jRe5aKB6R5M4MTS&ust=1573596434957711",
+            "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
         }
+
     ],
 
-    "game_rentals": [{
-            "user_email": "a@a.com",
+    "game_rentals": [
+        {
+            "user_email": "a@a.com", //ruizinho@gmail.com
             "game_name": "FIFA 19",
             "year": 2018,
             "category": ["sports", "football"],
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [3, 6],
+            "active": true
+        },
+        {
+            "user_email": "assuncao-martins.verified@gmail.com",
+            "game_name": "FIFA 19",
+            "year": 2018,
+            "category": ["sports", "football"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [2, 7],
+            "active": true
+        },
+        {
+            "user_email": "manel_tristonho@hotmail.com",
+            "game_name": "FIFA 19",
+            "year": 2018,
+            "category": ["sports", "football"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [1, 8],
+            "active": true
+        },
+        {
+            "user_email": "castelo_branquinho@gmail.com",
+            "game_name": "FIFA 19",
+            "year": 2018,
+            "category": ["sports", "football"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [1, 6],
             "active": true
         },
         {
@@ -294,10 +378,20 @@ json = {
             "active": true
         },
         {
-            "user_email": "marcelo_the_usurper@hotmail.com",
+            "user_email": "assuncao-martins.verified@gmail.com",
             "game_name": "Super Smash Bros Ultimate",
             "year": 2019,
-            "category": ["action"],
+            "category": ["action", "fighting"],
+            "console": "Nintendo Switch",
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+            "duration_range": [3, 6],
+            "active": false
+        },
+        {
+            "user_email": "manel_tristonho@hotmail.com",
+            "game_name": "Super Smash Bros Ultimate",
+            "year": 2019,
+            "category": ["action", "fighting"],
             "console": "Nintendo Switch",
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
@@ -311,6 +405,26 @@ json = {
             "console": ["PS4"],
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
+            "active": true
+        },
+        {
+            "user_email": "castelo_branquinho@gmail.com",
+            "game_name": "Uncharted 4: A Thief's End",
+            "year": 2016,
+            "category": ["action", "adventure"],
+            "console": ["PS4"],
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
+            "duration_range": [3, 6],
+            "active": true
+        },
+        {
+            "user_email": "docinho2019@hotmail.com",
+            "game_name": "Death Stranding",
+            "year": 2019,
+            "category": ["action", "adventure"],
+            "console": ["PS4"],
+            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=hNTJXbq6MoeyUrmTu7gN&q=death+stranding+ps4+cover&oq=death+stranding+ps4+cover&gs_l=img.3..0j0i333.25493.26186..26300...0.0..0.105.565.4j2......0....1..gws-wiz-img.......0i30j0i8i30.acmJgfDdExs&ved=0ahUKEwi6jJ_4juPlAhUHmRQKHbnJDtcQ4dUDCAc&uact=5#imgrc=EvNK02QrycP0yM:",
+            "duration_range": [1, 4],
             "active": true
         }
     ],
@@ -331,8 +445,23 @@ json = {
     //uma func. para ver se um jogo foi aceite ou nao, nao e dificil
     "rental_history": {
         "lenders": {
-            "marcelo_the_usurper@hotmail.com": {
+            "docinho2019@hotmail.com": {
                 "games": {
+                    "Death Stranding": {
+                        "borrowers": {
+
+                        }
+                    }
+                    
+                }
+            },
+            "assuncao-martins.verified@gmail.com": {
+                "games": {
+                    "FIFA 19": {
+                        "borrowers": {
+
+                        }
+                    },
                     "Super Smash Bros Ultimate": {
                         "borrowers": {
                             "castelo_branquinho@gmail.com": {
@@ -380,7 +509,44 @@ json = {
                     }
                 }
             },
-            "a@a.com": {
+            "castelo_branquinho@gmail.com": {
+                "games": {
+                    "FIFA 19": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "Uncharted 4: A Thief's End": {
+                        "borrowers": {
+                        }
+                    }
+                }
+            },
+            "manel_tristonho@hotmail.com": {
+                "games": {
+                    "FIFA 19": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "Overcooked 2": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "Super Smash Bros Ultimate": {
+                        "borrowers": {
+
+                        }
+                    }
+                }
+            },
+            "marcelo_the_usurper@hotmail.com": {
+                "games": {
+                
+                }
+            },
+            "a@a.com": { //ruizinho@hotmail.com
                 "games": {
                     "FIFA 19": {
                         "borrowers": {
@@ -437,6 +603,14 @@ json = {
 currentUser = "assuncao-martins.verified@gmail.com"
 
 
+
+
+//------------------------------------------------
+//------------------------------------------------
+//---------------GET functions--------------------
+//------------------------------------------------
+//------------------------------------------------
+
 /*
 getGames({
 "gameName":"name",
@@ -448,13 +622,6 @@ getGames({
 "byUser":"email"
 })
 */
-
-//------------------------------------------------
-//------------------------------------------------
-//---------------GET functions--------------------
-//------------------------------------------------
-//------------------------------------------------
-
 function getGames(filterObj) {
     games = [];
     borrower = filterObj.byUser;
@@ -605,11 +772,21 @@ function getAllGameLenders(gameName) {
 //------------------------------------------------
 //------------------------------------------------
 
+/*
+{
+    "name": "Far Cry 4",
+    "year": 2014,
+    "category": ["fps", "action", "adventure"],
+    "console": ["PS4", "Xbox One", "PC"],
+    "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwia_f_ZlePlAhUZ6OAKHd3DDwYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.lojapsngames.com.br%2Ffar-cry-4-midia-digital-xbox-one&psig=AOvVaw3DRWSX4jRe5aKB6R5M4MTS&ust=1573596434957711",
+    "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
+}
+*/
 function addGame(userId, gameObj) {
     gameObj[user_email] = userId;
     json.game_rentals.push(gameObj);
     json.rental_history.lenders[userId].games[gameObj[game_name]]={}
-    json.rental_history.lenders[userId].games[gameObj[game_name]][borrowers]={}
+    json.rental_history.lenders[userId].games[gameObj[game_name]].borrowers={}
     pushData();
 }
 
@@ -633,7 +810,7 @@ function addUser(userObj) {
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lender[userObj.email] = {}
-    json.rental_history.lender[userObj.email][games]={}
+    json.rental_history.lender[userObj.email].games={}
 
     pushData();
 }
