@@ -12,7 +12,7 @@
                         <img src="{{this.gameInfo.image_url}}" alt=" ">
                     </div>
                     <div class="col-8 text-col ">
-                        <h4>Overcooked 2</h4>
+                        <h4>{{this.gameInfo.game_name}}</h4>
                         <!--this changed, tem de se por aqui um ngFor-->
                         <div class="categories ">
                             <div class="pill active" *ngFor="let cat of this.gameInfo.category">{{cat}}</div>

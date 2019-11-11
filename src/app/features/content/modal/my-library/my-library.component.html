@@ -2,10 +2,10 @@
 
     My games</h2>
 <div *ngFor="let game of lendingGames">
-    <game-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></game-card>
+    <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></lib-card>
 </div>
 
 <h2>My borrowed games</h2>
 <div *ngFor="let game of borrowingGames">
-    <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
+    <lib-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></lib-card>
 </div>
