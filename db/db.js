@@ -40,7 +40,7 @@ peer.on("open", (id)=>{
 
 
 json = {
-    "consoles": ["PS4", "Switch", "PC", "Xbox"],
+    "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
 
     "cities": {
         "1": {
@@ -249,14 +249,14 @@ json = {
             "year": 2018,
             "category": ["sports", "football"],
             "console": ["PS4", "Switch", "Xbox", "PC"],
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191"
         },
         {
             "name": "Overcooked 2",
             "year": 2018,
             "category": ["cooking", "co-op"],
-            "console": ["PS4", "Switch", "Xbox"],
-            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
+            "console": ["PS4", "Nintendo Switch", "Xbox One"],
+            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png"
         },
         {
             "name": "Uncharted 4: A Thief's End",
@@ -269,9 +269,9 @@ json = {
             "name": "Super Smash Bros Ultimate",
             "year": 2018,
             "category": ["action"],
-            "console": ["Switch"],
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
-        },
+            "console": ["Nintendo Switch"],
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png"
+        }
     ],
 
     "game_rentals": [{
@@ -289,7 +289,7 @@ json = {
             "game_name": "Overcooked 2",
             "year": 2018,
             "category": ["cooking", "co-op"],
-            "console": "Switch",
+            "console": "Nintendo Switch",
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true
@@ -299,7 +299,7 @@ json = {
             "game_name": "Super Smash Bros Ultimate",
             "year": 2019,
             "category": ["action"],
-            "console": "Switch",
+            "console": "Nintendo Switch",
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": true
