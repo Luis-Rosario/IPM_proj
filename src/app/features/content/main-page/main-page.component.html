@@ -27,7 +27,7 @@
                         <!--   <div class="game lent almost">
                             <div class="info">2 days left</div>
                         </div> -->
-                        <div class="game lent" *ngFor="let game of gameLendig">
+                        <div class="game lent" *ngFor="let game of gamesLending">
                             <game-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></game-card>
                         </div>
                         <!--  <div class="game lent">
