@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as $ from 'jquery';
 import * as bootstrap from 'node_modules/bootstrap/js/dist/';
 
+declare const getAllGameLenders;
 
 @Component({
   selector: 'game-card',
@@ -13,11 +14,12 @@ export class GameCardComponent implements OnInit {
   @Input() gameInfo: any
   display = 'none';
 
+  lendersOfGame: any[] = [];
 
   constructor() { }
 
   ngOnInit() {
-    /*    console.log(this.gameInfo) */
+    this.lendersOfGame = getAllGameLenders(this.gameName);
   }
 
   modalClick(ev){

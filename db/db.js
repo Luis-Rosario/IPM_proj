@@ -1,29 +1,28 @@
 var peer = new Peer();
 var serverID = "lleme-play-server"
 
-function pushData(){
+function pushData() {
     console.log("temp function, no connection to PEERJS")
 }
 
 //ligou-se ao peerjs
-peer.on("open", (id)=>{
-    console.log("peerid: "+id);
+peer.on("open", (id) => {
+    console.log("peerid: " + id);
     //tentar ligar ao pseudo-server
     conn = peer.connect(serverID);
     //connectou-se ao pseudo-server
     conn.on("open", function() {
         console.log("connected to pseudo-server")
-        //change push function to send update
-        pushData = function(){
-            conn.send(json);
-        }
-        //recieved update
-        conn.on("data", function(newJSON){
-            if(newJSON.consoles){
+            //change push function to send update
+        pushData = function() {
+                conn.send(json);
+            }
+            //recieved update
+        conn.on("data", function(newJSON) {
+            if (newJSON.consoles) {
                 json = newJSON;
                 console.log("got a json")
-            }
-            else{
+            } else {
                 console.log("server message")
                 console.log(newJSON)
             }
@@ -590,14 +589,14 @@ function getNotifications(userEmail) {
     return json.notifications[userEmail]
 }
 
-function getAllGameBorrowers(gameName){
-  users=[];
-  for(users in json.game_rentals){
-    if(json.game_rentals[users].game_name==gameName){
-      users.push(users_db[json.game_rentals[users].user_email])
+function getAllGameLenders(gameName) {
+    userList = [];
+    for (users in json.game_rentals) {
+        if (json.game_rentals[users].game_name == gameName) {
+            userList.push(json.users_db[json.game_rentals[users].user_email])
+        }
     }
-  }
-  return users;
+    return userList;
 }
 
 //------------------------------------------------
