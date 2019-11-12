@@ -306,7 +306,7 @@ json = {
             "year": 1993,
             "category": ["action", "adventure"],
             "console": ["Nintendo Switch"],
-            "image_url": "https://www.google.com/https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwig55vp7eXlAhUxzoUKHfTFBuQQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.gamestop.com%2Fvideo-games%2Fswitch%2Fgames%2Fproducts%2Fthe-legend-of-zelda-links-awakening%2F10173745.html&psig=AOvVaw25zVo8UUyq6IDGYDoAMC0C&ust=1573688814753465=the+legend+of+zelda+link%27s+awakening+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj2-ZrUkOPlAhUL6OAKHXjBB1kQ_AUIEigB&biw=1278&bih=621#imgrc=1G3JvcYC-74hbM:",
+            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
             "description": "Link's Awakening is one of the few Zelda games not to take place in the land of Hyrule, and does not feature Princess Zelda or the Triforce relic."
         },
         {
