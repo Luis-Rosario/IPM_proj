@@ -816,7 +816,7 @@ function getAllGameLenders(gameName) {
 
 function orderedGamesBorrowing(borrower){
   games = getGamesBorrowing(borrower);
-  gamesOrdered={}
+  gamesOrdered=[]
   for(game in games){
     gameData = games[game];
     daysLeft = strToDate(gameData.endDate) - getCurrDate();
@@ -831,7 +831,7 @@ function orderedGamesBorrowing(borrower){
 
 function orderedGamesLending(lender){
   games = getGamesLending(lender);
-  gamesOrdered={}
+  gamesOrdered=[]
   for(game in games){
     gameData = games[game];
     daysLeft = strToDate(gameData.endDate) - getCurrDate();
