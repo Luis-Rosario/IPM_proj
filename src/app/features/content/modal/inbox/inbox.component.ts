@@ -15,7 +15,7 @@ declare const getBorrowingMessages: any;
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss']
 })
-export class InboxComponent implements OnInit,AfterViewInit {
+export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
 
   showBorrowed: any = true;
@@ -31,6 +31,7 @@ export class InboxComponent implements OnInit,AfterViewInit {
   game: any;
 
   user: any;
+  targetPerson: any;
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -45,11 +46,11 @@ export class InboxComponent implements OnInit,AfterViewInit {
 
 
   }
-
+/* 
   ngAfterViewInit(): void {
     this.cd.detectChanges();
   
-  }
+  } */
 
 
   changeSelect() {
@@ -122,6 +123,7 @@ export class InboxComponent implements OnInit,AfterViewInit {
   }
 
   handleSelectedRequest(chat) {
-    this.chatMessages = chat;
+    this.chatMessages = chat[0];
+    this.targetPerson = chat[1];
   }
 }

@@ -1,10 +1,15 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
+declare const onDataChange: any;
+
 @Component({
   selector: 'browse-results',
   templateUrl: './browse-results.component.html',
   styleUrls: ['./browse-results.component.scss']
 })
+
+
+
 export class BrowseResultsComponent implements OnInit, OnChanges {
   @Input() games;
   @Input() searchTerm;
@@ -12,21 +17,29 @@ export class BrowseResultsComponent implements OnInit, OnChanges {
   showResultMessage: any = false;
   constructor() { }
 
-  ngOnInit() {
-    if (this.searchTerm == undefined || this.searchTerm == null)
-      this.showResultMessage = false;
-    else
-      this.showResultMessage = true;
+main(){
+  console.log("init",this.games);
+  if (this.searchTerm == undefined || this.searchTerm == null)
+    this.showResultMessage = false;
+  else
+    this.showResultMessage = true;
 
-    // console.log(this.games)
+  // console.log(this.games)
+}
+
+  ngOnInit() {
+    this.main();
+    onDataChange(()=>{
+      console.log("data change on results")
+      this.main();
+    });
   }
 
   ngOnChanges() {
-    if (this.searchTerm == undefined || this.searchTerm == null)
-      this.showResultMessage = false;
-    else
-      this.showResultMessage = true;
+    console.log("change")
+    this.ngOnInit();
 
   }
+  
 
 }

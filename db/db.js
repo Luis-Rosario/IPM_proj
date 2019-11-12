@@ -2,9 +2,21 @@ var peer = new Peer();
 var serverID = "lleme-play-server"
 
 dayAdjustment = 0;
+function clearStorage() {
+    localStorage.removeItem("json");
+}
+
+//callback() list
+changeListeners = [];
+
+function onDataChange(cb) {
+    changeListeners.push(cb);
+}
 
 function pushData() {
-    console.log("temp function, no connection to PEERJS")
+    console.log("temp function, no connection to PEERJS");
+    //backup to localstorage
+    localStorage.json = JSON.stringify(json);
 }
 
 //ligou-se ao peerjs
@@ -18,13 +30,19 @@ peer.on("open", (id) => {
             //change push function to send update
         pushData = function() {
                 conn.send(json);
+                //backup to localstorage
+                localStorage.json = JSON.stringify(json);
             }
             //recieved update
         conn.on("data", function(data) {
             //e o json, atualiza cenas
             if (data.consoles) {
                 json = data;
+                localStorage.json = JSON.stringify(newJSON);
                 console.log("got a json")
+                for (let i = 0; i < changeListeners.length; i++) {
+                    changeListeners[i]();
+                }
             } else if(data.match(/\d/g)){
               //avanca tempo
               dayAdjustment = data-0;
@@ -36,14 +54,6 @@ peer.on("open", (id) => {
         });
     });
 });
-
-
-
-
-
-
-
-
 
 json = {
     "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
@@ -603,6 +613,12 @@ json = {
     }
 }
 
+//localStorage serve como backup, se existe, carrega json
+if (localStorage.json) {
+    json = JSON.parse(localStorage.json);
+} else {
+    localStorage.json = JSON.stringify(json);
+}
 
 
 currentUser = "assuncao-martins.verified@gmail.com"
@@ -791,10 +807,10 @@ function getAllGameLenders(gameName) {
 }
 */
 function addGame(userId, gameObj) {
-    gameObj[user_email] = userId;
+    gameObj.user_email = userId;
     json.game_rentals.push(gameObj);
-    json.rental_history.lenders[userId].games[gameObj[game_name]] = {}
-    json.rental_history.lenders[userId].games[gameObj[game_name]].borrowers = {}
+    json.rental_history.lenders[userId].games[gameObj.game_name] = {}
+    json.rental_history.lenders[userId].games[gameObj.game_name].borrowers = {}
     pushData();
 }
 
@@ -901,7 +917,13 @@ function sendMsg(lender, borrower, msg, gameName) {
         newEntry["messages"] = []
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
     }
-    json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
+    msgJson = {
+        "user": isLender ? "lender" : "borrower",
+        "content": msg,
+        "date": today,
+        "time": /* today.getHours() + ":" + today.getMinutes() */ "",
+    }
+    json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
 }
 

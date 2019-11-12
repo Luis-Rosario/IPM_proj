@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 
 declare const getGames: any;
+declare const onDataChange: any;
 
 @Component({
   selector: 'browse-page',
@@ -21,30 +22,31 @@ export class BrowsePageComponent implements OnInit {
     private _route: ActivatedRoute
   ) { }
 
-
-  ngOnInit() {
-
+  main(){
+    console.log("main enter")
     this.JSfilters()
   
-    
     this._route.queryParams.subscribe(params => {
       this.query = params;
       this.filter = Object.assign({},this.query)
     })
     
-    this.getResults()
     this._route.queryParams.subscribe(()=>{
       this.getResults();
     })
+  }
 
+  ngOnInit() {
+    onDataChange(this.main.bind(this))
+    this.main();
+
+    //very important function best function ever makes everything work :)
+    setInterval(()=>{},400);
   }
 
   getResults() {
-    console.log(this.filter)
-    this.results = getGames(this.filter)
+    this.results = getGames(this.filter);
   }
-
-
 
   JSfilters(){
     $(".pill").click(function() {

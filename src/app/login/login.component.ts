@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../core/state/session.service';
 
@@ -9,7 +9,7 @@ import { SessionService } from '../core/state/session.service';
 })
 
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnChanges {
   showerror: Boolean = false;
 
   constructor(
@@ -18,6 +18,16 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    console.log("init")
+    setTimeout(()=>{
+      console.log("cc")
+      this.showerror = true;
+    },1000);
+  }
+
+  ngOnChanges(){
+    this.ngOnInit();
+    console.log("change")
   }
 
 
