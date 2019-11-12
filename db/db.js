@@ -351,7 +351,9 @@ json = {
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [3, 6],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "assuncao-martins.verified@gmail.com",
@@ -361,7 +363,9 @@ json = {
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [2, 7],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -371,7 +375,9 @@ json = {
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 8],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "castelo_branquinho@gmail.com",
@@ -381,7 +387,9 @@ json = {
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 6],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -391,7 +399,9 @@ json = {
             "console": "Nintendo Switch",
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "assuncao-martins.verified@gmail.com",
@@ -401,7 +411,9 @@ json = {
             "console": "Nintendo Switch",
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
-            "active": false
+            "active": false,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -411,7 +423,9 @@ json = {
             "console": "Nintendo Switch",
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "aventureiro101@hotmail.com",
@@ -421,7 +435,9 @@ json = {
             "console": "PS4",
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "castelo_branquinho@gmail.com",
@@ -431,7 +447,9 @@ json = {
             "console": "PS4",
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         },
         {
             "user_email": "docinho2019@hotmail.com",
@@ -441,7 +459,9 @@ json = {
             "console": "PS4",
             "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "duration_range": [1, 4],
-            "active": true
+            "active": true,
+            "warned": false,
+            "endDate": ""
         }
     ],
 
@@ -482,6 +502,7 @@ json = {
                         "borrowers": {
                             "castelo_branquinho@gmail.com": {
                                 "lent": "accepted",
+                                "duration": "",
                                 /*pending,accepted,past*/
                                 "messages": [{
                                         "user": "borrower",
@@ -506,6 +527,7 @@ json = {
                             },
                             "aventureiro101@hotmail.com": {
                                 "lent": "pending",
+                                "duration": "",
                                 "messages": [{
                                         "user": "borrower",
                                         /*lender, borrower, system*/
@@ -567,6 +589,7 @@ json = {
                         "borrowers": {
                             "docinho2019@hotmail.com": {
                                 "lent": "pending",
+                                "duration": "",
                                 "messages": [{
                                         "user": "borrower",
                                         "content": "Hello, can you lend me this game?",
@@ -591,6 +614,7 @@ json = {
                         "borrowers": {
                             "docinho2019@hotmail.com": {
                                 "lent": "pending",
+                                "duration": "",
                                 "messages": [{
                                         "user": "borrower",
                                         "content": "Hello, can you lend me this game?",
@@ -856,13 +880,23 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
 
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+    duration=json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
 
     for (game in json.game_rentals) {
         if (json.game_rentals[game].user_email == lenderEmail && json.game_rentals[game].game_name == gameName) {
             json.game_rentals[game].active = false
         }
     }
-    pushData();
+
+    game = getGameInfo(lenderEmail,gameName);
+    endDate = new Date(getCurrDate().getTime() + duration*(7*(1000 * 60 * 60 * 24)));
+    game.endDate = dateToStr(endDate);
+    game.warned = false;
+    pushData();  
+}
+
+function sendNotifications(userEmail) {
+
 }
 
 function refuseRental(lenderEmail, borrowerEmail, gameName) {
@@ -895,17 +929,6 @@ function strToDate(date){
 }
 
 function createRentalProposal(lender,borrower,gameName,duration,msg){
-    //duration in weeks
-    sendMsg(lender,borrower,msg,gameName);
-
-    game = getGameInfo(lender,gameName);
-    endDate = new Date(getCurrDate().getTime() + duration*(7*(1000 * 60 * 60 * 24)));
-
-    game.endDate = dateToStr(endDate);
-    game.warned = false;
-}
-
-function sendMsg(lender, borrower, msg, gameName) {
     if (json.rental_history.lenders[lender] == undefined) {
         json.rental_history.lender[lender] = {}
         json.rental_history.lender[lender][gameName] = {}
@@ -914,9 +937,16 @@ function sendMsg(lender, borrower, msg, gameName) {
     if (entry == undefined) {
         newEntry = {}
         newEntry["lent"] = "pending"
+        newEntry["duration"] = duration
         newEntry["messages"] = []
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
     }
+
+    sendMsg(lender,borrower,msg,gameName);
+    pushData();
+}
+
+function sendMsg(lender, borrower, msg, gameName,isLender) {
     msgJson = {
         "user": isLender ? "lender" : "borrower",
         "content": msg,
