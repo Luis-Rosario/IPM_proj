@@ -999,6 +999,7 @@ function deleteGame(userId, game_name) {
             json.game_rentals.splice(json.game_rentals.indexOf(game), 1);
         }
     }
+    delete json.rental_history.lenders[userId].games[game_name]
     pushData();
 }
 
