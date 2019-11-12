@@ -1,6 +1,8 @@
 var peer = new Peer();
 var serverID = "lleme-play-server"
 
+dayAdjustment = 0;
+
 function pushData() {
     console.log("temp function, no connection to PEERJS")
 }
@@ -18,13 +20,18 @@ peer.on("open", (id) => {
                 conn.send(json);
             }
             //recieved update
-        conn.on("data", function(newJSON) {
-            if (newJSON.consoles) {
-                json = newJSON;
+        conn.on("data", function(data) {
+            //e o json, atualiza cenas
+            if (data.consoles) {
+                json = data;
                 console.log("got a json")
-            } else {
+            } else if(data.match(/\d/g)){
+              //avanca tempo
+              dayAdjustment = data-0;
+              console.log("moved forward "+dayAdjustment+" days in time")
+            } else{
                 console.log("server message")
-                console.log(newJSON)
+                console.log(data)
             }
         });
     });
@@ -857,6 +864,30 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
           "date": "2019/09/07",
           "time": "12:02"
       },*/
+
+function getCurrDate(){
+  return new Date(new Date().getTime() + dayAdjustment*(1*(1000 * 60 * 60 * 24)));
+}
+
+function dateToStr(date){
+ return date.getFullYear() + "/" + (date.getMonth()+1) + "/" + (date.getUTCDate())
+}
+
+function strToDate(date){
+  date = date.split("/")
+  return new Date(date[0],date[1]-1,date[2]);
+}
+
+function createRentalProposal(lender,borrower,gameName,duration,msg){
+    //duration in weeks
+    sendMsg(lender,borrower,msg,gameName);
+
+    game = getGameInfo(lender,gameName);
+    endDate = new Date(getCurrDate().getTime() + duration*(7*(1000 * 60 * 60 * 24)));
+
+    game.endDate = dateToStr(endDate);
+    game.warned = false;
+}
 
 function sendMsg(lender, borrower, msg, gameName) {
     if (json.rental_history.lenders[lender] == undefined) {
