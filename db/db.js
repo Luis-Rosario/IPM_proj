@@ -280,7 +280,7 @@ json = {
             "year": 2019,
             "category": ["action", "adventure"],
             "console": ["PS4"],
-            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=hNTJXbq6MoeyUrmTu7gN&q=death+stranding+ps4+cover&oq=death+stranding+ps4+cover&gs_l=img.3..0j0i333.25493.26186..26300...0.0..0.105.565.4j2......0....1..gws-wiz-img.......0i30j0i8i30.acmJgfDdExs&ved=0ahUKEwi6jJ_4juPlAhUHmRQKHbnJDtcQ4dUDCAc&uact=5#imgrc=EvNK02QrycP0yM:",
+            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "description": "Death Stranding is an action, strand video game developed by Kojima Productions, and published by Sony Interactive Entertainment for the PlayStation 4."
         },
         {
@@ -298,7 +298,7 @@ json = {
             "console": ["PS4", "Xbox One", "PC"],
             "image_url": "https://www.google.com/search?q=borderlands+3+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjLs6_2kePlAhUCcBQKHYp3BuEQ_AUIEigB&biw=1278&bih=621#imgrc=0y7gxJhoSxfhlM:",
             "description": "Borderlands 3 is the fourth main and fifth overall entry in Gearbox Software's Borderlands game series."
-        }, 
+        },
         {
             "name": "Minecraft",
             "year": 2009,
@@ -326,8 +326,7 @@ json = {
 
     ],
 
-    "game_rentals": [
-        {
+    "game_rentals": [{
             "user_email": "a@a.com", //ruizinho@gmail.com
             "game_name": "FIFA 19",
             "year": 2018,
@@ -402,7 +401,7 @@ json = {
             "game_name": "Uncharted 4: A Thief's End",
             "year": 2016,
             "category": ["action", "adventure"],
-            "console": ["PS4"],
+            "console": "PS4",
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true
@@ -412,7 +411,7 @@ json = {
             "game_name": "Uncharted 4: A Thief's End",
             "year": 2016,
             "category": ["action", "adventure"],
-            "console": ["PS4"],
+            "console": "PS4",
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true
@@ -422,8 +421,8 @@ json = {
             "game_name": "Death Stranding",
             "year": 2019,
             "category": ["action", "adventure"],
-            "console": ["PS4"],
-            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=hNTJXbq6MoeyUrmTu7gN&q=death+stranding+ps4+cover&oq=death+stranding+ps4+cover&gs_l=img.3..0j0i333.25493.26186..26300...0.0..0.105.565.4j2......0....1..gws-wiz-img.......0i30j0i8i30.acmJgfDdExs&ved=0ahUKEwi6jJ_4juPlAhUHmRQKHbnJDtcQ4dUDCAc&uact=5#imgrc=EvNK02QrycP0yM:",
+            "console": "PS4",
+            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "duration_range": [1, 4],
             "active": true
         }
@@ -452,7 +451,7 @@ json = {
 
                         }
                     }
-                    
+
                 }
             },
             "assuncao-martins.verified@gmail.com": {
@@ -517,8 +516,7 @@ json = {
                         }
                     },
                     "Uncharted 4: A Thief's End": {
-                        "borrowers": {
-                        }
+                        "borrowers": {}
                     }
                 }
             },
@@ -543,7 +541,7 @@ json = {
             },
             "marcelo_the_usurper@hotmail.com": {
                 "games": {
-                
+
                 }
             },
             "a@a.com": { //ruizinho@hotmail.com
@@ -624,12 +622,13 @@ getGames({
 */
 function getGames(filterObj) {
     games = [];
+    savedList = {}
     borrower = filterObj.byUser;
 
     for (i = 0; i < json.game_rentals.length; i++) {
         gameRental = json.game_rentals[i];
         lender = gameRental.user_email;
-        alreadySaved = games[gameRental.game_name];
+        alreadySaved = savedList[gameRental.game_name];
         //console.log(filterObj.consoles, gameRental.console)
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
             (filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
@@ -640,8 +639,10 @@ function getGames(filterObj) {
             (filterObj.distance ? getDistanceByUser(lender, borrower) <= filterObj.distance : true) &&
             ((filterObj.duration && filterObj.duration.length) ? ((gameRental.duration_range[0] >= filterObj.duration[0]) && (gameRental.duration_range[1] <= filterObj.duration[1])) : true);
 
-        if (!alreadySaved && respectsFilters)
+        if (!alreadySaved && respectsFilters) {
             games.push(gameRental);
+            savedList[gameRental.game_name] = true;
+        }
     }
     return games;
 }
@@ -785,8 +786,8 @@ function getAllGameLenders(gameName) {
 function addGame(userId, gameObj) {
     gameObj[user_email] = userId;
     json.game_rentals.push(gameObj);
-    json.rental_history.lenders[userId].games[gameObj[game_name]]={}
-    json.rental_history.lenders[userId].games[gameObj[game_name]].borrowers={}
+    json.rental_history.lenders[userId].games[gameObj[game_name]] = {}
+    json.rental_history.lenders[userId].games[gameObj[game_name]].borrowers = {}
     pushData();
 }
 
@@ -810,7 +811,7 @@ function addUser(userObj) {
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lender[userObj.email] = {}
-    json.rental_history.lender[userObj.email].games={}
+    json.rental_history.lender[userObj.email].games = {}
 
     pushData();
 }
@@ -857,20 +858,20 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
           "time": "12:02"
       },*/
 
-function sendMsg(lender,borrower,msg,gameName){
-  if(json.rental_history.lenders[lender]==undefined){
-    json.rental_history.lender[lender] = {}
-    json.rental_history.lender[lender][gameName]={}
-  }
-  entry = json.rental_history.lenders[lender].games[gameName].borrowers[borrower]
-  if(entry == undefined){
-    newEntry={}
-    newEntry["lent"]="pending"
-    newEntry["messages"]=[]
-    json.rental_history.lenders[lender].games[gameName].borrowers[borrower]=newEntry
-  }
-  json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
-  pushData();
+function sendMsg(lender, borrower, msg, gameName) {
+    if (json.rental_history.lenders[lender] == undefined) {
+        json.rental_history.lender[lender] = {}
+        json.rental_history.lender[lender][gameName] = {}
+    }
+    entry = json.rental_history.lenders[lender].games[gameName].borrowers[borrower]
+    if (entry == undefined) {
+        newEntry = {}
+        newEntry["lent"] = "pending"
+        newEntry["messages"] = []
+        json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
+    }
+    json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
+    pushData();
 }
 
 
