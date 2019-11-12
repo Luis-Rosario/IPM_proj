@@ -154,16 +154,38 @@ a {
 .header {
     width: 100%;
     background: white;
-    border-bottom: 2px solid gainsboro;
-    padding: 20px;
+    border-bottom: 1px solid #FAFAFA;
     position: absolute;
     top: 0;
     left: 15px;
 }
 
 .chat-button {
-    &:hover {
-        background: gainsboro;
+    padding: 12px;
+    b {
+        color: inherit
+    }
+    &#accept {
+        background: rgba(#6ab357, 0.28);
+        /*  opacity: 0.8; */
+        color: #6ab357;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background: #6ab357;
+            color: white;
+        }
+    }
+    &#refuse {
+        background: rgba($red, 0.28);
+        /* opacity: 0.8; */
+        color: $red;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background: $red;
+            color: white;
+        }
     }
 }
 
