@@ -1,8 +1,21 @@
 var peer = new Peer();
 var serverID = "lleme-play-server"
 
+function clearStorage() {
+    localStorage.removeItem("json");
+}
+
+//callback() list
+changeListeners = [];
+
+function onDataChange(cb) {
+    changeListeners.push(cb);
+}
+
 function pushData() {
-    console.log("temp function, no connection to PEERJS")
+    console.log("temp function, no connection to PEERJS");
+    //backup to localstorage
+    localStorage.json = JSON.stringify(json);
 }
 
 //ligou-se ao peerjs
@@ -16,12 +29,19 @@ peer.on("open", (id) => {
             //change push function to send update
         pushData = function() {
                 conn.send(json);
+                //backup to localstorage
+                localStorage.json = JSON.stringify(json);
             }
-            //recieved update
+            //RECIEVED UPDATE
         conn.on("data", function(newJSON) {
             if (newJSON.consoles) {
                 json = newJSON;
+                //backup to localstorage
+                localStorage.json = JSON.stringify(newJSON);
                 console.log("got a json")
+                for (let i = 0; i < changeListeners.length; i++) {
+                    changeListeners[i]();
+                }
             } else {
                 console.log("server message")
                 console.log(newJSON)
@@ -29,14 +49,6 @@ peer.on("open", (id) => {
         });
     });
 });
-
-
-
-
-
-
-
-
 
 json = {
     "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
@@ -596,6 +608,12 @@ json = {
     }
 }
 
+//localStorage serve como backup, se existe, carrega json
+if (localStorage.json) {
+    json = JSON.parse(localStorage.json);
+} else {
+    localStorage.json = JSON.stringify(json);
+}
 
 
 currentUser = "assuncao-martins.verified@gmail.com"
@@ -784,10 +802,10 @@ function getAllGameLenders(gameName) {
 }
 */
 function addGame(userId, gameObj) {
-    gameObj[user_email] = userId;
+    gameObj.user_email = userId;
     json.game_rentals.push(gameObj);
-    json.rental_history.lenders[userId].games[gameObj[game_name]] = {}
-    json.rental_history.lenders[userId].games[gameObj[game_name]].borrowers = {}
+    json.rental_history.lenders[userId].games[gameObj.game_name] = {}
+    json.rental_history.lenders[userId].games[gameObj.game_name].borrowers = {}
     pushData();
 }
 

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 
 declare const getGames: any;
+declare const onDataChange: any;
 
 @Component({
   selector: 'browse-page',
@@ -21,9 +22,9 @@ export class BrowsePageComponent implements OnInit {
     private _route: ActivatedRoute
   ) { }
 
-
-  ngOnInit() {
-
+  main(){
+    console.log("init browse");
+    console.log(getGames({byUser:"a@a.com"}));
     this.JSfilters()
   
     
@@ -32,19 +33,26 @@ export class BrowsePageComponent implements OnInit {
       this.filter = Object.assign({},this.query)
     })
     
-    this.getResults()
     this._route.queryParams.subscribe(()=>{
       this.getResults();
     })
+  }
+
+  ngOnInit() {
+    onDataChange(this.getResults.bind(this))
+    this.main();
+    setInterval(()=>{
+      this.results[0];
+    },2000);
+
 
   }
 
   getResults() {
-    console.log(this.filter)
-    this.results = getGames(this.filter)
+   /*  console.log(this.filter) */
+    this.results = getGames(this.filter);
+    /* console.log("getResults:--->",this.results) */
   }
-
-
 
   JSfilters(){
     $(".pill").click(function() {
