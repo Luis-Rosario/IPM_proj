@@ -43,7 +43,7 @@
                             <div class="info ">2 days <b>delayed</b></div>
                         </div> -->
                         <div class="game lent" *ngFor="let game of gamesBorrowed">
-                            <lib-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></lib-card>
+                            <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
                         </div>
                         <!--  <div class="game lent">
                             <div class="info">2 weeks left</div>

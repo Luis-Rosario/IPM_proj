@@ -628,7 +628,7 @@ json = {
                                         "content": "Hello, can you lend me this game?",
                                         "date": "2019/10/12",
                                         "time": "09:00",
-                                        "read": true                                 
+                                        "read": true
                                     },
                                     {
                                         "user": "lender",
@@ -773,19 +773,19 @@ function getNotifications(userEmail) {
     notifications = []
 
 
-    for(game in json.rental_history.lenders[userEmail].games){
-        for(borrower in json.rental_history.lenders[userEmail].games[game].borrowers){
-            last =  json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages.length - 1
-            if(last>=0){
+    for (game in json.rental_history.lenders[userEmail].games) {
+        for (borrower in json.rental_history.lenders[userEmail].games[game].borrowers) {
+            last = json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages.length - 1
+            if (last >= 0) {
                 objNotif = {}
-                msg= json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages[last]
+                msg = json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages[last]
                 objNotif.user = userEmail
                 objNotif.otherUser = borrower
                 objNotif.game = game
                 objNotif.date = msg.date
-                objNotif.time= msg.time
+                objNotif.time = msg.time
                 objNotif.content = msg.content
-                if(msg.user == "lender"){
+                if (msg.user == "lender") {
                     objNotif.read = true
                 } else {
                     objNotif.read = msg.read
@@ -795,28 +795,28 @@ function getNotifications(userEmail) {
         }
     }
 
-    for(lender in json.rental_history.lenders){
-        for(game in json.rental_history.lenders[lender].games){
-            for(borrower in json.rental_history.lenders[lender].games[game].borrowers){
-                if(borrower == userEmail){
-                    last =  json.rental_history.lenders[lender].games[game].borrowers[borrower].messages.length - 1
-                    if(last>=0){
+    for (lender in json.rental_history.lenders) {
+        for (game in json.rental_history.lenders[lender].games) {
+            for (borrower in json.rental_history.lenders[lender].games[game].borrowers) {
+                if (borrower == userEmail) {
+                    last = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages.length - 1
+                    if (last >= 0) {
                         objNotif = {}
                         msg = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages[last]
                         objNotif.user = userEmail
                         objNotif.otherUser = lender
                         objNotif.game = game
                         objNotif.date = msg.date
-                        objNotif.time= msg.time
+                        objNotif.time = msg.time
                         objNotif.content = msg.content
-                        if(msg.user == "borrower"){
+                        if (msg.user == "borrower") {
                             objNotif.read = true
                         } else {
                             objNotif.read = msg.read
                         }
                         notifications.push(objNotif)
                     }
-                }        
+                }
             }
         }
     }
@@ -827,12 +827,15 @@ function getNotifications(userEmail) {
         d2 = strToDate(second.date)
         date1 = first.time.split(":")
         date2 = second.time.split(":")
-        d1.setHours(date1[0]-0, date1[1]-0)
-        d2.setHours(date2[0]-0, date2[1]-0)
+        d1.setHours(date1[0] - 0, date1[1] - 0)
+        d2.setHours(date2[0] - 0, date2[1] - 0)
         return d2 - d1;
     });
 }
 
+function getConsoles() {
+    return json.consoles
+}
 /*
 getGames({
 "gameName":"name",
@@ -873,6 +876,7 @@ function getGames(filterObj) {
     console.log("returning", games);
     return games;
 }
+
 
 function getGameInfo(userId, gameName) {
     for (i in json.game_rentals) {
@@ -1092,7 +1096,7 @@ function sendMsg(lender, borrower, msg, gameName, sender) {
         "content": msg,
         "date": dateToStr(getCurrDate()),
         "time": time,
-        "read": false     
+        "read": false
     }
     json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();

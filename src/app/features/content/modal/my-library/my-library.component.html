@@ -18,7 +18,7 @@
             <div class="title">Borrowed Games</div>
         </div>
         <div *ngFor="let game of borrowingGames">
-            <lib-card class="non-owner game-card" [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></lib-card>
+            <game-card class="non-owner game-card" [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
         </div>
     </div>
 </div>
@@ -48,6 +48,12 @@
                         <h6 class="pill interactive active">Puzzle</h6>
                         <h6 class="pill interactive ">Adventure</h6>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Platform</label>
+                    <select class="select-console">
+                        <option *ngFor="let console of this.consoles">{{console}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="duration">Loan Duration</label>

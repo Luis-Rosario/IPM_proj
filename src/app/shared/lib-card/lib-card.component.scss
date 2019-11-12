@@ -133,13 +133,13 @@
         height: 100%;
         z-index: 2;
     }
-    &.active {
-        .hover-area a.delete-btn {
+    .active {
+        .hover-area a.return-btn {
             display: none;
         }
     }
     &:not(.active) {
-        .hover-area a.return-btn {
+        .hover-area a.delete-btn {
             display: none;
         }
     }

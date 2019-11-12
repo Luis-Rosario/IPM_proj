@@ -6,6 +6,7 @@ declare const getGamesLending: any;
 declare const getGamesBorrowing: any;
 declare const pagesFunctions: any;
 declare const addGame: any;
+declare const getConsoles: any;
 
 @Component({
   selector: "library",
@@ -20,6 +21,7 @@ export class LibraryComponent implements OnInit {
   borrowingGames: String[] = [];
 
   user: any;
+  consoles: any[] = [];
 
   constructor(private sessionQuery: SessionQuery) { }
 
@@ -27,7 +29,7 @@ export class LibraryComponent implements OnInit {
     this.user = this.sessionQuery.getValue().email;
     this.getLendingGames();
     this.getBorrowingGames();
-
+    this.consoles = getConsoles();
     pagesFunctions.libraryPage();
   }
 
@@ -61,6 +63,7 @@ export class LibraryComponent implements OnInit {
   }
 
   isAvailable(game) {
+    console.log(this.lendingGamesInfo.get(game))
     return this.lendingGamesInfo.get(game).active;
   }
 
@@ -69,23 +72,24 @@ export class LibraryComponent implements OnInit {
     let name = (<HTMLInputElement>document.getElementById("name")).value
     let year = (<HTMLInputElement>document.getElementById("year")).value
     let categories = [];
-    
 
-    for(var i=0;i<$("#new-game-modal .pill.active").length;i++){
+
+    for (var i = 0; i < $("#new-game-modal .pill.active").length; i++) {
       var el = $("#new-game-modal .pill.active").eq(i).text();
       categories.push(el)
     }
 
+    var platform = $("#new-game-modal .select-console").val()
     var range = $("#new-game-modal .duration-range").val().split(",")
-    range[0]-=0;
-    range[1]-=0;
+    range[0] -= 0;
+    range[1] -= 0;
 
-    var jsonGame ={
-      "user_email": this.user, 
+    var jsonGame = {
+      "user_email": this.user,
       "game_name": name,
       "year": year,
       "category": categories,
-      "console": "",
+      "console": platform,
       "image_url": "assets/llamma.png",
       "duration_range": range,
       "active": true,
@@ -93,7 +97,8 @@ export class LibraryComponent implements OnInit {
       "endDate": "",
     }
     addGame(this.user, jsonGame);
-    
+    console.log(platform)
+
     this.ngOnInit();
   }
 }
