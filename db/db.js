@@ -2,6 +2,7 @@ var peer = new Peer();
 var serverID = "lleme-play-server"
 
 dayAdjustment = 0;
+
 function clearStorage() {
     localStorage.removeItem("json");
 }
@@ -43,11 +44,11 @@ peer.on("open", (id) => {
                 for (let i = 0; i < changeListeners.length; i++) {
                     changeListeners[i]();
                 }
-            } else if(data.match(/\d/g)){
-              //avanca tempo
-              dayAdjustment = data-0;
-              console.log("moved forward "+dayAdjustment+" days in time")
-            } else{
+            } else if (data.match(/\d/g)) {
+                //avanca tempo
+                dayAdjustment = data - 0;
+                console.log("moved forward " + dayAdjustment + " days in time")
+            } else {
                 console.log("server message")
                 console.log(data)
             }
@@ -722,17 +723,17 @@ function getDistance(city1, city2) {
     return json.cities[city1][city2]
 }
 
-function getCurrDate(){
-    return new Date(new Date().getTime() + dayAdjustment*(1*(1000 * 60 * 60 * 24)));
+function getCurrDate() {
+    return new Date(new Date().getTime() + dayAdjustment * (1 * (1000 * 60 * 60 * 24)));
 }
-  
-function dateToStr(date){
-   return date.getFullYear() + "/" + (date.getMonth()+1) + "/" + (date.getUTCDate())
+
+function dateToStr(date) {
+    return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
 }
-  
-function strToDate(date){
+
+function strToDate(date) {
     date = date.split("/")
-    return new Date(date[0],date[1]-1,date[2]);
+    return new Date(date[0], date[1] - 1, date[2]);
 }
 
 function getChat(userId1, userId2, game) {
@@ -776,7 +777,7 @@ getGames({
 })
 */
 function getGames(filterObj) {
-    console.log("filtering with",filterObj);
+    console.log("filtering with", filterObj);
     games = [];
     savedList = {}
     borrower = filterObj.byUser;
@@ -789,19 +790,19 @@ function getGames(filterObj) {
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
             //(filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
             ((filterObj.gameYear && filterObj.gameYear.length) ? ((gameRental.year >= filterObj.gameYear[0]) && (gameRental.year <= filterObj.gameYear[1])) : true) &&
-            
+
             ((filterObj.consoles && filterObj.consoles.length) ? (filterObj.consoles.some((val) => { return val.toLowerCase() == gameRental.console.toLowerCase() })) : true) &&
 
             ((filterObj.categories && filterObj.categories.length) ? gameRental.category.some((val) => { return filterObj.categories.includes(val) }) : true) &&
-            ((filterObj.distance-0) ? getDistanceByUser(lender, borrower) < filterObj.distance : true) &&
-            ((filterObj.duration-0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
+            ((filterObj.distance - 0) ? getDistanceByUser(lender, borrower) < filterObj.distance : true) &&
+            ((filterObj.duration - 0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
 
         if (!alreadySaved && respectsFilters) {
             games.push(gameRental);
             savedList[gameRental.game_name] = true;
         }
     }
-    console.log("returning",games);
+    console.log("returning", games);
     return games;
 }
 
@@ -813,14 +814,14 @@ function getGameInfo(userId, gameName) {
     }
 }
 
-function getGameData(gameName){
-    for(game in json.game_db){
-      if(json[game].name === gameName){
-        return json[game];
-      }
+function getGameData(gameName) {
+    for (game in json.game_db) {
+        if (json[game].name === gameName) {
+            return json[game];
+        }
     }
     return {};
-  }
+}
 
 function getGamesBorrowing(userId) {
     gamesRenting = {}
@@ -844,37 +845,44 @@ function getGamesLending(userId) {
 }
 
 //[{gameName:"cenas",daysLeft:1}]
-function orderedGamesBorrowing(borrower){
-  games = getGamesBorrowing(borrower);
-  gamesOrdered=[]
-  for(game in games){
-    gameData = games[game];
-    daysLeft = strToDate(gameData.endDate) - getCurrDate();
-    gameData.daysLeft = Math.round(daysLeft/ ((1000*60*60*24)));
-    gamesOrdered[gameData.name]=gameData;
-  }
-  return gamesOrdered.sort(function(first, second) {
-    return first.daysLeft - second.daysLeft;
-  });
+function orderedGamesBorrowing(borrower) {
+    games = getGamesBorrowing(borrower);
+    gamesOrdered = []
+    for (game in games) {
+        gameData = games[game];
+        daysLeft = strToDate(gameData.endDate) - getCurrDate();
+        gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
+        gamesOrdered[gameData.name] = gameData;
+    }
+    return gamesOrdered.sort(function(first, second) {
+        return first.daysLeft - second.daysLeft;
+    });
 
 }
 
-function orderedGamesLending(lender){
-  games = getGamesLending(lender);
-  gamesOrdered=[]
-  for(game in games){
-    gameData = games[game];
-    daysLeft = strToDate(gameData.endDate) - getCurrDate();
-    gameData.daysLeft = Math.round(daysLeft/ ((1000*60*60*24)));
-    gamesOrdered[gameData.name]=gameData;
-  }
-  return gamesOrdered.sort(function(first, second) {
-    return first.daysLeft - second.daysLeft;
-  });
+function orderedGamesLending(lender) {
+    games = getGamesLending(lender);
+    gamesOrdered = []
+    for (game in games) {
+        gameData = games[game];
+        daysLeft = strToDate(gameData.endDate) - getCurrDate();
+        gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
+        gamesOrdered[gameData.name] = gameData;
+    }
+    return gamesOrdered.sort(function(first, second) {
+        return first.daysLeft - second.daysLeft;
+    });
 
 }
 
-
+function getGameData(gameName) {
+    for (game in json.game_db) {
+        if (json[game].name === gameName) {
+            return json[game];
+        }
+    }
+    return {};
+}
 
 //------------------------------------------------
 //------------------------------------------------
@@ -943,7 +951,7 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
 
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
-    duration=json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
+    duration = json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
 
     for (game in json.game_rentals) {
         if (json.game_rentals[game].user_email == lenderEmail && json.game_rentals[game].game_name == gameName) {
@@ -951,8 +959,8 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
         }
     }
 
-    game = getGameInfo(lenderEmail,gameName);
-    endDate = new Date(getCurrDate().getTime() + duration*(7*(1000 * 60 * 60 * 24)));
+    game = getGameInfo(lenderEmail, gameName);
+    endDate = new Date(getCurrDate().getTime() + duration * (7 * (1000 * 60 * 60 * 24)));
     game.endDate = dateToStr(endDate);
     game.warned = false;
     pushData();
@@ -963,7 +971,31 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
     pushData();
 }
 
-function createRentalProposal(lender,borrower,gameName,duration,msg){
+/*"castelo_branquinho@gmail.com": {
+  "lent": "accepted",
+  pending,accepted,past
+  "messages": [{
+          "user": "borrower",
+          lender, borrower, system
+          "content": "Hello, darling! Lend me this game! Muah",
+          "date": "2019/09/07",
+          "time": "12:02"
+      },*/
+
+function getCurrDate() {
+    return new Date(new Date().getTime() + dayAdjustment * (1 * (1000 * 60 * 60 * 24)));
+}
+
+function dateToStr(date) {
+    return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
+}
+
+function strToDate(date) {
+    date = date.split("/")
+    return new Date(date[0], date[1] - 1, date[2]);
+}
+
+function createRentalProposal(lender, borrower, gameName, duration, msg) {
     if (json.rental_history.lenders[lender] == undefined) {
         json.rental_history.lender[lender] = {}
         json.rental_history.lender[lender][gameName] = {}
@@ -977,16 +1009,16 @@ function createRentalProposal(lender,borrower,gameName,duration,msg){
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
     }
 
-    sendMsg(lender,borrower,msg,gameName);
+    sendMsg(lender, borrower, msg, gameName);
     pushData();
 }
 
-function sendMsg(lender, borrower, msg, gameName, sender) {
+function sendMsg(lender, borrower, msg, gameName, isLender) {
     msgJson = {
         "user": sender,
         "content": msg,
         "date": "",
-        "time": ""/* today.getHours() + ":" + today.getMinutes() */
+        "time": "" /* today.getHours() + ":" + today.getMinutes() */
     }
     json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
@@ -995,18 +1027,18 @@ function sendMsg(lender, borrower, msg, gameName, sender) {
 function sendNotifications(userEmail) {
     gamesBorrowing = orderedGamesBorrowing(userEmail)
 
-    for(i in gamesBorrowing) {
+    for (i in gamesBorrowing) {
         game = gamesLending[i];
-        if(game.daysLeft <= 0) {
+        if (game.daysLeft <= 0) {
             sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system")
         }
     }
 
     gamesLending = orderedGamesLending(userEmail)
 
-    for(i in gamesLending) {
+    for (i in gamesLending) {
         game = gamesLending[i];
-        if(game.daysLeft <= -2) {
+        if (game.daysLeft <= -2) {
             sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system")
         }
     }

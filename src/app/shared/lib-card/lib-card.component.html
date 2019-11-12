@@ -1,10 +1,9 @@
 <div class="game-card owner">
-  <img src="{{ this.gameInfo.image_url }}" alt="" />
-  <div class="hover-area">
-    <a class="hover-btn show-btn" data-target="#gamegame" data-toggle="modal"
-      >Show/Edit Info</a
+    <img src="{{ this.gameInfo.image_url }}" alt="" />
+    <div class="hover-area">
+        <a class="hover-btn show-btn" data-target="#gamegame" data-toggle="modal" (click)="showInfo()">Show/Edit Info</a
     >
-    <a class="hover-btn return-btn">Mark as Returned</a>
-    <a class="hover-btn delete-btn">Delete Game</a>
-  </div>
+    <a class="hover-btn return-btn" (click)="markAsReturned()">Mark as Returned</a>
+        <a class="hover-btn delete-btn" (click)="deleteGame()">Delete Game</a>
+    </div>
 </div>

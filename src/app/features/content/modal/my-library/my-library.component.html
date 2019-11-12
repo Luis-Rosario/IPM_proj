@@ -8,7 +8,7 @@
                 <a class="new-game-btn">+</a>
                 <div class="description">Add Game</div>
             </div>
-            <div *ngFor="let game of lendingGames">
+            <div *ngFor="let game of lendingGames" [className]="isAvailable(game) ? 'available' : 'unavailable'">
                 <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></lib-card>
             </div>
         </div>
@@ -17,7 +17,9 @@
         <div class="title-row">
             <div class="title">Borrowed Games</div>
         </div>
-        <game-card class="non-owner game-card" *ngFor="let game of borrowingGames" [gameName]="game.game_name" [gameInfo]="game"></game-card>
+        <div *ngFor="let game of borrowingGames">
+            <lib-card class="non-owner game-card" [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></lib-card>
+        </div>
     </div>
 </div>
 <div class="game-modal modal" id="new-game-modal">
@@ -52,11 +54,12 @@
                     <div class="input-group duration-group">
                         <input type="range" class="duration-range" multiple min="1" max="6" value="1,6" step="1" />
                         <label for="duration-min"></label>
-                        <label for="duration-max"></label>
+                        <label for="
+                        duration-max"></label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <a class="btn" id="submit-new-game">
+                    <a class="btn" id="submit-new-game" (click)="this.addGame()">
             Add game
           </a>
                 </div>

@@ -5,6 +5,11 @@ var pagesFunctions = {
         if (el)
             multirange(el);
 
+        $("#new-game-modal #submit-new-game").click(() => {
+            $("#new-game-modal").modal("toggle")
+        })
+
+
         setTimeout(() => {
             $("input").on("input", function() {
                 var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
