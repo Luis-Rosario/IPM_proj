@@ -10,7 +10,7 @@
 </div>
 <div class="chat-form">
     <div class="form-group">
-        <input type="text" placeholder="Send a message" id="chat-input" (keyup)="sendMessage($event)">
+        <input type="text" placeholder="Send a message" id="chat-input" (keyup)="sendMessage($event, targetPerson)">
         <a class=" btn " id="send-msg " (click)="sendMessage($event) ">Send</a>
     </div>
 </div>

@@ -876,7 +876,14 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
           "time": "12:02"
       },*/
 
-function sendMsg(lender, borrower, msg, gameName) {
+function sendMsg(lender, borrower, msg, gameName, isLender) {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '/' + mm + '/' + dd;
+
+    today = mm + '/' + dd + '/' + yyyy;
     if (json.rental_history.lenders[lender] == undefined) {
         json.rental_history.lender[lender] = {}
         json.rental_history.lender[lender][gameName] = {}
@@ -888,7 +895,13 @@ function sendMsg(lender, borrower, msg, gameName) {
         newEntry["messages"] = []
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
     }
-    json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msg);
+    msgJson = {
+        "user": isLender ? "lender" : "borrower",
+        "content": msg,
+        "date": today,
+        "time": /* today.getHours() + ":" + today.getMinutes() */ "",
+    }
+    json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
 }
 
