@@ -473,7 +473,7 @@ json = {
             "game": "Uncharted",
             "user": "Mr. Borrower",
             "content": "Quero",
-            "visited": false
+            "read": false
         }]
     },
 
@@ -510,19 +510,22 @@ json = {
                                         /*lender, borrower, system*/
                                         "content": "Hello, darling! Lend me this game! Muah",
                                         "date": "2019/09/07",
-                                        "time": "12:02"
+                                        "time": "12:02",
+                                        "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "Okay, I will!",
                                         "date": "2019/09/07",
-                                        "time": "12:32"
+                                        "time": "12:32",
+                                        "read": true
                                     },
                                     {
                                         "user": "system",
                                         "content": "Please return this game!",
-                                        "date": "2019/09/14",
-                                        "time": "12:40"
+                                        "date": "2019/09/07",
+                                        "time": "12:35",
+                                        "read": true
                                     }
                                 ]
                             },
@@ -534,13 +537,15 @@ json = {
                                         /*lender, borrower, system*/
                                         "content": "Hi! I wanna borrow this game!",
                                         "date": "2019/09/07",
-                                        "time": "12:00"
+                                        "time": "12:00",
+                                        "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "I can't lend it right now, but maybe later.",
-                                        "date": "2019/09/07",
-                                        "time": "12:35"
+                                        "date": "2019/09/14",
+                                        "time": "12:40",
+                                        "read": true
                                     }
                                 ]
                             }
@@ -595,13 +600,15 @@ json = {
                                         "user": "borrower",
                                         "content": "Hello, can you lend me this game?",
                                         "date": "2019/10/12",
-                                        "time": "09:00"
+                                        "time": "09:00",
+                                        "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "Yes, ofc",
                                         "date": "2019/10/13",
-                                        "time": "11:00"
+                                        "time": "11:00",
+                                        "read": true
                                     }
                                 ]
                             }
@@ -620,13 +627,15 @@ json = {
                                         "user": "borrower",
                                         "content": "Hello, can you lend me this game?",
                                         "date": "2019/10/12",
-                                        "time": "09:00"
+                                        "time": "09:00",
+                                        "read": true                                 
                                     },
                                     {
                                         "user": "lender",
                                         "content": "Yes, ofc",
                                         "date": "2019/10/13",
-                                        "time": "11:00"
+                                        "time": "11:00",
+                                        "read": true
                                     }
                                 ]
                             }
@@ -690,7 +699,6 @@ function getBorrowingFrom(userId) {
     }
     return trades;
 }
-
 
 function getAllGameLenders(gameName) {
     userList = [];
@@ -760,10 +768,70 @@ function getBorrowingMessages(userId, game) {
     return messages
 }
 
-function getNotifications(userEmail) {
-    return json.notifications[userEmail]
-}
 
+function getNotifications(userEmail) {
+    notifications = []
+
+
+    for(game in json.rental_history.lenders[userEmail].games){
+        for(borrower in json.rental_history.lenders[userEmail].games[game].borrowers){
+            last =  json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages.length - 1
+            if(last>=0){
+                objNotif = {}
+                msg= json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages[last]
+                objNotif.user = userEmail
+                objNotif.otherUser = borrower
+                objNotif.game = game
+                objNotif.date = msg.date
+                objNotif.time= msg.time
+                objNotif.content = msg.content
+                if(msg.user == "lender"){
+                    objNotif.read = true
+                } else {
+                    objNotif.read = msg.read
+                }
+                notifications.push(objNotif)
+            }
+        }
+    }
+
+    for(lender in json.rental_history.lenders){
+        for(game in json.rental_history.lenders[lender].games){
+            for(borrower in json.rental_history.lenders[lender].games[game].borrowers){
+                if(borrower == userEmail){
+                    last =  json.rental_history.lenders[lender].games[game].borrowers[borrower].messages.length - 1
+                    if(last>=0){
+                        objNotif = {}
+                        msg = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages[last]
+                        objNotif.user = userEmail
+                        objNotif.otherUser = lender
+                        objNotif.game = game
+                        objNotif.date = msg.date
+                        objNotif.time= msg.time
+                        objNotif.content = msg.content
+                        if(msg.user == "borrower"){
+                            objNotif.read = true
+                        } else {
+                            objNotif.read = msg.read
+                        }
+                        notifications.push(objNotif)
+                    }
+                }        
+            }
+        }
+    }
+
+
+    return notifications.sort(function(first, second) {
+        d1 = strToDate(first.date)
+        d2 = strToDate(second.date)
+        date1 = first.time.split(":")
+        date2 = second.time.split(":")
+        d1.setHours(date1[0]-0, date1[1]-0)
+        d2.setHours(date2[0]-0, date2[1]-0)
+        return d2 - d1;
+    });
+}
 
 /*
 getGames({
@@ -1013,12 +1081,17 @@ function createRentalProposal(lender, borrower, gameName, duration, msg) {
     pushData();
 }
 
-function sendMsg(lender, borrower, msg, gameName, isLender) {
+function sendMsg(lender, borrower, msg, gameName, sender) {
+    date = getCurrDate()
+    hours = date.getUTCHours()
+    mins = date.getUTCMinutes()
+    time = hours + ":" + mins
     msgJson = {
         "user": sender,
         "content": msg,
-        "date": "",
-        "time": "" /* today.getHours() + ":" + today.getMinutes() */
+        "date": dateToStr(getCurrDate()),
+        "time": time,
+        "read": false     
     }
     json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
