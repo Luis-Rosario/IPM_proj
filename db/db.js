@@ -884,6 +884,7 @@ function sendMsg(lender, borrower, msg, gameName, isLender) {
     today = yyyy + '/' + mm + '/' + dd;
 
     today = mm + '/' + dd + '/' + yyyy;
+
     if (json.rental_history.lenders[lender] == undefined) {
         json.rental_history.lender[lender] = {}
         json.rental_history.lender[lender][gameName] = {}
