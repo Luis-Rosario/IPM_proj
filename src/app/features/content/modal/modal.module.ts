@@ -9,8 +9,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ChatComponent } from './inbox/chat/chat.component';
 import { LoanRequestsComponent } from './inbox/loan-requests/loan-requests.component';
-import { LibCardComponent } from './my-library/lib-card/lib-card.component';
-
 
 
 @NgModule({
@@ -21,7 +19,6 @@ import { LibCardComponent } from './my-library/lib-card/lib-card.component';
     ProfileComponent,
     ChatComponent,
     LoanRequestsComponent,
-    LibCardComponent,
   ],
   imports: [
     CommonModule,
