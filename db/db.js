@@ -814,6 +814,45 @@ function getAllGameLenders(gameName) {
     return userList;
 }
 
+function orderedGamesBorrowing(borrower){
+  games = getGamesBorrowing(borrower);
+  gamesOrdered={}
+  for(game in games){
+    gameData = games[game];
+    daysLeft = strToDate(gameData.endDate) - getCurrDate();
+    gameData.daysLeft = Math.round(daysLeft/ ((1000*60*60*24)));
+    gamesOrdered[gameData.name]=gameData;
+  }
+  return gamesOrdered.sort(function(first, second) {
+    return first.daysLeft - second.daysLeft;
+  });
+
+}
+
+function orderedGamesLending(lender){
+  games = getGamesLending(lender);
+  gamesOrdered={}
+  for(game in games){
+    gameData = games[game];
+    daysLeft = strToDate(gameData.endDate) - getCurrDate();
+    gameData.daysLeft = Math.round(daysLeft/ ((1000*60*60*24)));
+    gamesOrdered[gameData.name]=gameData;
+  }
+  return gamesOrdered.sort(function(first, second) {
+    return first.daysLeft - second.daysLeft;
+  });
+
+}
+
+function getGameData(gameName){
+  for(game in json.game_db){
+    if(json[game].name === gameName){
+      return json[game];
+    }
+  }
+  return {};
+}
+
 //------------------------------------------------
 //------------------------------------------------
 //---------------ACTION functions-----------------
@@ -873,6 +912,7 @@ function markGameAsReturned(lenderEmail, gameName) {
     pushData();
 }
 
+
 function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
     json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
     pushData()
@@ -892,7 +932,7 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
     endDate = new Date(getCurrDate().getTime() + duration*(7*(1000 * 60 * 60 * 24)));
     game.endDate = dateToStr(endDate);
     game.warned = false;
-    pushData();  
+    pushData();
 }
 
 function sendNotifications(userEmail) {
@@ -950,8 +990,8 @@ function sendMsg(lender, borrower, msg, gameName,isLender) {
     msgJson = {
         "user": isLender ? "lender" : "borrower",
         "content": msg,
-        "date": today,
-        "time": /* today.getHours() + ":" + today.getMinutes() */ "",
+        "date": "",
+        "time": ""/* today.getHours() + ":" + today.getMinutes() */
     }
     json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
