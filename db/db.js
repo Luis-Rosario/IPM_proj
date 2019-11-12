@@ -306,7 +306,7 @@ json = {
             "year": 1993,
             "category": ["action", "adventure"],
             "console": ["Nintendo Switch"],
-            "image_url": "https://www.google.com/search?q=the+legend+of+zelda+link%27s+awakening+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj2-ZrUkOPlAhUL6OAKHXjBB1kQ_AUIEigB&biw=1278&bih=621#imgrc=1G3JvcYC-74hbM:",
+            "image_url": "https://www.google.com/https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwig55vp7eXlAhUxzoUKHfTFBuQQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.gamestop.com%2Fvideo-games%2Fswitch%2Fgames%2Fproducts%2Fthe-legend-of-zelda-links-awakening%2F10173745.html&psig=AOvVaw25zVo8UUyq6IDGYDoAMC0C&ust=1573688814753465=the+legend+of+zelda+link%27s+awakening+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj2-ZrUkOPlAhUL6OAKHXjBB1kQ_AUIEigB&biw=1278&bih=621#imgrc=1G3JvcYC-74hbM:",
             "description": "Link's Awakening is one of the few Zelda games not to take place in the land of Hyrule, and does not feature Princess Zelda or the Triforce relic."
         },
         {
@@ -314,7 +314,7 @@ json = {
             "year": 2019,
             "category": ["action", "adventure"],
             "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://www.google.com/search?q=borderlands+3+cover&rlz=1C5CHFA_enPT568PT568&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjLs6_2kePlAhUCcBQKHYp3BuEQ_AUIEigB&biw=1278&bih=621#imgrc=0y7gxJhoSxfhlM:",
+            "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
             "description": "Borderlands 3 is the fourth main and fifth overall entry in Gearbox Software's Borderlands game series."
         },
         {
@@ -322,7 +322,7 @@ json = {
             "year": 2009,
             "category": ["sandbox", "survival", "action", "adventure"],
             "console": ["PS4", "Xbox One", "PC", "PS3", "Xbox 360", "Nintendo Switch", "PSP"],
-            "image_url": "https://www.google.com/search?rlz=1C5CHFA_enPT568PT568&biw=1278&bih=621&tbm=isch&sa=1&ei=8djJXYekKNvKgwek-oWIBg&q=minecraft+cover&oq=minecraft+cover&gs_l=img.3..0j0i30l9.8986.67154..94500...0.0..0.123.766.8j1......0....1..gws-wiz-img.......0i67j0i7i30j0i8i30.nrMhraT1trU&ved=0ahUKEwjH4LWUk-PlAhVb5eAKHSR9AWEQ4dUDCAc&uact=5#imgrc=wst2a1ymmOtx7M:",
+            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
             "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items."
         },
         {
@@ -330,7 +330,7 @@ json = {
             "year": 2014,
             "category": ["simulation"],
             "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjGn_WQlePlAhUi5uAKHRlTDC8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.saraiva.com.br%2Fthe-sims-4-ps4-9894062%2Fp&psig=AOvVaw1nVSUT-LiLeoAQfWlkB_Bu&ust=1573596289043932",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
             "description": "The Sims 4 is a life simulation game, similar to its predecessors. Players create a Sim character and control their life to explore different personalities which change the way the game plays out."
         },
         {
@@ -338,7 +338,7 @@ json = {
             "year": 2014,
             "category": ["fps", "action", "adventure"],
             "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwia_f_ZlePlAhUZ6OAKHd3DDwYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.lojapsngames.com.br%2Ffar-cry-4-midia-digital-xbox-one&psig=AOvVaw3DRWSX4jRe5aKB6R5M4MTS&ust=1573596434957711",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
             "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
         }
 
