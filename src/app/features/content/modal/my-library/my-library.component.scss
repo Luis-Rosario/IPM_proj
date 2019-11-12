@@ -31,7 +31,6 @@ $red: #b22222;
   border: 2px solid #eee;
   border-radius: 10px;
   display: inline-block;
-  order: 2;
   &.interactive:not(.active) {
     &:hover {
       border-color: rgba($orange, 0.5);
@@ -39,7 +38,6 @@ $red: #b22222;
     }
   }
   &.active {
-    order: 1;
     border: 2px solid rgba($orange, 0.5);
     background: rgba($orange, 0.8);
     &.interactive:hover {

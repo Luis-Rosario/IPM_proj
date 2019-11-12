@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
     consoles: [],
     categories: [],
     distance: 50000,
-    duration: [0, 1000],
+    duration: 0,
     byUser: ""
   };
 

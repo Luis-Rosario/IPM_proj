@@ -56,14 +56,12 @@
   border: 2px solid #eee;
   border-radius: 10px;
   display: inline-block;
-  order: 2;
 }
 .pill.interactive:not(.active):hover {
   border-color: rgba(251, 171, 91, 0.5);
   background: rgba(251, 171, 91, 0.1);
 }
 .pill.active {
-  order: 1;
   border: 2px solid rgba(251, 171, 91, 0.5);
   background: rgba(251, 171, 91, 0.8);
 }

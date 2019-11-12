@@ -767,7 +767,7 @@ function getNotifications(userEmail) {
 /*
 getGames({
 "gameName":"name",
-"gameYear":year,
+"gameYear":[yearMin,yearMax],
 "consoles":["console"],
 "categories":["category"],
 "distance":distance,
@@ -776,6 +776,7 @@ getGames({
 })
 */
 function getGames(filterObj) {
+    console.log("filtering with",filterObj);
     games = [];
     savedList = {}
     borrower = filterObj.byUser;
@@ -786,19 +787,21 @@ function getGames(filterObj) {
         alreadySaved = savedList[gameRental.game_name];
         //console.log(filterObj.consoles, gameRental.console)
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
-            (filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
-
+            //(filterObj.gameYear ? gameRental.year == filterObj.gameYear : true) &&
+            ((filterObj.gameYear && filterObj.gameYear.length) ? ((gameRental.year >= filterObj.gameYear[0]) && (gameRental.year <= filterObj.gameYear[1])) : true) &&
+            
             ((filterObj.consoles && filterObj.consoles.length) ? (filterObj.consoles.some((val) => { return val.toLowerCase() == gameRental.console.toLowerCase() })) : true) &&
 
             ((filterObj.categories && filterObj.categories.length) ? gameRental.category.some((val) => { return filterObj.categories.includes(val) }) : true) &&
-            (filterObj.distance ? getDistanceByUser(lender, borrower) <= filterObj.distance : true) &&
-            ((filterObj.duration && filterObj.duration.length) ? ((gameRental.duration_range[0] >= filterObj.duration[0]) && (gameRental.duration_range[1] <= filterObj.duration[1])) : true);
+            ((filterObj.distance-0) ? getDistanceByUser(lender, borrower) < filterObj.distance : true) &&
+            ((filterObj.duration-0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
 
         if (!alreadySaved && respectsFilters) {
             games.push(gameRental);
             savedList[gameRental.game_name] = true;
         }
     }
+    console.log("returning",games);
     return games;
 }
 
