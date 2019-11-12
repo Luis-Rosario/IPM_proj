@@ -15,7 +15,7 @@ declare const getBorrowingMessages: any;
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss']
 })
-export class InboxComponent implements OnInit,AfterViewInit {
+export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
 
   showBorrowed: any = true;
@@ -45,11 +45,11 @@ export class InboxComponent implements OnInit,AfterViewInit {
 
 
   }
-
+/* 
   ngAfterViewInit(): void {
     this.cd.detectChanges();
   
-  }
+  } */
 
 
   changeSelect() {

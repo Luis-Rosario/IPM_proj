@@ -14,7 +14,7 @@
     </div>
 
     <div class="request-list" *ngFor="let user of users">
-        <div class="user" (click)="selectRequest(user.email, $event)">
+        <div class="user" id="{{user.email}}" (click)="selectRequest(user.email, $event)">
 
             <span class="read">
                 {{user.first_name}} {{user.last_name}}

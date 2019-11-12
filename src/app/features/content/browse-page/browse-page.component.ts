@@ -23,11 +23,9 @@ export class BrowsePageComponent implements OnInit {
   ) { }
 
   main(){
-    console.log("init browse");
-    console.log(getGames({byUser:"a@a.com"}));
+    console.log("main enter")
     this.JSfilters()
   
-    
     this._route.queryParams.subscribe(params => {
       this.query = params;
       this.filter = Object.assign({},this.query)
@@ -39,19 +37,15 @@ export class BrowsePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    onDataChange(this.getResults.bind(this))
+    onDataChange(this.main.bind(this))
     this.main();
-    setInterval(()=>{
-      this.results[0];
-    },2000);
 
-
+    //very important function best function ever makes everything work :)
+    setInterval(()=>{},400);
   }
 
   getResults() {
-   /*  console.log(this.filter) */
     this.results = getGames(this.filter);
-    /* console.log("getResults:--->",this.results) */
   }
 
   JSfilters(){
