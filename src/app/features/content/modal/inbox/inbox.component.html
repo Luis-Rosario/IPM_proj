@@ -33,6 +33,6 @@
     </div>
 
     <div class=" col-4 chat-col">
-        <chat *ngIf="chatMessages !== undefined" [chat]="chatMessages" [lender]="(showBorrowed=='false') ? true: false" [loggedUser]="this.user" [targetPerson]="this.targetPerson" [game]="this.game" (acceptedRental)="refreshLoanRequest($event)"></chat>
+        <chat *ngIf="chatMessages !== undefined" [chat]="chatMessages" [lender]="(showBorrowed=='false') ? true: false" [loggedUser]="this.user" [targetPerson]="this.targetPerson" [game]="this.game" (acceptedRental)="refreshLoanRequest()"></chat>
     </div>
 </div>
