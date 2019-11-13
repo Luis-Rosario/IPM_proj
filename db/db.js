@@ -167,28 +167,28 @@ json = {
             "total_borrowed": 35,
             "total_lent": 30
         },
-        "assuncao-martins.verified@gmail.com": {
-            "email": "assuncao-martins.verified@gmail.com",
-            "password": "geringonça2019",
+        "floribela123@gmail.com": {
+            "email": "floribela123@gmail.com",
+            "password": "omeuvestidoazul",
 
-            "first_name": "Assunção",
-            "last_name": "Martins",
-            "birthdate": "1983/09/25",
+            "first_name": "Florbela",
+            "last_name": "Matias",
+            "birthdate": "1989/12/03",
             "gender": "F",
 
-            "street_address": "Rua das flores, nº46, 2ºE",
-            "postal_code": "7543-767",
-            "city": "Lisboa",
-            "city_id": 2,
+            "street_address": "Rua General Luis, nº5",
+            "postal_code": "7464-757",
+            "city": "Porto",
+            "city_id": 3,
 
-            "card_number": "1000200030004000",
-            "expiration_date": "07/20",
-            "security_code": "500",
-            "lender_rating": 3.3,
-            "borrower_rating": 2.9,
-            "llama_points": 100,
-            "total_borrowed": 21,
-            "total_lent": 32
+            "card_number": "1212121212121212",
+            "expiration_date": "01/25",
+            "security_code": "345",
+            "lender_rating": 4.5,
+            "borrower_rating": 4.1,
+            "llama_points": 1255,
+            "total_borrowed": 25,
+            "total_lent": 40
         },
         "manel_tristonho@hotmail.com": {
             "email": "manel_tristonho@hotmail.com",
@@ -257,6 +257,29 @@ json = {
             "borrower_rating": 2.7,
             "llama_points": 50,
             "total_borrowed": 13,
+            "total_lent": 7
+        },
+        "matias_flores@hotmail.com": {
+            "email": "matias_flores@hotmail.com",
+            "password": "matias12345",
+
+            "first_name": "Matias",
+            "last_name": "Flores",
+            "birthdate": "1998/05/23",
+            "gender": "M",
+
+            "street_address": "Rua do Cabeço, nº29, 1ºD",
+            "postal_code": "2323-467",
+            "city": "Lisboa",
+            "city_id": 2,
+
+            "card_number": "1234432112344321",
+            "expiration_date": "12/21",
+            "security_code": "888",
+            "lender_rating": 3.2,
+            "borrower_rating": 4.0,
+            "llama_points": 350,
+            "total_borrowed": 1,
             "total_lent": 7
         }
     },
@@ -355,12 +378,23 @@ json = {
             "active": true,
             "warnedLender": false,
             "warnedBorrower": false,
-            "endDate": "",
-            "warned": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
-            "user_email": "assuncao-martins.verified@gmail.com",
+            "user_email": "a@a.com",
+            "game_name": "Borderlands 3",
+            "year":  2019,
+            "category": ["action", "adventure"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [1, 2],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "floribela123@gmail.com",
             "game_name": "FIFA 19",
             "year": 2018,
             "category": ["sports", "football"],
@@ -368,11 +402,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [2, 7],
             "active": true,
-
             "warnedLender": false,
             "warnedBorrower": false,
-            "endDate": "",
-            "warned": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -384,7 +415,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 8],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -396,7 +428,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -408,11 +441,12 @@ json = {
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
-            "user_email": "assuncao-martins.verified@gmail.com",
+            "user_email": "floribela123@gmail.com",
             "game_name": "Super Smash Bros Ultimate",
             "year": 2019,
             "category": ["action", "fighting"],
@@ -420,7 +454,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": false,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -432,7 +467,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -444,7 +480,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -456,7 +493,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         },
         {
@@ -468,7 +506,8 @@ json = {
             "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "duration_range": [1, 4],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
         }
     ],
@@ -489,6 +528,11 @@ json = {
     //uma func. para ver se um jogo foi aceite ou nao, nao e dificil
     "rental_history": {
         "lenders": {
+            "matias_flores@hotmail.com": {
+                "games": {
+
+                }
+            },
             "docinho2019@hotmail.com": {
                 "games": {
                     "Death Stranding": {
@@ -499,7 +543,7 @@ json = {
 
                 }
             },
-            "assuncao-martins.verified@gmail.com": {
+            "floribela123@gmail.com": {
                 "games": {
                     "FIFA 19": {
                         "borrowers": {
@@ -620,6 +664,11 @@ json = {
                                 ]
                             }
                         }
+                    },
+                    "Borderlands 3": {
+                        "borrowers": {
+
+                        }
                     }
                 }
             },
@@ -662,7 +711,7 @@ if (localStorage.json) {
 }
 
 
-currentUser = "assuncao-martins.verified@gmail.com"
+currentUser = "floribela123@gmail.com"
 
 
 
@@ -997,7 +1046,7 @@ function addUser(userObj) {
 
 /*
 {
-            "user_email": "assuncao-martins.verified@gmail.com",
+            "user_email": "floribela123@gmail.com",
             "game_name": "FIFA 19",
             "year": 2018,
             "category": ["sports", "football"],
