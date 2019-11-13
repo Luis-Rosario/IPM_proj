@@ -968,6 +968,11 @@ function getGameData(gameName) {
     return {};
 }
 
+function getRentalStatus(lender, borrower, game){
+  if(json.rental_history.lender[lender].games[game].borrowers[borrower]!==undefined)
+    return json.rental_history.lender[lender].games[game].borrowers[borrower]
+}
+
 //------------------------------------------------
 //------------------------------------------------
 //---------------ACTION functions-----------------
