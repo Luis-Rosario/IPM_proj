@@ -1,0 +1,111 @@
+$orange: #fbab5b;
+$grey: #494a4b;
+$white: #ffffff;
+$lightGrey: #f7f7f7;
+$green: #5aac44;
+$red: #b22222;
+
+.group {
+  display: flex;
+  clear: both;
+  width: 100%;
+  align-items: center;
+  /* line-height: 1em; */
+  /* margin: 5px 0; */
+}
+
+.row {
+  /* border: 1px solid red; */
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+h3 {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.group * {
+  margin-bottom: 0.2em;
+  /* margin-top: 0; */
+}
+
+.group {
+  margin: 5px 0;
+}
+
+h3 {
+  font-size: 22px;
+}
+h4,
+input {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.row h3 {
+  font-size: 20px;
+}
+.container {
+  padding: 40px;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+i.edit-btn {
+  margin-left: 15px;
+  font-size: 0.85em;
+  color: #e88d31;
+  cursor: pointer;
+}
+i.edit-btn:hover {
+  opacity: 0.6;
+}
+
+.container:not(.editable) {
+  input {
+    display: none !important;
+  }
+  .submit-changes-btn {
+    display: none;
+  }
+}
+
+.editable {
+  h4 {
+    display: none !important;
+  }
+  .submit-changes-btn {
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 30px 0 0 0px;
+    border: 2px solid $orange;
+    padding: 10px 20px;
+    color: $orange;
+    &:hover,
+    &:focus {
+      background: $orange;
+      color: white;
+    }
+  }
+
+  input {
+    margin: 0 !important;
+    line-height: 0 !important;
+    border: none;
+    border-bottom: 2px solid #444;
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $orange;
+    }
+  }
+}

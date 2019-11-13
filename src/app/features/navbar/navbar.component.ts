@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
     this.url = window.location.href;
+    console.log(this.url);
   }
 
   searchGame() {

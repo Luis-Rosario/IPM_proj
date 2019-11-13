@@ -4,6 +4,7 @@ import * as $ from "jquery";
 
 declare const deleteGame;
 
+declare const pagesFunctions: any;
 @Component({
   selector: "lib-card",
   templateUrl: "./lib-card.component.html",
@@ -16,26 +17,21 @@ export class LibCardComponent implements OnInit {
   constructor(private sessionQuery: SessionQuery) {}
 
   ngOnInit() {
-    $(".pill").click(function() {
-      $(this).toggleClass("active");
-    });
+    pagesFunctions.libCard();
+    var els = document.querySelectorAll(".pill");
+    for (let i = 0; i < els.length; i++) {
+      els[i].classList.toggle("active");
+    }
   }
 
-
-  deleteGame(){
-    deleteGame(this.sessionQuery.getValue().email,this.gameName)
-    this.ngOnInit()
+  deleteGame() {
+    deleteGame(this.sessionQuery.getValue().email, this.gameName);
+    this.ngOnInit();
   }
 
-  showInfo(){
+  showInfo() {}
 
-  }
+  markAsReturned() {}
 
-  markAsReturned(){
-
-  }
-
-  returnGame(){
-
-  }
+  returnGame() {}
 }
