@@ -915,6 +915,18 @@ json = {
                     },
                     "Minecraft": {
                         "borrowers": {
+                            "a@a.com": {
+                                "lent": "pending",
+                                "duration": 2,
+                                "messages": [{
+                                        "user": "borrower",
+                                        "content": "Hi André! Will you lend me this game?",
+                                        "date": "2019/10/10",
+                                        "time": "09:34",
+                                        "read": true
+                                    }
+                                ]
+                            }
 
                         }
                     },
