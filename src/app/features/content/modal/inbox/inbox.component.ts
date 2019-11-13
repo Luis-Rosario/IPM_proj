@@ -109,6 +109,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     console.log(event)
     event.target.classList.add("active")
     if (this.showBorrowed === 'true') {
+      
       this.messages = getBorrowingMessages(this.user, game)
       /* console.log(this.messages) */
       this.game = this.borrowingGamesInfo.get(game)

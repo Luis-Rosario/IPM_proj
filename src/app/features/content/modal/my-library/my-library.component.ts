@@ -63,7 +63,7 @@ export class LibraryComponent implements OnInit {
   }
 
   isAvailable(game) {
-    console.log(this.lendingGamesInfo.get(game))
+    //console.log(this.lendingGamesInfo.get(game))
     return this.lendingGamesInfo.get(game).active;
   }
 

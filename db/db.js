@@ -762,8 +762,11 @@ function getLendingMessages(userId, game) {
 function getBorrowingMessages(userId, game) {
     messages = {}
     for (lender in json.rental_history.lenders) {
-        if (json.rental_history.lenders[lender].games[game] !== undefined)
-            messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages
+        if (json.rental_history.lenders[lender].games[game] !== undefined) {
+            if (json.rental_history.lenders[lender].games[game].borrowers[userId] !== undefined)
+                messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages
+        }
+
     }
     return messages
 }

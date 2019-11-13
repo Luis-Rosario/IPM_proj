@@ -28,12 +28,12 @@ export class ChatComponent implements OnInit {
 
       if (!this.lender) {
       /*   this.chat.push({ user: "borrower", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
-        sendMsg(this.targetPerson, this.loggedUser, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, this.lender);
+        sendMsg(this.targetPerson, this.loggedUser, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, "borrower");
       }
 
       else {
      /*    this.chat.push({ user: "lender", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
-        sendMsg(this.loggedUser, this.targetPerson, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, this.lender);
+        sendMsg(this.loggedUser, this.targetPerson, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, "lender");
       }
       (<HTMLInputElement>document.getElementById("chat-input")).value = null;
     }
