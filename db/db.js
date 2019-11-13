@@ -353,7 +353,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -365,7 +366,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [2, 7],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -377,7 +379,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 8],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -389,7 +392,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -401,7 +405,8 @@ json = {
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -413,7 +418,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": false,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -425,7 +431,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -437,7 +444,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -449,7 +457,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         },
         {
@@ -461,7 +470,8 @@ json = {
             "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "duration_range": [1, 4],
             "active": true,
-            "warned": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
             "endDate": ""
         }
     ],
@@ -983,16 +993,19 @@ function addUser(userObj) {
 
 /*
 {
-    "name": "Far Cry 4",
-    "year": 2014,
-    "category": ["fps", "action", "adventure"],
-    "console": ["PS4", "Xbox One", "PC"],
-    "image_url": "https://www.google.pt/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwia_f_ZlePlAhUZ6OAKHd3DDwYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.lojapsngames.com.br%2Ffar-cry-4-midia-digital-xbox-one&psig=AOvVaw3DRWSX4jRe5aKB6R5M4MTS&ust=1573596434957711",
-    "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
+            "user_email": "assuncao-martins.verified@gmail.com",
+            "game_name": "FIFA 19",
+            "year": 2018,
+            "category": ["sports", "football"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [2, 7],
+            "active": true,
+            "warned": false,
+            "endDate": ""
 }
 */
 function addGame(userId, gameObj) {
-    gameObj.user_email = userId;
     json.game_rentals.push(gameObj);
     json.rental_history.lenders[userId].games[gameObj.game_name] = {}
     json.rental_history.lenders[userId].games[gameObj.game_name].borrowers = {}
@@ -1109,8 +1122,9 @@ function sendNotifications(userEmail) {
     gamesBorrowing = orderedGamesBorrowing(userEmail)
 
     for (i in gamesBorrowing) {
-        game = gamesLending[i];
-        if (game.daysLeft <= 0) {
+        game = gamesBorrowing[i];
+        if(!game.warnedBorrower && game.daysLeft <= 0){
+            game.warnedBorrower = true;
             sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system")
         }
     }
@@ -1119,7 +1133,8 @@ function sendNotifications(userEmail) {
 
     for (i in gamesLending) {
         game = gamesLending[i];
-        if (game.daysLeft <= -2) {
+        if(!game.warnedLender && game.daysLeft <= -2){
+            game.warnedLender = true;
             sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system")
         }
     }
