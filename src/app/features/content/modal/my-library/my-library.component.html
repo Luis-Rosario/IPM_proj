@@ -9,7 +9,7 @@
                 <div class="description">Add Game</div>
             </div>
             <div *ngFor="let game of lendingGames" [className]="isAvailable(game) ? 'available' : 'unavailable'">
-                <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></lib-card>
+                <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()"></lib-card>
             </div>
         </div>
     </div>

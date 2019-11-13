@@ -383,7 +383,7 @@ json = {
         {
             "user_email": "a@a.com",
             "game_name": "Borderlands 3",
-            "year":  2019,
+            "year": 2019,
             "category": ["action", "adventure"],
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
@@ -695,7 +695,7 @@ json = {
                     },
                     "Far Cry 4": {
                         "borrowers": {
-                            
+
                         }
                     }
                 }
@@ -780,7 +780,7 @@ json = {
                     },
                     "Far Cry 4": {
                         "borrowers": {
-                            
+
                         }
                     },
                     "The Legend of Zelda: Link's Awakening": {
@@ -789,13 +789,12 @@ json = {
                                 "lent": "pending",
                                 "duration": 6,
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Hello Zé! Can you lend me this game?",
-                                        "date": "2019/11/13",
-                                        "time": "09:57",
-                                        "read": false
-                                    }
-                                ]
+                                    "user": "borrower",
+                                    "content": "Hello Zé! Can you lend me this game?",
+                                    "date": "2019/11/13",
+                                    "time": "09:57",
+                                    "read": false
+                                }]
                             }
 
                         }
@@ -815,25 +814,23 @@ json = {
                                 "lent": "pending",
                                 "duration": 5,
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Hello! Can you lend me this game? :)",
-                                        "date": "2019/11/17",
-                                        "time": "09:34",
-                                        "read": false
-                                    }
-                                ]
+                                    "user": "borrower",
+                                    "content": "Hello! Can you lend me this game? :)",
+                                    "date": "2019/11/17",
+                                    "time": "09:34",
+                                    "read": false
+                                }]
                             },
                             "matias_flores@hotmail.com": {
                                 "lent": "pending",
                                 "duration": 5,
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Give me this game!",
-                                        "date": "2019/11/16",
-                                        "time": "12:47",
-                                        "read": false
-                                    }
-                                ]
+                                    "user": "borrower",
+                                    "content": "Give me this game!",
+                                    "date": "2019/11/16",
+                                    "time": "12:47",
+                                    "read": false
+                                }]
                             }
                         }
                     },
@@ -871,13 +868,12 @@ json = {
                                 "lent": "pending",
                                 "duration": 5,
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Hi! Can you lend it?",
-                                        "date": "2019/10/12",
-                                        "time": "09:00",
-                                        "read": true
-                                    }
-                                ]
+                                    "user": "borrower",
+                                    "content": "Hi! Can you lend it?",
+                                    "date": "2019/10/12",
+                                    "time": "09:00",
+                                    "read": true
+                                }]
                             }
                         }
                     },
@@ -1153,6 +1149,7 @@ function getGames(filterObj) {
     for (i = 0; i < json.game_rentals.length; i++) {
         gameRental = json.game_rentals[i];
         lender = gameRental.user_email;
+        console.log(lender)
         alreadySaved = savedList[gameRental.game_name];
         //console.log(filterObj.consoles, gameRental.console)
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
@@ -1348,11 +1345,13 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
 
     duration = json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
     for (borrower in json.rental_history.lenders[lenderEmail].games[gameName].borrowers) {
-        if (json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrower] == borrowerEmail) {
+
+        if (borrower == borrowerEmail) {
             json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
-        } else {
-            json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
         }
+        /* else {
+                   json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "pending"
+               } */
     }
 
     for (game in json.game_rentals) {

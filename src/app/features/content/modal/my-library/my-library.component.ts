@@ -101,4 +101,9 @@ export class LibraryComponent implements OnInit {
 
     this.ngOnInit();
   }
+
+  handleChange(){
+    this.lendingGames = []
+    this.ngOnInit();
+  }
 }

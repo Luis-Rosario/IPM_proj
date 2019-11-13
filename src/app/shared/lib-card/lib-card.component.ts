@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
 import * as $ from "jquery";
 
 declare const deleteGame;
-
 declare const pagesFunctions: any;
+declare const markGameAsReturned;
+
 @Component({
   selector: "lib-card",
   templateUrl: "./lib-card.component.html",
@@ -13,6 +14,7 @@ declare const pagesFunctions: any;
 export class LibCardComponent implements OnInit {
   @Input() gameName: String;
   @Input() gameInfo: any;
+  @Output() change = new EventEmitter();
 
   constructor(private sessionQuery: SessionQuery) {}
 
@@ -26,8 +28,13 @@ export class LibCardComponent implements OnInit {
 
   deleteGame() {
     deleteGame(this.sessionQuery.getValue().email, this.gameName);
-    this.ngOnInit();
     this.closeModal()
+    this.change.emit();
+  }
+
+  markAsReturned(){
+    markGameAsReturned(this.sessionQuery.getValue().email, this.gameName)
+    this.change.emit();
   }
 
   infoModalClick(event){
