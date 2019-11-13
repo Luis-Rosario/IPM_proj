@@ -55,8 +55,6 @@ export class LoanRequestsComponent implements OnInit {
 
       index++;
     }
-
-    console.log(this.users)
   }
 
   selectRequest(userRequest, event) {
@@ -64,7 +62,6 @@ export class LoanRequestsComponent implements OnInit {
     $(".request-list .user").removeClass("active")
     var target = event.target.classList.contains("user") ? event.target : event.target.parentElement;
     target.classList.add("active")
-    console.log(this.lender)
 
     if (this.lender)
       this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name)

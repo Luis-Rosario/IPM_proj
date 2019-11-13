@@ -24,6 +24,7 @@
             <span *ngIf="this.lender == true">
                 <br><span class="star-rating "> {{user.borrower_rating}}<i class="fas fa-star "></i> </span> /
             <b style="color:inherit">{{user.total_borrowed}}</b> Borrowed
+            <span class="status-message"> ACCEPTED</span>
             </span>
             <span *ngIf="this.lender == false">
                 <br><span class="star-rating "> {{user.lender_rating}}<i class="fas fa-star "></i> </span> /

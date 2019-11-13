@@ -127,4 +127,8 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.chatMessages = chat[0];
     this.targetPerson = chat[1];
   }
+
+  handleAcceptLoan(event){
+    
+  }
 }

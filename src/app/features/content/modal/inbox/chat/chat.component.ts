@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 declare const sendMsg;
+declare const acceptRental;
+declare const refuseRental;
 
 @Component({
   selector: 'chat',
@@ -13,7 +15,9 @@ export class ChatComponent implements OnInit {
   @Input() loggedUser: any;
   @Input() targetPerson: any;
   @Input() game: any;
+  @Output() acceptedRental = new EventEmitter();
 
+  choosen: any = false;
   constructor() { }
 
   ngOnInit() {
@@ -22,21 +26,34 @@ export class ChatComponent implements OnInit {
 
   sendMessage(event) {
     if (event.type == 'click' || (event.type == 'keyup' && event.key == 'Enter')) {
-      setTimeout(()=>{
-        document.querySelector(".chat-list").scrollTo(0,1000000)
-      },100);
+      setTimeout(() => {
+        document.querySelector(".chat-list").scrollTo(0, 1000000)
+      }, 100);
 
       if (!this.lender) {
-      /*   this.chat.push({ user: "borrower", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
+        /*   this.chat.push({ user: "borrower", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
         sendMsg(this.targetPerson, this.loggedUser, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, "borrower");
       }
 
       else {
-     /*    this.chat.push({ user: "lender", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
+        /*    this.chat.push({ user: "lender", content: (<HTMLInputElement>document.getElementById("chat-input")).value, date: "", time: "" }) */
         sendMsg(this.loggedUser, this.targetPerson, (<HTMLInputElement>document.getElementById("chat-input")).value, this.game.game_name, "lender");
       }
       (<HTMLInputElement>document.getElementById("chat-input")).value = null;
     }
+  }
+
+  acceptLoan() {
+    this.choosen = true;
+    acceptRental(this.loggedUser, this.targetPerson, this.game.game_name);
+    this.acceptedRental.emit({lender: this.loggedUser, borrower: this.targetPerson, game:this.game.game_name})
+    alert("Accepted Loan")
+  }
+
+  refuseLoan() {
+    this.choosen = true;
+    refuseRental(this.loggedUser, this.targetPerson, this.game.game_name);
+    alert("Refused Loan")
   }
 
 }
