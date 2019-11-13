@@ -1,78 +1,60 @@
 <div class="game-card owner">
-  <img src="{{ this.gameInfo.image_url }}" alt="" />
-  <div class="hover-area">
-    <a class="hover-btn show-btn">Show/Edit Info</a>
-    <a class="hover-btn return-btn">Mark as Returned</a>
-    <a class="hover-btn delete-btn">Delete Game</a>
-  </div>
-  <div class="delete-modal modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            Are you sure you want to remove {{ this.gameInfo.game_name }}
-          </h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="btn delete">Delete Game</div>
-        </div>
-      </div>
+    <img src="{{ this.gameInfo.image_url }}" alt="" />
+    <div class="hover-area">
+        <a class="hover-btn show-btn" (click)="infoModalClick($event)">Show Info</a>
+        <a class="hover-btn return-btn" (click)="returnModalClick($event)">Mark as Returned</a>
+        <a class="hover-btn delete-btn" (click)="deleteModalClick($event)">Delete Game</a>
     </div>
-  </div>
-  <div class="show-modal modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            {{ this.gameInfo.game_name }}
-          </h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
+
+    <div class="delete-modal modal" id="delete-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Are you sure you want to remove {{ this.gameInfo.game_name }}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-          <div class="game-info row ">
-            <div class="col-4 img-col ">
-              <img src="{{ this.gameInfo.image_url }}" alt=" " />
-            </div>
-            <div class="col-8 text-col ">
-              <h4>{{ this.gameInfo.game_name }}</h4>
-              <!--this changed, tem de se por aqui um ngFor-->
-              <div class="categories ">
-                <div
-                  class="pill active"
-                  *ngFor="let cat of this.gameInfo.category"
-                >
-                  {{ cat }}
                 </div>
-              </div>
-              <div class="description">
-                Description. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </div>
+                <div class="modal-body">
+                    <div class="btn delete" (click)="deleteGame()">Delete Game</div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+    <div class="show-modal modal" id="show-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{ this.gameInfo.game_name }}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <div class="game-info row ">
+                        <div class="col-4 img-col ">
+                            <img src="{{ this.gameInfo.image_url }}" alt=" " />
+                        </div>
+                        <div class="col-8 text-col ">
+                            <h4>{{ this.gameInfo.game_name }}</h4>
+                            <!--this changed, tem de se por aqui um ngFor-->
+                            <div class="categories ">
+                                <div class="pill active" *ngFor="let cat of this.gameInfo.category">
+                                    {{ cat }}
+                                </div>
+                            </div>
+                            <div class="description">
+                                Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

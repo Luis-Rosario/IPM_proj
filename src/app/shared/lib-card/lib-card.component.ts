@@ -27,11 +27,22 @@ export class LibCardComponent implements OnInit {
   deleteGame() {
     deleteGame(this.sessionQuery.getValue().email, this.gameName);
     this.ngOnInit();
+    this.closeModal()
   }
 
-  showInfo() {}
+  infoModalClick(event){
+    $(event.target.parentElement.parentElement).find(".show-modal").fadeToggle(); 
+  }
 
-  markAsReturned() {}
+  returnModalClick(event){
+    $(event.target.parentElement.parentElement).find(".return-modal").fadeToggle(); 
+  }
 
-  returnGame() {}
+  deleteModalClick(event){
+    $(event.target.parentElement.parentElement).find(".delete-modal").fadeToggle(); 
+  }
+
+  closeModal(){
+    $(".modal").fadeOut();
+  }
 }

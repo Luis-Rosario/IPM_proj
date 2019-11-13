@@ -4,7 +4,7 @@
 
 
 <div class="game-page modal" id="game-modal" role="dialog " (click)="modalClick($event)">
-    <div class="modal-content ">
+    <div class="modal-content">
         <div class="row ">
             <div class="col-9 game-col ">
                 <div class="game-info row ">
@@ -48,10 +48,10 @@
             <div class="col-3 users-col ">
                 <div class="user" *ngFor="let lender of this.lendersOfGame">
                     <div class="user-info ">
-                        <div class="user-name ">{{lender.first_name}} {{lender.last_name}}</div>
+                        <div class="user-name">{{lender.first_name}} {{lender.last_name}}</div>
                         <div class="user-ratings ">
-                            <span class="star-rating ">{{lender.lender_rating}}</span><i class="fas fa-star "></i> /
-                            <span class="loan-count ">{{lender.total_lent}}</span> Loans
+                            <span class="star-rating">{{lender.lender_rating}}</span><i class="fas fa-star "></i> /
+                            <span class="loan-count">{{lender.total_lent}}</span> Loans
                         </div>
                         <a class="rent-btn ">→</a>
                     </div>
