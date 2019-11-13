@@ -386,7 +386,7 @@ json = {
             "year":  2019,
             "category": ["action", "adventure"],
             "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
             "duration_range": [1, 2],
             "active": true,
             "warnedLender": false,
@@ -452,7 +452,7 @@ json = {
             "category": ["cooking", "co-op"],
             "console": "Nintendo Switch",
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
-            "duration_range": [2, 3],
+            "duration_range": [2, 6],
             "active": true,
             "warnedLender": false,
             "warnedBorrower": false,
@@ -550,7 +550,7 @@ json = {
             "endDate": dateToStr(getCurrDate())
         },
         {
-            "user_email": "castelo_branquinho@gmail.comm",
+            "user_email": "castelo_branquinho@gmail.com",
             "game_name": "The Legend of Zelda: Link's Awakening",
             "year": 1993,
             "category": ["action", "adventure"],
@@ -785,6 +785,18 @@ json = {
                     },
                     "The Legend of Zelda: Link's Awakening": {
                         "borrowers": {
+                            "floribela123@gmail.com": {
+                                "lent": "pending",
+                                "duration": 6,
+                                "messages": [{
+                                        "user": "borrower",
+                                        "content": "Hello Zé! Can you lend me this game?",
+                                        "date": "2019/11/13",
+                                        "time": "09:57",
+                                        "read": false
+                                    }
+                                ]
+                            }
 
                         }
                     }
@@ -799,7 +811,30 @@ json = {
                     },
                     "Overcooked 2": {
                         "borrowers": {
-
+                            "floribela123@gmail.com": {
+                                "lent": "pending",
+                                "duration": 5,
+                                "messages": [{
+                                        "user": "borrower",
+                                        "content": "Hello! Can you lend me this game? :)",
+                                        "date": "2019/11/17",
+                                        "time": "09:34",
+                                        "read": false
+                                    }
+                                ]
+                            },
+                            "matias_flores@hotmail.com": {
+                                "lent": "pending",
+                                "duration": 5,
+                                "messages": [{
+                                        "user": "borrower",
+                                        "content": "Give me this game!",
+                                        "date": "2019/11/16",
+                                        "time": "12:47",
+                                        "read": false
+                                    }
+                                ]
+                            }
                         }
                     },
                     "Super Smash Bros Ultimate": {
@@ -832,21 +867,14 @@ json = {
                 "games": {
                     "FIFA 19": {
                         "borrowers": {
-                            "docinho2019@hotmail.com": {
+                            "matias_flores@hotmail.com": {
                                 "lent": "pending",
-                                "duration": "",
+                                "duration": 5,
                                 "messages": [{
                                         "user": "borrower",
-                                        "content": "Hello, can you lend me this game?",
+                                        "content": "Hi! Can you lend it?",
                                         "date": "2019/10/12",
                                         "time": "09:00",
-                                        "read": true
-                                    },
-                                    {
-                                        "user": "lender",
-                                        "content": "Yes, ofc",
-                                        "date": "2019/10/13",
-                                        "time": "11:00",
                                         "read": true
                                     }
                                 ]
@@ -1152,13 +1180,25 @@ function getGameData(gameName) {
     return {};
 }
 
-function getGamesBorrowing(userId) {
+function getAcceptedGamesBorrowing(userId) {
     gamesRenting = {}
     for (lender in json.rental_history.lenders) {
         for (game in json.rental_history.lenders[lender].games) {
             if (json.rental_history.lenders[lender].games[game].borrowers[userId] !== undefined)
                 if (json.rental_history.lenders[lender].games[game].borrowers[userId].lent == "accepted")
                     gamesRenting[game] = getGameInfo(lender, game);
+        }
+    }
+    return gamesRenting;
+}
+
+
+function getGamesBorrowing(userId) {
+    gamesRenting = {}
+    for (lender in json.rental_history.lenders) {
+        for (game in json.rental_history.lenders[lender].games) {
+            if (json.rental_history.lenders[lender].games[game].borrowers[userId] !== undefined)
+                gamesRenting[game] = getGameInfo(lender, game);
         }
     }
     return gamesRenting;
@@ -1175,7 +1215,7 @@ function getGamesLending(userId) {
 
 //[{gameName:"cenas",daysLeft:1}]
 function orderedGamesBorrowing(borrower) {
-    games = getGamesBorrowing(borrower);
+    games = getAcceptedGamesBorrowing(borrower);
     gamesOrdered = []
     for (game in games) {
         gameData = games[game];
