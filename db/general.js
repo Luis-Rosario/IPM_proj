@@ -16,6 +16,10 @@ var pagesFunctions = {
             });
         });
     },
+    browse: function() {
+        var el = document.querySelector(".duration-range");
+        if (el) multirange(el);
+    },
     libCard: function() {
         $(document).ready(function() {
             console.log("liba");
@@ -46,6 +50,9 @@ var pagesFunctions = {
         });
     },
     libraryPage: function() {
+        $(".pill").click(function() {
+            $(this).toggleClass("active");
+        });
         $("#new-game-modal #submit-new-game").click(() => {
             $("#new-game-modal").modal("toggle");
         });
@@ -96,7 +103,9 @@ var pagesFunctions = {
                 var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
                 handler(this);
             });
-            if ($(".duration-range").length) handler($(".duration-range").eq(0));
+            if ($(".duration-range").length) {
+                handler($(".duration-range").eq(0))
+            }
         }, 200);
     }
 };

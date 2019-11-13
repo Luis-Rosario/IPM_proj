@@ -5,7 +5,7 @@ import * as $ from "jquery";
 
 declare const getGames: any;
 declare const onDataChange: any;
-
+declare const pagesFunctions: any;
 @Component({
   selector: "browse-page",
   templateUrl: "./browse-page.component.html",
@@ -34,8 +34,9 @@ export class BrowsePageComponent implements OnInit {
 
   ngOnInit() {
     onDataChange(this.main.bind(this));
+    pagesFunctions.browse();
     this.main();
-
+    
     //very important function best function ever makes everything work :)
     setInterval(() => {}, 400);
   }

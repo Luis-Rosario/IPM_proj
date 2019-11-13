@@ -72,6 +72,10 @@ $red: #b22222;
 }
 
 //
+.borrowed-games>div:not(.title-row) {
+    padding-top: 10px;
+}
+
 .game-card {
     width: 120px;
     height: 180px;
