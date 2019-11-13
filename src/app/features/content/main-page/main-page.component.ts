@@ -5,6 +5,9 @@ declare const getGames: any;
 declare const getGamesBorrowing: any;
 declare const getGamesLending: any;
 declare const pagesFunctions: any;
+declare const orderedGamesLending: any;
+declare const orderedGamesBorrowing: any;
+
 
 @Component({
   selector: "main-page",
@@ -48,7 +51,7 @@ export class MainPageComponent implements OnInit {
 
   getBorrowing() {
     let game;
-    let myBorrowedGamesJSON = getGamesBorrowing(this.user);
+    let myBorrowedGamesJSON = orderedGamesBorrowing(this.user);
     let index = 0;
     let keys = Object.keys(myBorrowedGamesJSON);
 
@@ -58,11 +61,12 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
+    console.log(myBorrowedGamesJSON )
   }
 
   getLending() {
     let game;
-    let myGamesJSON = getGamesLending(this.user);
+    let myGamesJSON = orderedGamesLending(this.user);
     let index = 0;
     let keys = Object.keys(myGamesJSON);
 
@@ -72,6 +76,6 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    /*   console.log(this.lendingGamesInfo) */
+    console.log(myGamesJSON )
   }
 }

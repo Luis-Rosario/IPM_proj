@@ -355,7 +355,9 @@ json = {
             "active": true,
             "warnedLender": false,
             "warnedBorrower": false,
-            "endDate": ""
+            "endDate": "",
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "assuncao-martins.verified@gmail.com",
@@ -366,9 +368,12 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [2, 7],
             "active": true,
+
             "warnedLender": false,
             "warnedBorrower": false,
-            "endDate": ""
+            "endDate": "",
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -379,9 +384,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 8],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "castelo_branquinho@gmail.com",
@@ -392,9 +396,8 @@ json = {
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 6],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -405,9 +408,8 @@ json = {
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "assuncao-martins.verified@gmail.com",
@@ -418,9 +420,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": false,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "manel_tristonho@hotmail.com",
@@ -431,9 +432,8 @@ json = {
             "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
             "duration_range": [3, 6],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "aventureiro101@hotmail.com",
@@ -444,9 +444,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "castelo_branquinho@gmail.com",
@@ -457,9 +456,8 @@ json = {
             "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
             "duration_range": [3, 6],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         },
         {
             "user_email": "docinho2019@hotmail.com",
@@ -470,9 +468,8 @@ json = {
             "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
             "duration_range": [1, 4],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": ""
+            "warned": false,
+            "endDate": dateToStr(getCurrDate())
         }
     ],
 
@@ -946,13 +943,15 @@ function orderedGamesBorrowing(borrower) {
 }
 
 function orderedGamesLending(lender) {
+
     games = getGamesLending(lender);
     gamesOrdered = []
     for (game in games) {
         gameData = games[game];
         daysLeft = strToDate(gameData.endDate) - getCurrDate();
         gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
-        gamesOrdered[gameData.name] = gameData;
+        console.log(daysLeft)
+        gamesOrdered.push(gameData);
     }
     return gamesOrdered.sort(function(first, second) {
         return first.daysLeft - second.daysLeft;
@@ -1123,7 +1122,7 @@ function sendNotifications(userEmail) {
 
     for (i in gamesBorrowing) {
         game = gamesBorrowing[i];
-        if(!game.warnedBorrower && game.daysLeft <= 0){
+        if (!game.warnedBorrower && game.daysLeft <= 0) {
             game.warnedBorrower = true;
             sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system")
         }
@@ -1133,7 +1132,7 @@ function sendNotifications(userEmail) {
 
     for (i in gamesLending) {
         game = gamesLending[i];
-        if(!game.warnedLender && game.daysLeft <= -2){
+        if (!game.warnedLender && game.daysLeft <= -2) {
             game.warnedLender = true;
             sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system")
         }
