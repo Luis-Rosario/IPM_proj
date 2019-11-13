@@ -1038,8 +1038,15 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
 }
 
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
-    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+
     duration = json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
+    for(borrower in rental_history.lenders[lenderEmail].games[gameName].borrowers){
+      if(json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrower]==borrowerEmail){
+        json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+      }else{
+        json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
+      }
+    }
 
     for (game in json.game_rentals) {
         if (json.game_rentals[game].user_email == lenderEmail && json.game_rentals[game].game_name == gameName) {
