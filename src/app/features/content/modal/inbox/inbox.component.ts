@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
 import * as $ from 'jquery';
+import { LoanRequestsComponent } from './loan-requests/loan-requests.component';
 
 
 
@@ -17,6 +18,7 @@ declare const getBorrowingMessages: any;
 })
 export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
+  @ViewChild(LoanRequestsComponent, null) loanRequest: LoanRequestsComponent;
 
   showBorrowed: any = true;
 
@@ -56,13 +58,13 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   changeSelect() {
 
     if (this.messages != undefined || this.chatMessages != undefined) {
-      this.messages == undefined
+      this.messages = undefined
       this.chatMessages = undefined
       this.game = undefined
     }
 
     this.showBorrowed = this.select.nativeElement.value
-    console.log(this.showBorrowed)
+  /*   console.log(this.showBorrowed) */
     document.getElementById("inbox-wrapper").className = this.showBorrowed ? "borrowing row" : "lender row";
    
 
@@ -97,16 +99,14 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
 
       index++;
     }
-
-    /*   console.log(this.borrowingGames)
-  
-      console.log(this.lendingGames) */
   }
 
 
   selectGame(game,event) {
     $(".gameList h3").removeClass("active")
-    console.log(event)
+    /* console.log(event) */ 
+    this.chatMessages = undefined
+    this.messages = undefined
     event.target.classList.add("active")
     if (this.showBorrowed === 'true') {
       
@@ -128,7 +128,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.targetPerson = chat[1];
   }
 
-  handleAcceptLoan(event){
-    
+  refreshLoanRequest(){
+    this.loanRequest.refresh();
   }
 }

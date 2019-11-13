@@ -3,14 +3,14 @@
     <div class="col-6 text-center chat-button" id="refuse" (click)="this.refuseLoan()"><b>Refuse Loan</b></div>
 </div>
 <div class="chat-list ">
-    <div *ngFor="let message of chat " [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me': 'chat-bubble other' ">
+    <div *ngFor="let message of chat" [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me': 'chat-bubble other' ">
         <div class="text ">{{message.content}}</div>
     </div>
 
 </div>
 <div class="chat-form ">
     <div class="form-group ">
-        <input type="text " placeholder="Send a message " id="chat-input " (keyup)="sendMessage($event, targetPerson) ">
+        <input type="text" placeholder="Send a message" id="chat-input" (keyup)="sendMessage($event, targetPerson) ">
         <a class=" btn " id="send-msg " (click)="sendMessage($event) ">Send</a>
     </div>
 </div>

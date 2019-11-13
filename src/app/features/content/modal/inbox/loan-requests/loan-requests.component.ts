@@ -5,6 +5,7 @@ import * as $ from 'jquery';
 declare const getChat: any;
 declare const getUser: any;
 declare const onDataChange: any;
+declare const getRentalStatus: any;
 
 @Component({
   selector: 'loan-requests',
@@ -26,12 +27,12 @@ export class LoanRequestsComponent implements OnInit {
     private sessionQuery: SessionQuery,
   ) { }
 
-  main(){
+  main() {
     console.log(this.game)
-    if($(".user.active").length){
-     var email = $(".user.active").attr("id");
-     var event = {target: $(".user.active")[0]}
-     this.selectRequest(email,event);
+    if ($(".user.active").length) {
+      var email = $(".user.active").attr("id");
+      var event = { target: $(".user.active")[0] }
+      this.selectRequest(email, event);
     }
     console.log(this.lender)
   }
@@ -40,7 +41,12 @@ export class LoanRequestsComponent implements OnInit {
     this.getUsers();
     onDataChange(this.main.bind(this))
     //very important function best function ever makes everything work :)
-    setInterval(()=>{},400);
+    setInterval(() => { }, 400);
+  }
+
+  ngOnChanges(){
+    this.users = [];
+    this.ngOnInit();
   }
 
 
@@ -50,11 +56,18 @@ export class LoanRequestsComponent implements OnInit {
     let user;
 
     for (user of keys) {
-      this.users[index] =  getUser(user);
+      this.users[index] = getUser(user);
+      if (this.lender) {
+        this.users[index]["rental_state"] = getRentalStatus(this.sessionQuery.getValue().email, user, this.game.game_name)  
+      }
+
       this.userRequestInfo.set(user, this.messages[user])
+
 
       index++;
     }
+
+    console.log(this.users)
   }
 
   selectRequest(userRequest, event) {
@@ -70,9 +83,13 @@ export class LoanRequestsComponent implements OnInit {
       this.chatMessages = getChat(userRequest, this.sessionQuery.getValue().email, this.game.game_name)
 
     this.selectedPerson.emit([this.chatMessages, userRequest])
-    setTimeout(()=>{
-      document.querySelector(".chat-list").scrollTo(0,1000000)
-    },100);
+    setTimeout(() => {
+      document.querySelector(".chat-list").scrollTo(0, 1000000)
+    }, 100);
+  }
+
+  refresh(){
+    this.getUsers();
   }
 
 }

@@ -1215,9 +1215,12 @@ function getGameData(gameName) {
     return {};
 }
 
-function getRentalStatus(lender, borrower, game){
-  if(json.rental_history.lender[lender].games[game].borrowers[borrower]!==undefined)
-    return json.rental_history.lender[lender].games[game].borrowers[borrower]
+function getRentalStatus(lender, borrower, game) {
+
+    if (json.rental_history.lenders[lender].games[game].borrowers[borrower] !== undefined) {
+        return json.rental_history.lenders[lender].games[game].borrowers[borrower].lent
+    }
+
 }
 
 //------------------------------------------------
@@ -1236,8 +1239,8 @@ function addUser(userObj) {
         userObj.total_lent = 0
     json.users_db[userObj.email] = userObj;
 
-    json.rental_history.lender[userObj.email] = {}
-    json.rental_history.lender[userObj.email].games = {}
+    json.rental_history.lenders[userObj.email] = {}
+    json.rental_history.lenders[userObj.email].games = {}
 
     pushData();
 }
@@ -1292,12 +1295,12 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
 
     duration = json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
-    for(borrower in rental_history.lenders[lenderEmail].games[gameName].borrowers){
-      if(json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrower]==borrowerEmail){
-        json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
-      }else{
-        json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
-      }
+    for (borrower in json.rental_history.lenders[lenderEmail].games[gameName].borrowers) {
+        if (json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrower] == borrowerEmail) {
+            json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
+        } else {
+            json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
+        }
     }
 
     for (game in json.game_rentals) {
