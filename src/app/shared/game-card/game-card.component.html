@@ -3,7 +3,7 @@
 </div>
 
 
-<div class="game-page modal" id="game-modal" role="dialog " (click)="modalClick($event)">
+<div class="game-page modal" id="game-modal" role="dialog" (click)="modalClick($event)">
     <div class="modal-content">
         <div class="row ">
             <div class="col-9 game-col ">
@@ -23,7 +23,8 @@
                 <div class="filter-section ">
                     <div class="form-group ">
                         <label for=" ">Loan Duration:</label>
-                        <select name=" " id="duration-select ">
+                        <select name=" " id="duration-select" (change)="this.filterLenders()">
+                                                <option value="0 " selected>Any</option>
 												<option value="1 ">1 week</option>
 												<option value="2 ">2 weeks</option>
 												<option value="3 ">3 weeks</option>
@@ -34,7 +35,8 @@
                     </div>
                     <div class="form-group ">
                         <label for=" ">Maximum Distance:</label>
-                        <select name=" " id="distance-select ">
+                        <select name=" " id="distance-select" (change)="this.filterLenders()">
+                                                <option value="0 " selected>Any</option>
 												<option value="50 ">50 kms</option>
 												<option value="100 ">100 kms</option>
 												<option value="150 ">150 kms</option>
@@ -53,8 +55,18 @@
                             <span class="star-rating">{{lender.lender_rating}}</span><i class="fas fa-star "></i> /
                             <span class="loan-count">{{lender.total_lent}}</span> Loans
                         </div>
-                        <a class="rent-btn ">→</a>
+                        <a class="rent-btn " (click)="openMessageModal($event)">→</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message-page modal" id="message-modal" role="dialog" (click)="modalClick($event)">
+        <div class="modal-content">
+            <div class="row ">
+                <div class="col-12 ">
+                    <input type="text" placeholder="Say something to the Lender">
+                    <button>Send Message</button>
                 </div>
             </div>
         </div>

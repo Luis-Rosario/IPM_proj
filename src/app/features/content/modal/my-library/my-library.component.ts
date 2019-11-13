@@ -3,10 +3,11 @@ import { SessionQuery } from "src/app/core/state/session.query";
 import * as $ from "jquery";
 
 declare const getGamesLending: any;
-declare const getGamesBorrowing: any;
+declare const getAcceptedGamesBorrowing: any;
 declare const pagesFunctions: any;
 declare const addGame: any;
 declare const getConsoles: any;
+declare const onDataChange: any;
 
 @Component({
   selector: "library",
@@ -25,12 +26,20 @@ export class LibraryComponent implements OnInit {
 
   constructor(private sessionQuery: SessionQuery) { }
 
-  ngOnInit() {
+  main(){
     this.user = this.sessionQuery.getValue().email;
     this.getLendingGames();
     this.getBorrowingGames();
     this.consoles = getConsoles();
     pagesFunctions.libraryPage();
+    pagesFunctions.libCard();
+  }
+
+  ngOnInit() {
+    onDataChange(this.main.bind(this));
+    setInterval(() => {}, 400);
+
+    this.main();
   }
 
   getLendingGames() {
@@ -50,7 +59,7 @@ export class LibraryComponent implements OnInit {
 
   getBorrowingGames() {
     let game;
-    let myBorrowedGamesJSON = getGamesBorrowing(this.user);
+    let myBorrowedGamesJSON = getAcceptedGamesBorrowing(this.user);
     let index = 0;
     let keys = Object.keys(myBorrowedGamesJSON);
 

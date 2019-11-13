@@ -19,7 +19,6 @@ export class LibCardComponent implements OnInit {
   constructor(private sessionQuery: SessionQuery) {}
 
   ngOnInit() {
-    pagesFunctions.libCard();
     var els = document.querySelectorAll(".pill");
     for (let i = 0; i < els.length; i++) {
       els[i].classList.toggle("active");
@@ -37,17 +36,17 @@ export class LibCardComponent implements OnInit {
     this.change.emit();
   }
 
-  infoModalClick(event){
-    $(event.target.parentElement.parentElement).find(".show-modal").fadeToggle(); 
-  }
+  // infoModalClick(event){
+  //   $(event.target.parentElement.parentElement).find(".show-modal").fadeToggle(); 
+  // }
 
-  returnModalClick(event){
-    $(event.target.parentElement.parentElement).find(".return-modal").fadeToggle(); 
-  }
+  // returnModalClick(event){
+  //   $(event.target.parentElement.parentElement).find(".return-modal").fadeToggle(); 
+  // }
 
-  deleteModalClick(event){
-    $(event.target.parentElement.parentElement).find(".delete-modal").fadeToggle(); 
-  }
+  // deleteModalClick(event){
+  //   $(event.target.parentElement.parentElement).find(".delete-modal").fadeToggle(); 
+  // }
 
   closeModal(){
     $(".modal").fadeOut();

@@ -1,9 +1,9 @@
 <div class="game-card owner">
     <img src="{{ this.gameInfo.image_url }}" alt="" />
     <div class="hover-area">
-        <a class="hover-btn show-btn" (click)="infoModalClick($event)">Show Info</a>
-        <a class="hover-btn return-btn" (click)="returnModalClick($event)">Mark as Returned</a>
-        <a class="hover-btn delete-btn" (click)="deleteModalClick($event)">Delete Game</a>
+        <a class="hover-btn show-btn">Show Info</a>
+        <a class="hover-btn return-btn">Mark as Returned</a>
+        <a class="hover-btn delete-btn">Delete Game</a>
     </div>
 
     <div class="delete-modal modal" id="delete-modal">
@@ -19,6 +19,23 @@
                 </div>
                 <div class="modal-body">
                     <div class="btn delete" (click)="deleteGame()">Delete Game</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="return-modal modal" id="return-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Are you sure you want to mark {{ this.gameInfo.game_name }} as returned?
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <div class="btn return" (click)="markAsReturned()">Mark as Returned</div>
                 </div>
             </div>
         </div>

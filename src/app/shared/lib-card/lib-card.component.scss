@@ -199,6 +199,18 @@ $red: #b22222;
     }
 }
 
+.return-modal {
+    .btn.return {
+        border: 2px solid $orange;
+        color: $orange;
+        transition-duration: 0.2s;
+        &:hover {
+            background: $orange;
+            color: white;
+        }
+    }
+}
+
 .show-modal {
     .modal-content {
         width: 650px;

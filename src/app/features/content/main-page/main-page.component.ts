@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/core/state/session.service";
 
 declare const getGames: any;
-declare const getGamesBorrowing: any;
+declare const getAcceptedGamesBorrowing: any;
 declare const getGamesLending: any;
 declare const pagesFunctions: any;
 declare const orderedGamesLending: any;
@@ -38,7 +38,7 @@ export class MainPageComponent implements OnInit {
     this.getFeatured();
     this.getBorrowing();
     this.getLending();
-
+    pagesFunctions.libCard();
     pagesFunctions.libraryPage();
   }
 
@@ -61,7 +61,7 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    console.log(myBorrowedGamesJSON )
+    /* console.log(myBorrowedGamesJSON ) */
   }
 
   getLending() {
@@ -76,6 +76,6 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    console.log(myGamesJSON )
+  /*   console.log(myGamesJSON ) */
   }
 }

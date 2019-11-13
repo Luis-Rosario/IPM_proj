@@ -915,13 +915,12 @@ json = {
                                 "lent": "pending",
                                 "duration": 2,
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Hi André! Will you lend me this game?",
-                                        "date": "2019/10/10",
-                                        "time": "09:34",
-                                        "read": true
-                                    }
-                                ]
+                                    "user": "borrower",
+                                    "content": "Hi André! Will you lend me this game?",
+                                    "date": "2019/10/10",
+                                    "time": "09:34",
+                                    "read": true
+                                }]
                             }
 
                         }
@@ -1010,7 +1009,6 @@ function getBorrower(lender, game) {
 }
 
 function getDistanceByUser(userEmail1, userEmail2) {
-
     city1 = json.users_db[userEmail1].city_id;
     city2 = json.users_db[userEmail2].city_id;
 
@@ -1149,7 +1147,7 @@ function getGames(filterObj) {
     for (i = 0; i < json.game_rentals.length; i++) {
         gameRental = json.game_rentals[i];
         lender = gameRental.user_email;
-        console.log(lender)
+        /*  console.log(lender) */
         alreadySaved = savedList[gameRental.game_name];
         //console.log(filterObj.consoles, gameRental.console)
         respectsFilters = (filterObj.gameName ? gameRental.game_name.toLowerCase().indexOf(filterObj.gameName.toLowerCase()) != -1 : true) &&
@@ -1159,7 +1157,7 @@ function getGames(filterObj) {
             ((filterObj.consoles && filterObj.consoles.length) ? (filterObj.consoles.some((val) => { return val.toLowerCase() == gameRental.console.toLowerCase() })) : true) &&
 
             ((filterObj.categories && filterObj.categories.length) ? gameRental.category.some((val) => { return filterObj.categories.includes(val) }) : true) &&
-            ((filterObj.distance - 0) ? getDistanceByUser(lender, borrower) < filterObj.distance : true) &&
+            ((filterObj.distance - 0) ? getDistanceByUser(lender, borrower) <= filterObj.distance : true) &&
             ((filterObj.duration - 0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
 
         if (!alreadySaved && respectsFilters) {
@@ -1169,6 +1167,38 @@ function getGames(filterObj) {
     }
     console.log("returning", games);
     return games;
+}
+
+
+// getGames({
+//     "distance":distance,
+//     "duration":duration,
+//     })
+// for a game, loggedUser (for distance), and filterObj, gives lenders
+function getGameLenders(gameName, loggedUserEmail, filterObj) {
+    console.log("filtering lenderUsers with", filterObj);
+    users = [];
+    borrower = filterObj.byUser;
+    filtered_game_rentals = json.game_rentals.filter((game) => {
+        return game.game_name == gameName && game.user_email != loggedUserEmail
+    })
+    console.log(filtered_game_rentals)
+    for (i = 0; i < filtered_game_rentals.length; i++) {
+        gameRental = filtered_game_rentals[i];
+        lender = gameRental.user_email;
+        /*  console.log(lender) */
+
+        //console.log(filterObj.consoles, gameRental.console)
+        respectsFilters =
+            ((filterObj.distance - 0) ? getDistanceByUser(lender, loggedUserEmail) <= filterObj.distance : true) &&
+            ((filterObj.duration - 0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
+
+        if (respectsFilters) {
+            users.push(getUser(gameRental.user_email));
+        }
+    }
+    console.log("returning", users);
+    return users;
 }
 
 
@@ -1246,7 +1276,7 @@ function orderedGamesLending(lender) {
         gameData = games[game];
         daysLeft = strToDate(gameData.endDate) - getCurrDate();
         gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
-        console.log(daysLeft)
+        /* console.log(daysLeft) */
         gamesOrdered.push(gameData);
     }
     return gamesOrdered.sort(function(first, second) {
@@ -1327,10 +1357,10 @@ function deleteGame(userId, game_name) {
 }
 
 function markGameAsReturned(lenderEmail, gameName) {
-    json.rental_history.lenders[lenderEmail].games[gameName].borrowers
+    let borrowers = json.rental_history.lenders[lenderEmail].games[gameName].borrowers
     for (b in borrowers) {
-        if (json.rental_history.lenders[lenderEmail].games[gameName].borrowers[b].lent == "accepted") {
-            json.rental_history.lenders[lenderEmail].games[gameName].borrowers[b].lent = "past"
+        if (borrowers[b].lent == "accepted") {
+            borrowers[b].lent = "past"
         }
     }
     pushData();

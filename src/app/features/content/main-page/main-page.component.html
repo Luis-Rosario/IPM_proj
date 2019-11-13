@@ -24,30 +24,20 @@
                     <div class="row"><span>Games Lent</span></div>
 
                     <div class="caroussel">
-                        <!--   <div class="game lent almost">
-                            <div class="info">2 days left</div>
-                        </div> -->
                         <div class="game lent" *ngFor="let game of gamesLending">
                             <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></lib-card>
                         </div>
-                        <!--  <div class="game lent">
-                            <div class="info">1 week left</div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="group borrow">
                     <div class="row"><span>Games Borrowed</span></div>
 
                     <div class="caroussel">
-                        <!--  <div class="game lent warn">
-                            <div class="info ">2 days <b>delayed</b></div>
-                        </div> -->
-                        <div class="game lent" *ngFor="let game of gamesBorrowed">
+
+                        <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
                             <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
                         </div>
-                        <!--  <div class="game lent">
-                            <div class="info">2 weeks left</div>
-                        </div> -->
+
                     </div>
                 </div>
             </div>
