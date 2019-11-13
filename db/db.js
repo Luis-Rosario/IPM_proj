@@ -407,6 +407,32 @@ json = {
             "endDate": dateToStr(getCurrDate())
         },
         {
+            "user_email": "floribela123@gmail.com",
+            "game_name": "Super Smash Bros Ultimate",
+            "year": 2019,
+            "category": ["action", "fighting"],
+            "console": "Nintendo Switch",
+            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+            "duration_range": [3, 6],
+            "active": false,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "floribela123@gmail.com",
+            "game_name": "Sims 4",
+            "year": 2014,
+            "category": ["simulation"],
+            "console": "PC",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
+            "duration_range": [3, 6],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
             "user_email": "manel_tristonho@hotmail.com",
             "game_name": "FIFA 19",
             "year": 2018,
@@ -414,19 +440,6 @@ json = {
             "console": "PS4",
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "duration_range": [1, 8],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getCurrDate())
-        },
-        {
-            "user_email": "castelo_branquinho@gmail.com",
-            "game_name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "duration_range": [1, 6],
             "active": true,
             "warnedLender": false,
             "warnedBorrower": false,
@@ -441,19 +454,6 @@ json = {
             "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
             "duration_range": [2, 3],
             "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getCurrDate())
-        },
-        {
-            "user_email": "floribela123@gmail.com",
-            "game_name": "Super Smash Bros Ultimate",
-            "year": 2019,
-            "category": ["action", "fighting"],
-            "console": "Nintendo Switch",
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
-            "duration_range": [3, 6],
-            "active": false,
             "warnedLender": false,
             "warnedBorrower": false,
             "endDate": dateToStr(getCurrDate())
@@ -485,6 +485,32 @@ json = {
             "endDate": dateToStr(getCurrDate())
         },
         {
+            "user_email": "aventureiro101@hotmail.com",
+            "game_name": "Minecraft",
+            "year": 2009,
+            "category": ["sandbox", "survival", "action", "adventure"],
+            "console": "Xbox 360",
+            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
+            "duration_range": [2, 3],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "aventureiro101@hotmail.com",
+            "game_name": "The Legend of Zelda: Link's Awakening",
+            "year": 1993,
+            "category": ["action", "adventure"],
+            "console": "Nintendo Switch",
+            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+            "duration_range": [1, 2],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
             "user_email": "castelo_branquinho@gmail.com",
             "game_name": "Uncharted 4: A Thief's End",
             "year": 2016,
@@ -498,12 +524,129 @@ json = {
             "endDate": dateToStr(getCurrDate())
         },
         {
+            "user_email": "castelo_branquinho@gmail.com",
+            "game_name": "FIFA 19",
+            "year": 2018,
+            "category": ["sports", "football"],
+            "console": "PS4",
+            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+            "duration_range": [1, 6],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "castelo_branquinho@gmail.com",
+            "game_name": "Far Cry 4",
+            "year": 2014,
+            "category": ["fps", "action", "adventure"],
+            "console": "PS4",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
+            "duration_range": [1, 5],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "castelo_branquinho@gmail.comm",
+            "game_name": "The Legend of Zelda: Link's Awakening",
+            "year": 1993,
+            "category": ["action", "adventure"],
+            "console": "Nintendo Switch",
+            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+            "duration_range": [2, 8],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
             "user_email": "docinho2019@hotmail.com",
             "game_name": "Death Stranding",
             "year": 2019,
             "category": ["action", "adventure"],
             "console": "PS4",
             "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+            "duration_range": [1, 4],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "docinho2019@hotmail.com",
+            "game_name": "Far Cry 4",
+            "year": 2014,
+            "category": ["fps", "action", "adventure"],
+            "console": "PS4",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
+            "duration_range": [3, 5],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "marcelo_the_usurper@hotmail.com",
+            "game_name": "Death Stranding",
+            "year": 2019,
+            "category": ["action", "adventure"],
+            "console": "PS4",
+            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+            "duration_range": [3, 5],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "marcelo_the_usurper@hotmail.com",
+            "game_name": "Sims 4",
+            "year": 2014,
+            "category": ["simulation"],
+            "console": "PC",
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
+            "duration_range": [1, 4],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "marcelo_the_usurper@hotmail.com",
+            "game_name": "The Legend of Zelda: Link's Awakening",
+            "year": 1993,
+            "category": ["action", "adventure"],
+            "console": "Nintendo Switch",
+            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+            "duration_range": [1, 9],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "matias_flores@hotmail.com",
+            "game_name": "Death Stranding",
+            "year": 2019,
+            "category": ["action", "adventure"],
+            "console": "PS4",
+            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+            "duration_range": [1, 8],
+            "active": true,
+            "warnedLender": false,
+            "warnedBorrower": false,
+            "endDate": dateToStr(getCurrDate())
+        },
+        {
+            "user_email": "matias_flores@hotmail.com",
+            "game_name": "Minecraft",
+            "year": 2009,
+            "category": ["sandbox", "survival", "action", "adventure"],
+            "console": "Xbox 360",
+            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
             "duration_range": [1, 4],
             "active": true,
             "warnedLender": false,
@@ -530,6 +673,16 @@ json = {
         "lenders": {
             "matias_flores@hotmail.com": {
                 "games": {
+                    "Death Stranding": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "Minecraft": {
+                        "borrowers": {
+
+                        }
+                    }
 
                 }
             },
@@ -539,8 +692,12 @@ json = {
                         "borrowers": {
 
                         }
+                    },
+                    "Far Cry 4": {
+                        "borrowers": {
+                            
+                        }
                     }
-
                 }
             },
             "floribela123@gmail.com": {
@@ -601,6 +758,11 @@ json = {
                                 ]
                             }
                         }
+                    },
+                    "Sims 4": {
+                        "borrowers": {
+
+                        }
                     }
                 }
             },
@@ -612,7 +774,19 @@ json = {
                         }
                     },
                     "Uncharted 4: A Thief's End": {
-                        "borrowers": {}
+                        "borrowers": {
+
+                        }
+                    },
+                    "Far Cry 4": {
+                        "borrowers": {
+                            
+                        }
+                    },
+                    "The Legend of Zelda: Link's Awakening": {
+                        "borrowers": {
+
+                        }
                     }
                 }
             },
@@ -637,7 +811,21 @@ json = {
             },
             "marcelo_the_usurper@hotmail.com": {
                 "games": {
+                    "Death Stranding": {
+                        "borrowers": {
 
+                        }
+                    },
+                    "Sims 4": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "The Legend of Zelda: Link's Awakening": {
+                        "borrowers": {
+
+                        }
+                    }
                 }
             },
             "a@a.com": { //ruizinho@hotmail.com
@@ -695,6 +883,16 @@ json = {
                                     }
                                 ]
                             }
+                        }
+                    },
+                    "Minecraft": {
+                        "borrowers": {
+
+                        }
+                    },
+                    "The Legend of Zelda: Link's Awakening": {
+                        "borrowers": {
+
                         }
                     }
                 }
