@@ -1312,14 +1312,25 @@ function getRentalStatus(lender, borrower, game) {
 function addUser(userObj) {
     userObj.city_id = Math.ceil(Math.random() * 4)
     userObj.lender_rating = 5,
-        userObj.borrower_rating = 5,
-        userObj.llama_points = 100,
-        userObj.total_borrowed = 0,
-        userObj.total_lent = 0
+    userObj.borrower_rating = 5,
+    userObj.llama_points = 100,
+    userObj.total_borrowed = 0,
+    userObj.total_lent = 0
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lenders[userObj.email] = {}
     json.rental_history.lenders[userObj.email].games = {}
+
+    pushData();
+}
+
+function editUser(userObj) {
+    userObj.lender_rating = json.users_db[userObj.email].lender_rating
+    userObj.borrower_rating = json.users_db[userObj.email].borrower_rating,
+    userObj.llama_points = json.users_db[userObj.email].llama_points,
+    userObj.total_borrowed = json.users_db[userObj.email].total_borrowed,
+    userObj.total_lent = json.users_db[userObj.email].total_lent,
+    json.users_db[userObj.email] = userObj;
 
     pushData();
 }
@@ -1344,6 +1355,7 @@ function addGame(userId, gameObj) {
     json.rental_history.lenders[userId].games[gameObj.game_name].borrowers = {}
     pushData();
 }
+
 
 function deleteGame(userId, game_name) {
     for (i in json.game_rentals) {
