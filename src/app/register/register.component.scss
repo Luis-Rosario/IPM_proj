@@ -1,14 +1,22 @@
 .logo {
-    width: 40px;
-    height: 40px;
-    background: #EEEEEE;
+    width: 65px;
+    height: 65px;
     display: inline-block;
 }
 
 .title {
     display: inline-block;
+    position: relative;
+    top:6px;
+    margin-left:15px;
 }
 
+
+.box-title{
+    margin-bottom:15px;
+    color:#fb9e25;
+    margin-left:12px;
+}
 
 /*box principal*/
 
@@ -59,30 +67,32 @@ label{
 }
 
 .boxElem-single {
-    width: 500px;
+    width: 516px;
 }
 
-.button {
-    box-shadow: inset 0px 1px 0px 0px #fce2c1;
-    background-color: #ffc477;
-    border-radius: 6px;
-    border: 1px solid #db9c2e;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 9px 36px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #cc9f52;
-}
+.button-parent{
+    text-align:right;
 
-.button:hover {
-    background-color: #fb9e25;
-}
-
-.button:active {
-    position: relative;
-    top: 1px;
+    .button {
+        box-shadow: inset 0px 1px 0px 0px #fce2c1;
+        background-color: #ffc477;
+        border-radius: 6px;
+        border: 1px solid #db9c2e;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 9px 36px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #cc9f52;
+        &:hover{
+            background-color: #fb9e25ed;
+        }
+        &:active {
+            position: relative;
+            top: 1px;
+        }
+    }
 }
