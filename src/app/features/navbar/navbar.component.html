@@ -1,32 +1,22 @@
 <div class="nav">
-  <input
-    type="text"
-    placeholder="Search for a game..."
-    class="abs-input"
-    #search
-    (keyup)="searchGame()"
-  />
-  <div class="navbar-brand">
-    <a routerLink="/home" routerLinkActive="active">
-      <img class="logo" src="assets/llama_2.png" />
-    </a>
-    <a routerLink="/home" routerLinkActive="active">LlemePlay</a>
-  </div>
-  <input class="norm-input" type="text" placeholder="..." />
-  <ul class="links">
-    <li>
-      <a
-        routerLink="/user/library"
-        routerLinkActive="active"
-        [ngClass]="this.url.includes('libary') ? 'active' : ''"
-        ><b>My Library</b></a
+    <input type="text" placeholder="Search for a game..." class="abs-input" #search (keyup)="searchGame()" />
+    <div class="navbar-brand">
+        <a routerLink="/home" routerLinkActive="active">
+            <img class="logo" src="assets/llama_2.png" />
+        </a>
+        <a routerLink="/home" routerLinkActive="active">LlemePlay</a>
+    </div>
+    <input class="norm-input" type="text" placeholder="..." />
+    <ul class="links">
+        <li>
+            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.router.url.includes('libary') ? 'active' : ''"><b>My Library</b></a
       >
     </li>
     <li>
       <a
         routerLink="/user/profile"
         routerLinkActive="active"
-        [ngClass]="this.url.includes('profile') ? 'active' : ''"
+        [ngClass]=" this.router.url.includes('profile') ? 'active' : ''"
         ><b>My Account</b></a
       >
     </li>
@@ -34,7 +24,7 @@
       <a
         routerLink="/user/inbox"
         routerLinkActive="active"
-        [ngClass]="this.url.includes('inbox') ? 'active' : ''"
+        [ngClass]=" this.router.url.includes('inbox') ? 'active' : ''"
         ><b>Inbox</b></a
       >
     </li>

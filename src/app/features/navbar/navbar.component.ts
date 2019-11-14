@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   email: String;
   userInfo: any;
-  url: any;
+  
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -30,12 +30,14 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
-    setInterval(() => {
+  /*   setInterval(() => {
       this.url = window.location.href;
     }, 100);
-    console.log(this.url);
+    console.log(this.url); */
+  
   }
 
   searchGame() {

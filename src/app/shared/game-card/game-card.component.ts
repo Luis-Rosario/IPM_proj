@@ -72,7 +72,6 @@ export class GameCardComponent implements OnInit {
     $(gameCard)
       .find(".message-page")
       .fadeToggle();
-    alert("Say something to the lender, isto n esta fazer popUp do novo modal");
   }
 
   filterLenders() {
@@ -90,6 +89,10 @@ export class GameCardComponent implements OnInit {
         duration: this.loanDuration
       }
     );
+  }
+
+  closeModal(ev){
+    $(".modal").fadeOut();
   }
 }
 

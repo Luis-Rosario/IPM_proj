@@ -60,6 +60,9 @@ export class LoanRequestsComponent implements OnInit {
       if (this.lender) {
         this.users[index]["rental_state"] = getRentalStatus(this.sessionQuery.getValue().email, user, this.game.game_name)  
       }
+      if (!this.lender) {
+        this.users[index]["rental_state"] = getRentalStatus( user,this.sessionQuery.getValue().email, this.game.game_name)  
+      }
 
       this.userRequestInfo.set(user, this.messages[user])
 

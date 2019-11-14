@@ -59,7 +59,7 @@ peer.on("open", (id) => {
 json = {
     "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
 
-    "categories": ["sports", "football", "cooking", "co-op", "action", "adventure", "fighting","sandbox", "survival", "simulation", "fps"],
+    "categories": ["sports", "football", "cooking", "co-op", "action", "adventure", "fighting", "sandbox", "survival", "simulation", "fps"],
 
     "cities": {
         "1": {
@@ -1281,11 +1281,11 @@ function orderedGamesLending(lender) {
     gamesOrdered = []
     for (game in games) {
         gameData = games[game];
-        if(!gameData.endDate){
+        if (!gameData.endDate) {
             daysLeft = 50;
             console.error("chico error message: endDate not defined ");
-            console.log("--> ",lender,game);
-        } else{
+            console.log("--> ", lender, game);
+        } else {
             daysLeft = (strToDate(gameData.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
         }
         gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
@@ -1325,10 +1325,10 @@ function getRentalStatus(lender, borrower, game) {
 function addUser(userObj) {
     userObj.city_id = Math.ceil(Math.random() * 4)
     userObj.lender_rating = 5,
-    userObj.borrower_rating = 5,
-    userObj.llama_points = 100,
-    userObj.total_borrowed = 0,
-    userObj.total_lent = 0
+        userObj.borrower_rating = 5,
+        userObj.llama_points = 100,
+        userObj.total_borrowed = 0,
+        userObj.total_lent = 0
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lenders[userObj.email] = {}
@@ -1339,31 +1339,31 @@ function addUser(userObj) {
 //struct igual ao users_db
 function editUser(userObj) {
     let email = userObj.email
-    if(!email || !json.users_db[email]){
-        alert("can't edit user, no user with email "+email);
+    if (!email || !json.users_db[email]) {
+        alert("can't edit user, no user with email " + email);
     }
 
-    if(userObj.email) json.users_db[email].email = userObj.email
-    if(userObj.password) json.users_db[email].password = userObj.password
+    if (userObj.email) json.users_db[email].email = userObj.email
+    if (userObj.password) json.users_db[email].password = userObj.password
 
-    if(userObj.first_name) json.users_db[email].first_name = userObj.first_name
-    if(userObj.last_name) json.users_db[email].last_name = userObj.last_name
-    if(userObj.birthdate) json.users_db[email].birthdate = userObj.birthdate
-    if(userObj.gender) json.users_db[email].gender = userObj.gender
+    if (userObj.first_name) json.users_db[email].first_name = userObj.first_name
+    if (userObj.last_name) json.users_db[email].last_name = userObj.last_name
+    if (userObj.birthdate) json.users_db[email].birthdate = userObj.birthdate
+    if (userObj.gender) json.users_db[email].gender = userObj.gender
 
-    if(userObj.street_address) json.users_db[email].street_address = userObj.street_address
-    if(userObj.postal_code) json.users_db[email].postal_code = userObj.postal_code
-    if(userObj.city) json.users_db[email].city = userObj.city
-    if(userObj.city_id) json.users_db[email].city_id = userObj.city_id
+    if (userObj.street_address) json.users_db[email].street_address = userObj.street_address
+    if (userObj.postal_code) json.users_db[email].postal_code = userObj.postal_code
+    if (userObj.city) json.users_db[email].city = userObj.city
+    if (userObj.city_id) json.users_db[email].city_id = userObj.city_id
 
-    if(userObj.card_number) json.users_db[email].card_number = userObj.card_number
-    if(userObj.expiration_date) json.users_db[email].expiration_date = userObj.expiration_date
-    if(userObj.security_code) json.users_db[email].security_code = userObj.security_code
-    if(userObj.lender_rating) json.users_db[email].lender_rating = userObj.lender_rating
-    if(userObj.borrower_rating) json.users_db[email].borrower_rating = userObj.borrower_rating
-    if(userObj.llama_points) json.users_db[email].llama_points = userObj.llama_points
-    if(userObj.total_borrowed) json.users_db[email].total_borrowed = userObj.total_borrowed
-    if(userObj.total_lent) json.users_db[email].total_lent = userObj.total_lent
+    if (userObj.card_number) json.users_db[email].card_number = userObj.card_number
+    if (userObj.expiration_date) json.users_db[email].expiration_date = userObj.expiration_date
+    if (userObj.security_code) json.users_db[email].security_code = userObj.security_code
+    if (userObj.lender_rating) json.users_db[email].lender_rating = userObj.lender_rating
+    if (userObj.borrower_rating) json.users_db[email].borrower_rating = userObj.borrower_rating
+    if (userObj.llama_points) json.users_db[email].llama_points = userObj.llama_points
+    if (userObj.total_borrowed) json.users_db[email].total_borrowed = userObj.total_borrowed
+    if (userObj.total_lent) json.users_db[email].total_lent = userObj.total_lent
 
     pushData();
 }
@@ -1479,7 +1479,7 @@ function createRentalProposal(lender, borrower, gameName, duration, msg) {
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
     }
 
-    sendMsg(lender, borrower, msg, gameName);
+    sendMsg(lender, borrower, msg, gameName, "borrower");
     pushData();
 }
 

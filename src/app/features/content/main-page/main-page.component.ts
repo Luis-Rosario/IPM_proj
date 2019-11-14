@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/core/state/session.service";
 
 declare const getGames: any;
-declare const getAcceptedGamesBorrowing: any;
-declare const getGamesLending: any;
+/* declare const getAcceptedGamesBorrowing: any;
+declare const getGamesLending: any; */
 declare const pagesFunctions: any;
 declare const orderedGamesLending: any;
 declare const orderedGamesBorrowing: any;
@@ -30,7 +30,7 @@ export class MainPageComponent implements OnInit {
   borrowingGamesInfo: Map<String, any> = new Map();
   user: any = "";
 
-  constructor(private sessionService: SessionService) {}
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
     this.user = this.sessionService.getLoggedUser();
@@ -44,8 +44,10 @@ export class MainPageComponent implements OnInit {
 
   getFeatured() {
     let games = getGames(this.getAllGames);
-    for (let i = 0; i < 5; i++) {
-      this.featuredGames.push(games[i]);
+    console.log(games)
+    for (let i = 0;   this.featuredGames.length <= 5; i++) {
+      if (games[i].user_email != this.user)
+        this.featuredGames.push(games[i]);
     }
   }
 
@@ -76,6 +78,6 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-  /*   console.log(myGamesJSON ) */
+    /*   console.log(myGamesJSON ) */
   }
 }
