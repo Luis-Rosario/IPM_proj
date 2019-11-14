@@ -1026,7 +1026,7 @@ function getCurrDate() {
 }
 
 function dateToStr(date) {
-    return date.getFullYear() + "-" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getUTCDate())
 }
 
 function strToDate(date) {
