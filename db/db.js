@@ -59,6 +59,8 @@ peer.on("open", (id) => {
 json = {
     "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
 
+    "categories": ["sports", "football", "cooking", "co-op", "action", "adventure", "fighting","sandbox", "survival", "simulation", "fps"],
+
     "cities": {
         "1": {
             "1": 0,
@@ -1127,6 +1129,11 @@ function getNotifications(userEmail) {
 function getConsoles() {
     return json.consoles
 }
+
+function getCategories() {
+    return json.categories
+}
+
 /*
 getGames({
 "gameName":"name",
@@ -1409,6 +1416,24 @@ function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
     pushData()
 }
 
+function createRentalProposal(lender, borrower, gameName, duration, msg) {
+    if (json.rental_history.lenders[lender] == undefined) {
+        json.rental_history.lender[lender] = {}
+        json.rental_history.lender[lender][gameName] = {}
+    }
+    entry = json.rental_history.lenders[lender].games[gameName].borrowers[borrower]
+    if (entry == undefined) {
+        newEntry = {}
+        newEntry["lent"] = "pending"
+        newEntry["duration"] = duration
+        newEntry["messages"] = []
+        json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
+    }
+
+    sendMsg(lender, borrower, msg, gameName);
+    pushData();
+}
+
 function acceptRental(lenderEmail, borrowerEmail, gameName) {
 
     duration = json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].duration
@@ -1440,6 +1465,7 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
     pushData();
 }
 
+<<<<<<< Updated upstream
 /*"castelo_branquinho@gmail.com": {
   "lent": "accepted",
   pending,accepted,past
@@ -1482,6 +1508,8 @@ function createRentalProposal(lender, borrower, gameName, duration, msg) {
     pushData();
 }
 
+=======
+>>>>>>> Stashed changes
 function sendMsg(lender, borrower, msg, gameName, sender) {
     date = getCurrDate()
     hours = date.getUTCHours()
