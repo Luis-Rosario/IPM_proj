@@ -1465,31 +1465,6 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
     pushData();
 }
 
-<<<<<<< Updated upstream
-/*"castelo_branquinho@gmail.com": {
-  "lent": "accepted",
-  pending,accepted,past
-  "messages": [{
-          "user": "borrower",
-          lender, borrower, system
-          "content": "Hello, darling! Lend me this game! Muah",
-          "date": "2019-09-07",
-          "time": "12:02"
-      },*/
-
-function getCurrDate() {
-    return new Date(new Date().getTime() + dayAdjustment * (1 * (1000 * 60 * 60 * 24)));
-}
-
-function dateToStr(date) {
-    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getUTCDate())
-}
-
-function strToDate(date) {
-    date = date.split("-")
-    return new Date(date[0], date[1] - 1, date[2]);
-}
-
 function createRentalProposal(lender, borrower, gameName, duration, msg) {
     if (json.rental_history.lenders[lender] == undefined) {
         json.rental_history.lender[lender] = {}
@@ -1508,8 +1483,6 @@ function createRentalProposal(lender, borrower, gameName, duration, msg) {
     pushData();
 }
 
-=======
->>>>>>> Stashed changes
 function sendMsg(lender, borrower, msg, gameName, sender) {
     date = getCurrDate()
     hours = date.getUTCHours()
