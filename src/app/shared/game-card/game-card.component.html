@@ -1,37 +1,29 @@
 <div class="game-card non-owner">
-  <img src="{{ this.gameInfo.image_url }}" (click)="openModal($event)" />
+    <img src="{{ this.gameInfo.image_url }}" (click)="openModal($event)" />
 </div>
 
 <div class="game-page modal" id="game-modal" role="dialog">
-  <div class="modal-content">
-    <div class="row ">
-      <div class="col-9 game-col ">
-        <div class="game-info row ">
-          <div class="col-4 img-col ">
-            <img src="{{ this.gameInfo.image_url }}" alt=" " />
-          </div>
-          <div class="col-8 text-col ">
-            <h4>{{ this.gameInfo.game_name }}</h4>
-            <!--this changed, tem de se por aqui um ngFor-->
-            <div class="categories ">
-              <div
-                class="pill active"
-                *ngFor="let cat of this.gameInfo.category"
-              >
-                {{ cat }}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-section ">
-          <div class="form-group ">
-            <label for=" ">Loan Duration:</label>
-            <select
-              name=" "
-              id="duration-select"
-              #durationselect
-              (change)="this.filterLenders()"
-            >
+    <div class="modal-content">
+        <div class="row ">
+            <div class="col-9 game-col ">
+                <div class="game-info row ">
+                    <div class="col-4 img-col ">
+                        <img src="{{ this.gameInfo.image_url }}" alt=" " />
+                    </div>
+                    <div class="col-8 text-col ">
+                        <h4>{{ this.gameInfo.game_name }}</h4>
+                        <!--this changed, tem de se por aqui um ngFor-->
+                        <div class="categories ">
+                            <div class="pill active" *ngFor="let cat of this.gameInfo.category">
+                                {{ cat }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section ">
+                    <div class="form-group ">
+                        <label for=" ">Loan Duration:</label>
+                        <select name=" " id="duration-select" #durationselect (change)="this.filterLenders()">
               <option value="0 " selected>Any</option>
               <option value="1 ">1 week</option>
               <option value="2 ">2 weeks</option>
@@ -40,15 +32,10 @@
               <option value="5 ">5 weeks</option>
               <option value="6 ">6 weeks</option>
             </select>
-          </div>
-          <div class="form-group ">
-            <label for=" ">Maximum Distance:</label>
-            <select
-              name=" "
-              id="distance-select"
-              #distanceselect
-              (change)="this.filterLenders()"
-            >
+                    </div>
+                    <div class="form-group ">
+                        <label for=" ">Maximum Distance:</label>
+                        <select name=" " id="distance-select" #distanceselect (change)="this.filterLenders()">
               <option value="0 " selected>Any</option>
               <option value="50 ">50 kms</option>
               <option value="100 ">100 kms</option>
@@ -57,55 +44,47 @@
               <option value="250 ">250 kms</option>
               <option value="300 ">300 kms</option>
             </select>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 users-col ">
-        <div class="user" *ngFor="let lender of this.lendersOfGame">
-          <div class="user-info ">
-            <div class="user-name">
-              {{ lender.first_name }} {{ lender.last_name }}
+                    </div>
+                </div>
             </div>
-            <div class="user-ratings ">
-              <span class="star-rating">{{ lender.lender_rating }}</span
+            <div class="col-3 users-col ">
+                <div class="user" *ngFor="let lender of this.lendersOfGame">
+                    <div class="user-info ">
+                        <div class="user-name">
+                            {{ lender.first_name }} {{ lender.last_name }}
+                        </div>
+                        <div class="user-ratings ">
+                            <span class="star-rating">{{ lender.lender_rating }}</span
               ><i class="fas fa-star "></i> /
               <span class="loan-count">{{ lender.total_lent }}</span> Loans
-            </div>
-            <a class="rent-btn " (click)="openMessageModal($event)">→</a>
-          </div>
-          <div class="message-page modal" id="message-modal" role="dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">
-                  Say something to lender
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  (click)="closeModal()"
-                >
+                        </div>
+                        <a class="rent-btn " (click)="openMessageModal($event)">→</a>
+                    </div>
+                    <div class="message-page modal" id="message-modal" role="dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    Say something to lender
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <!--  (click)="closeModal()" -->
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
-              <div class="modal-body">
-                <div class="row ">
-                  <div class="col-12 ">
-                    <textarea type="text" placeholder="Message here"></textarea>
-                    <button
-                      (click)="modalClick($event)"
-                      [attr.data-user]="lender.email"
-                    >
+                            </div>
+                            <div class="modal-body">
+                                <div class="row ">
+                                    <div class="col-12 ">
+                                        <textarea type="text" placeholder="Message here"></textarea>
+                                        <button (click)="modalClick($event)" [attr.data-user]="lender.email">
                       Send Message
                     </button>
-                  </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
