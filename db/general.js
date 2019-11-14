@@ -10,6 +10,12 @@ var pagesFunctions = {
       }
       $(modal).modal("show");
     });
+    $("game-card .game-card").click(function() {
+      $(this)
+        .parent()
+        .find(".game-page.modal")
+        .modal("show");
+    });
   },
   profile: function() {
     function resizeInput() {
@@ -123,3 +129,27 @@ var pagesFunctions = {
     }, 200);
   }
 };
+
+function nestedDepth($el) {
+  if ($el.prop("tagName").toLowerCase() == "body") return 1;
+  return 1 + nestedDepth($el.parent());
+}
+
+document.addEventListener("keydown", function(ev) {
+  if (ev.code == "Escape" && $(".modal:visible").length) {
+    console.log("closing modals");
+    let max = -1;
+    let el = null;
+    for (let i = 0; i < $(".modal:visible").length; i++) {
+      let a = $(".modal:visible").eq(i);
+      let b = nestedDepth(a);
+      if (b > max) {
+        el = a;
+        max = b;
+      }
+    }
+    window.eee = el;
+    $(el).modal("hide");
+    //$(".modal:visible").modal("close");
+  }
+});
