@@ -1026,11 +1026,11 @@ function getCurrDate() {
 }
 
 function dateToStr(date) {
-    return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
 }
 
 function strToDate(date) {
-    date = date.split("/")
+    date = date.split("-")
     return new Date(date[0], date[1] - 1, date[2]);
 }
 
