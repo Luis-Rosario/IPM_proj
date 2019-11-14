@@ -18,11 +18,6 @@ export class LoginComponent implements OnInit,OnChanges {
     ) { }
 
   ngOnInit() {
-    console.log("init")
-    setTimeout(()=>{
-      console.log("cc")
-      this.showerror = true;
-    },1000);
   }
 
   ngOnChanges(){

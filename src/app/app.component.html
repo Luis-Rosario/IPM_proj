@@ -4,7 +4,7 @@
     <router-outlet></router-outlet>
 </div> -->
 
-<div>
+<div [className]="(url.includes('/login') || url.includes('/register')) ? 'login-parent' : ''">
     <app-navbar *ngIf="isLogged()"></app-navbar>
     <div [className]="isLogged() ? 'content space-nav' : 'content'">
         <router-outlet></router-outlet>

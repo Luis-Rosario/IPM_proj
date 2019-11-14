@@ -100,3 +100,10 @@ img {
 a {
     cursor: pointer;
 }
+
+.login-parent .content{
+    background:url("assets/bg-login.jpeg")!important;
+    background-size:cover!important;
+    background-position:center!important;
+    padding-top:40px!important;
+}

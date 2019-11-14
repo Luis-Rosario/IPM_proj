@@ -30,13 +30,19 @@
 
             <div class="row">
                 <div class="col-6">
-                    <h6 class="subtitles">Date of Birth</h6>
-                    <input type="text" class="boxElem" formControlName="birthdate">
+                    <h6 class="subtitles">Date of birth</h6>
+                    <input type="date" class="boxElem" formControlName="birthdate">
                 </div>
 
                 <div class="col-6">
                     <h6 class="subtitles ">Gender</h6>
-                    <input type="text" class="boxElem" formControlName="gender">
+
+                    <input type="radio" value="F" formControlName="gender" id="gender-F">
+                    <label for="gender-F">Female</label>
+                    <input type="radio" value="M" formControlName="gender" id="gender-M">
+                    <label for="gender-M">Male</label>
+                    <input type="radio" value="O" formControlName="gender" id="gender-O">
+                    <label for="gender-O">Other</label>
                 </div>
             </div>
         </div>
@@ -66,27 +72,27 @@
         <div class="section">
             <div class="row">
                 <div class="col-6">
-                    <h6 class="subtitles ">Email</h6>
+                    <h6 class="subtitles ">E-mail</h6>
                     <input type="text" class="boxElem-single" formControlName="email">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <h6 class="subtitles ">Pasword</h6>
-                    <input type="text" class="boxElem" formControlName="password">
+                    <h6 class="subtitles ">Password</h6>
+                    <input type="password" class="boxElem" formControlName="password">
                 </div>
 
                 <div class="col-6">
-                    <h6 class="subtitles ">Pasword Confirmation</h6>
-                    <input type="text" class="boxElem" formControlName="PasswordConfim">
+                    <h6 class="subtitles ">Password Confirmation</h6>
+                    <input type="password" class="boxElem" formControlName="PasswordConfim">
                 </div>
             </div>
         </div>
         <div class="section">
             <div class="row">
                 <div class="col-6">
-                    <h6 class="subtitles ">Card Number</h6>
+                    <h6 class="subtitles ">Credit Card Number</h6>
                     <input type="text" class="boxElem-single" formControlName="card_number">
                 </div>
             </div>
