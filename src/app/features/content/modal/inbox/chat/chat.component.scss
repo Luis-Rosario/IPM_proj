@@ -207,6 +207,9 @@ a {
         float: left;
         clear: both;
         border-radius: 8px;
+        .text{
+            text-align:left;
+        }
         &.me {
             float: right;
             background: $orange;

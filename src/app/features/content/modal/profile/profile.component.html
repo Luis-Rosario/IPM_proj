@@ -13,7 +13,7 @@
     <i class="fas fa-user-edit edit-btn" (click)="updateProfile()"></i>
   </h2>
 
-  <h3>Personal Information</h3>
+  <h3>Personal Information:</h3>
   <div class="row birth-row">
     <div class="group">
       <h3>Date of Birth:</h3>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <h3>Address Information</h3>
+  <h3>Address Information:</h3>
 
   <div class="row address-row">
     <div class="group">
@@ -71,7 +71,7 @@
       />
     </div>
     <div class="group">
-      <h3>Postal code:</h3>
+      <h3>Postal Code:</h3>
       <h4 style="display: inline-block;">{{ userInfo.postal_code }}</h4>
       <input
         style="display: inline-block;"
@@ -100,10 +100,10 @@
     </div>
   </div>
 
-  <h3>Payment Information</h3>
+  <h3>Payment Information:</h3>
   <div class="row payment-row">
     <div class="group">
-      <h3>Card number:</h3>
+      <h3>Credit card number:</h3>
       <h4>{{ userInfo.card_number }}</h4>
       <input
         type="text"
@@ -127,5 +127,5 @@
     />
   </div>
 
-  <a class="submit-changes-btn" (click)="updateProfile()">Update profile</a>
+  <a class="submit-changes-btn" (click)="updateProfile()">Update Information</a>
 </div>
