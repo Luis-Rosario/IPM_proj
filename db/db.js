@@ -104,7 +104,7 @@ json = {
 
             "first_name": "André",
             "last_name": "Aventura",
-            "birthdate": "1986/02/15",
+            "birthdate": "1986-02-15",
             "gender": "M",
 
             "street_address": "Avenida de Belise, nº76",
@@ -127,7 +127,7 @@ json = {
 
             "first_name": "Zé",
             "last_name": "Casa Branca",
-            "birthdate": "1962/12/08",
+            "birthdate": "1962-12-08",
             "gender": "M",
 
             "street_address": "Rua da Fortuna, nº69",
@@ -150,7 +150,7 @@ json = {
 
             "first_name": "Rui",
             "last_name": "Mar",
-            "birthdate": "1957/09/06",
+            "birthdate": "1957-09-06",
             "gender": "M",
 
             "street_address": "Avenida da Boavista, nº1, R/ch Esq",
@@ -173,7 +173,7 @@ json = {
 
             "first_name": "Florbela",
             "last_name": "Matias",
-            "birthdate": "1989/12/03",
+            "birthdate": "1989-12-03",
             "gender": "F",
 
             "street_address": "Rua General Luis, nº5",
@@ -196,7 +196,7 @@ json = {
 
             "first_name": "Manuel",
             "last_name": "Triste",
-            "birthdate": "1995/10/22",
+            "birthdate": "1995-10-22",
             "gender": "M",
 
             "street_address": "Rua da Miséria, nº2",
@@ -219,7 +219,7 @@ json = {
 
             "first_name": "Marcelo",
             "last_name": "Costa",
-            "birthdate": "1965/11/03",
+            "birthdate": "1965-11-03",
             "gender": "M",
 
             "street_address": "Palácio de Belém",
@@ -242,7 +242,7 @@ json = {
 
             "first_name": "Ricardo",
             "last_name": "Doce",
-            "birthdate": "1971/05/20",
+            "birthdate": "1971-05-20",
             "gender": "M",
 
             "street_address": "Rua das Cabaças, nº13",
@@ -265,7 +265,7 @@ json = {
 
             "first_name": "Matias",
             "last_name": "Flores",
-            "birthdate": "1998/05/23",
+            "birthdate": "1998-05-23",
             "gender": "M",
 
             "street_address": "Rua do Cabeço, nº29, 1ºD",
@@ -657,7 +657,7 @@ json = {
 
     "notifications": {
         "a@a.com": [{
-            "date": "2019/07/07",
+            "date": "2019-07-07",
             "time": "h:m",
             "game": "Uncharted",
             "user": "Mr. Borrower",
@@ -717,21 +717,21 @@ json = {
                                         "user": "borrower",
                                         /*lender, borrower, system*/
                                         "content": "Hello, darling! Lend me this game! Muah",
-                                        "date": "2019/09/07",
+                                        "date": "2019-09-07",
                                         "time": "12:02",
                                         "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "Okay, I will!",
-                                        "date": "2019/09/07",
+                                        "date": "2019-09-07",
                                         "time": "12:32",
                                         "read": true
                                     },
                                     {
                                         "user": "system",
                                         "content": "Please return this game!",
-                                        "date": "2019/09/07",
+                                        "date": "2019-09-07",
                                         "time": "12:35",
                                         "read": true
                                     }
@@ -744,14 +744,14 @@ json = {
                                         "user": "borrower",
                                         /*lender, borrower, system*/
                                         "content": "Hi! I wanna borrow this game!",
-                                        "date": "2019/09/07",
+                                        "date": "2019-09-07",
                                         "time": "12:00",
                                         "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "I can't lend it right now, but maybe later.",
-                                        "date": "2019/09/14",
+                                        "date": "2019-09-14",
                                         "time": "12:40",
                                         "read": true
                                     }
@@ -791,7 +791,7 @@ json = {
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Hello Zé! Can you lend me this game?",
-                                    "date": "2019/11/13",
+                                    "date": "2019-11-13",
                                     "time": "09:57",
                                     "read": false
                                 }]
@@ -816,7 +816,7 @@ json = {
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Hello! Can you lend me this game? :)",
-                                    "date": "2019/11/17",
+                                    "date": "2019-11-17",
                                     "time": "09:34",
                                     "read": false
                                 }]
@@ -827,7 +827,7 @@ json = {
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Give me this game!",
-                                    "date": "2019/11/16",
+                                    "date": "2019-11-16",
                                     "time": "12:47",
                                     "read": false
                                 }]
@@ -870,7 +870,7 @@ json = {
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Hi! Can you lend it?",
-                                    "date": "2019/10/12",
+                                    "date": "2019-10-12",
                                     "time": "09:00",
                                     "read": true
                                 }]
@@ -894,14 +894,14 @@ json = {
                                 "messages": [{
                                         "user": "borrower",
                                         "content": "Hello, can you lend me this game?",
-                                        "date": "2019/10/12",
+                                        "date": "2019-10-12",
                                         "time": "09:00",
                                         "read": true
                                     },
                                     {
                                         "user": "lender",
                                         "content": "Yes, ofc",
-                                        "date": "2019/10/13",
+                                        "date": "2019-10-13",
                                         "time": "11:00",
                                         "read": true
                                     }
@@ -917,7 +917,7 @@ json = {
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Hi André! Will you lend me this game?",
-                                    "date": "2019/10/10",
+                                    "date": "2019-10-10",
                                     "time": "09:34",
                                     "read": true
                                 }]
@@ -1274,7 +1274,13 @@ function orderedGamesLending(lender) {
     gamesOrdered = []
     for (game in games) {
         gameData = games[game];
-        daysLeft = strToDate(gameData.endDate) - getCurrDate();
+        if(!gameData.endDate){
+            daysLeft = 50;
+            console.error("chico error message: endDate not defined ");
+            console.log("--> ",lender,game);
+        } else{
+            daysLeft = (strToDate(gameData.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
+        }
         gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
         /* console.log(daysLeft) */
         gamesOrdered.push(gameData);
@@ -1323,14 +1329,34 @@ function addUser(userObj) {
 
     pushData();
 }
-
+//struct igual ao users_db
 function editUser(userObj) {
-    userObj.lender_rating = json.users_db[userObj.email].lender_rating
-    userObj.borrower_rating = json.users_db[userObj.email].borrower_rating,
-    userObj.llama_points = json.users_db[userObj.email].llama_points,
-    userObj.total_borrowed = json.users_db[userObj.email].total_borrowed,
-    userObj.total_lent = json.users_db[userObj.email].total_lent,
-    json.users_db[userObj.email] = userObj;
+    let email = userObj.email
+    if(!email || !json.users_db[email]){
+        alert("can't edit user, no user with email "+email);
+    }
+
+    if(userObj.email) json.users_db[email].email = userObj.email
+    if(userObj.password) json.users_db[email].password = userObj.password
+
+    if(userObj.first_name) json.users_db[email].first_name = userObj.first_name
+    if(userObj.last_name) json.users_db[email].last_name = userObj.last_name
+    if(userObj.birthdate) json.users_db[email].birthdate = userObj.birthdate
+    if(userObj.gender) json.users_db[email].gender = userObj.gender
+
+    if(userObj.street_address) json.users_db[email].street_address = userObj.street_address
+    if(userObj.postal_code) json.users_db[email].postal_code = userObj.postal_code
+    if(userObj.city) json.users_db[email].city = userObj.city
+    if(userObj.city_id) json.users_db[email].city_id = userObj.city_id
+
+    if(userObj.card_number) json.users_db[email].card_number = userObj.card_number
+    if(userObj.expiration_date) json.users_db[email].expiration_date = userObj.expiration_date
+    if(userObj.security_code) json.users_db[email].security_code = userObj.security_code
+    if(userObj.lender_rating) json.users_db[email].lender_rating = userObj.lender_rating
+    if(userObj.borrower_rating) json.users_db[email].borrower_rating = userObj.borrower_rating
+    if(userObj.llama_points) json.users_db[email].llama_points = userObj.llama_points
+    if(userObj.total_borrowed) json.users_db[email].total_borrowed = userObj.total_borrowed
+    if(userObj.total_lent) json.users_db[email].total_lent = userObj.total_lent
 
     pushData();
 }
@@ -1421,7 +1447,7 @@ function refuseRental(lenderEmail, borrowerEmail, gameName) {
           "user": "borrower",
           lender, borrower, system
           "content": "Hello, darling! Lend me this game! Muah",
-          "date": "2019/09/07",
+          "date": "2019-09-07",
           "time": "12:02"
       },*/
 
@@ -1430,11 +1456,11 @@ function getCurrDate() {
 }
 
 function dateToStr(date) {
-    return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + (date.getUTCDate())
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getUTCDate())
 }
 
 function strToDate(date) {
-    date = date.split("/")
+    date = date.split("-")
     return new Date(date[0], date[1] - 1, date[2]);
 }
 

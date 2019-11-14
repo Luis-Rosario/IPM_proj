@@ -70,17 +70,34 @@ i.edit-btn:hover {
 }
 
 .container:not(.editable) {
-  input {
+  input,
+  label,
+  .submit-changes-btn,
+  h2 .spacer {
     display: none !important;
-  }
-  .submit-changes-btn {
-    display: none;
   }
 }
 
 .editable {
-  h4 {
+  h4:not(.persistent),
+  .user-name {
     display: none !important;
+  }
+  label {
+    margin-left: 5px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+  h2 {
+    input {
+      font-size: inherit !important;
+      min-width: unset !important;
+    }
+    .spacer {
+      display: inline-block;
+      margin: 0 10px;
+    }
   }
   .submit-changes-btn {
     font-size: 22px;
