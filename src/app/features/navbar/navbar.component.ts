@@ -2,8 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef, OnChanges } from "@angular/co
 import { SessionQuery } from "src/app/core/state/session.query";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { SessionService } from "src/app/core/state/session.service";
+import * as $ from 'jquery';
 
 declare const getUser: any;
+declare const getNotifications;
+
 
 @Component({
   selector: "app-navbar",
@@ -15,7 +18,9 @@ export class NavbarComponent implements OnInit {
 
   email: String;
   userInfo: any;
-  url: any ="";
+  url: any = "";
+  notifications: any[] = [];
+
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -33,11 +38,8 @@ export class NavbarComponent implements OnInit {
     this.url = this.router.url;
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
-  /*   setInterval(() => {
-      this.url = window.location.href;
-    }, 100);
-    console.log(this.url); */
-  
+    this.notifications = getNotifications(this.email);
+    console.log(this.notifications)
   }
 
   searchGame() {
@@ -60,5 +62,25 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.sessionService.logout();
     this.router.navigateByUrl("/login");
+  }
+
+  toggleNotifications() {
+    if ($(".notifications").hasClass("hidden"))
+      $(".notifications").removeClass("hidden")
+
+    else {
+      $(".notifications").addClass("hidden")
+    }
+  }
+
+  clickNotification(notification){
+
+    this.router.navigate(["user/inbox"], {
+      queryParams: {
+        game:notification.game,
+        otherUser: notification.otherUser,
+        myRole: notification.myRole,
+      }
+    });
   }
 }

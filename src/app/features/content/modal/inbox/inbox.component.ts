@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, AfterViewI
 import { SessionQuery } from 'src/app/core/state/session.query';
 import * as $ from 'jquery';
 import { LoanRequestsComponent } from './loan-requests/loan-requests.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -19,6 +20,7 @@ declare const getBorrowingMessages: any;
 export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
   @ViewChild(LoanRequestsComponent, null) loanRequest: LoanRequestsComponent;
+  
 
   showBorrowed: any = true;
 
@@ -38,6 +40,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   constructor(
     private sessionQuery: SessionQuery,
     private cd: ChangeDetectorRef,
+    private _route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -46,14 +49,32 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.getBorrowingGames();
     this.changeSelect();
 
+    this._route.queryParams.subscribe(params => {
+      if(!$.isEmptyObject(params)) {
+  
+        this.game = params.game;
+        this.targetPerson = params.otherUser
+
+        if (params.myRole == "borrower") {
+          this.select.nativeElement.value = true;
+          this.showBorrowed = 'true';
+        }
+
+        else {
+          this.showBorrowed = 'false';
+          this.select.nativeElement.value = false;
+        }
+
+        this.selectGame(this.game, "")
+
+        //Magia
+        setTimeout(() => {
+          this.loanRequest.selectRequest(this.targetPerson, "")
+        }, 1);
+      }
+    });
 
   }
-/* 
-  ngAfterViewInit(): void {
-    this.cd.detectChanges();
-  
-  } */
-
 
   changeSelect() {
 
@@ -64,10 +85,8 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     }
 
     this.showBorrowed = this.select.nativeElement.value
-  /*   console.log(this.showBorrowed) */
+   /*  console.log(this.showBorrowed) */
     document.getElementById("inbox-wrapper").className = this.showBorrowed ? "borrowing row" : "lender row";
-   
-
   }
 
 
@@ -102,20 +121,24 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   }
 
 
-  selectGame(game,event) {
+  selectGame(game, event) {
+
     $(".gameList h3").removeClass("active")
-    /* console.log(event) */ 
+    /* console.log(event) */
     this.chatMessages = undefined
     this.messages = undefined
-    event.target.classList.add("active")
+    if (event != "")
+      event.target.classList.add("active")
+
     if (this.showBorrowed === 'true') {
-      
+
       this.messages = getBorrowingMessages(this.user, game)
       /* console.log(this.messages) */
       this.game = this.borrowingGamesInfo.get(game)
     }
 
     else {
+      console.log(this.user, game)
       this.messages = getLendingMessages(this.user, game)
       /*   console.log(this.messages) */
       this.game = this.lendingGamesInfo.get(game)
@@ -128,7 +151,10 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.targetPerson = chat[1];
   }
 
-  refreshLoanRequest(){
+  refreshLoanRequest() {
     this.loanRequest.refresh();
   }
+
+
+
 }

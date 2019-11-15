@@ -1078,6 +1078,8 @@ function getNotifications(userEmail) {
                 objNotif.date = msg.date
                 objNotif.time = msg.time
                 objNotif.content = msg.content
+                objNotif.myRole = "lender"
+
                 if (msg.user == "lender") {
                     objNotif.read = true
                 } else {
@@ -1102,6 +1104,8 @@ function getNotifications(userEmail) {
                         objNotif.date = msg.date
                         objNotif.time = msg.time
                         objNotif.content = msg.content
+                        objNotif.myRole = "borrower"
+
                         if (msg.user == "borrower") {
                             objNotif.read = true
                         } else {
@@ -1134,6 +1138,7 @@ function getCategories() {
     return json.categories
 }
 
+
 /*
 getGames({
 "gameName":"name",
@@ -1146,7 +1151,7 @@ getGames({
 })
 */
 function getGames(filterObj) {
-    console.log("filtering with", filterObj);
+    /*     console.log("filtering with", filterObj); */
     games = [];
     savedList = {}
     borrower = filterObj.byUser;
@@ -1172,7 +1177,7 @@ function getGames(filterObj) {
             savedList[gameRental.game_name] = true;
         }
     }
-    console.log("returning", games);
+    /*   console.log("returning", games); */
     return games;
 }
 
@@ -1183,13 +1188,13 @@ function getGames(filterObj) {
 //     })
 // for a game, loggedUser (for distance), and filterObj, gives lenders
 function getGameLenders(gameName, loggedUserEmail, filterObj) {
-    console.log("filtering lenderUsers with", filterObj);
+    /*   console.log("filtering lenderUsers with", filterObj); */
     users = [];
     borrower = filterObj.byUser;
     filtered_game_rentals = json.game_rentals.filter((game) => {
-        return game.game_name == gameName && game.user_email != loggedUserEmail
-    })
-    console.log(filtered_game_rentals)
+            return game.game_name == gameName && game.user_email != loggedUserEmail
+        })
+        /*     console.log(filtered_game_rentals) */
     for (i = 0; i < filtered_game_rentals.length; i++) {
         gameRental = filtered_game_rentals[i];
         lender = gameRental.user_email;
@@ -1204,7 +1209,7 @@ function getGameLenders(gameName, loggedUserEmail, filterObj) {
             users.push(getUser(gameRental.user_email));
         }
     }
-    console.log("returning", users);
+    /*   console.log("returning", users); */
     return users;
 }
 
@@ -1283,8 +1288,8 @@ function orderedGamesLending(lender) {
         gameData = games[game];
         if (!gameData.endDate) {
             daysLeft = 50;
-            console.error("chico error message: endDate not defined ");
-            console.log("--> ", lender, game);
+            /*   console.error("chico error message: endDate not defined ");
+              console.log("--> ", lender, game); */
         } else {
             daysLeft = (strToDate(gameData.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
         }

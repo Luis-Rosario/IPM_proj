@@ -100,4 +100,9 @@ $red: #b22222;
             }
         }
     }
+    .notifications {
+        &.hidden {
+            display: none;
+        }
+    }
 }

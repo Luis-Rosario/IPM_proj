@@ -9,35 +9,31 @@
     <input class="norm-input" type="text" placeholder="..." />
     <ul class="links">
         <li>
-            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="/user/profile"
-        routerLinkActive="active"
-        [ngClass]=" this.url.includes('profile') ? 'active' : ''"
-        ><b>My Account</b></a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="/user/inbox"
-        routerLinkActive="active"
-        [ngClass]=" this.url.includes('inbox') ? 'active' : ''"
-        ><b>Inbox</b></a
-      >
-    </li>
-  </ul>
-  <div class="right-hand">
-    <div class="user-info">
-      <div class="row user">
-        {{ userInfo.first_name }} {{ userInfo.last_name }}
-      </div>
-      <div class="row points">{{ userInfo.llama_points }}*</div>
-      <div class="row logout">
-        <li (click)="logout()">Logout</li>
-      </div>
+            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
+        </li>
+        <li>
+            <a routerLink="/user/profile" routerLinkActive="active" [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
+        </li>
+        <li>
+            <a routerLink="/user/inbox" routerLinkActive="active" [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
+        </li>
+    </ul>
+    <div class="right-hand">
+        <i class="fas fa-bell" (click)="toggleNotifications()" style="display: block;"></i>
+        <ul class="notifications hidden">
+            <li *ngFor="let notification of this.notifications">
+                <a (click)="clickNotification(notification)">{{notification.otherUser}}: {{notification.content}} {{notification.date}} {{notification.time}} {{notification.game}}</a>
+            </li>
+        </ul>
+
+        <div class="user-info">
+            <div class="row user">
+                {{ userInfo.first_name }} {{ userInfo.last_name }}
+            </div>
+            <div class="row points">{{ userInfo.llama_points }}*</div>
+            <div class="row logout">
+                <li (click)="logout()">Logout</li>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
