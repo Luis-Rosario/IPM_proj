@@ -9,14 +9,14 @@
     <input class="norm-input" type="text" placeholder="..." />
     <ul class="links">
         <li>
-            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.router.url.includes('libary') ? 'active' : ''"><b>My Library</b></a
+            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a
       >
     </li>
     <li>
       <a
         routerLink="/user/profile"
         routerLinkActive="active"
-        [ngClass]=" this.router.url.includes('profile') ? 'active' : ''"
+        [ngClass]=" this.url.includes('profile') ? 'active' : ''"
         ><b>My Account</b></a
       >
     </li>
@@ -24,7 +24,7 @@
       <a
         routerLink="/user/inbox"
         routerLinkActive="active"
-        [ngClass]=" this.router.url.includes('inbox') ? 'active' : ''"
+        [ngClass]=" this.url.includes('inbox') ? 'active' : ''"
         ><b>Inbox</b></a
       >
     </li>

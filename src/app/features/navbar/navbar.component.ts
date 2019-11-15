@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, OnChanges } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { SessionService } from "src/app/core/state/session.service";
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   email: String;
   userInfo: any;
-  
+  url: any ="";
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.url = this.router.url;
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
   /*   setInterval(() => {
