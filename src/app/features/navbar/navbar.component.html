@@ -7,6 +7,35 @@
         <a routerLink="/home" routerLinkActive="active">LlemePlay</a>
     </div>
     <input class="norm-input" type="text" placeholder="..." />
+
+    <!-- <select multiple name=" " id="console-select" #durationselect>
+        <option value="">Any</option>
+        <option value="PS4" selected>PS4</option>
+        <option value="Nintendo Switch">Nintendo Switch</option>
+        <option value="PC">PC</option>
+        <option value="Xbox One">Xbox One</option>
+        <option value="Xbox 360">Xbox 360</option>
+        <option value="PS3">PS3</option>
+        <option value="PSP">PSP</option>
+    </select> -->
+
+    <ul>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Select consoles<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li *ngFor="let console of this.consoles">
+                    <div class="checkbox">
+                        <label>
+                            <input id="{{console}}" type="checkbox">{{console}}
+                        </label>
+                    </div>
+                </li>
+
+
+            </ul>
+        </li>
+    </ul>
+
     <ul class="links">
         <li>
             <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
@@ -22,7 +51,8 @@
         <i class="fas fa-bell" (click)="toggleNotifications()" style="display: block;"></i>
         <ul class="notifications hidden">
             <li *ngFor="let notification of this.notifications">
-                <a (click)="clickNotification(notification)">{{notification.otherUser}}: {{notification.content}} {{notification.date}} {{notification.time}} {{notification.game}}</a>
+                <a (click)="clickNotification(notification)">{{notification.otherUser}}: {{notification.content}}
+                    {{notification.date}} {{notification.time}} {{notification.game}}</a>
             </li>
         </ul>
 

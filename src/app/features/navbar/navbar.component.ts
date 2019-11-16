@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   userInfo: any;
   url: any = "";
   notifications: any[] = [];
-
+  consoles: any[] = ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"];
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(["browse"], {
         queryParams: {
           gameName: this.search.nativeElement.value,
-          consoles: [],
+          consoles: this.getConsolesSelected(),
           categories: [],
           distance: 50000,
           duration: 0,
@@ -73,14 +73,26 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  clickNotification(notification){
+  clickNotification(notification) {
 
     this.router.navigate(["user/inbox"], {
       queryParams: {
-        game:notification.game,
+        game: notification.game,
         otherUser: notification.otherUser,
         myRole: notification.myRole,
       }
     });
+  }
+
+  getConsolesSelected(){
+    var consoleList =[]
+
+    for(let consoleId in this.consoles){
+     console.log("#"+this.consoles[consoleId])
+      if((<HTMLInputElement>document.querySelector( "#"+this.consoles[consoleId])).checked)
+        consoleList.push(this.consoles[consoleId])
+    }
+
+    return consoleList
   }
 }
