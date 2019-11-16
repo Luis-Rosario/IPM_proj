@@ -9,6 +9,7 @@ declare const getDistanceByUser;
 declare const pagesFunctions;
 declare const createRentalProposal;
 declare const getGameDescription: any;
+declare const getUser;
 
 @Component({
   selector: "game-card",
@@ -25,16 +26,24 @@ export class GameCardComponent implements OnInit {
   loanDuration: any;
   maxDistance: any;
   gameDescription: any;
+  url: any = "";
+  gameOwner: any;
 
-  constructor(private router: Router, private sessionQuery: SessionQuery) {}
+  constructor(private router: Router, private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
+    this.url = this.router.url
+    /*  console.log(this.gameInfo) */
+    this.getLoanInfo(this.gameInfo.user_email)
     this.gameDescription = getGameDescription(this.gameName)
-    this.filterLenders();
+
+    if (this.url !== '/user/library') {
+      console.log("yes")
+      this.filterLenders();
+    }
+
     pagesFunctions.gamecard();
-    /*  console.log(this.gameInfo)
-     console.log(this.loanDuration)
-     console.log(this.maxDistance) */
+
   }
 
   modalClick(ev) {
@@ -79,12 +88,16 @@ export class GameCardComponent implements OnInit {
   }
 
   filterLenders() {
-    this.loanDuration = Number(
-      (<HTMLInputElement>this.durationSelect.nativeElement).value
-    );
-    this.maxDistance = Number(
-      (<HTMLInputElement>this.distanceSelect.nativeElement).value
-    );
+    //magia n tirar
+    setTimeout(() => {
+      this.loanDuration = Number(
+        (<HTMLInputElement>this.durationSelect.nativeElement).value
+      );
+      this.maxDistance = Number(
+        (<HTMLInputElement>this.distanceSelect.nativeElement).value
+      );
+    }, 1);
+
     this.lendersOfGame = getGameLenders(
       this.gameName,
       this.sessionQuery.getValue().email,
@@ -95,8 +108,12 @@ export class GameCardComponent implements OnInit {
     );
   }
 
-  closeModal(ev){
+  closeModal(ev) {
     $(".modal").fadeOut();
+  }
+
+  getLoanInfo(userName) {
+    this.gameOwner = getUser(userName)
   }
 }
 

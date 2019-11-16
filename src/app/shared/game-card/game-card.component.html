@@ -22,47 +22,46 @@
                         <h6>{{this.gameDescription}}</h6>
                     </div>
                 </div>
-                <div class="filter-section ">
-                    <div class="form-group ">
+                <div class="filter-section" *ngIf="this.url !== '/user/library'">
+                    <div class="form-group">
                         <label for=" ">Loan Duration:</label>
                         <select name=" " id="duration-select" #durationselect (change)="this.filterLenders()">
-              <option value="0 " selected>Any</option>
-              <option value="1 ">1 week</option>
-              <option value="2 ">2 weeks</option>
-              <option value="3 ">3 weeks</option>
-              <option value="4 ">4 weeks</option>
-              <option value="5 ">5 weeks</option>
-              <option value="6 ">6 weeks</option>
-              <option value="7 ">7 weeks</option>
-              <option value="8 ">8 weeks</option>
-              <option value="9 ">9 weeks</option>
-              <option value="10 ">10 weeks</option>
-            </select>
+                            <option value="0 " selected>Any</option>
+                            <option value="1 ">1 week</option>
+                            <option value="2 ">2 weeks</option>
+                            <option value="3 ">3 weeks</option>
+                            <option value="4 ">4 weeks</option>
+                            <option value="5 ">5 weeks</option>
+                            <option value="6 ">6 weeks</option>
+                            <option value="7 ">7 weeks</option>
+                            <option value="8 ">8 weeks</option>
+                            <option value="9 ">9 weeks</option>
+                            <option value="10 ">10 weeks</option>
+                        </select>
                     </div>
-                    <div class="form-group ">
+                    <div class="form-group">
                         <label for=" ">Maximum Distance:</label>
                         <select name=" " id="distance-select" #distanceselect (change)="this.filterLenders()">
-              <option value="0 " selected>Any</option>
-              <option value="50 ">50 kms</option>
-              <option value="100 ">100 kms</option>
-              <option value="150 ">150 kms</option>
-              <option value="200 ">200 kms</option>
-              <option value="250 ">250 kms</option>
-              <option value="300 ">300 kms</option>
-            </select>
+                            <option value="0 " selected>Any</option>
+                            <option value="50 ">50 kms</option>
+                            <option value="100 ">100 kms</option>
+                            <option value="150 ">150 kms</option>
+                            <option value="200 ">200 kms</option>
+                            <option value="250 ">250 kms</option>
+                            <option value="300 ">300 kms</option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="col-3 users-col ">
+            <div class="col-3 users-col " *ngIf="this.url !== '/user/library'">
                 <div class="user" *ngFor="let lender of this.lendersOfGame">
                     <div class="user-info ">
                         <div class="user-name">
                             {{ lender.first_name }} {{ lender.last_name }}
                         </div>
                         <div class="user-ratings ">
-                            <span class="star-rating">{{ lender.lender_rating }}</span
-              ><i class="fas fa-star "></i> /
-              <span class="loan-count">{{ lender.total_lent }}</span> Loans
+                            <span class="star-rating">{{ lender.lender_rating }}</span><i class="fas fa-star "></i> /
+                            <span class="loan-count">{{ lender.total_lent }}</span> Loans
                         </div>
                         <a class="rent-btn " (click)="openMessageModal($event)">→</a>
                     </div>
@@ -73,22 +72,29 @@
                                     Say something to lender
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div class="modal-body">
                                 <div class="row ">
                                     <div class="col-12 ">
                                         <textarea type="text" placeholder="Message here"></textarea>
                                         <button (click)="modalClick($event)" [attr.data-user]="lender.email">
-                      Send Message
-                    </button>
+                                            Send Message
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="loan-info" *ngIf="this.url === '/user/library'">
+                <label><b>Game owner:</b> {{this.gameOwner.first_name}} {{this.gameOwner.last_name}}</label>
+                <div>
+                    <label><b>Loan ending date:</b> {{this.gameInfo.endDate}}</label>
+                </div>
+
             </div>
         </div>
     </div>
