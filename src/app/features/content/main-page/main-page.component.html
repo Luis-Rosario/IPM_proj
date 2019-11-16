@@ -25,7 +25,7 @@
 
                     <div class="caroussel">
                         <div class="game lent" *ngFor="let game of gamesLending">
-                            <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)"></lib-card>
+                            <lib-card [gameName]="this.lendingGamesInfo.get(gamesLending[game]).game_name" [gameInfo]="this.lendingGamesInfo.get(gamesLending[game])" (change)="handleChange()"></lib-card>
                         </div>
                     </div>
                 </div>

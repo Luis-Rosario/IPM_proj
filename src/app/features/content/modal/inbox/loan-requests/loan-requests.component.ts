@@ -6,6 +6,7 @@ declare const getChat: any;
 declare const getUser: any;
 declare const onDataChange: any;
 declare const getRentalStatus: any;
+declare const getGameDescription: any;
 
 @Component({
   selector: 'loan-requests',
@@ -21,7 +22,7 @@ export class LoanRequestsComponent implements OnInit {
   users: any[] = [];
   userRequestInfo: Map<String, any> = new Map();
   chatMessages: any;
-
+  gameDescription: any;
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -39,6 +40,9 @@ export class LoanRequestsComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    
+    this.gameDescription = getGameDescription(this.game.game_name)
+    console.log(this.gameDescription)
     onDataChange(this.main.bind(this))
     //very important function best function ever makes everything work :)
     setInterval(() => { }, 400);

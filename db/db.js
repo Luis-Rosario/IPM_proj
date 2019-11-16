@@ -1138,6 +1138,13 @@ function getCategories() {
     return json.categories
 }
 
+function getGameDescription(game) {
+    for (i = 0; i < json.game_db.length; i++) {
+        if (json.game_db[i].name.toLowerCase() == game.toLowerCase()) {
+            return json.game_db[i].description
+        }
+    }
+}
 
 /*
 getGames({

@@ -8,16 +8,6 @@
     </div>
     <input class="norm-input" type="text" placeholder="..." />
 
-    <!-- <select multiple name=" " id="console-select" #durationselect>
-        <option value="">Any</option>
-        <option value="PS4" selected>PS4</option>
-        <option value="Nintendo Switch">Nintendo Switch</option>
-        <option value="PC">PC</option>
-        <option value="Xbox One">Xbox One</option>
-        <option value="Xbox 360">Xbox 360</option>
-        <option value="PS3">PS3</option>
-        <option value="PSP">PSP</option>
-    </select> -->
 
     <ul>
         <li class="dropdown">
@@ -57,13 +47,26 @@
         </ul>
 
         <div class="user-info">
-            <div class="row user">
-                {{ userInfo.first_name }} {{ userInfo.last_name }}
-            </div>
-            <div class="row points">{{ userInfo.llama_points }}*</div>
-            <div class="row logout">
-                <li (click)="logout()">Logout</li>
-            </div>
+            <ul>
+                <li class="dropdown row user">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ userInfo.first_name }}
+                        {{ userInfo.last_name }}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="row logout" (click)="logout()">Logout</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="row points">{{ userInfo.llama_points }} Llama points</div>
         </div>
     </div>
 </div>
+
+<!--    <div class="row user">
+                {{ userInfo.first_name }} {{ userInfo.last_name }}
+            </div>
+            <div class="row points">{{ userInfo.llama_points }}*</div>
+
+            
+            <div class="row logout">
+                <li (click)="logout()">Logout</li>
+            </div> -->

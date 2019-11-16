@@ -5,6 +5,7 @@ import * as $ from "jquery";
 declare const deleteGame;
 declare const pagesFunctions: any;
 declare const markGameAsReturned;
+declare const getGameDescription: any;
 
 @Component({
   selector: "lib-card",
@@ -16,13 +17,20 @@ export class LibCardComponent implements OnInit {
   @Input() gameInfo: any;
   @Output() change = new EventEmitter();
 
-  constructor(private sessionQuery: SessionQuery) {}
+  description: any
+
+  constructor(private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
+    /* console.log(this.gameName, this.gameInfo) */
+
+
     var els = document.querySelectorAll(".pill");
     for (let i = 0; i < els.length; i++) {
       els[i].classList.toggle("active");
     }
+    /* console.log("rreeeeeeeeeeeeee",this.gameName) */
+    this.description = getGameDescription(this.gameName)
   }
 
   deleteGame() {
@@ -31,7 +39,7 @@ export class LibCardComponent implements OnInit {
     this.change.emit();
   }
 
-  markAsReturned(){
+  markAsReturned() {
     markGameAsReturned(this.sessionQuery.getValue().email, this.gameName)
     this.change.emit();
   }
@@ -48,7 +56,7 @@ export class LibCardComponent implements OnInit {
   //   $(event.target.parentElement.parentElement).find(".delete-modal").fadeToggle(); 
   // }
 
-  closeModal(){
+  closeModal() {
     $(".modal").fadeOut();
   }
 }

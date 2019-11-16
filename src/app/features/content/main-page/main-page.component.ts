@@ -78,6 +78,11 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    /*   console.log(myGamesJSON ) */
+      console.log(  this.lendingGamesInfo )
+  }
+
+  handleChange(){
+    this.gamesLending = []
+    this.ngOnInit();
   }
 }
