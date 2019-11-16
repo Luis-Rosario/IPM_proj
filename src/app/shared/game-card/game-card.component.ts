@@ -10,6 +10,7 @@ declare const pagesFunctions;
 declare const createRentalProposal;
 declare const getGameDescription: any;
 declare const getUser;
+declare const getRentalDaysLeft;
 
 @Component({
   selector: "game-card",
@@ -28,17 +29,26 @@ export class GameCardComponent implements OnInit {
   gameDescription: any;
   url: any = "";
   gameOwner: any;
+  lendingDaysLeft: any;
 
   constructor(private router: Router, private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
     this.url = this.router.url
-    /*  console.log(this.gameInfo) */
+    console.log(this.gameInfo)
     this.getLoanInfo(this.gameInfo.user_email)
     this.gameDescription = getGameDescription(this.gameName)
 
+    /*  if(this.url === '/user/library'){ */
+    
+    if (!this.gameInfo.active){
+      this.lendingDaysLeft = getRentalDaysLeft(this.gameInfo)
+      console.log(this.lendingDaysLeft)
+    }
+    
+    /*  console.log(this.lendingDaysLeft) */
+    /*   } */
     if (this.url !== '/user/library') {
-      console.log("yes")
       this.filterLenders();
     }
 
@@ -115,6 +125,11 @@ export class GameCardComponent implements OnInit {
   getLoanInfo(userName) {
     this.gameOwner = getUser(userName)
   }
+
+  lessThanOne(x) {
+    return x < 1;
+  }
+
 }
 
 /* FORMATO DE UM JOGO DO USER

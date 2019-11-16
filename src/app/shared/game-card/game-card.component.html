@@ -1,5 +1,9 @@
 <div class="game-card non-owner">
     <img src="{{ this.gameInfo.image_url }}" (click)="openModal($event)" />
+    <label>
+        <b style="color:red" *ngIf="this.lessThanOne(this.lendingDaysLeft)">Overdue!</b>
+        <b style="color:red" *ngIf="this.lendingDaysLeft > 0">{{this.lendingDaysLeft}} days left</b>
+    </label>
 </div>
 
 <div class="game-page modal" id="game-modal" role="dialog">
@@ -92,7 +96,10 @@
             <div class="loan-info" *ngIf="this.url === '/user/library'">
                 <label><b>Game owner:</b> {{this.gameOwner.first_name}} {{this.gameOwner.last_name}}</label>
                 <div>
-                    <label><b>Loan ending date:</b> {{this.gameInfo.endDate}}</label>
+                    <label><b>Loan ending date:</b> {{this.gameInfo.endDate}} (<b style="color:red"
+                            *ngIf="this.lessThanOne(this.lendingDaysLeft)">Overdue!</b>
+                        <b style="color:red" *ngIf="this.lendingDaysLeft > 0">{{this.lendingDaysLeft}} days left</b>)
+                    </label>
                 </div>
 
             </div>

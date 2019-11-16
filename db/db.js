@@ -1319,6 +1319,11 @@ function getGameData(gameName) {
     return {};
 }
 
+function getRentalDaysLeft(game) {
+    daysLeft = (strToDate(game.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
+    return Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
+}
+
 function getRentalStatus(lender, borrower, game) {
 
     if (json.rental_history.lenders[lender].games[game].borrowers[borrower] !== undefined) {
