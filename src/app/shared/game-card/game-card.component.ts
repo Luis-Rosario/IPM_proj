@@ -8,6 +8,8 @@ declare const getGameLenders;
 declare const getDistanceByUser;
 declare const pagesFunctions;
 declare const createRentalProposal;
+declare const getGameDescription: any;
+
 @Component({
   selector: "game-card",
   templateUrl: "./game-card.component.html",
@@ -22,10 +24,12 @@ export class GameCardComponent implements OnInit {
   lendersOfGame: any[] = [];
   loanDuration: any;
   maxDistance: any;
+  gameDescription: any;
 
   constructor(private router: Router, private sessionQuery: SessionQuery) {}
 
   ngOnInit() {
+    this.gameDescription = getGameDescription(this.gameName)
     this.filterLenders();
     pagesFunctions.gamecard();
     /*  console.log(this.gameInfo)
