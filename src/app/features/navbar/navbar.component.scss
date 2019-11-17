@@ -22,18 +22,25 @@ $red: #b22222;
     .norm-input {
         opacity: 0;
     }
-    .abs-input {
+    .input-wrapper{
         position: absolute;
         top: 58px;
         max-width: 500px;
         width: 40vw;
         left: 50%;
         transform: translate(-50%, 0);
-        font-size: 1em;
-        line-height: 1.5em;
-        padding: 10px 30px;
-        border: 1px solid gainsboro;
-        border-radius: 50px;
+        border-radius:50px;
+        background:white;
+        .abs-input {
+            font-size: 1em;
+            line-height: 1.5em;
+            padding: 10px 30px;
+            border: 1px solid gainsboro;
+            border-radius: 50px;
+            width:100%;
+            padding-left:180px;
+        }
+        //bootstrap-select no styles.css porque autismo do angular
     }
     .navbar-brand {
         a {

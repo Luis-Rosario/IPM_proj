@@ -1,23 +1,29 @@
 var pagesFunctions = {
-  gamecard: function() {
-    $(".rent-btn").click(ev => {
-      let modal = ev.target;
-      let limit = 1;
-      while (!modal.classList.contains("modal") && limit++ < 20) {
-        modal = modal.parentElement.querySelector(".modal")
-          ? modal.parentElement.querySelector(".modal")
-          : modal.parentElement;
-      }
-      $(modal).modal("show");
-    });
-    $("game-card .game-card").click(function() {
-      $(this)
-        .parent()
-        .find(".game-page.modal")
-        .modal("show");
-    });
+  updateNavPicker: function (consoles) {
+    console.log("updating navbar picker")
+    $(".nav .selectpicker").selectpicker('val', consoles);
   },
-  profile: function() {
+  gamecard: function () {
+    setTimeout(() => {
+      $(".rent-btn").click(ev => {
+        let modal = ev.target;
+        let limit = 1;
+        while (!modal.classList.contains("modal") && limit++ < 20) {
+          modal = modal.parentElement.querySelector(".modal")
+            ? modal.parentElement.querySelector(".modal")
+            : modal.parentElement;
+        }
+        $(modal).modal("show");
+      });
+      $("game-card .game-card").click(function () {
+        $(this)
+          .parent()
+          .find(".game-page.modal")
+          .modal("show");
+      });
+    }, 10);
+  },
+  profile: function () {
     function resizeInput() {
       $(this).attr("size", $(this).val().length + 1);
     }
@@ -28,49 +34,49 @@ var pagesFunctions = {
       .each(resizeInput);
     $("app-profile  .edit-btn").click(() => {
       console.log(222);
-      $("input").each(function() {
+      $("input").each(function () {
         console.log($(this));
         resizeInput.bind(this)();
       });
     });
   },
-  browse: function() {
+  browse: function () {
     var el = document.querySelector(".duration-range");
     if (el) multirange(el);
     el = document.querySelector(".year-range");
     if (el) multirange(el);
   },
-  libCard: function() {
-    $(document).ready(function() {
+  libCard: function () {
+    $(document).ready(function () {
       console.log("liba");
-      $("lib-card .game-card .delete-btn").click(function() {
+      $("lib-card .game-card .delete-btn").click(function () {
         $(this)
           .parent()
           .parent()
           .find(".delete-modal")
           .modal("show");
       });
-      $("lib-card .game-card .show-btn").click(function() {
+      $("lib-card .game-card .show-btn").click(function () {
         $(this)
           .parent()
           .parent()
           .find(".show-modal")
           .modal("show");
       });
-      $("lib-card .game-card .return-btn").click(function() {
+      $("lib-card .game-card .return-btn").click(function () {
         $(this)
           .parent()
           .parent()
           .find(".return-modal")
           .modal("show");
       });
-      $("lib-card .game-card .btn.return").click(function() {
+      $("lib-card .game-card .btn.return").click(function () {
         $(".modal").modal("hide");
       });
     });
   },
-  libraryPage: function() {
-    $(".pill").click(function() {
+  libraryPage: function () {
+    $(".pill").click(function () {
       $(this).toggleClass("active");
     });
     $("#new-game-modal #submit-new-game").click(() => {
@@ -110,7 +116,7 @@ var pagesFunctions = {
     }
 
     setTimeout(() => {
-      $("input").on("input", function() {
+      $("input").on("input", function () {
         var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
         handler(this);
       });
@@ -119,7 +125,7 @@ var pagesFunctions = {
       var el = document.querySelector(".game-modal .duration-range");
       if (el) multirange(el);
 
-      $("input").on("input", function() {
+      $("input").on("input", function () {
         var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
         handler(this);
       });
@@ -135,7 +141,7 @@ function nestedDepth($el) {
   return 1 + nestedDepth($el.parent());
 }
 
-document.addEventListener("keydown", function(ev) {
+document.addEventListener("keydown", function (ev) {
   if (ev.code == "Escape" && $(".modal:visible").length) {
     console.log("closing modals");
     let max = -1;

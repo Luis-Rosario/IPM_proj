@@ -112,3 +112,32 @@ a {
 .result-list .game-card label{
     display:none!important;
 }
+
+/*hide second select*/
+.nav .btn-group.bootstrap-select > .dropdown-toggle{
+    display:none!important;
+    visibility:hidden!important;
+    height:0!important;
+    width:0!important;
+    overflow:hidden!important;
+}
+
+.nav .input-wrapper > .bootstrap-select{
+    position:absolute!important;
+    left:0;
+    top:0;
+    width:170px!important;
+    height:100%;
+    display:flex;
+    align-items:center;
+    border-radius:30px;
+    border:1px solid #666;
+    border: 1px solid #6666664a;
+    background: #FBFBFB;
+    box-shadow: 1px 0 6px -4px rgba(0,0,0,0.5);
+}
+.nav .btn-light.dropdown-toggle{
+background:transparent;
+border:none;
+
+}

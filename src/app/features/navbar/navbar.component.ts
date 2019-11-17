@@ -1,13 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef, OnChanges } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnChanges
+} from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { SessionService } from "src/app/core/state/session.service";
-import * as $ from 'jquery';
+import * as $ from "jquery";
 
 declare const getUser: any;
 declare const getNotifications;
 declare const onDataChange;
-
 
 @Component({
   selector: "app-navbar",
@@ -21,7 +26,15 @@ export class NavbarComponent implements OnInit {
   userInfo: any;
   url: any = "";
   notifications: any[] = [];
-  consoles: any[] = ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"];
+  consoles: any[] = [
+    "PS4",
+    "Nintendo Switch",
+    "PC",
+    "Xbox One",
+    "Xbox 360",
+    "PS3",
+    "PSP"
+  ];
 
   constructor(
     private sessionQuery: SessionQuery,
@@ -44,6 +57,18 @@ export class NavbarComponent implements OnInit {
     })
     this.notifications = getNotifications(this.email);
 
+
+    setTimeout(() => {
+      $(".nav .bootstrap-select select").on("change", () => {
+        console.log("k".repeat(500));
+        console.log(this.router.url)
+        if (this.router.url.includes("browse")) {
+
+          this.updateFilters();
+
+        }
+      })
+    }, 500);
     //very important function best function ever makes everything work :)
     setInterval(() => { }, 400);
 
@@ -54,20 +79,24 @@ export class NavbarComponent implements OnInit {
     return getUser(e)
   }
 
+  updateFilters() {
+    this.router.navigate(["browse"], {
+      queryParams: {
+        gameName: this.search.nativeElement.value,
+        consoles: this.getConsolesSelected(),
+        categories: [],
+        distance: 50000,
+        duration: 0,
+        byUser: this.email
+      }
+    });
+  }
+
   searchGame() {
     if (this.search.nativeElement.value.length == 0) {
       this.router.navigate(["home"]);
     } else {
-      this.router.navigate(["browse"], {
-        queryParams: {
-          gameName: this.search.nativeElement.value,
-          consoles: this.getConsolesSelected(),
-          categories: [],
-          distance: 50000,
-          duration: 0,
-          byUser: this.email
-        }
-      });
+      this.updateFilters();
     }
   }
 
@@ -88,20 +117,14 @@ export class NavbarComponent implements OnInit {
       queryParams: {
         game: notification.game,
         otherUser: notification.otherUser,
-        myRole: notification.myRole,
+        myRole: notification.myRole
       }
     });
   }
 
   getConsolesSelected() {
-    var consoleList = []
 
-    for (let consoleId in this.consoles) {
-      console.log("#" + this.consoles[consoleId])
-      if ((<HTMLInputElement>document.querySelector("#" + this.consoles[consoleId])).checked)
-        consoleList.push(this.consoles[consoleId])
-    }
+    return $(".bootstrap-select select").val();
 
-    return consoleList
   }
 }

@@ -1297,7 +1297,7 @@ function orderedGamesBorrowing(borrower) {
     for (game in games) {
         gameData = games[game];
         daysLeft = (strToDate(gameData.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
-        gameData.daysLeft = Math.round(daysLeft / ((1000 * 60 * 60 * 24)));
+        gameData.daysLeft = Math.round(daysLeft);
         gamesOrdered[gameData.name] = gameData;
     }
     return gamesOrdered.sort(function (first, second) {
