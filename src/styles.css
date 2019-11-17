@@ -136,8 +136,10 @@ a {
     background: #FBFBFB;
     box-shadow: 1px 0 6px -4px rgba(0,0,0,0.5);
 }
+/**/
+.nav .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle,
 .nav .btn-light.dropdown-toggle{
-background:transparent;
-border:none;
+background:transparent!important;
+border:none!important;
 
 }
