@@ -9,7 +9,7 @@
                 <div class="description">Add Game</div>
             </div>
             <div *ngFor="let game of lendingGames" [className]="isAvailable(game) ? 'available' : 'unavailable'">
-                <lib-card [gameName]="game" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
+                <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
                 </lib-card>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="title">Borrowed Games</div>
         </div>
         <div *ngFor="let game of borrowingGames">
-            <game-card class="non-owner game-card" [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)">
+            <game-card class="non-owner game-card" [gameName]="this.borrowingGamesInfo.get(game).game_name" [gameInfo]="this.borrowingGamesInfo.get(game)">
             </game-card>
         </div>
     </div>
