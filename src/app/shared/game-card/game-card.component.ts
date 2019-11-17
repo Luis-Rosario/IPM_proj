@@ -31,29 +31,30 @@ export class GameCardComponent implements OnInit {
   gameOwner: any;
   lendingDaysLeft: any;
 
-  constructor(private router: Router, private sessionQuery: SessionQuery) { }
+  constructor(private router: Router, private sessionQuery: SessionQuery) {}
 
   ngOnInit() {
-    this.url = this.router.url
-    console.log(this.gameInfo)
-    this.getLoanInfo(this.gameInfo.user_email)
-    this.gameDescription = getGameDescription(this.gameName)
+    this.url = this.router.url;
+    console.log("+".repeat(1000));
+    console.log(this.gameInfo);
+    this.getLoanInfo(this.gameInfo.user_email);
+    this.gameDescription = getGameDescription(this.gameName);
 
     /*  if(this.url === '/user/library'){ */
-    
-    if (!this.gameInfo.active){
-      this.lendingDaysLeft = getRentalDaysLeft(this.gameInfo)
-      console.log(this.lendingDaysLeft)
+
+    if (!this.gameInfo.active) {
+      this.lendingDaysLeft = this.gameInfo.daysLeft; //getRentalDaysLeft(this.gameInfo)
+      console.log("---".repeat(1000));
+      console.log(this.gameInfo.game_name, this.lendingDaysLeft);
     }
-    
+
     /*  console.log(this.lendingDaysLeft) */
     /*   } */
-    if (this.url !== '/user/library') {
+    if (this.url !== "/user/library") {
       this.filterLenders();
     }
 
     pagesFunctions.gamecard();
-
   }
 
   modalClick(ev) {
@@ -123,13 +124,12 @@ export class GameCardComponent implements OnInit {
   }
 
   getLoanInfo(userName) {
-    this.gameOwner = getUser(userName)
+    this.gameOwner = getUser(userName);
   }
 
   lessThanOne(x) {
     return x < 1;
   }
-
 }
 
 /* FORMATO DE UM JOGO DO USER

@@ -28,21 +28,36 @@
 
     <ul class="links">
         <li>
-            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
+            <a routerLink="/user/library" routerLinkActive="active"
+                [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
         </li>
         <li>
-            <a routerLink="/user/profile" routerLinkActive="active" [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
+            <a routerLink="/user/profile" routerLinkActive="active"
+                [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
         </li>
         <li>
-            <a routerLink="/user/inbox" routerLinkActive="active" [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
+            <a routerLink="/user/inbox" routerLinkActive="active"
+                [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
         </li>
     </ul>
     <div class="right-hand">
         <i class="fas fa-bell" (click)="toggleNotifications()" style="display: block;"></i>
-        <ul class="notifications hidden">
-            <li *ngFor="let notification of this.notifications">
-                <a (click)="clickNotification(notification)">{{notification.otherUser}}: {{notification.content}}
-                    {{notification.date}} {{notification.time}} {{notification.game}}</a>
+        <ul class="notifications hidden list-unstyled">
+            <li *ngFor="let notification of this.notifications" [ngClass]=" notification.read ? 'read' : 'unread'">
+                <a (click)="clickNotification(notification)">
+                    <div class="first-row">
+                        <span class="notif-game"><b>{{notification.game}}</b></span>
+                        <span class="sep"></span>
+                        <span class="notif-user">{{this.getUser(notification.otherUser).first_name}}
+                            {{this.getUser(notification.otherUser).last_name}}</span>
+
+                    </div>
+                    <div class="content">{{notification.content}}</div>
+                    <div class="second-row time">
+                        <i class="far fa-clock"></i>
+                        {{notification.date}}:{{notification.time}}
+                    </div>
+                </a>
             </li>
         </ul>
 

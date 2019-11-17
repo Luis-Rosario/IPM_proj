@@ -1,8 +1,9 @@
 <div class="game-card non-owner">
     <img src="{{ this.gameInfo.image_url }}" (click)="openModal($event)" />
     <label>
-        <b style="color:red" *ngIf="this.lessThanOne(this.lendingDaysLeft)">Overdue!</b>
-        <b style="color:red" *ngIf="this.lendingDaysLeft > 0">{{this.lendingDaysLeft}} days left</b>
+        <div style="color:red" *ngIf="this.gameInfo.daysLeft > 0;then notover else over"></div>
+        <ng-template #over><b class="over-info">Overdue!</b></ng-template>
+        <ng-template #notover><b class="notover-info">{{this.gameInfo.daysLeft}} days left</b></ng-template>
     </label>
 </div>
 
@@ -75,7 +76,8 @@
                                 <h5 class="modal-title">
                                     Say something to lender
                                 </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    (click)="closeModal($event)">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -96,9 +98,9 @@
             <div class="loan-info" *ngIf="this.url === '/user/library'">
                 <label><b>Game owner:</b> {{this.gameOwner.first_name}} {{this.gameOwner.last_name}}</label>
                 <div>
-                    <label><b>Loan ending date:</b> {{this.gameInfo.endDate}} (<b style="color:red"
+                    <label><b>Loan ending date:</b> {{this.gameInfo.endDate}} (<b
                             *ngIf="this.lessThanOne(this.lendingDaysLeft)">Overdue!</b>
-                        <b style="color:red" *ngIf="this.lendingDaysLeft > 0">{{this.lendingDaysLeft}} days left</b>)
+                        <b *ngIf="this.lendingDaysLeft > 0">{{this.lendingDaysLeft}} days left</b>)
                     </label>
                 </div>
 

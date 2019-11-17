@@ -173,6 +173,13 @@ $red: #b22222;
 
 .card-list {
     display: flex;
+    padding-top:15px;
+    .available{
+        order:2;
+    }
+    .unavailable{
+        order:1;
+    }
 }
 
 #new-game-modal {

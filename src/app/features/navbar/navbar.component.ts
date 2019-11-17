@@ -6,6 +6,7 @@ import * as $ from 'jquery';
 
 declare const getUser: any;
 declare const getNotifications;
+declare const onDataChange;
 
 
 @Component({
@@ -38,8 +39,19 @@ export class NavbarComponent implements OnInit {
     this.url = this.router.url;
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
+    onDataChange(() => {
+      this.notifications = getNotifications(this.email);
+    })
     this.notifications = getNotifications(this.email);
+
+    //very important function best function ever makes everything work :)
+    setInterval(() => { }, 400);
+
     console.log(this.notifications)
+  }
+
+  getUser(e) {
+    return getUser(e)
   }
 
   searchGame() {
@@ -65,15 +77,12 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleNotifications() {
-    if ($(".notifications").hasClass("hidden"))
-      $(".notifications").removeClass("hidden")
-
-    else {
-      $(".notifications").addClass("hidden")
-    }
+    $(".notifications").toggleClass("hidden");
+    $(".fa-bell").toggleClass("clicked")
   }
 
   clickNotification(notification) {
+    this.toggleNotifications();
 
     this.router.navigate(["user/inbox"], {
       queryParams: {
@@ -84,12 +93,12 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  getConsolesSelected(){
-    var consoleList =[]
+  getConsolesSelected() {
+    var consoleList = []
 
-    for(let consoleId in this.consoles){
-     console.log("#"+this.consoles[consoleId])
-      if((<HTMLInputElement>document.querySelector( "#"+this.consoles[consoleId])).checked)
+    for (let consoleId in this.consoles) {
+      console.log("#" + this.consoles[consoleId])
+      if ((<HTMLInputElement>document.querySelector("#" + this.consoles[consoleId])).checked)
         consoleList.push(this.consoles[consoleId])
     }
 

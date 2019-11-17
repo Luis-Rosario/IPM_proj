@@ -24,7 +24,7 @@ export class LibCardComponent implements OnInit {
   ngOnInit() {
     /* console.log(this.gameName, this.gameInfo) */
 
-
+    console.log(this.gameInfo);
     var els = document.querySelectorAll(".pill");
     for (let i = 0; i < els.length; i++) {
       els[i].classList.toggle("active");

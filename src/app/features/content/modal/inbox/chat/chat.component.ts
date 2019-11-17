@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 declare const sendMsg;
 declare const acceptRental;
 declare const refuseRental;
+declare const markChatAsRead;
 
 @Component({
   selector: 'chat',
@@ -21,7 +22,8 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.game)
+    console.log(this.game);
+    markChatAsRead(this.chat);
   }
 
   sendMessage(event) {
@@ -46,7 +48,7 @@ export class ChatComponent implements OnInit {
   acceptLoan() {
     this.choosen = true;
     acceptRental(this.loggedUser, this.targetPerson, this.game.game_name);
-    this.acceptedRental.emit({lender: this.loggedUser, borrower: this.targetPerson, game:this.game.game_name})
+    this.acceptedRental.emit({ lender: this.loggedUser, borrower: this.targetPerson, game: this.game.game_name })
     alert("Accepted Loan")
   }
 

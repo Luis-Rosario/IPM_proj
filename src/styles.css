@@ -107,3 +107,8 @@ a {
     background-position:center!important;
     padding-top:40px!important;
 }
+
+.trending-section .game-card label,
+.result-list .game-card label{
+    display:none!important;
+}
