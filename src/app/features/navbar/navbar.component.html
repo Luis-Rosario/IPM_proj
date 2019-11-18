@@ -35,16 +35,13 @@
 
     <ul class="links">
         <li>
-            <a routerLink="/user/library" routerLinkActive="active"
-                [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
+            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
         </li>
         <li>
-            <a routerLink="/user/profile" routerLinkActive="active"
-                [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
+            <a routerLink="/user/profile" routerLinkActive="active" [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
         </li>
         <li>
-            <a routerLink="/user/inbox" routerLinkActive="active"
-                [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
+            <a routerLink="/user/inbox" routerLinkActive="active" [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
         </li>
     </ul>
     <div class="right-hand">
@@ -61,14 +58,23 @@
                     </div>
                     <div class="content">{{notification.content}}</div>
                     <div class="second-row time">
-                        <i class="far fa-clock"></i>
-                        {{notification.date}} {{notification.time}}
+                        <i class="far fa-clock"></i> {{notification.date}} {{notification.time}}
                     </div>
                 </a>
             </li>
         </ul>
 
         <div class="user-info">
+            <div class="row user">
+                <b>{{ userInfo.first_name }} {{ userInfo.last_name }}</b>
+                <i class="fas fa-power-off logout" (click)="logout()"></i>
+            </div>
+            <div class="row points">{{ userInfo.llama_points }} <i class="fas fa-coins"></i></div>
+        </div>
+
+
+
+        <!--   <div class="user-info">
             <ul>
                 <li class="dropdown row user">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ userInfo.first_name }}
@@ -79,16 +85,6 @@
                 </li>
             </ul>
             <div class="row points">{{ userInfo.llama_points }} Llama points</div>
-        </div>
+        </div> -->
     </div>
 </div>
-
-<!--    <div class="row user">
-                {{ userInfo.first_name }} {{ userInfo.last_name }}
-            </div>
-            <div class="row points">{{ userInfo.llama_points }}*</div>
-
-            
-            <div class="row logout">
-                <li (click)="logout()">Logout</li>
-            </div> -->
