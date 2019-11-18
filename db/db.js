@@ -1585,14 +1585,16 @@ function sendNotifications(userEmail) {
 }
 
 function rateLender(lenderEmail, rating) {
-    json.user_db[lenderEmail].total_lent =  json.user_db[lenderEmail].total_lent + 1;
-    json.user_db[lenderEmail].lender_rating =  (json.user_db[lenderEmail].lender_rating + rating)/  json.user_db[lenderEmail].total_lent;
+
+    json.users_db[lenderEmail].lender_rating = ((json.users_db[lenderEmail].lender_rating * json.users_db[lenderEmail].total_lent) + rating)/ (json.users_db[lenderEmail].total_lent + 1);
+    json.users_db[lenderEmail].total_lent =  json.users_db[lenderEmail].total_lent + 1;
+
     pushData();
 }
 
 
 function rateBorrower(borrowerEmail, rating) {
-    json.user_db[borrowerEmail].total_borrowed =  json.user_db[borrowerEmail].total_borrowed+ 1;
-    json.user_db[borrowerEmail]._rating =  (json.user_db[borrowerEmail].borrower_rating + rating)/  json.user_db[borrowerEmail].total_borrowed;
+    json.users_db[borrowerEmail]._rating =  ((json.users_db[borrowerEmail].borrower_rating * json.users_db[borrowerEmail].total_borrowed) + rating)/  (json.users_db[borrowerEmail].total_borrowed + 1);
+    json.users_db[borrowerEmail].total_borrowed =  json.users_db[borrowerEmail].total_borrowed + 1;
     pushData();
 }
