@@ -45,7 +45,7 @@ peer.on("open", (id) => {
             //e o json, atualiza cenas
             if (data.consoles) {
                 json = data;
-                localStorage.json = JSON.stringify(newJSON);
+                localStorage.json = JSON.stringify(data);
                 console.log("got a json")
                 for (let i = 0; i < changeListeners.length; i++) {
                     changeListeners[i]();

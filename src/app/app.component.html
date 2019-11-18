@@ -9,5 +9,23 @@
     <div [className]="isLogged() ? 'content space-nav' : 'content'">
         <router-outlet></router-outlet>
         <div id="snackbar"></div>
+        <div class="modal" id="rate-lender">
+            <div class="modal-header">Ratelender</div>
+            <div class="modal-body">
+                <div class="rateYo" id="input-rate-lender"></div>
+                <script>$("#input-rate-lender").rateYo({
+                        starWidth: "40px"
+                    });</script>
+            </div>
+        </div>
+        <div class="modal" id="rate-borrower">
+            <div class="modal-header">Rate borrower</div>
+            <div class="modal-body">
+                <div class="rateYo" id="input-rate-borrower"></div>
+                <script>$("#input-rate-borrower").rateYo({
+                        starWidth: "40px"
+                    });</script>
+            </div>
+        </div>
     </div>
 </div>
