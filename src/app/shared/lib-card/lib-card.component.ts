@@ -44,11 +44,13 @@ export class LibCardComponent implements OnInit {
 
   markAsReturned() {
     let myMail = this.sessionQuery.getValue().email;
-    let lendingTo = getUser(getLendingTo(myMail)[this.gameName]);
-    let borrowerName = lendingTo.first_name + " " + lendingTo.last_name;
+    let borrower = getLendingTo(myMail)[this.gameName];
+    let borrowerName = getUser(borrower).first_name + " " + getUser(borrower).last_name;
     console.log("i marked the game as returned", borrowerName);
     setTimeout(() => {
       $("#rate-borrower").modal("show");
+      $("#rate-borrower").attr("data-email", borrower);
+      $("#rate-borrower").attr("data-type", "borrower");
       $("#rate-borrower .modal-header").text("Rate " + borrowerName);
     }, 100)
     markGameAsReturned(this.sessionQuery.getValue().email, this.gameName)

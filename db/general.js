@@ -236,7 +236,7 @@ setTimeout(() => {
       else {
         msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
       }
-      responseMessage(msg);
+      responseMessage(ratingValue);
 
     });
 
@@ -244,8 +244,18 @@ setTimeout(() => {
   });
 
 
-  function responseMessage(msg) {
+  function responseMessage(rating) {
     showToast("Review sent, thanks for your feedback!");
+
+    let personType = $("#rate-borrower").data("type");
+    let personEmail = $("#rate-borrower").data("email");
+    if (personType == "lender") {
+      rateLender(personEmail, rating)
+    } else {
+      rateBorrower(personEmail, rating)
+    }
+
+
     setTimeout(() => {
       $(".modal").modal("hide");
     }, 1000);

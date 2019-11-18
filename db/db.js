@@ -63,6 +63,8 @@ peer.on("open", (id) => {
                     let lenderName = getUser(lender).first_name + " " + getUser(lender).last_name;
                     setTimeout(() => {
                         $("#rate-borrower").modal("show");
+                        $("#rate-borrower").attr("data-email", lender);
+                        $("#rate-borrower").attr("data-type", "lender");
                         $("#rate-borrower .modal-header").text("Rate " + lenderName);
                     }, 100)
                 }
@@ -1377,12 +1379,12 @@ function getRentalStatus(lender, borrower, game) {
 function addUser(userObj) {
     userObj.city_id = Math.ceil(Math.random() * 4)
     userObj.lender_rating = 5,
-    userObj.borrower_rating = 5,
-    userObj.llama_points = 100,
-    userObj.total_borrowed = 0,
-    userObj.total_lent = 0
-    userObj.postal_code= userObj.postal_code1 + "-" + userObj.postal_code2
-    userObj.expiration_date= userObj.expiration_date1 + "/" + userObj.expiration_date2
+        userObj.borrower_rating = 5,
+        userObj.llama_points = 100,
+        userObj.total_borrowed = 0,
+        userObj.total_lent = 0
+    userObj.postal_code = userObj.postal_code1 + "-" + userObj.postal_code2
+    userObj.expiration_date = userObj.expiration_date1 + "/" + userObj.expiration_date2
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lenders[userObj.email] = {}
@@ -1586,15 +1588,15 @@ function sendNotifications(userEmail) {
 
 function rateLender(lenderEmail, rating) {
 
-    json.users_db[lenderEmail].lender_rating = ((json.users_db[lenderEmail].lender_rating * json.users_db[lenderEmail].total_lent) + rating)/ (json.users_db[lenderEmail].total_lent + 1);
-    json.users_db[lenderEmail].total_lent =  json.users_db[lenderEmail].total_lent + 1;
-
+    json.users_db[lenderEmail].lender_rating = ((json.users_db[lenderEmail].lender_rating * json.users_db[lenderEmail].total_lent) + rating) / (json.users_db[lenderEmail].total_lent + 1);
+    json.users_db[lenderEmail].total_lent = json.users_db[lenderEmail].total_lent + 1;
+    console.log("rated lender", lenderEmail, rating)
     pushData();
 }
 
 
 function rateBorrower(borrowerEmail, rating) {
-    json.users_db[borrowerEmail].borrower_rating =  ((json.users_db[borrowerEmail].borrower_rating * json.users_db[borrowerEmail].total_borrowed) + rating)/  (json.users_db[borrowerEmail].total_borrowed + 1);
-    json.users_db[borrowerEmail].total_borrowed =  json.users_db[borrowerEmail].total_borrowed + 1;
+    json.users_db[borrowerEmail].borrower_rating = ((json.users_db[borrowerEmail].borrower_rating * json.users_db[borrowerEmail].total_borrowed) + rating) / (json.users_db[borrowerEmail].total_borrowed + 1);
+    json.users_db[borrowerEmail].total_borrowed = json.users_db[borrowerEmail].total_borrowed + 1;
     pushData();
 }
