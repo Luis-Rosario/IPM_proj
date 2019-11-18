@@ -1331,8 +1331,8 @@ function orderedGamesLending(lender) {
 
 function getGameData(gameName) {
     for (game in json.game_db) {
-        if (json[game].name === gameName) {
-            return json[game];
+        if (json.game_db[game].name === gameName) {
+            return json.game_db[game];
         }
     }
     return {};

@@ -76,12 +76,6 @@ var pagesFunctions = {
     });
   },
   libraryPage: function () {
-    $(".pill").click(function () {
-      $(this).toggleClass("active");
-    });
-    $("#new-game-modal #submit-new-game").click(() => {
-      $("#new-game-modal").modal("toggle");
-    });
 
     function handler(th) {
       var $input = $(th).hasClass("ghost") ? $(".duration-range") : $(th);
@@ -116,6 +110,14 @@ var pagesFunctions = {
     }
 
     setTimeout(() => {
+      $(".pill").click(function () {
+        $(this).toggleClass("active");
+      });
+
+      $("#new-game-modal #submit-new-game").click(() => {
+        $("#new-game-modal").modal("toggle");
+      });
+
       $("input").on("input", function () {
         var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
         handler(this);
@@ -159,3 +161,11 @@ document.addEventListener("keydown", function (ev) {
     //$(".modal:visible").modal("close");
   }
 });
+
+
+function showToast(text) {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  x.innerHTML = text;
+  setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+}

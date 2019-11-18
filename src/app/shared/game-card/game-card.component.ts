@@ -31,7 +31,7 @@ export class GameCardComponent implements OnInit {
   gameOwner: any;
   lendingDaysLeft: any;
 
-  constructor(private router: Router, private sessionQuery: SessionQuery) {}
+  constructor(private router: Router, private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
     this.url = this.router.url;
@@ -90,7 +90,7 @@ export class GameCardComponent implements OnInit {
     /*     $(".game-page").fadeOut(); */
     let gameCard = ev.target;
     let limit = 1;
-    while ($(gameCard).hasClass("game-page") && limit++ < 20) {
+    while ($(gameCard).hasClass("user") && limit++ < 20) {
       gameCard = ev.target.parentElement;
     }
     $(gameCard)
@@ -107,16 +107,17 @@ export class GameCardComponent implements OnInit {
       this.maxDistance = Number(
         (<HTMLInputElement>this.distanceSelect.nativeElement).value
       );
-    }, 1);
+      this.lendersOfGame = getGameLenders(
+        this.gameName,
+        this.sessionQuery.getValue().email,
+        {
+          distance: this.maxDistance,
+          duration: this.loanDuration
+        }
+      );
+    }, 10);
 
-    this.lendersOfGame = getGameLenders(
-      this.gameName,
-      this.sessionQuery.getValue().email,
-      {
-        distance: this.maxDistance,
-        duration: this.loanDuration
-      }
-    );
+
   }
 
   closeModal(ev) {

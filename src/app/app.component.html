@@ -8,5 +8,6 @@
     <app-navbar *ngIf="isLogged()"></app-navbar>
     <div [className]="isLogged() ? 'content space-nav' : 'content'">
         <router-outlet></router-outlet>
+        <div id="snackbar"></div>
     </div>
 </div>

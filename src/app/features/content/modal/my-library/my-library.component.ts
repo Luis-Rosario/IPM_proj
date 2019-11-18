@@ -1,15 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
-import * as $ from "jquery";
+//import * as $ from "jquery";
 
 declare const getGamesLending: any;
 declare const getAcceptedGamesBorrowing: any;
 declare const pagesFunctions: any;
 declare const addGame: any;
 declare const getConsoles: any;
+declare const getCategories: any;
 declare const onDataChange: any;
 declare const orderedGamesBorrowing: any;
 declare const orderedGamesLending: any;
+declare const $: any;
+declare const getGameData: any;
+
+declare const showToast: any;
+
+declare const json: any;
 
 @Component({
   selector: "library",
@@ -22,26 +29,78 @@ export class LibraryComponent implements OnInit {
 
   borrowingGamesInfo: Map<String, any> = new Map();
   borrowingGames: String[] = [];
+  gameNames: String[] = [];
 
   user: any;
   consoles: any[] = [];
+  categories: any[] = [];
+  consoleHTMLBackup: String = "";
 
   constructor(private sessionQuery: SessionQuery) { }
+
+  fillGameInfo(gameInfo) {
+    console.log(gameInfo)
+    $("#new-game-modal .categories .pill").removeClass("active");
+    //fill year
+    $("#new-game-modal #year").val(gameInfo.year)
+    //fill categories
+    gameInfo.category.forEach(cat => {
+      $("#new-game-modal .categories .pill").each(function () {
+        if ($(this).text().trim().toLowerCase() == cat.trim().toLowerCase())
+          $(this).addClass("active");
+      })
+    })
+    //select console
+    $("#new-game-modal .select-console select").html(this.consoleHTMLBackup);
+    setTimeout(() => {
+      let excluded = this.consoles.filter((c) => { return !gameInfo.console.includes(c) })
+      console.log(excluded);
+      excluded.forEach(e => {
+        $('#new-game-modal .select-console').find('[value="' + e + '"]').remove();
+        console.log(e);
+      })
+      setTimeout(() => {
+        $(".selectpicker").selectpicker("refresh")
+      }, 100);
+    }, 100);
+    //select img
+    $("#new-game-modal #image").attr("src", gameInfo.image_url)
+    $("#new-game-modal #image").removeClass("hidden");
+  }
 
   main() {
     this.user = this.sessionQuery.getValue().email;
     this.getLendingGames();
     this.getBorrowingGames();
     this.consoles = getConsoles();
+    this.categories = getCategories();
     pagesFunctions.libraryPage();
     pagesFunctions.libCard();
+
+    setTimeout(() => {
+      this.consoleHTMLBackup = $("#new-game-modal .select-console select").html();
+    }, 300);
+
+    let self = this;
+    $("#new-game-modal input#name").on('input', function () {
+      var userText = $(this).val();
+      console.log(userText);
+      $("#new-game-modal #games-list").find("option").each(function () {
+        if ($(this).val() == userText) {
+          self.fillGameInfo(getGameData(userText));
+        }
+      })
+    })
   }
 
   ngOnInit() {
     onDataChange(this.main.bind(this));
     setInterval(() => { }, 400);
-
     this.main();
+
+    this.gameNames = json.game_db.map((obj) => {
+      return obj.name;
+    })
   }
 
   getLendingGames() {
@@ -102,7 +161,7 @@ export class LibraryComponent implements OnInit {
       year: year,
       category: categories,
       console: platform,
-      image_url: "assets/llamma.png",
+      image_url: $("#new-game-modal #image.hidden").length ? "assets/llamma.png" : $("#new-game-modal #image").attr("src"),
       duration_range: range,
       active: true,
       warned: false,
@@ -112,6 +171,7 @@ export class LibraryComponent implements OnInit {
     console.log(platform);
 
     this.ngOnInit();
+    showToast("Game successfully added")
   }
 
   handleChange() {

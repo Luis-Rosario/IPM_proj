@@ -48,14 +48,24 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  updateNotifications() {
+    this.notifications = getNotifications(this.email);
+    let count = this.notifications.filter(e => !e.read).length;
+    $(".nav .fa-bell").removeClass("active")
+    if (count) {
+      $(".nav .fa-bell").addClass("active");
+      $(".nav .fa-bell").attr('data-content', count)
+    }
+  }
+
   ngOnInit() {
     this.url = this.router.url;
     this.email = this.sessionQuery.getValue().email; //na store estara guardado o email
     this.userInfo = getUser(this.email);
     onDataChange(() => {
-      this.notifications = getNotifications(this.email);
+      this.updateNotifications();
     })
-    this.notifications = getNotifications(this.email);
+    this.updateNotifications();
 
 
     setTimeout(() => {

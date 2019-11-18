@@ -108,11 +108,34 @@ $red: #b22222;
         }
     }
     .fa-bell{
+        position:relative;
         &.clicked{
             color:#666;
+            opacity:0.6;
+        }
+        &:not(.active){
+            &:after{
+                display:none;
+            }
+        }
+        &:after{
+            content: attr(data-content);
+            color: white;
+            font-family: sans-serif;
+            font-size: 14px;
+            padding: 3px 5px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(60%,-60%);
+            background: red;
         }
     }
     .notifications {
+        display:flex;
+        flex-wrap:nowrap;
+        flex-direction:column;
         &.hidden {
             display: none;
         }
@@ -173,3 +196,4 @@ $red: #b22222;
         }
     }
 }
+
