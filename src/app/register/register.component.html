@@ -72,9 +72,15 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles ">Postal Code</h6>
-                    <input id="postal" type="text" class="boxElem" formControlName="postal_code" required placeholder="xxxx-yyy">
-                    <div *ngIf="this.form.controls['postal_code'].invalid && submited" class="error-message">
-                        <b>Required field</b>
+                    <input id="postal" type="text" class="boxElem" formControlName="postal_code1" required minlength="4" maxlength="4" style="width:100px">
+                    <label style="display:inline-block;">-</label>
+                    <input id="postal2" type="text" class="boxElem" formControlName="postal_code2" required style="display: inline-block; width:70px" minlength="3" maxlength="3">
+                    <div *ngIf="(this.form.controls['postal_code1'].invalid ||  this.form.controls['postal_code2'].invalid) && submited" class="error-message">
+                        <b *ngIf="(this.form.controls['postal_code1'].value.length != 4 || this.form.controls['postal_code2'].value.length !=3) && 
+                        (this.form.controls['postal_code1'].value.length > 0 || this.form.controls['postal_code2'].value.length > 0)">Insert
+                            a valid Postal code </b>
+                        <b *ngIf="this.form.controls['postal_code1'].value.length == 0 && this.form.controls['postal_code2'].value.length == 0">Required
+                            field</b>
                     </div>
                 </div>
 
@@ -126,9 +132,12 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles ">Credit Card Number</h6>
-                    <input id="card" type="text" class="boxElem-single" formControlName="card_number" required>
+                    <input id="card" type="text" class="boxElem-single" formControlName="card_number" required minlength="16" maxlength="16">
                     <div *ngIf="this.form.controls['card_number'].invalid && submited" class="error-message">
-                        <b>Required field</b>
+                        <b *ngIf="this.form.controls['card_number'].value.length != 16 && this.form.controls['card_number'].value.length > 0 ">Insert
+                            a valid credit card number</b>
+                        <b *ngIf="this.form.controls['card_number'].invalid && this.form.controls['card_number'].value.length == 0">Required
+                            field</b>
                     </div>
                 </div>
             </div>
@@ -136,18 +145,27 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles ">Expiration Date</h6>
-                    <input id="exp" type="text" class="boxElem" formControlName="expiration_date" required>
-                    <div *ngIf="this.form.controls['expiration_date'].invalid && submited" class="error-message">
-                        <b>Required field</b>
+                    <input id="exp" type="text" class="boxElem" formControlName="expiration_date1" required minlength="2" maxlength="2" style="width: 60px;">
+                    <label style="display: inline-block;">/</label>
+                    <input id="exp1" type="text" class="boxElem" formControlName="expiration_date2" required style="display: inline-block; width: 60px;" minlength="2" maxlength="2">
+                    <div *ngIf="(this.form.controls['expiration_date1'].invalid ||this.form.controls['expiration_date2'].invalid) && submited" class="error-message">
+                        <b *ngIf="(this.form.controls['expiration_date1'].value.length != 2 || this.form.controls['expiration_date2'].value.length !=2) && 
+                        (this.form.controls['expiration_date1'].value.length > 0 || this.form.controls['expiration_date2'].value.length > 0)">Insert
+                            a valid Postal code </b>
+                        <b *ngIf="this.form.controls['expiration_date1'].value.length == 0 && this.form.controls['expiration_date2'].value.length == 0">Required
+                            field</b>
                     </div>
                     <!-- <input type="text" class="boxElem" formControlName="ExpirationDate2" style="display: inline-block;"> -->
                 </div>
 
                 <div class="col-6">
                     <h6 class="subtitles ">Security Code</h6>
-                    <input id="code" type="text " class="boxElem" formControlName="security_code" required>
+                    <input id="code" type="text " class="boxElem" formControlName="security_code" required minlength="3" maxlength="3">
                     <div *ngIf="this.form.controls['security_code'].invalid && submited" class="error-message">
-                        <b>Required field</b>
+                        <b *ngIf="(this.form.controls['security_code'].value.length != 3) && (this.form.controls['security_code'].value.length > 0)">Insert
+                            a valid security code</b>
+                        <b *ngIf="this.form.controls['security_code'].value.length == 0">Required
+                            field</b>
                     </div>
                     <!--       <input type="text " class="boxElem" formControlName="SecurityCode2"> -->
                 </div>

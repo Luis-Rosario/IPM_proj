@@ -49,13 +49,15 @@ export class RegisterComponent implements OnInit {
       birthdate: '',
       gender: '',
       street_address: '',
-      postal_code: '',
+      postal_code1: '',
+      postal_code2: '', 
       city: '',
       email: '',
       password: '',
       PasswordConfim: '',
       card_number: '',
-      expiration_date: '',
+      expiration_date1: '',
+      expiration_date2: '',
       security_code: '',
     })
   }
