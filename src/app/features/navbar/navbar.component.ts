@@ -8,12 +8,12 @@ import {
 import { SessionQuery } from "src/app/core/state/session.query";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { SessionService } from "src/app/core/state/session.service";
-import * as $ from "jquery";
+//import * as $ from "jquery";
 
 declare const getUser: any;
 declare const getNotifications;
 declare const onDataChange;
-
+declare const $: any;
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -68,6 +68,8 @@ export class NavbarComponent implements OnInit {
     this.updateNotifications();
 
 
+    $(".selectpicker").selectpicker();
+
     setTimeout(() => {
       $(".nav .bootstrap-select select").on("change", () => {
         console.log("k".repeat(500));
@@ -76,6 +78,8 @@ export class NavbarComponent implements OnInit {
 
           this.updateFilters();
 
+        } else{
+          this.searchGame(true);
         }
       })
     }, 500);
@@ -102,8 +106,8 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  searchGame() {
-    if (this.search.nativeElement.value.length == 0) {
+  searchGame(force = false) {
+    if (!force && this.search.nativeElement.value.length == 0) {
       this.router.navigate(["home"]);
     } else {
       this.updateFilters();

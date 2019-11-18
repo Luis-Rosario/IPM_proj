@@ -140,6 +140,8 @@ $red: #b22222;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
+        max-height:500px;
+        overflow:auto;
         &.hidden {
             display: none;
         }
@@ -152,7 +154,6 @@ $red: #b22222;
         background: white;
         border-radius: 5px 5px 13px 13px;
         box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
         li.unread {
             order: 1;
             &,
@@ -188,15 +189,16 @@ $red: #b22222;
         .content {
             margin: 6px 0;
             border-left: 2px solid gainsboro;
-            padding: 8px;
+            padding: 5px 8px;
             overflow: hidden;
-            font-size: 15px;
+            font-size: 14px;
             width: 100%;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
         .time {
-            font-size: 13px;
+            font-size: 11px;
+            padding-top:5px;
         }
     }
     .logout {

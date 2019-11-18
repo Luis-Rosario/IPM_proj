@@ -110,7 +110,7 @@ var pagesFunctions = {
     }
 
     setTimeout(() => {
-      $(".pill").click(function () {
+      $(".pill.interactive").click(function () {
         $(this).toggleClass("active");
       });
 

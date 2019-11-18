@@ -1444,6 +1444,8 @@ function markGameAsReturned(lenderEmail, gameName) {
             borrowers[b].lent = "past"
         }
     }
+    let game = getGameInfo(lenderEmail, gameName);
+    game.active = true;
     pushData();
 }
 

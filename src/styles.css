@@ -122,7 +122,7 @@ a {
 
 /*hide second select*/
 
-.btn-group.bootstrap-select>.dropdown-toggle {
+.btn-group.bootstrap-select>.dropdown-toggle,.nav .input-wrapper > .bootstrap-select > .btn-group.bootstrap-select {
     display: none!important;
     visibility: hidden!important;
     height: 0!important;
@@ -143,6 +143,10 @@ a {
     border: 1px solid #6666664a;
     background: #FBFBFB;
     box-shadow: 1px 0 6px -4px rgba(0, 0, 0, 0.5);
+}
+
+.nav .input-wrapper .dropdown-menu.show{
+    width:220px!important;
 }
 
 

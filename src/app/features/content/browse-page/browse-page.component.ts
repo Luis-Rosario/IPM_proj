@@ -80,13 +80,13 @@ export class BrowsePageComponent implements OnInit {
 
   JSfilters() {
     setTimeout(() => {
-      $(".pill").click(function () {
+      $(".pill.interactive").click(function () {
         $(this).toggleClass("active");
       });
 
 
 
-      $(".categories .pill").click(() => {
+      $(".categories .pill.interactive").click(() => {
         this.filter.categories = [];
         for (
           var i = 0;
@@ -104,7 +104,7 @@ export class BrowsePageComponent implements OnInit {
         this.getResults();
       });
 
-      $(".consoles .pill").click(() => {
+      $(".consoles .pill.interactive").click(() => {
         this.filter.consoles = [];
         for (
           var i = 0;

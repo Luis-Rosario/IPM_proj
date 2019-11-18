@@ -7,13 +7,16 @@
 .title {
     display: inline-block;
     position: relative;
-    top: 6px;
-    margin-left: 15px;
+    top:8px;
+    margin-left:8px;
+    color: #ec620f;
+    font-family: 'Rubik', sans-serif;
 }
 
 .boxElem {
     margin-bottom: 18px;
     width: 350px;
+    color: #1f1d1b;
 }
 
 .box {
@@ -30,37 +33,39 @@
     justify-content: center;
     padding: 25px;
     transform: translate(-50%, -50%);
-    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    background: #FAFAFA;
+    box-shadow: 1px 1px 5px 2px rgba(13, 13, 13, 0.2);
+    border-radius:5px;
+    background: #1f1d1b;
+    opacity: 0.95;
     /* Need a specific value to work */
 }
 
-.box-title {
-    margin-bottom: 25px;
-    color: #fb9e25;
-    margin-left: 25px;
+.box-title{
+    margin-bottom:25px;
+    color:#ec620f;
+    margin-left:25px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .button {
-    box-shadow: inset 0px 1px 0px 0px #fce2c1;
-    background-color: #ffb95d;
+    box-shadow: inset 0px 1px 0px 0px #f9c6a6;
+    background-color: #ec620f;
     border-radius: 6px;
-    border: 1px solid #db9c2e;
+    border: 1px solid #ff9344;
     display: inline-block;
     cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
+    color: rgb(255, 240, 234);
+    font-family: 'Rubik', sans-serif;
     font-size: 18px;
     font-weight: bold;
     padding: 9px 32px;
     margin-bottom: 4px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #cc9f52;
+    text-shadow: 0px 1px 0px #ec620f;
 }
 
 .button:hover {
-    background-color: #fb9e25;
+    background-color: #ff9344;
 }
 
 .button:active {
@@ -71,12 +76,14 @@
 .row-box {
     width: 100%;
     padding: 10px;
+    color:rgb(255, 240, 234);
 }
 
 .register {
-    color: saddlebrown;
+    color: #b23100;
     text-align: center;
     font-size: 12px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .row-button {
@@ -87,9 +94,11 @@
 .error-message {
     color: #B22222;
     font-size: 0.9rem;
+    font-family: 'Rubik', sans-serif;
 }
 
 input {
     margin-left: 1px;
     padding: 5px 10px;
+    font-family: 'Rubik', sans-serif;
 }
