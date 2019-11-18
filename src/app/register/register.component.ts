@@ -11,6 +11,8 @@ declare const addUser: any;
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
+  submited: boolean = false;
+  noMatch: boolean = false;
 
   constructor(
     public router: Router,
@@ -26,11 +28,17 @@ export class RegisterComponent implements OnInit {
   register() {
     //logic to update the JSON object
     /*   */
- 
-    if(this.form.valid){
+    this.noMatch=false;
+    if(this.form.controls['password'].value != this.form.controls['PasswordConfim'].value ){
+      this.noMatch = true;
+    }
+    /* console.log(this.form) */
+    this.submited= false;
+    if(this.form.valid && !this.noMatch){
       addUser(this.form.value)
       this.router.navigateByUrl('/login');
     }
+    else{this.submited= true;}
   }
 
 

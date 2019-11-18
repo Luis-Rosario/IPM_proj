@@ -14,23 +14,26 @@
     <div class=" row-box ">
         <div class="col-12 ">
             <h6 class="subtitles ">E-mail</h6>
-            <input type="text " class="boxElem " placeholder="Insert e-mail address " #username>
+            <input type="text" class="boxElem " placeholder="Insert e-mail address " #username required>
+            <!--    <div *ngIf="loginError" class=error-message><b>Please insert a username</b></div> -->
         </div>
     </div>
 
     <div class="row-box ">
         <div class="col-12 ">
             <h6 class="subtitles ">Password</h6>
-            <input type="password" class="boxElem " placeholder="Insert password ">
+            <input id="pass" type="password" class="boxElem " placeholder="Insert password" #password required>
+            <i class="fas fa-eye"></i>
+            <!--   <div *ngIf="passwordError" class=error-message><b>Please insert a valid password</b></div> -->
         </div>
     </div>
 
-    <div class="col-12" *ngIf="showerror" style="padding-left: 25px;">
-        <p class=error>Incorrect e-mail or password</p>
+    <div class="col-12" *ngIf="loginError || passwordError" style="padding-left: 25px;">
+        <p class=error-message><b>{{this.errorMessage}}</b></p>
     </div>
 
     <div class="row-button ">
-        <button type="submit" class="button" (click)="login(username.value) ">Log In</button>
+        <button type="submit" class="button" (click)="login(username.value, password.value) ">Log In</button>
         <div class="register ">
             <a class="register " routerLink="/register" routerLinkActive="active">Register</a>
         </div>

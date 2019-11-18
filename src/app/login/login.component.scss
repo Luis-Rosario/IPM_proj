@@ -1,5 +1,3 @@
-
-
 .logo {
     width: 65px;
     height: 65px;
@@ -9,8 +7,8 @@
 .title {
     display: inline-block;
     position: relative;
-    top:6px;
-    margin-left:15px;
+    top: 6px;
+    margin-left: 15px;
 }
 
 .boxElem {
@@ -33,15 +31,15 @@
     padding: 25px;
     transform: translate(-50%, -50%);
     box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-    border-radius:5px;
+    border-radius: 5px;
     background: #FAFAFA;
     /* Need a specific value to work */
 }
 
-.box-title{
-    margin-bottom:25px;
-    color:#fb9e25;
-    margin-left:25px;
+.box-title {
+    margin-bottom: 25px;
+    color: #fb9e25;
+    margin-left: 25px;
 }
 
 .button {
@@ -86,8 +84,9 @@
     padding-top: 10px;
 }
 
-.error {
-    color: red
+.error-message {
+    color: #B22222;
+    font-size: 0.9rem;
 }
 
 input {

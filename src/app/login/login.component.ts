@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../core/state/session.service';
 
+declare const getUser;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,36 +11,63 @@ import { SessionService } from '../core/state/session.service';
 })
 
 
-export class LoginComponent implements OnInit,OnChanges {
-  showerror: Boolean = false;
-
+export class LoginComponent implements OnInit, OnChanges {
+  loginError: boolean = false;
+  passwordError: boolean = false;
+  errorMessage: string ="";
   constructor(
     public router: Router,
     private sessionService: SessionService,
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.ngOnInit();
     console.log("change")
   }
 
 
-  login(username){
-    if(username == null || username == '' || username ==undefined)
-      this.showerror= true;
+  login(username, password) {
+    this.loginError= false;
+    this.passwordError = false;
 
-    else{
-      this.showerror= true;
-      this.sessionService.logUser(username);
-      setTimeout(()=>{
-        this.router.navigate(['home']);
-      },1); //lol 
-      
+    if (username == null || username == '' || username == undefined){
+      this.loginError = true;
+      this.errorMessage = "Please insert an e-mail address";
     }
     
+    if (password == null || password == '' || password == undefined){
+      this.passwordError = true;
+      if(!this.loginError)
+        this.errorMessage ="Please insert a valid password"
+    }
+     
+
+    else {
+    let user = getUser(username)
+
+     if(user != undefined){
+      if(user.password == password){
+           
+      this.sessionService.logUser(username);
+      setTimeout(() => {
+        this.router.navigate(['home']);
+      }, 1); //lol 
+      }
+      else{
+        this.passwordError = true
+        this.errorMessage = "Please insert a valid password"
+      }
+    
+     }
+     else{
+       this.loginError = true;
+       this.errorMessage ="Please insert a valid e-mail address"
+      }
+    }
+
   }
 
 }
