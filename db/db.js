@@ -1594,7 +1594,7 @@ function rateLender(lenderEmail, rating) {
 
 
 function rateBorrower(borrowerEmail, rating) {
-    json.users_db[borrowerEmail]._rating =  ((json.users_db[borrowerEmail].borrower_rating * json.users_db[borrowerEmail].total_borrowed) + rating)/  (json.users_db[borrowerEmail].total_borrowed + 1);
+    json.users_db[borrowerEmail].borrower_rating =  ((json.users_db[borrowerEmail].borrower_rating * json.users_db[borrowerEmail].total_borrowed) + rating)/  (json.users_db[borrowerEmail].total_borrowed + 1);
     json.users_db[borrowerEmail].total_borrowed =  json.users_db[borrowerEmail].total_borrowed + 1;
     pushData();
 }
