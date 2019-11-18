@@ -22,15 +22,16 @@
             </span>
 
             <span *ngIf="this.lender == true">
-                <br><span class="star-rating "> {{user.borrower_rating}}<i class="fas fa-star "></i> </span> /
-            <b style="color:inherit">{{user.total_borrowed}}</b> Borrowed
-            <span class="status-message"> {{user.rental_state}}</span>
+                <br><span class="star-rating "> {{user.borrower_rating.toFixed(1) }}<i class="fas fa-star "></i> </span>
+                /
+                <b style="color:inherit">{{user.total_borrowed}}</b> Borrowed
+                <span class="status-message"> {{user.rental_state}}</span>
             </span>
 
             <span *ngIf="this.lender == false">
-                <br><span class="star-rating "> {{user.lender_rating}}<i class="fas fa-star "></i> </span> /
-            <b style="color:inherit">{{user.total_lent}}</b> Lent
-            <span class="status-message"> {{user.rental_state}}</span>
+                <br><span class="star-rating "> {{user.lender_rating.toFixed(1) }}<i class="fas fa-star "></i> </span> /
+                <b style="color:inherit">{{user.total_lent}}</b> Lent
+                <span class="status-message"> {{user.rental_state}}</span>
             </span>
 
 

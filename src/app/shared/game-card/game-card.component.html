@@ -65,7 +65,8 @@
                             {{ lender.first_name }} {{ lender.last_name }}
                         </div>
                         <div class="user-ratings ">
-                            <span class="star-rating">{{ lender.lender_rating }}</span><i class="fas fa-star "></i> /
+                            <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i
+                                class="fas fa-star "></i> /
                             <span class="loan-count">{{ lender.total_lent }}</span> Loans
                         </div>
                         <a class="rent-btn " (click)="openMessageModal($event)">→</a>
