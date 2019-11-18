@@ -144,23 +144,43 @@ function nestedDepth($el) {
 }
 
 document.addEventListener("keydown", function (ev) {
-  if (ev.code == "Escape" && $(".modal:visible").length) {
-    console.log("closing modals");
-    let max = -1;
-    let el = null;
-    for (let i = 0; i < $(".modal:visible").length; i++) {
-      let a = $(".modal:visible").eq(i);
-      let b = nestedDepth(a);
-      if (b > max) {
-        el = a;
-        max = b;
+  if (ev.code == "Escape") {
+    //close modals if 
+    if ($(".modal:visible").length) {
+      console.log("closing modals");
+      let max = -1;
+      let el = null;
+      for (let i = 0; i < $(".modal:visible").length; i++) {
+        let a = $(".modal:visible").eq(i);
+        let b = nestedDepth(a);
+        if (b > max) {
+          el = a;
+          max = b;
+        }
       }
+      window.eee = el;
+      $(el).modal("hide");
+      //$(".modal:visible").modal("close");
     }
-    window.eee = el;
-    $(el).modal("hide");
-    //$(".modal:visible").modal("close");
+
+    //close notif if
+    if ($(".notifications:not(.hidden)").length) {
+      $(".notifications").addClass("hidden");
+      $(".fa-bell").removeClass("active");
+    }
   }
+
+
 });
+
+document.addEventListener("click", function (ev) {
+  let bell = document.querySelector(".nav .fa-bell");
+  let notifList = document.querySelector(".notifications")
+  if (!(ev.path.includes(bell) || ev.path.includes(notifList))) {
+    $(".notifications").addClass("hidden");
+    $(".fa-bell").removeClass("active");
+  }
+})
 
 
 function showToast(text) {

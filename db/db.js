@@ -154,7 +154,7 @@ json = {
         },
         "a@a.com": {
             "email": "a@a.com", //ruizinho@hotmail.com
-            "password": "omarenrolanaareia",
+            "password": "a",//"omarenrolanaareia",
 
             "first_name": "Rui",
             "last_name": "Mar",
