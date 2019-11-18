@@ -1,9 +1,11 @@
 <div class="header row" *ngIf="this.lender && !this.choosen  && this.game.active">
-    <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro" (click)="this.acceptLoan()"><b>Accept Loan</b></div>
+    <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro"
+        (click)="this.acceptLoan()"><b>Accept Loan</b></div>
     <div class="col-6 text-center chat-button" id="refuse" (click)="this.refuseLoan()"><b>Refuse Loan</b></div>
 </div>
 <div class="chat-list ">
-    <div *ngFor="let message of chat" [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me': 'chat-bubble other' ">
+    <div *ngFor="let message of chat"
+        [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me' : ( message.user == 'system' ? 'chat-bubble system' : 'chat-bubble other') ">
         <div class="text ">{{message.content}}</div>
     </div>
 
