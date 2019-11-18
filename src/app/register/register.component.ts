@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 declare const addUser: any;
+declare const showToast;
+declare const getUser: any;
 
 @Component({
   selector: 'app-register',
@@ -13,6 +15,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   submited: boolean = false;
   noMatch: boolean = false;
+  emailAlreadyExists: any
 
   constructor(
     public router: Router,
@@ -32,9 +35,13 @@ export class RegisterComponent implements OnInit {
     if(this.form.controls['password'].value != this.form.controls['PasswordConfim'].value ){
       this.noMatch = true;
     }
+
+    this.emailAlreadyExists = !!(getUser(this.form.controls['email'].value));
+    
     /* console.log(this.form) */
     this.submited= false;
     if(this.form.valid && !this.noMatch){
+      showToast("Resgistered successfully");
       addUser(this.form.value)
       this.router.navigateByUrl('/login');
     }

@@ -102,6 +102,9 @@
                     <div *ngIf="this.form.controls['email'].invalid && submited" class="error-message">
                         <b>Required field</b>
                     </div>
+                    <div *ngIf="emailAlreadyExists" class="error-message">
+                            <b>E-mail address already in use</b>
+                    </div>
                 </div>
             </div>
 
