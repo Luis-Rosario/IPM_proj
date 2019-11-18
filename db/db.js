@@ -1361,10 +1361,12 @@ function getRentalStatus(lender, borrower, game) {
 function addUser(userObj) {
     userObj.city_id = Math.ceil(Math.random() * 4)
     userObj.lender_rating = 5,
-        userObj.borrower_rating = 5,
-        userObj.llama_points = 100,
-        userObj.total_borrowed = 0,
-        userObj.total_lent = 0
+    userObj.borrower_rating = 5,
+    userObj.llama_points = 100,
+    userObj.total_borrowed = 0,
+    userObj.total_lent = 0
+    userObj.postal_code= userObj.postal_code1 + "-" + userObj.postal_code2
+    userObj.expiration_date= userObj.expiration_date1 + "/" + userObj.expiration_date2
     json.users_db[userObj.email] = userObj;
 
     json.rental_history.lenders[userObj.email] = {}

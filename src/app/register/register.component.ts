@@ -41,6 +41,10 @@ export class RegisterComponent implements OnInit {
     else{this.submited= true;}
   }
 
+  cancel() {
+    this.router.navigate(["login"]);
+  }
+
 
   initForm() {
     this.form = this.fb.group({

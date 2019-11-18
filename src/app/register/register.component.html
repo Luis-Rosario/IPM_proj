@@ -72,9 +72,9 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles ">Postal Code</h6>
-                    <input id="postal" type="text" class="boxElem" formControlName="postal_code1" required minlength="4" maxlength="4" style="width:100px">
-                    <label style="display:inline-block;">-</label>
-                    <input id="postal2" type="text" class="boxElem" formControlName="postal_code2" required style="display: inline-block; width:70px" minlength="3" maxlength="3">
+                    <input id="postal" type="text" class="boxElem" formControlName="postal_code1" required minlength="4" maxlength="4" style="width:60px; text-align: center;">
+                    <label style="display:inline-block;  margin: 0 5px;">-</label>
+                    <input id="postal2" type="text" class="boxElem" formControlName="postal_code2" required style="display: inline-block; width:50px; text-align: center;" minlength="3" maxlength="3">
                     <div *ngIf="(this.form.controls['postal_code1'].invalid ||  this.form.controls['postal_code2'].invalid) && submited" class="error-message">
                         <b *ngIf="(this.form.controls['postal_code1'].value.length != 4 || this.form.controls['postal_code2'].value.length !=3) && 
                         (this.form.controls['postal_code1'].value.length > 0 || this.form.controls['postal_code2'].value.length > 0)">Insert
@@ -145,9 +145,9 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles ">Expiration Date</h6>
-                    <input id="exp" type="text" class="boxElem" formControlName="expiration_date1" required minlength="2" maxlength="2" style="width: 60px;">
-                    <label style="display: inline-block;">/</label>
-                    <input id="exp1" type="text" class="boxElem" formControlName="expiration_date2" required style="display: inline-block; width: 60px;" minlength="2" maxlength="2">
+                    <input id="exp" type="text" class="boxElem" formControlName="expiration_date1" required minlength="2" maxlength="2" style="width: 30px;text-align:center">
+                    <label style="display: inline-block; margin: 0 5px;"> /</label>
+                    <input id="exp1" type="text" class="boxElem" formControlName="expiration_date2" required style="display: inline-block; width: 30px;text-align:center" minlength="2" maxlength="2">
                     <div *ngIf="(this.form.controls['expiration_date1'].invalid ||this.form.controls['expiration_date2'].invalid) && submited" class="error-message">
                         <b *ngIf="(this.form.controls['expiration_date1'].value.length != 2 || this.form.controls['expiration_date2'].value.length !=2) && 
                         (this.form.controls['expiration_date1'].value.length > 0 || this.form.controls['expiration_date2'].value.length > 0)">Insert
@@ -160,7 +160,7 @@
 
                 <div class="col-6">
                     <h6 class="subtitles ">Security Code</h6>
-                    <input id="code" type="text " class="boxElem" formControlName="security_code" required minlength="3" maxlength="3">
+                    <input id="code" type="text " class="boxElem" style="width: 50px; text-align: center;" formControlName="security_code" required minlength="3" maxlength="3">
                     <div *ngIf="this.form.controls['security_code'].invalid && submited" class="error-message">
                         <b *ngIf="(this.form.controls['security_code'].value.length != 3) && (this.form.controls['security_code'].value.length > 0)">Insert
                             a valid security code</b>
@@ -173,9 +173,13 @@
         </div>
 
         <div class="row">
-            <div class="col-12 button-parent">
+            <div class="col-6 button-cancel">
+                <button class="button " (click)="cancel()">Cancel</button>
+            </div>
+            <div class="col-6 button-parent">
                 <button class="button " (click)="register() ">Register</button>
             </div>
+
         </div>
 
     </div>
