@@ -1561,3 +1561,16 @@ function sendNotifications(userEmail) {
     }
     pushData();
 }
+
+function rateLender(lenderEmail, rating) {
+    json.user_db[lenderEmail].total_lent =  json.user_db[lenderEmail].total_lent + 1;
+    json.user_db[lenderEmail].lender_rating =  (json.user_db[lenderEmail].lender_rating + rating)/  json.user_db[lenderEmail].total_lent;
+    pushData();
+}
+
+
+function rateBorrower(borrowerEmail, rating) {
+    json.user_db[borrowerEmail].total_borrowed =  json.user_db[borrowerEmail].total_borrowed+ 1;
+    json.user_db[borrowerEmail]._rating =  (json.user_db[borrowerEmail].borrower_rating + rating)/  json.user_db[borrowerEmail].total_borrowed;
+    pushData();
+}
