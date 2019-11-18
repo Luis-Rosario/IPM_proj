@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
-//import * as $ from "jquery";
+//declare const $: any;
 
 declare const getGamesLending: any;
 declare const getAcceptedGamesBorrowing: any;

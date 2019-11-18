@@ -1,6 +1,6 @@
 import { Component, OnChanges } from '@angular/core';
 import { SessionQuery } from './core/state/session.query';
-import * as $ from 'jquery';
+declare const $: any;
 import { Router, NavigationEnd } from '@angular/router';
 
 

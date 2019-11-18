@@ -1,11 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
-import * as $ from "jquery";
+declare const $: any;
 
 declare const deleteGame;
 declare const pagesFunctions: any;
 declare const markGameAsReturned;
 declare const getGameDescription: any;
+declare const getLendingTo: any;
+declare const getUser: any;
+declare const returnModal: any;
 
 @Component({
   selector: "lib-card",
@@ -13,7 +16,7 @@ declare const getGameDescription: any;
   styleUrls: ["./lib-card.component.scss"]
 })
 export class LibCardComponent implements OnInit {
-  @Input() gameName: String;
+  @Input() gameName: any;
   @Input() gameInfo: any;
   @Output() change = new EventEmitter();
 
@@ -40,6 +43,14 @@ export class LibCardComponent implements OnInit {
   }
 
   markAsReturned() {
+    let myMail = this.sessionQuery.getValue().email;
+    let lendingTo = getUser(getLendingTo(myMail)[this.gameName]);
+    let borrowerName = lendingTo.first_name + " " + lendingTo.last_name;
+    console.log("i marked the game as returned", borrowerName);
+    setTimeout(() => {
+      $("#rate-borrower").modal("show");
+      $("#rate-borrower .modal-header").text("Rate " + borrowerName);
+    }, 100)
     markGameAsReturned(this.sessionQuery.getValue().email, this.gameName)
     this.change.emit();
   }

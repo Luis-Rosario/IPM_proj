@@ -8,7 +8,7 @@ import {
 import { SessionQuery } from "src/app/core/state/session.query";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { SessionService } from "src/app/core/state/session.service";
-//import * as $ from "jquery";
+//declare const $: any;
 
 declare const getUser: any;
 declare const getNotifications;
@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
 
           this.updateFilters();
 
-        } else{
+        } else {
           this.searchGame(true);
         }
       })

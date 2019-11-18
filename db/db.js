@@ -2,6 +2,7 @@ var peer = new Peer();
 var serverID = "lleme-play-server"
 
 dayAdjustment = 0;
+conn = null;
 
 function clearStorage() {
     localStorage.removeItem("json");
@@ -49,6 +50,21 @@ peer.on("open", (id) => {
                 console.log("got a json")
                 for (let i = 0; i < changeListeners.length; i++) {
                     changeListeners[i]();
+                }
+            } else if (data.includes("return")) {
+                //return-lender@gmail.com/borrower@gmail.com
+                let users = data.replace("return-", "");
+                let lender = users.split("/")[0];
+                let borrower = users.split("/")[1];
+                let borrowerName = getUser(borrower).first_name + " " + getUser(borrower).last_name;
+                let meName = $(".user-info .user b").text();
+                if (borrowerName == meName) {
+                    console.log("lets show that popup")
+                    let lenderName = getUser(lender).first_name + " " + getUser(lender).last_name;
+                    setTimeout(() => {
+                        $("#rate-borrower").modal("show");
+                        $("#rate-borrower .modal-header").text("Rate " + lenderName);
+                    }, 100)
                 }
             } else if (data.match(/\d/g)) {
                 //avanca tempo
@@ -1440,6 +1456,7 @@ function deleteGame(userId, game_name) {
 }
 
 function markGameAsReturned(lenderEmail, gameName) {
+    let borrowerMail = getUser(getLendingTo(lenderEmail)[gameName]).email;
     let borrowers = json.rental_history.lenders[lenderEmail].games[gameName].borrowers
     for (b in borrowers) {
         if (borrowers[b].lent == "accepted") {
@@ -1448,6 +1465,11 @@ function markGameAsReturned(lenderEmail, gameName) {
     }
     let game = getGameInfo(lenderEmail, gameName);
     game.active = true;
+
+    //send mes
+    let msg = "return-" + lenderEmail + "/" + borrowerMail;
+    console.log("sent return msg:" + msg)
+    conn.send(msg);
     pushData();
 }
 

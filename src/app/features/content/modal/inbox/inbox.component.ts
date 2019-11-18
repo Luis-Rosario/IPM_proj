@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
-import * as $ from 'jquery';
+declare const $: any;
 import { LoanRequestsComponent } from './loan-requests/loan-requests.component';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,7 +20,7 @@ declare const getBorrowingMessages: any;
 export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
   @ViewChild(LoanRequestsComponent, null) loanRequest: LoanRequestsComponent;
-  
+
 
   showBorrowed: any = true;
 
@@ -50,8 +50,8 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.changeSelect();
 
     this._route.queryParams.subscribe(params => {
-      if(!$.isEmptyObject(params)) {
-  
+      if (!$.isEmptyObject(params)) {
+
         this.game = params.game;
         this.targetPerson = params.otherUser
 
@@ -85,7 +85,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     }
 
     this.showBorrowed = this.select.nativeElement.value
-   /*  console.log(this.showBorrowed) */
+    /*  console.log(this.showBorrowed) */
     document.getElementById("inbox-wrapper").className = this.showBorrowed ? "borrowing row" : "lender row";
   }
 

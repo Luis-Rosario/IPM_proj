@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from "@angular/core";
-import * as $ from "jquery";
+declare const $: any;
 import * as bootstrap from "node_modules/bootstrap/js/dist/";
 import { Router } from "@angular/router";
 import { SessionQuery } from "src/app/core/state/session.query";
@@ -69,7 +69,7 @@ export class GameCardComponent implements OnInit {
       this.loanDuration,
       msg
     );
-    $(".modal").fadeOut();
+    $(".modal").modal("hide");
   }
 
   openModal(ev) {
@@ -121,7 +121,7 @@ export class GameCardComponent implements OnInit {
   }
 
   closeModal(ev) {
-    $(".modal").fadeOut();
+    $(".modal").modal("hide");
   }
 
   getLoanInfo(userName) {

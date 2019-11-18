@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/core/state/session.service";
 import { ActivatedRoute } from "@angular/router";
-import * as $ from "jquery";
+declare const $: any;
 
 declare const getGames: any;
 declare const onDataChange: any;

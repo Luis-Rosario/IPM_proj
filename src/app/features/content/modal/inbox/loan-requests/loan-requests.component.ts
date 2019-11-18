@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SessionQuery } from 'src/app/core/state/session.query';
-import * as $ from 'jquery';
+declare const $: any;
 
 declare const getChat: any;
 declare const getUser: any;
@@ -40,7 +40,7 @@ export class LoanRequestsComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
-    
+
     this.gameDescription = getGameDescription(this.game.game_name)
     console.log(this.gameDescription)
     onDataChange(this.main.bind(this))
@@ -48,7 +48,7 @@ export class LoanRequestsComponent implements OnInit {
     setInterval(() => { }, 400);
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.users = [];
     this.ngOnInit();
   }
@@ -62,10 +62,10 @@ export class LoanRequestsComponent implements OnInit {
     for (user of keys) {
       this.users[index] = getUser(user);
       if (this.lender) {
-        this.users[index]["rental_state"] = getRentalStatus(this.sessionQuery.getValue().email, user, this.game.game_name)  
+        this.users[index]["rental_state"] = getRentalStatus(this.sessionQuery.getValue().email, user, this.game.game_name)
       }
       if (!this.lender) {
-        this.users[index]["rental_state"] = getRentalStatus( user,this.sessionQuery.getValue().email, this.game.game_name)  
+        this.users[index]["rental_state"] = getRentalStatus(user, this.sessionQuery.getValue().email, this.game.game_name)
       }
 
       this.userRequestInfo.set(user, this.messages[user])
@@ -80,11 +80,11 @@ export class LoanRequestsComponent implements OnInit {
   selectRequest(userRequest, event) {
 
     $(".request-list .user").removeClass("active")
-    if(event != ""){
+    if (event != "") {
       var target = event.target.classList.contains("user") ? event.target : event.target.parentElement;
       target.classList.add("active")
     }
-   
+
     if (this.lender)
       this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name)
 
@@ -97,7 +97,7 @@ export class LoanRequestsComponent implements OnInit {
     }, 100);
   }
 
-  refresh(){
+  refresh() {
     this.getUsers();
   }
 
