@@ -35,39 +35,40 @@ export class LoginComponent implements OnInit, OnChanges {
 
     if (username == null || username == '' || username == undefined){
       this.loginError = true;
-      this.errorMessage = "Please insert an e-mail address";
-    }
-    
-    if (password == null || password == '' || password == undefined){
-      this.passwordError = true;
-      if(!this.loginError)
-        this.errorMessage ="Please insert a valid password"
-    }
-     
+      this.errorMessage = "Incorrect e-mail address";
+    } else {
+      let user = getUser(username)
 
-    else {
-    let user = getUser(username)
-
-     if(user != undefined){
-      if(user.password == password){
-           
-      this.sessionService.logUser(username);
-      setTimeout(() => {
-        this.router.navigate(['home']);
-      }, 1); //lol 
-      }
-      else{
-        this.passwordError = true
-        this.errorMessage = "Please insert a valid password"
-      }
-    
-     }
-     else{
+      if(user == undefined){
        this.loginError = true;
-       this.errorMessage ="Please insert a valid e-mail address"
+       this.errorMessage ="Incorrect e-mail address"
+      } else {
+       if(user.password == password){
+            
+         this.sessionService.logUser(username);
+         setTimeout(() => {
+         this.router.navigate(['home']);
+         }, 1); //lol 
+       }
+       else{
+         if(!this.loginError) {
+          this.passwordError = true
+          this.errorMessage = "Incorrect password"
+         }
+       }
       }
-    }
+     }
 
-  }
+    }
+    
+    // else if (password == null || password == '' || password == undefined){
+    //   this.passwordError = true;
+    //   if(!this.loginError)
+    //     this.errorMessage ="Incorrect password"
+    // }
+     
+    
+
+
 
 }
