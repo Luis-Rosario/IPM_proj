@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.ngOnInit();
-    console.log("change")
   }
 
 
@@ -60,15 +59,11 @@ export class LoginComponent implements OnInit, OnChanges {
      }
 
     }
+
+    keypress(username,password,ev){
+      if(ev.key == "Enter"){
+        this.login(username, password)
+      }
+    }
     
-    // else if (password == null || password == '' || password == undefined){
-    //   this.passwordError = true;
-    //   if(!this.loginError)
-    //     this.errorMessage ="Incorrect password"
-    // }
-     
-    
-
-
-
 }

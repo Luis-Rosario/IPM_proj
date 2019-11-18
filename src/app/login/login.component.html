@@ -14,7 +14,7 @@
     <div class=" row-box ">
         <div class="col-12 ">
             <h6 class="subtitles ">E-mail</h6>
-            <input type="text" class="boxElem " placeholder="Insert e-mail address " #username required>
+            <input type="text" class="boxElem " placeholder="Insert e-mail address " #username (keydown)="keypress(username.value,password.value,$event)" required>
             <!--    <div *ngIf="loginError" class=error-message><b>Please insert a username</b></div> -->
         </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="row-box ">
         <div class="col-12 ">
             <h6 class="subtitles ">Password</h6>
-            <input id="pass" type="password" class="boxElem " placeholder="Insert password" #password required>
+            <input id="pass" type="password" class="boxElem " placeholder="Insert password" #password required (keydown)="keypress(username.value,password.value,$event)">
             <i class="fas fa-eye"></i>
             <!--   <div *ngIf="passwordError" class=error-message><b>Please insert a valid password</b></div> -->
         </div>
