@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../core/state/session.service';
 
 declare const getUser;
+declare const showToast;
 
 @Component({
   selector: 'app-login',
@@ -46,6 +47,9 @@ export class LoginComponent implements OnInit, OnChanges {
             
          this.sessionService.logUser(username);
          setTimeout(() => {
+          let userInfo = getUser(username)
+          /*  showToast("Xilema, pls"); */
+          showToast("Welcome back, "+ userInfo.first_name +" "+ userInfo.last_name);
          this.router.navigate(['home']);
          }, 1); //lol 
        }

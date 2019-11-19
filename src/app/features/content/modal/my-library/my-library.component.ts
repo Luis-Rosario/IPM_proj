@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionQuery } from "src/app/core/state/session.query";
+
 //declare const $: any;
 
 declare const getGamesLending: any;
@@ -35,10 +36,24 @@ export class LibraryComponent implements OnInit {
   consoles: any[] = [];
   categories: any[] = [];
   consoleHTMLBackup: String = "";
+  autocompleted: boolean = false;
 
   constructor(private sessionQuery: SessionQuery) { }
 
+  clearDropDown(){
+    let str = ""
+    let consoles = getConsoles();
+    for(let i = 0;i<consoles.length;i++){
+      let console_ = consoles[i];
+      str+= " <option value="+console_.replace(/ /g,"")+">"+console_+"</option>";
+    }
+    $("#new-game-modal .select-console select").html(str);
+    $(".selectpicker").selectpicker("refresh");
+  }
+
   fillGameInfo(gameInfo) {
+    this.autocompleted = true;
+    console.log("autotrue")
     console.log(gameInfo)
     $("#new-game-modal .categories .pill").removeClass("active");
     //fill year
@@ -51,12 +66,18 @@ export class LibraryComponent implements OnInit {
       })
     })
     //select console
-    $("#new-game-modal .select-console select").html(this.consoleHTMLBackup);
+    this.clearDropDown();
     setTimeout(() => {
+      console.log(window["aa"] = gameInfo.console,window["bb"]=this.consoles);
       let excluded = this.consoles.filter((c) => { return !gameInfo.console.includes(c) })
       console.log(excluded);
       excluded.forEach(e => {
-        $('#new-game-modal .select-console').find('[value="' + e + '"]').remove();
+        let clist = Array.from(document.querySelectorAll("#new-game-modal .select-console option")).filter((c)=>{
+          return $(c).text() == e;
+        });
+        $(clist).remove();
+        console.log(clist);
+        //$('#new-game-modal .select-console').find('[value="' + ee + '"]').remove();
         console.log(e);
       })
       setTimeout(() => {
@@ -78,7 +99,7 @@ export class LibraryComponent implements OnInit {
     pagesFunctions.libCard();
 
     setTimeout(() => {
-      this.consoleHTMLBackup = $("#new-game-modal .select-console select").html();
+      $(".selectpicker").selectpicker()
     }, 300);
 
     let self = this;
@@ -87,7 +108,20 @@ export class LibraryComponent implements OnInit {
       console.log(userText);
       $("#new-game-modal #games-list").find("option").each(function () {
         if ($(this).val() == userText) {
-          self.fillGameInfo(getGameData(userText));
+          setTimeout(()=>{
+            self.fillGameInfo(getGameData(userText));
+          },200);
+        } else{
+          if(self.autocompleted){
+            console.log("clear ti");
+            setTimeout(()=>{
+              self.clearDropDown();
+            },400)
+
+          }
+          console.log("autofalse")
+          self.autocompleted = false;
+
         }
       })
     })
@@ -148,7 +182,7 @@ export class LibraryComponent implements OnInit {
       categories.push(el);
     }
 
-    var platform = $("#new-game-modal .select-console").val();
+    var platform = $("#new-game-modal .select-console select option:selected").text();
     var range = $("#new-game-modal .duration-range")
       .val()
       .split(",");

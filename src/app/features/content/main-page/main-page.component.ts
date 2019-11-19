@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/core/state/session.service";
 
+
 declare const getGames: any;
 /* declare const getAcceptedGamesBorrowing: any;
 declare const getGamesLending: any; */
@@ -8,7 +9,6 @@ declare const pagesFunctions: any;
 declare const orderedGamesLending: any;
 declare const orderedGamesBorrowing: any;
 declare const showToast: any;
-
 
 @Component({
   selector: "main-page",
@@ -41,7 +41,8 @@ export class MainPageComponent implements OnInit {
     this.getLending();
     pagesFunctions.libCard();
     pagesFunctions.libraryPage();
-    showToast("Xilema, pls");
+       /*  showToast("Xilema, pls"); */
+
   }
 
   getFeatured() {

@@ -321,7 +321,7 @@ json = {
             "name": "FIFA 19",
             "year": 2018,
             "category": ["sports", "football"],
-            "console": ["PS4", "Switch", "Xbox", "PC"],
+            "console": ["PS4", "Nintendo Switch", "Xbox One", "PC"],
             "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
             "description": "FIFA 19 is a football simulation video game developed by EA Vancouver as part of Electronic Arts' FIFA series. It is the 26th installment in the FIFA series."
         },
