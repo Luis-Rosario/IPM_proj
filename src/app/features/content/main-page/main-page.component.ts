@@ -7,6 +7,7 @@ declare const getGamesLending: any; */
 declare const pagesFunctions: any;
 declare const orderedGamesLending: any;
 declare const orderedGamesBorrowing: any;
+declare const showToast: any;
 
 
 @Component({
@@ -40,12 +41,13 @@ export class MainPageComponent implements OnInit {
     this.getLending();
     pagesFunctions.libCard();
     pagesFunctions.libraryPage();
+    showToast("Xilema, pls");
   }
 
   getFeatured() {
     let games = getGames(this.getAllGames);
     console.log(games)
-    for (let i = 0;   this.featuredGames.length <= 5; i++) {
+    for (let i = 0; this.featuredGames.length <= 5; i++) {
       if (games[i].user_email != this.user)
         this.featuredGames.push(games[i]);
     }
@@ -78,10 +80,10 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-      console.log(  this.lendingGamesInfo )
+    console.log(this.lendingGamesInfo)
   }
 
-  handleChange(){
+  handleChange() {
     this.gamesLending = []
     this.ngOnInit();
   }
