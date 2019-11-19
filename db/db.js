@@ -923,7 +923,7 @@ json = {
                         "borrowers": {
                             "docinho2019@hotmail.com": {
                                 "lent": "pending",
-                                "duration": "",
+                                "duration": 6,
                                 "messages": [{
                                     "user": "borrower",
                                     "content": "Hello, can you lend me this game?",
