@@ -304,9 +304,42 @@ a {
   top: 50%;
   left: 50%;
   z-index: 99;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width:500px;
+  max-height:300px!important;
+  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.5);
   .modal-content {
-    padding: 40px !important;
     border: none !important;
+    position:absolute;
+    top:0;
+    height:100%;
+    textarea{
+      padding:20px;
+      width:100%;
+    }
+    .modal-body{
+      button{
+        background:$orange;
+        padding:10px 20px;
+        color:white;
+        border:2px solid $orange;
+        align-self:flex-end;
+        &:hover,&:focus{
+          background:rgba($orange,0.3);
+          color:$orange;
+        }
+      }
+      .row{
+        height:100%;
+        .col-12{
+          display:flex;
+          flex-direction:column;
+          textarea{
+            flex:1;
+            margin-bottom:20px;
+            resize:none;
+          }
+        }
+      }
+    }
   }
 }
