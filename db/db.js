@@ -1552,6 +1552,9 @@ function createRentalProposal(lender, borrower, gameName, duration, msg) {
         newEntry["duration"] = duration
         newEntry["messages"] = []
         json.rental_history.lenders[lender].games[gameName].borrowers[borrower] = newEntry
+    } else {
+        json.rental_history.lenders[lender].games[gameName].borrowers[borrower].lent = "pending"
+        json.rental_history.lenders[lender].games[gameName].borrowers[borrower].duration = duration
     }
 
     sendMsg(lender, borrower, msg, gameName, "borrower");
