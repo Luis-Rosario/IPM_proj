@@ -70,6 +70,7 @@ body {
     border: 2px solid #eee;
     border-radius: 10px;
     display: inline-block;
+    text-transform:capitalize;
 }
 
 .pill.interactive:not(.active):hover {

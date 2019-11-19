@@ -5,12 +5,7 @@
       <div class="col-12">
         <h5>Genre</h5>
         <div class="categories">
-          <h6 class="pill interactive">Action</h6>
-          <h6 class="pill interactive">Sports</h6>
-          <h6 class="pill interactive">Cooking</h6>
-          <h6 class="pill interactive">Simulation</h6>
-          <h6 class="pill interactive">Puzzle</h6>
-          <h6 class="pill interactive">Adventure</h6>
+          <h6 class="pill interactive" *ngFor="let cat of this.categories">{{cat}}</h6>
         </div>
       </div>
     </div>

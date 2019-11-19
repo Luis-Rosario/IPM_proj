@@ -6,6 +6,9 @@ declare const $: any;
 declare const getGames: any;
 declare const onDataChange: any;
 declare const pagesFunctions: any;
+declare const getConsoles: any;
+declare const getCategories: any;
+
 @Component({
   selector: "browse-page",
   templateUrl: "./browse-page.component.html",
@@ -15,21 +18,16 @@ export class BrowsePageComponent implements OnInit {
   results: any;
   query: any = null;
   filter: any = {};
-  consoles: any[] = [
-    "PS4",
-    "Nintendo Switch",
-    "PC",
-    "Xbox One",
-    "Xbox 360",
-    "PS3",
-    "PSP"
-  ];
+  consoles: any[] = [];
+  categories: any[] = [];
 
   constructor(private _route: ActivatedRoute) { }
 
   main() {
     console.log("main enter");
     this.JSfilters();
+    this.consoles = getConsoles();
+    this.categories = getCategories();
 
     this._route.queryParams.subscribe(params => {
       this.query = params;
