@@ -213,6 +213,7 @@ a {
         border-radius: 8px;
         .text{
             text-align:left;
+            hyphens:auto;
         }
         &.me {
             float: right;
