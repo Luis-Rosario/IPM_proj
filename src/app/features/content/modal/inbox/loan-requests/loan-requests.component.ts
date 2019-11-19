@@ -29,13 +29,13 @@ export class LoanRequestsComponent implements OnInit {
   ) { }
 
   main() {
-    console.log(this.game)
+ /*    console.log(this.game) */
     if ($(".user.active").length) {
       var email = $(".user.active").attr("id");
       var event = { target: $(".user.active")[0] }
       this.selectRequest(email, event);
     }
-    console.log(this.lender)
+   /*  console.log(this.lender) */
   }
 
   ngOnInit() {

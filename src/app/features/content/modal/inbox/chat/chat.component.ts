@@ -5,6 +5,7 @@ declare const acceptRental;
 declare const refuseRental;
 declare const markChatAsRead;
 declare const showToast;
+declare const getRentalStatus;
 
 @Component({
   selector: 'chat',
@@ -19,18 +20,19 @@ export class ChatComponent implements OnInit {
   @Input() game: any;
   @Output() acceptedRental = new EventEmitter();
 
+  loanState: any;
   choosen: any = false;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.game);
+    this.isLoanPast();
     markChatAsRead(this.chat);
   }
 
   sendMessage(event) {
     if (event.type == 'click' || (event.type == 'keyup' && event.key == 'Enter')) {
       let msg = (<HTMLInputElement>document.getElementById("chat-input")).value;
-      if(msg.length >= 1){
+      if (msg.length >= 1) {
         setTimeout(() => {
           document.querySelector(".chat-list").scrollTo(0, 1000000)
         }, 100);
@@ -60,6 +62,18 @@ export class ChatComponent implements OnInit {
     this.choosen = true;
     refuseRental(this.loggedUser, this.targetPerson, this.game.game_name);
     showToast("Refused Loan")
+  }
+
+  isLoanPast() {
+    if (!this.lender) {
+      this.loanState = getRentalStatus(this.targetPerson, this.loggedUser, this.game.game_name)
+      console.log(this.loanState)
+    }
+    else {
+      this.loanState = getRentalStatus(this.loggedUser, this.targetPerson, this.game.game_name)
+      console.log(this.loanState)
+    }
+
   }
 
 }

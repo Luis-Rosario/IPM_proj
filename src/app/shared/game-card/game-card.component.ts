@@ -35,8 +35,8 @@ export class GameCardComponent implements OnInit {
 
   ngOnInit() {
     this.url = this.router.url;
-    console.log("+".repeat(1000));
-    console.log(this.gameInfo);
+  /*   console.log("+".repeat(1000));
+    console.log(this.gameInfo); */
     this.getLoanInfo(this.gameInfo.user_email);
     this.gameDescription = getGameDescription(this.gameName);
 
@@ -44,8 +44,8 @@ export class GameCardComponent implements OnInit {
 
     if (!this.gameInfo.active) {
       this.lendingDaysLeft = this.gameInfo.daysLeft; //getRentalDaysLeft(this.gameInfo)
-      console.log("---".repeat(1000));
-      console.log(this.gameInfo.game_name, this.lendingDaysLeft);
+  /*     console.log("---".repeat(1000));
+      console.log(this.gameInfo.game_name, this.lendingDaysLeft); */
     }
 
     /*  console.log(this.lendingDaysLeft) */

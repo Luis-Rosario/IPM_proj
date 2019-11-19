@@ -27,7 +27,7 @@ export class LibCardComponent implements OnInit {
   ngOnInit() {
     /* console.log(this.gameName, this.gameInfo) */
 
-    console.log(this.gameInfo);
+ /*    console.log(this.gameInfo); */
     var els = document.querySelectorAll(".pill");
     for (let i = 0; i < els.length; i++) {
       els[i].classList.toggle("active");
@@ -46,7 +46,7 @@ export class LibCardComponent implements OnInit {
     let myMail = this.sessionQuery.getValue().email;
     let borrower = getLendingTo(myMail)[this.gameName];
     let borrowerName = getUser(borrower).first_name + " " + getUser(borrower).last_name;
-    console.log("i marked the game as returned", borrowerName);
+    /* console.log("i marked the game as returned", borrowerName); */
     setTimeout(() => {
       $("#rate-borrower").modal("show");
       $("#rate-borrower").attr("data-email", borrower);
