@@ -226,6 +226,27 @@ a {
         &.other {
             margin-left: 20px;
         }
+        &.system {
+            width: 100%;
+            max-width: unset;
+            /* background: none!important; */
+            /* padding: 0!important; */
+            border-radius: 0;
+            padding: 28px;
+            .text {
+                border-radius: 8px;
+                padding: 20px;
+                width: 80%;
+                background: #f3aa5a69;
+                margin: auto;
+                /* border: 5px solid #fbab5b; */
+                background: white;
+                font-size: 1.1em;
+                box-shadow: 0 0 2px 2px #fbab5b;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
         &:after {
             content: "";
             position: absolute;
