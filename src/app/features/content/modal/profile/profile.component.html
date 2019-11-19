@@ -1,131 +1,108 @@
 <div class="container ">
-  <h2>
-    <span class="user-name"
-      >{{ userInfo.first_name }} {{ userInfo.last_name }}</span
-    >
-    <input
-      type="text"
-      value="{{ userInfo.first_name }}"
-      id="first-name-input"
-    />
-    <div class="spacer"></div>
-    <input type="text" value="{{ userInfo.last_name }}" id="last-name-input" />
-    <i class="fas fa-user-edit edit-btn" (click)="updateProfile()"></i>
-  </h2>
+    <h2>
+        <span class="user-name">{{ userInfo.first_name }} {{ userInfo.last_name }}</span>
+        <input type="text" value="{{ userInfo.first_name }}" id="first-name-input" />
+        <div class="spacer"></div>
+        <input type="text" value="{{ userInfo.last_name }}" id="last-name-input" required/>
+        <div class="hidden error-message" style="display: inline-block;">
+            <b>Required field</b>
+        </div>
+        <i class="fas fa-user-edit edit-btn" (click)="updateProfile()"></i>
+    </h2>
 
-  <h3>Personal Information:</h3>
-  <div class="row birth-row">
-    <div class="group">
-      <h3>Date of Birth:</h3>
-      <h4 style="display: inline-block;">{{ userInfo.birthdate }}</h4>
-      <input
-        style="line-height:1em!important;"
-        type="date"
-        value="{{ userInfo.birthdate }}"
-        id="birthdate-input"
-      />
+    <h3>Personal Information:</h3>
+    <div class="row birth-row">
+        <div class="group">
+            <h3>Date of Birth:</h3>
+            <h4 style="display: inline-block;">{{ userInfo.birthdate }}</h4>
+            <input style="line-height:1em!important;" type="date" value="{{ userInfo.birthdate }}" id="birthdate-input" required />
+            <div class="hidden error-message">
+                <b>Required field</b>
+            </div>
+        </div>
+        <div class="group">
+            <h3 style="display: inline-block;">Gender:</h3>
+            <h4 style="display: inline-block;">{{ userInfo.gender }}</h4>
+            <input type="radio" value="F" formControlName="gender" name="gender" id="gender-F" [checked]="userInfo.gender == 'F'" />
+            <label for="gender-F">Female</label>
+            <input type="radio" value="M" formControlName="gender" name="gender" id="gender-M" [checked]="userInfo.gender == 'M'" />
+            <label for="gender-M">Male</label>
+            <input type="radio" value="O" formControlName="gender" id="gender-O" name="gender" [checked]="userInfo.gender == 'O'" />
+            <label for="gender-O">Other</label>
+        </div>
     </div>
-    <div class="group">
-      <h3 style="display: inline-block;">Gender:</h3>
-      <h4 style="display: inline-block;">{{ userInfo.gender }}</h4>
-      <input
-        type="radio"
-        value="F"
-        formControlName="gender"
-        name="gender"
-        id="gender-F"
-        [checked]="userInfo.gender == 'F'"
-      />
-      <label for="gender-F">Female</label>
-      <input
-        type="radio"
-        value="M"
-        formControlName="gender"
-        name="gender"
-        id="gender-M"
-        [checked]="userInfo.gender == 'M'"
-      />
-      <label for="gender-M">Male</label>
-      <input
-        type="radio"
-        value="O"
-        formControlName="gender"
-        id="gender-O"
-        name="gender"
-        [checked]="userInfo.gender == 'O'"
-      />
-      <label for="gender-O">Other</label>
-    </div>
-  </div>
 
-  <h3>Address Information:</h3>
+    <h3>Address Information:</h3>
 
-  <div class="row address-row">
-    <div class="group">
-      <h3>Address:</h3>
-      <h4>{{ userInfo.street_address }}</h4>
-      <input
-        type="text"
-        value="{{ userInfo.street_address }}"
-        id="street-input"
-      />
+    <div class="row address-row">
+        <div class="group">
+            <h3>Address:</h3>
+            <h4>{{ userInfo.street_address }}</h4>
+            <input type="text" value="{{ userInfo.street_address }}" id="street-input" required />
+            <div class="hidden error-message">
+                <b>Required field</b>
+            </div>
+        </div>
+        <div class="group">
+            <h3>Postal Code:</h3>
+            <h4 style="display: inline-block;">{{ userInfo.postal_code }}</h4>
+            <input style="display: inline-block;" type="text" value="{{ userInfo.postal_code.split('-')[0] }}" id="postal-code1-input" required minlength="4" maxlength="4" />
+            <label style="display: inline-block;">-</label>
+            <input type="text" value="{{ userInfo.postal_code.split('-')[1] }}" id="postal-code2-input" style="display: inline-block;" required minlength="3" maxlength="3" />
+            <div class="hidden error-message">
+                <b>Invalid input</b>
+            </div>
+        </div>
+        <div class="group">
+            <h3 style="display: inline-block;">City:</h3>
+            <h4 style="display: inline-block;">{{ userInfo.city }}</h4>
+            <input style="display: inline-block;" type="text" value="{{ userInfo.city }}" id="city-input" required />
+            <div class="hidden error-message">
+                <b>Required field</b>
+            </div>
+        </div>
     </div>
-    <div class="group">
-      <h3>Postal Code:</h3>
-      <h4 style="display: inline-block;">{{ userInfo.postal_code }}</h4>
-      <input
-        style="display: inline-block;"
-        type="text"
-        value="{{ userInfo.postal_code }}"
-        id="postal-code-input"
-      />
-    </div>
-    <div class="group">
-      <h3 style="display: inline-block;">City:</h3>
-      <h4 style="display: inline-block;">{{ userInfo.city }}</h4>
-      <input
-        style="display: inline-block;"
-        type="text"
-        value="{{ userInfo.city }}"
-        id="city-input"
-      />
-    </div>
-  </div>
 
-  <h3>Account Information:</h3>
-  <div class="row account-row">
-    <div class="group">
-      <h3>Email:</h3>
-      <h4 class="persistent">{{ userInfo.email }}</h4>
+    <h3>Account Information:</h3>
+    <div class="row account-row">
+        <div class="group">
+            <h3>Email:</h3>
+            <h4 class="persistent">{{ userInfo.email }}</h4>
+        </div>
     </div>
-  </div>
 
-  <h3>Payment Information:</h3>
-  <div class="row payment-row">
-    <div class="group">
-      <h3>Credit card number:</h3>
-      <h4>{{ userInfo.card_number }}</h4>
-      <input
-        type="text"
-        value="{{ userInfo.card_number }}"
-        id="card-num-input"
-      />
+    <h3>Payment Information:</h3>
+    <div class="row payment-row">
+        <div class="group">
+            <h3>Credit card number:</h3>
+            <h4>{{ userInfo.card_number }}</h4>
+            <input type="text" value="{{ userInfo.card_number }}" id="card-num-input" required minlength="16" maxlength="16" />
+            <div class="hidden error-message">
+                <b>Invalid input</b>
+            </div>
+        </div>
+        <div class="group col-4" style="margin-left: -15px;">
+            <h3>Expiration date:</h3>
+            <h4>{{ userInfo.expiration_date}} </h4>
+            <input type="text" value="{{ userInfo.expiration_date.split('/')[0] }}" id="card-exp1-input" required minlength="2" maxlength="2" />
+            <label style="display: inline-block;">/</label>
+            <input type="text" value="{{ userInfo.expiration_date.split('/')[1] }}" id="card-exp2-input" style="display: inline-block;" required minlength="2" maxlength="2" />
+            <div class="hidden error-message">
+                <b>Invalid value</b>
+            </div>
+        </div>
+        <div class="group col-6" style="margin-left: -30px;">
+            <h3 class=" margin-left ">CCV:</h3>
+            <input type="text " value="{{ userInfo.security_code }} " id="card-cvv-input " required minlength="3 " maxlength="3 " />
+            <h4>{{ userInfo.security_code }}</h4>
+            <div class="hidden error-message ">
+                <b>Invalid input</b>
+            </div>
+        </div>
+
+
     </div>
-    <h3>Expiration date:</h3>
-    <h4>{{ userInfo.expiration_date }}</h4>
-    <input
-      type="text"
-      value="{{ userInfo.expiration_date }}"
-      id="card-exp-input"
-    />
-    <h3 class="margin-left">CCV:</h3>
-    <h4>{{ userInfo.security_code }}</h4>
-    <input
-      type="text"
-      value="{{ userInfo.security_code }}"
-      id="card-cvv-input"
-    />
-  </div>
 
-  <a class="submit-changes-btn" (click)="updateProfile()">Update Information</a>
+
+    <a class="submit-changes-btn " (click)="updateProfile() ">Update Information</a>
 </div>

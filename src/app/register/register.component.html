@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles">First Name</h6>
-                    <input required type="text" class="boxElem" formControlName="first_name" >
+                    <input required type="text" class="boxElem" formControlName="first_name">
                     <div *ngIf="this.form.controls['first_name'].invalid && submited" class="error-message">
                         <b>Required field</b>
                     </div>
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-6">
                     <h6 class="subtitles">Date of birth</h6>
-                    <input uired type="date" class="boxElem" formControlName="birthdate">
+                    <input required type="date" class="boxElem" formControlName="birthdate">
                     <div *ngIf="!this.form.controls['birthdate'].touched && submited" class="error-message">
                         <b>Required field</b>
                     </div>
@@ -103,7 +103,7 @@
                         <b>Required field</b>
                     </div>
                     <div *ngIf="emailAlreadyExists" class="error-message">
-                            <b>E-mail address already in use</b>
+                        <b>E-mail address already in use</b>
                     </div>
                 </div>
             </div>
