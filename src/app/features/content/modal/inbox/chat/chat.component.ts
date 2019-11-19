@@ -6,6 +6,8 @@ declare const refuseRental;
 declare const markChatAsRead;
 declare const showToast;
 declare const getRentalStatus;
+declare const $: any;
+declare const getUser: any;
 
 @Component({
   selector: 'chat',
@@ -22,12 +24,16 @@ export class ChatComponent implements OnInit {
 
   loanState: any;
   choosen: any = false;
+  targetPersonName: String;
   constructor() { }
 
   ngOnInit() {
     this.isLoanPast();
     markChatAsRead(this.chat);
+    this.targetPersonName = getUser(this.targetPerson).first_name + " " + getUser(this.targetPerson).last_name;
   }
+
+
 
   sendMessage(event) {
     if (event.type == 'click' || (event.type == 'keyup' && event.key == 'Enter')) {
@@ -49,6 +55,14 @@ export class ChatComponent implements OnInit {
         (<HTMLInputElement>document.getElementById("chat-input")).value = null;
       }
     }
+  }
+
+  acceptModal() {
+    $(".accept-loan-modal").modal("show");
+  }
+
+  refuseModal() {
+    $(".refuse-loan-modal").modal("show");
   }
 
   acceptLoan() {

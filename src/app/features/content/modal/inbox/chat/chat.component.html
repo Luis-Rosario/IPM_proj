@@ -1,9 +1,38 @@
 <div class="header row" *ngIf="this.lender && !this.choosen && this.game.active && this.loanState != 'past'">
-    <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro" (click)="this.acceptLoan()"><b>Accept Loan</b></div>
-    <div class="col-6 text-center chat-button" id="refuse" (click)="this.refuseLoan()"><b>Refuse Loan</b></div>
+    <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro"
+        (click)="acceptModal()">
+        <b>Accept Loan</b>
+        <div class=" modal accept-loan-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h4 class="modal-header">Are you sure you want to loan {{game.game_name}} to {{targetPersonName}}?
+                    </h4>
+                    <div class="modal-body">
+                        <button type="button" class="btn" (click)="this.acceptLoan()">Accept Loan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 text-center chat-button" id="refuse" (click)="this.refuseModal()">
+        <b>Refuse Loan</b>
+        <div class=" modal refuse-loan-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h4 class="modal-header">Are you sure you want to reject {{targetPersonName}}'s request for
+                        {{game.game_name}}?
+                    </h4>
+                    <div class="modal-body">
+                        <button type="button" class="btn" (click)="this.refuseLoan()">Refuse Loan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="chat-list ">
-    <div *ngFor="let message of chat" [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me' : ( message.user == 'system' ? 'chat-bubble system' : 'chat-bubble other') ">
+    <div *ngFor="let message of chat"
+        [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me' : ( message.user == 'system' ? 'chat-bubble system' : 'chat-bubble other') ">
         <div class="text ">{{message.content}}</div>
     </div>
 

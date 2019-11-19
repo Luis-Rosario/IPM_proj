@@ -267,3 +267,32 @@ a {
         }
     }
 }
+
+.accept-loan-modal,.refuse-loan-modal{
+    .modal-dialog{
+        margin-top:180px;
+    }
+    .btn{
+        padding:10px 20px;
+        font-weight:500;
+        background: rgba(#6ab357, 0.28);
+        color:#6ab357;
+        transition-duration:0.2s;
+        &:hover,&:focus{
+            background: #6ab357;
+            color:white;
+        }
+    }
+
+    &.refuse-loan-modal{
+        .btn{
+            background: rgba($red, 0.28);
+            color:$red;
+            &:hover,&:focus{
+                background: $red;
+                color:white;
+            }
+        }
+    }
+
+}
