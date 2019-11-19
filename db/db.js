@@ -1478,16 +1478,10 @@ function markGameAsReturned(lenderEmail, gameName) {
     let game = getGameInfo(lenderEmail, gameName);
     game.active = true;
 
-    //send mes
     let msg = "return-" + lenderEmail + "/" + borrowerMail;
     console.log("sent return msg:" + msg)
     conn.send(msg);
     pushData();
-}
-
-function markGameAsBorrowed(lenderEmail, borrowerEmail, gameName) {
-    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "accepted"
-    pushData()
 }
 
 function createRentalProposal(lender, borrower, gameName, duration, msg) {
