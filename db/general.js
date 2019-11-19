@@ -5,7 +5,7 @@ var pagesFunctions = {
   },
   gamecard: function () {
     setTimeout(() => {
-      $(".rent-btn").click(ev => {
+      /*$(".rent-btn").click(ev => {
         let modal = ev.target;
         let limit = 1;
         while (!modal.classList.contains("modal") && limit++ < 20) {
@@ -14,7 +14,7 @@ var pagesFunctions = {
             : modal.parentElement;
         }
         $(modal).modal("show");
-      });
+      });*/
       $("game-card .game-card").click(function () {
         $(this)
           .parent()

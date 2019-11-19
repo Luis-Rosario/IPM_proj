@@ -87,6 +87,11 @@ export class GameCardComponent implements OnInit {
   }
 
   openMessageModal(ev) {
+    let gameCard = ev.target;
+    let limit = 1;
+    while (!$(gameCard).hasClass("user") && limit++ < 20) {
+      gameCard = gameCard.parentElement;
+    }
     console.log("openmsgmodal", this.loanDuration);
     if (this.loanDuration == 0) {
       $(".loan-error-msg").removeClass("hidden");
@@ -94,11 +99,6 @@ export class GameCardComponent implements OnInit {
       return;
     } else {
       /*     $(".game-page").fadeOut(); */
-      let gameCard = ev.target;
-      let limit = 1;
-      while ($(gameCard).hasClass("user") && limit++ < 20) {
-        gameCard = ev.target.parentElement;
-      }
       $(gameCard)
         .find(".message-page")
         .modal("show");
