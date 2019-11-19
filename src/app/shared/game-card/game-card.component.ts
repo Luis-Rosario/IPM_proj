@@ -57,10 +57,21 @@ export class GameCardComponent implements OnInit {
     pagesFunctions.gamecard();
   }
 
+  textareaInput(ev) {
+    let msg = $(".message-page textarea").val();
+    if (msg.length > 0) {
+      $(ev.target.parentElement).find(".textarea-error-msg").addClass("hidden");
+    }
+  }
+
   modalClick(ev) {
     let msg = $(ev.target.parentElement.parentElement)
       .find("textarea")
       .val();
+    if (msg.length == 0) {
+      $(".textarea-error-msg").removeClass("hidden");
+      return;
+    }
     let userEmail = $(ev.target).attr("data-user");
     createRentalProposal(
       userEmail,

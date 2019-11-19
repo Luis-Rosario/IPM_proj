@@ -86,7 +86,10 @@
                             <div class="modal-body">
                                 <div class="row ">
                                     <div class="col-12 ">
-                                        <textarea type="text" placeholder="Message here"></textarea>
+                                        <textarea type="text" placeholder="Message here"
+                                            (keydown)="textareaInput($event)"></textarea>
+                                        <div class="error-message textarea-error-msg hidden">Message cannot be empty
+                                        </div>
                                         <button (click)="modalClick($event)" [attr.data-user]="lender.email">
                                             Send Message
                                         </button>
