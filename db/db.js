@@ -1529,7 +1529,7 @@ function acceptRental(lenderEmail, borrowerEmail, gameName) {
 }
 
 function refuseRental(lenderEmail, borrowerEmail, gameName) {
-    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "past"
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowerEmail].lent = "refused"
     pushData();
 }
 

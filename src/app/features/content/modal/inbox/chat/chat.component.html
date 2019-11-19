@@ -1,4 +1,4 @@
-<div class="header row" *ngIf="this.lender && !this.choosen && this.game.active && this.loanState != 'past'">
+<div class="header row" *ngIf="this.lender && !this.choosen && this.game.active && this.loanState == 'pending'">
     <div class="col-6 text-center chat-button" id="accept" style="border-right:1px solid gainsboro"
         (click)="acceptModal()">
         <b>Accept Loan</b>

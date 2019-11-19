@@ -35,6 +35,11 @@ export class ChatComponent implements OnInit {
     this.targetPersonName = getUser(this.targetPerson).first_name + " " + getUser(this.targetPerson).last_name;
   }
 
+  ngOnChange() {
+    console.log("changed chat");
+    this.ngOnInit();
+    //this.isLoanPast();
+  }
 
 
   sendMessage(event) {

@@ -92,7 +92,12 @@ export class LoanRequestsComponent implements OnInit {
 
     $(".request-list .user").removeClass("active")
     if (event != "") {
-      var target = event.target.classList.contains("user") ? event.target : event.target.parentElement;
+      //var target = event.target.classList.contains("user") ? event.target : event.target.parentElement;
+      let target = event.target;
+      let limit = 1;
+      while (!$(target).hasClass("user") && limit++ < 20) {
+        target = target.parentElement;
+      }
       target.classList.add("active")
     }
 

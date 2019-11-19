@@ -3,6 +3,7 @@ import { SessionQuery } from 'src/app/core/state/session.query';
 declare const $: any;
 import { LoanRequestsComponent } from './loan-requests/loan-requests.component';
 import { ActivatedRoute } from '@angular/router';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -20,6 +21,7 @@ declare const getBorrowingMessages: any;
 export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   @ViewChild('select', null) select: ElementRef;
   @ViewChild(LoanRequestsComponent, null) loanRequest: LoanRequestsComponent;
+  @ViewChild(ChatComponent, null) chatComponent: ChatComponent;
 
 
   showBorrowed: any = true;
@@ -149,6 +151,10 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   handleSelectedRequest(chat) {
     this.chatMessages = chat[0];
     this.targetPerson = chat[1];
+    setTimeout(() => {
+      this.chatComponent.isLoanPast();
+    }, 1)
+    //this.chatComponent.ngOnInit();
   }
 
   refreshLoanRequest() {
