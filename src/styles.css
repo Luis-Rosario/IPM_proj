@@ -115,8 +115,8 @@ a {
     padding-top: 40px!important;
 }
 
-.trending-section .game-card label,
-.result-list .game-card label {
+.trending-section .game-card > label,
+.result-list .game-card > label {
     display: none!important;
 }
 
@@ -263,3 +263,13 @@ datalist {
     color:#FF912C;
   }
   
+
+.error-message {
+    color: #B22222;
+    font-size: 0.9rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+.error-message.hidden{
+    display:none!important;
+}

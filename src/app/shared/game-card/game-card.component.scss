@@ -220,6 +220,9 @@ a {
     top: 10vh;
     left: 50%;
     transform: translate(-50%, 0%);
+    *{
+      max-height:80vh;
+    }
   }
   .game-info {
     .categories {
@@ -243,6 +246,9 @@ a {
       padding: 25px 0 20px 0;
       border-top: 3px solid #ddd;
     }
+  }
+  .game-col,.users-col{
+    overflow:auto;
   }
   .users-col {
     padding: 0;

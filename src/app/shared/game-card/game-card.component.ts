@@ -35,8 +35,8 @@ export class GameCardComponent implements OnInit {
 
   ngOnInit() {
     this.url = this.router.url;
-  /*   console.log("+".repeat(1000));
-    console.log(this.gameInfo); */
+    /*   console.log("+".repeat(1000));
+      console.log(this.gameInfo); */
     this.getLoanInfo(this.gameInfo.user_email);
     this.gameDescription = getGameDescription(this.gameName);
 
@@ -44,8 +44,8 @@ export class GameCardComponent implements OnInit {
 
     if (!this.gameInfo.active) {
       this.lendingDaysLeft = this.gameInfo.daysLeft; //getRentalDaysLeft(this.gameInfo)
-  /*     console.log("---".repeat(1000));
-      console.log(this.gameInfo.game_name, this.lendingDaysLeft); */
+      /*     console.log("---".repeat(1000));
+          console.log(this.gameInfo.game_name, this.lendingDaysLeft); */
     }
 
     /*  console.log(this.lendingDaysLeft) */
@@ -87,15 +87,22 @@ export class GameCardComponent implements OnInit {
   }
 
   openMessageModal(ev) {
-    /*     $(".game-page").fadeOut(); */
-    let gameCard = ev.target;
-    let limit = 1;
-    while ($(gameCard).hasClass("user") && limit++ < 20) {
-      gameCard = ev.target.parentElement;
+    console.log("openmsgmodal", this.loanDuration);
+    if (this.loanDuration == 0) {
+      $(".loan-error-msg").removeClass("hidden");
+      //$('.game-page .game-col').scrollTo('.loan-error-msg');
+      return;
+    } else {
+      /*     $(".game-page").fadeOut(); */
+      let gameCard = ev.target;
+      let limit = 1;
+      while ($(gameCard).hasClass("user") && limit++ < 20) {
+        gameCard = ev.target.parentElement;
+      }
+      $(gameCard)
+        .find(".message-page")
+        .modal("show");
     }
-    $(gameCard)
-      .find(".message-page")
-      .fadeToggle();
   }
 
   filterLenders() {
@@ -107,6 +114,9 @@ export class GameCardComponent implements OnInit {
       this.maxDistance = Number(
         (<HTMLInputElement>this.distanceSelect.nativeElement).value
       );
+      if (this.loanDuration > 0) {
+        $(".loan-error-msg").addClass("hidden");
+      }
       this.lendersOfGame = getGameLenders(
         this.gameName,
         this.sessionQuery.getValue().email,
