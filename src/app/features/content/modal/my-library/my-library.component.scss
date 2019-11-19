@@ -21,6 +21,10 @@ $green: #5aac44;
 $red: #b22222;
 //app
 .pill {
+    &:not(.interactive){
+		border: 2px solid rgba($orange, 0.5);
+		background: rgba($orange, 0.8);
+	}
     font-size: 12px;
     margin: 4px;
     cursor: pointer;
