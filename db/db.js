@@ -1,11 +1,17 @@
 var peer = new Peer();
 var serverID = "lleme-play-server"
 
-dayAdjustment = 0;
+if (localStorage.dayAdjustment) {
+    dayAdjustment = localStorage.dayAdjustment - 0;
+} else {
+    dayAdjustment = 0;
+}
+
 conn = null;
 
 function clearStorage() {
     localStorage.removeItem("json");
+    localStorage.removeItem("dayAdjustment")
 }
 
 //callback() list
@@ -71,6 +77,7 @@ peer.on("open", (id) => {
             } else if (data.match(/\d/g)) {
                 //avanca tempo
                 dayAdjustment = data - 0;
+                localStorage.dayAdjustment = dayAdjustment;
                 console.log("moved forward " + dayAdjustment + " days in time")
             } else {
                 console.log("server message")
