@@ -2,13 +2,19 @@
     <div class="col-12">
 
         <div class="search-title" *ngIf="showResultMessage">
-            Results for "<b>{{this.searchTerm}}</b>"
+            <span *ngIf="this.searchTerm.length > 0">
+                Results for "<b>{{this.searchTerm}}</b>" matching filters
+            </span>
+            <span *ngIf="this.searchTerm.length == 0">
+                Showing <b>all</b> results matching filters
+            </span>
         </div>
 
         <div class="result-list">
 
             <!--   {{game.game_name}} -->
-            <game-card class="non-owner game-card" *ngFor="let game of results" [gameName]="game.game_name" [gameInfo]="game">
+            <game-card class="non-owner game-card" *ngFor="let game of results" [gameName]="game.game_name"
+                [gameInfo]="game">
 
             </game-card>
 

@@ -6,6 +6,7 @@ declare const refuseRental;
 declare const markChatAsRead;
 declare const showToast;
 declare const getRentalStatus;
+declare const getRentalDuration;
 declare const $: any;
 declare const getUser: any;
 
@@ -25,6 +26,7 @@ export class ChatComponent implements OnInit {
   loanState: any;
   choosen: any = false;
   targetPersonName: String;
+  duration: any;
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ declare const getUser: any;
 declare const onDataChange: any;
 declare const getRentalStatus: any;
 declare const getGameDescription: any;
+declare const getRentalDuration: any;
 
 @Component({
   selector: 'loan-requests',
@@ -23,19 +24,29 @@ export class LoanRequestsComponent implements OnInit {
   userRequestInfo: Map<String, any> = new Map();
   chatMessages: any;
   gameDescription: any;
+  loanDuration: any;
 
   constructor(
     private sessionQuery: SessionQuery,
   ) { }
 
+
+  getDuration(lender, borrower, game) {
+    if (!lender)
+      lender = this.sessionQuery.getValue().email;
+    if (!borrower)
+      borrower = this.sessionQuery.getValue().email;
+    return getRentalDuration(lender, borrower, game);
+  }
+
   main() {
- /*    console.log(this.game) */
+    /*    console.log(this.game) */
     if ($(".user.active").length) {
       var email = $(".user.active").attr("id");
       var event = { target: $(".user.active")[0] }
       this.selectRequest(email, event);
     }
-   /*  console.log(this.lender) */
+    /*  console.log(this.lender) */
   }
 
   ngOnInit() {

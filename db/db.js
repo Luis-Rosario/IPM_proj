@@ -30,19 +30,19 @@ peer.on("open", (id) => {
     //tentar ligar ao pseudo-server
     conn = peer.connect(serverID);
     //connectou-se ao pseudo-server
-    conn.on("open", function() {
+    conn.on("open", function () {
         console.log("connected to pseudo-server")
-            //change push function to send update
-        pushData = function() {
-                conn.send(json);
-                //backup to localstorage
-                localStorage.json = JSON.stringify(json);
-                for (let i = 0; i < changeListeners.length; i++) {
-                    changeListeners[i]();
-                }
+        //change push function to send update
+        pushData = function () {
+            conn.send(json);
+            //backup to localstorage
+            localStorage.json = JSON.stringify(json);
+            for (let i = 0; i < changeListeners.length; i++) {
+                changeListeners[i]();
             }
-            //recieved update
-        conn.on("data", function(data) {
+        }
+        //recieved update
+        conn.on("data", function (data) {
             //e o json, atualiza cenas
             if (data.consoles) {
                 json = data;
@@ -311,374 +311,374 @@ json = {
     },
 
     "game_db": [{
-            "name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": ["PS4", "Switch", "Xbox", "PC"],
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "description": "FIFA 19 is a football simulation video game developed by EA Vancouver as part of Electronic Arts' FIFA series. It is the 26th installment in the FIFA series."
-        },
-        {
-            "name": "Overcooked 2",
-            "year": 2018,
-            "category": ["cooking", "co-op"],
-            "console": ["PS4", "Nintendo Switch", "Xbox One"],
-            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
-            "description": "In the cooking simulator game Overcooked 2, teams of up to four players cooperatively prepare and cook orders in absurd restaurants."
-        },
-        {
-            "name": "Uncharted 4: A Thief's End",
-            "year": 2016,
-            "category": ["action", "adventure"],
-            "console": ["PS4"],
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
-            "description": "Uncharted 4: A Thief's End is an action-adventure game developed by Naughty Dog and published by Sony Computer Entertainment. It is the fourth main entry in the Uncharted series."
-        },
-        {
-            "name": "Super Smash Bros Ultimate",
-            "year": 2018,
-            "category": ["action", "fighting"],
-            "console": ["Nintendo Switch"],
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
-            "description": "Super Smash Bros. Ultimate is a 2018 crossover fighting game developed by Bandai Namco Studios and Sora Ltd., and published by Nintendo for the Nintendo Switch. It is the fifth installment in the Super Smash Bros. series."
-        },
-        {
-            "name": "Death Stranding",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": ["PS4"],
-            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
-            "description": "Death Stranding is an action, strand video game developed by Kojima Productions, and published by Sony Interactive Entertainment for the PlayStation 4."
-        },
-        {
-            "name": "The Legend of Zelda: Link's Awakening",
-            "year": 1993,
-            "category": ["action", "adventure"],
-            "console": ["Nintendo Switch"],
-            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
-            "description": "Link's Awakening is one of the few Zelda games not to take place in the land of Hyrule, and does not feature Princess Zelda or the Triforce relic."
-        },
-        {
-            "name": "Borderlands 3",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
-            "description": "Borderlands 3 is the fourth main and fifth overall entry in Gearbox Software's Borderlands game series."
-        },
-        {
-            "name": "Minecraft",
-            "year": 2009,
-            "category": ["sandbox", "survival", "action", "adventure"],
-            "console": ["PS4", "Xbox One", "PC", "PS3", "Xbox 360", "Nintendo Switch", "PSP"],
-            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
-            "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items."
-        },
-        {
-            "name": "Sims 4",
-            "year": 2014,
-            "category": ["simulation"],
-            "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
-            "description": "The Sims 4 is a life simulation game, similar to its predecessors. Players create a Sim character and control their life to explore different personalities which change the way the game plays out."
-        },
-        {
-            "name": "Far Cry 4",
-            "year": 2014,
-            "category": ["fps", "action", "adventure"],
-            "console": ["PS4", "Xbox One", "PC"],
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
-            "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
-        }
+        "name": "FIFA 19",
+        "year": 2018,
+        "category": ["sports", "football"],
+        "console": ["PS4", "Switch", "Xbox", "PC"],
+        "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+        "description": "FIFA 19 is a football simulation video game developed by EA Vancouver as part of Electronic Arts' FIFA series. It is the 26th installment in the FIFA series."
+    },
+    {
+        "name": "Overcooked 2",
+        "year": 2018,
+        "category": ["cooking", "co-op"],
+        "console": ["PS4", "Nintendo Switch", "Xbox One"],
+        "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
+        "description": "In the cooking simulator game Overcooked 2, teams of up to four players cooperatively prepare and cook orders in absurd restaurants."
+    },
+    {
+        "name": "Uncharted 4: A Thief's End",
+        "year": 2016,
+        "category": ["action", "adventure"],
+        "console": ["PS4"],
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
+        "description": "Uncharted 4: A Thief's End is an action-adventure game developed by Naughty Dog and published by Sony Computer Entertainment. It is the fourth main entry in the Uncharted series."
+    },
+    {
+        "name": "Super Smash Bros Ultimate",
+        "year": 2018,
+        "category": ["action", "fighting"],
+        "console": ["Nintendo Switch"],
+        "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+        "description": "Super Smash Bros. Ultimate is a 2018 crossover fighting game developed by Bandai Namco Studios and Sora Ltd., and published by Nintendo for the Nintendo Switch. It is the fifth installment in the Super Smash Bros. series."
+    },
+    {
+        "name": "Death Stranding",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": ["PS4"],
+        "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+        "description": "Death Stranding is an action, strand video game developed by Kojima Productions, and published by Sony Interactive Entertainment for the PlayStation 4."
+    },
+    {
+        "name": "The Legend of Zelda: Link's Awakening",
+        "year": 1993,
+        "category": ["action", "adventure"],
+        "console": ["Nintendo Switch"],
+        "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+        "description": "Link's Awakening is one of the few Zelda games not to take place in the land of Hyrule, and does not feature Princess Zelda or the Triforce relic."
+    },
+    {
+        "name": "Borderlands 3",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": ["PS4", "Xbox One", "PC"],
+        "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
+        "description": "Borderlands 3 is the fourth main and fifth overall entry in Gearbox Software's Borderlands game series."
+    },
+    {
+        "name": "Minecraft",
+        "year": 2009,
+        "category": ["sandbox", "survival", "action", "adventure"],
+        "console": ["PS4", "Xbox One", "PC", "PS3", "Xbox 360", "Nintendo Switch", "PSP"],
+        "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
+        "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items."
+    },
+    {
+        "name": "Sims 4",
+        "year": 2014,
+        "category": ["simulation"],
+        "console": ["PS4", "Xbox One", "PC"],
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
+        "description": "The Sims 4 is a life simulation game, similar to its predecessors. Players create a Sim character and control their life to explore different personalities which change the way the game plays out."
+    },
+    {
+        "name": "Far Cry 4",
+        "year": 2014,
+        "category": ["fps", "action", "adventure"],
+        "console": ["PS4", "Xbox One", "PC"],
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
+        "description": "Far Cry 4 is a first-person action-adventure game. Players assume control of Ajay Ghale, a Kyrati-American who is on a quest to spread his deceased mother's ashes in the fictional country of Kyrat."
+    }
 
     ],
 
     "game_rentals": [{
-            "user_email": "a@a.com", //ruizinho@gmail.com
-            "game_name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "duration_range": [3, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "a@a.com",
-            "game_name": "Borderlands 3",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
-            "duration_range": [1, 2],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "floribela123@gmail.com",
-            "game_name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "duration_range": [2, 7],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "floribela123@gmail.com",
-            "game_name": "Super Smash Bros Ultimate",
-            "year": 2019,
-            "category": ["action", "fighting"],
-            "console": "Nintendo Switch",
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
-            "duration_range": [3, 6],
-            "active": false,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "floribela123@gmail.com",
-            "game_name": "Sims 4",
-            "year": 2014,
-            "category": ["simulation"],
-            "console": "PC",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
-            "duration_range": [3, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "manel_tristonho@hotmail.com",
-            "game_name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "duration_range": [1, 8],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "manel_tristonho@hotmail.com",
-            "game_name": "Overcooked 2",
-            "year": 2018,
-            "category": ["cooking", "co-op"],
-            "console": "Nintendo Switch",
-            "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
-            "duration_range": [2, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "manel_tristonho@hotmail.com",
-            "game_name": "Super Smash Bros Ultimate",
-            "year": 2019,
-            "category": ["action", "fighting"],
-            "console": "Nintendo Switch",
-            "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
-            "duration_range": [3, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "aventureiro101@hotmail.com",
-            "game_name": "Uncharted 4: A Thief's End",
-            "year": 2016,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
-            "duration_range": [3, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "aventureiro101@hotmail.com",
-            "game_name": "Minecraft",
-            "year": 2009,
-            "category": ["sandbox", "survival", "action", "adventure"],
-            "console": "Xbox 360",
-            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
-            "duration_range": [2, 3],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "aventureiro101@hotmail.com",
-            "game_name": "The Legend of Zelda: Link's Awakening",
-            "year": 1993,
-            "category": ["action", "adventure"],
-            "console": "Nintendo Switch",
-            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
-            "duration_range": [1, 2],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "castelo_branquinho@gmail.com",
-            "game_name": "Uncharted 4: A Thief's End",
-            "year": 2016,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
-            "duration_range": [3, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "castelo_branquinho@gmail.com",
-            "game_name": "FIFA 19",
-            "year": 2018,
-            "category": ["sports", "football"],
-            "console": "PS4",
-            "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
-            "duration_range": [1, 6],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "castelo_branquinho@gmail.com",
-            "game_name": "Far Cry 4",
-            "year": 2014,
-            "category": ["fps", "action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
-            "duration_range": [1, 5],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "castelo_branquinho@gmail.com",
-            "game_name": "The Legend of Zelda: Link's Awakening",
-            "year": 1993,
-            "category": ["action", "adventure"],
-            "console": "Nintendo Switch",
-            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
-            "duration_range": [2, 8],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "docinho2019@hotmail.com",
-            "game_name": "Death Stranding",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
-            "duration_range": [1, 4],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "docinho2019@hotmail.com",
-            "game_name": "Far Cry 4",
-            "year": 2014,
-            "category": ["fps", "action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
-            "duration_range": [3, 5],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "marcelo_the_usurper@hotmail.com",
-            "game_name": "Death Stranding",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
-            "duration_range": [3, 5],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "marcelo_the_usurper@hotmail.com",
-            "game_name": "Sims 4",
-            "year": 2014,
-            "category": ["simulation"],
-            "console": "PC",
-            "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
-            "duration_range": [1, 4],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "marcelo_the_usurper@hotmail.com",
-            "game_name": "The Legend of Zelda: Link's Awakening",
-            "year": 1993,
-            "category": ["action", "adventure"],
-            "console": "Nintendo Switch",
-            "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
-            "duration_range": [1, 9],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "matias_flores@hotmail.com",
-            "game_name": "Death Stranding",
-            "year": 2019,
-            "category": ["action", "adventure"],
-            "console": "PS4",
-            "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
-            "duration_range": [1, 8],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        },
-        {
-            "user_email": "matias_flores@hotmail.com",
-            "game_name": "Minecraft",
-            "year": 2009,
-            "category": ["sandbox", "survival", "action", "adventure"],
-            "console": "Xbox 360",
-            "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
-            "duration_range": [1, 4],
-            "active": true,
-            "warnedLender": false,
-            "warnedBorrower": false,
-            "endDate": dateToStr(getRandomDate())
-        }
+        "user_email": "a@a.com", //ruizinho@gmail.com
+        "game_name": "FIFA 19",
+        "year": 2018,
+        "category": ["sports", "football"],
+        "console": "PS4",
+        "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+        "duration_range": [3, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "a@a.com",
+        "game_name": "Borderlands 3",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://static.raru.co.za/cover/2019/04/03/7282714-l.jpg?v=1554310829",
+        "duration_range": [1, 2],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "floribela123@gmail.com",
+        "game_name": "FIFA 19",
+        "year": 2018,
+        "category": ["sports", "football"],
+        "console": "PS4",
+        "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+        "duration_range": [2, 7],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "floribela123@gmail.com",
+        "game_name": "Super Smash Bros Ultimate",
+        "year": 2019,
+        "category": ["action", "fighting"],
+        "console": "Nintendo Switch",
+        "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+        "duration_range": [3, 6],
+        "active": false,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "floribela123@gmail.com",
+        "game_name": "Sims 4",
+        "year": 2014,
+        "category": ["simulation"],
+        "console": "PC",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
+        "duration_range": [3, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "manel_tristonho@hotmail.com",
+        "game_name": "FIFA 19",
+        "year": 2018,
+        "category": ["sports", "football"],
+        "console": "PS4",
+        "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+        "duration_range": [1, 8],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "manel_tristonho@hotmail.com",
+        "game_name": "Overcooked 2",
+        "year": 2018,
+        "category": ["cooking", "co-op"],
+        "console": "Nintendo Switch",
+        "image_url": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/o/overcooked-2-switch/Switch_Overcooked2_box.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png",
+        "duration_range": [2, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "manel_tristonho@hotmail.com",
+        "game_name": "Super Smash Bros Ultimate",
+        "year": 2019,
+        "category": ["action", "fighting"],
+        "console": "Nintendo Switch",
+        "image_url": "https://www.mobygames.com/images/covers/l/525828-super-smash-bros-ultimate-nintendo-switch-front-cover.png",
+        "duration_range": [3, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "aventureiro101@hotmail.com",
+        "game_name": "Uncharted 4: A Thief's End",
+        "year": 2016,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
+        "duration_range": [3, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "aventureiro101@hotmail.com",
+        "game_name": "Minecraft",
+        "year": 2009,
+        "category": ["sandbox", "survival", "action", "adventure"],
+        "console": "Xbox 360",
+        "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
+        "duration_range": [2, 3],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "aventureiro101@hotmail.com",
+        "game_name": "The Legend of Zelda: Link's Awakening",
+        "year": 1993,
+        "category": ["action", "adventure"],
+        "console": "Nintendo Switch",
+        "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+        "duration_range": [1, 2],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "castelo_branquinho@gmail.com",
+        "game_name": "Uncharted 4: A Thief's End",
+        "year": 2016,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/71hcX5qwKNL._SX385_.jpg",
+        "duration_range": [3, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "castelo_branquinho@gmail.com",
+        "game_name": "FIFA 19",
+        "year": 2018,
+        "category": ["sports", "football"],
+        "console": "PS4",
+        "image_url": "https://static.raru.co.za/cover/2018/06/10/6706193-l.jpg?v=1538732191",
+        "duration_range": [1, 6],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "castelo_branquinho@gmail.com",
+        "game_name": "Far Cry 4",
+        "year": 2014,
+        "category": ["fps", "action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
+        "duration_range": [1, 5],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "castelo_branquinho@gmail.com",
+        "game_name": "The Legend of Zelda: Link's Awakening",
+        "year": 1993,
+        "category": ["action", "adventure"],
+        "console": "Nintendo Switch",
+        "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+        "duration_range": [2, 8],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "docinho2019@hotmail.com",
+        "game_name": "Death Stranding",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+        "duration_range": [1, 4],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "docinho2019@hotmail.com",
+        "game_name": "Far Cry 4",
+        "year": 2014,
+        "category": ["fps", "action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/917IdGi1UHL._SL1500_.jpg",
+        "duration_range": [3, 5],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "marcelo_the_usurper@hotmail.com",
+        "game_name": "Death Stranding",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+        "duration_range": [3, 5],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "marcelo_the_usurper@hotmail.com",
+        "game_name": "Sims 4",
+        "year": 2014,
+        "category": ["simulation"],
+        "console": "PC",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/61lpv71xJIL.jpg",
+        "duration_range": [1, 4],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "marcelo_the_usurper@hotmail.com",
+        "game_name": "The Legend of Zelda: Link's Awakening",
+        "year": 1993,
+        "category": ["action", "adventure"],
+        "console": "Nintendo Switch",
+        "image_url": "https://media.gamestop.com/i/gamestop/10173745/The-Legend-of-Zelda-Links-Awakening?",
+        "duration_range": [1, 9],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "matias_flores@hotmail.com",
+        "game_name": "Death Stranding",
+        "year": 2019,
+        "category": ["action", "adventure"],
+        "console": "PS4",
+        "image_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5360/5360401_sd.jpg",
+        "duration_range": [1, 8],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    },
+    {
+        "user_email": "matias_flores@hotmail.com",
+        "game_name": "Minecraft",
+        "year": 2009,
+        "category": ["sandbox", "survival", "action", "adventure"],
+        "console": "Xbox 360",
+        "image_url": "https://www.mobygames.com/images/covers/l/283094-minecraft-xbox-360-edition-xbox-360-front-cover.jpg",
+        "duration_range": [1, 4],
+        "active": true,
+        "warnedLender": false,
+        "warnedBorrower": false,
+        "endDate": dateToStr(getRandomDate())
+    }
     ],
 
     "notifications": {
@@ -737,50 +737,50 @@ json = {
                         "borrowers": {
                             "castelo_branquinho@gmail.com": {
                                 "lent": "accepted",
-                                "duration": "",
+                                "duration": 3,
                                 /*pending,accepted,past*/
                                 "messages": [{
-                                        "user": "borrower",
-                                        /*lender, borrower, system*/
-                                        "content": "Hello, darling! Lend me this game! Muah",
-                                        "date": "2019-09-07",
-                                        "time": "12:02",
-                                        "read": false
-                                    },
-                                    {
-                                        "user": "lender",
-                                        "content": "Okay, I will!",
-                                        "date": "2019-09-07",
-                                        "time": "12:32",
-                                        "read": false
-                                    },
-                                    {
-                                        "user": "system",
-                                        "content": "Please return this game!",
-                                        "date": "2019-09-07",
-                                        "time": "12:35",
-                                        "read": false
-                                    }
+                                    "user": "borrower",
+                                    /*lender, borrower, system*/
+                                    "content": "Hello, darling! Lend me this game! Muah",
+                                    "date": "2019-09-07",
+                                    "time": "12:02",
+                                    "read": false
+                                },
+                                {
+                                    "user": "lender",
+                                    "content": "Okay, I will!",
+                                    "date": "2019-09-07",
+                                    "time": "12:32",
+                                    "read": false
+                                },
+                                {
+                                    "user": "system",
+                                    "content": "Please return this game!",
+                                    "date": "2019-09-07",
+                                    "time": "12:35",
+                                    "read": false
+                                }
                                 ]
                             },
                             "aventureiro101@hotmail.com": {
                                 "lent": "pending",
-                                "duration": "",
+                                "duration": 4,
                                 "messages": [{
-                                        "user": "borrower",
-                                        /*lender, borrower, system*/
-                                        "content": "Hi! I wanna borrow this game!",
-                                        "date": "2019-09-07",
-                                        "time": "12:00",
-                                        "read": false
-                                    },
-                                    {
-                                        "user": "lender",
-                                        "content": "I can't lend it right now, but maybe later.",
-                                        "date": "2019-09-14",
-                                        "time": "12:40",
-                                        "read": false
-                                    }
+                                    "user": "borrower",
+                                    /*lender, borrower, system*/
+                                    "content": "Hi! I wanna borrow this game!",
+                                    "date": "2019-09-07",
+                                    "time": "12:00",
+                                    "read": false
+                                },
+                                {
+                                    "user": "lender",
+                                    "content": "I can't lend it right now, but maybe later.",
+                                    "date": "2019-09-14",
+                                    "time": "12:40",
+                                    "read": false
+                                }
                                 ]
                             }
                         }
@@ -918,19 +918,19 @@ json = {
                                 "lent": "pending",
                                 "duration": "",
                                 "messages": [{
-                                        "user": "borrower",
-                                        "content": "Hello, can you lend me this game?",
-                                        "date": "2019-10-12",
-                                        "time": "09:00",
-                                        "read": false
-                                    },
-                                    {
-                                        "user": "lender",
-                                        "content": "Yes, ofc",
-                                        "date": "2019-10-13",
-                                        "time": "11:00",
-                                        "read": false
-                                    }
+                                    "user": "borrower",
+                                    "content": "Hello, can you lend me this game?",
+                                    "date": "2019-10-12",
+                                    "time": "09:00",
+                                    "read": false
+                                },
+                                {
+                                    "user": "lender",
+                                    "content": "Yes, ofc",
+                                    "date": "2019-10-13",
+                                    "time": "11:00",
+                                    "read": false
+                                }
                                 ]
                             }
                         }
@@ -1099,6 +1099,7 @@ function getBorrowingMessages(userId, game) {
 }
 
 
+
 function getNotifications(userEmail) {
     notifications = []
 
@@ -1156,7 +1157,7 @@ function getNotifications(userEmail) {
     }
 
 
-    return notifications.sort(function(first, second) {
+    return notifications.sort(function (first, second) {
         d1 = strToDate(first.date)
         d2 = strToDate(second.date)
         date1 = first.time.split(":")
@@ -1236,9 +1237,9 @@ function getGameLenders(gameName, loggedUserEmail, filterObj) {
     users = [];
     borrower = filterObj.byUser;
     filtered_game_rentals = json.game_rentals.filter((game) => {
-            return game.game_name == gameName && game.user_email != loggedUserEmail
-        })
-        /*     console.log(filtered_game_rentals) */
+        return game.game_name == gameName && game.user_email != loggedUserEmail
+    })
+    /*     console.log(filtered_game_rentals) */
     for (i = 0; i < filtered_game_rentals.length; i++) {
         gameRental = filtered_game_rentals[i];
         lender = gameRental.user_email;
@@ -1318,7 +1319,7 @@ function orderedGamesBorrowing(borrower) {
         gameData.daysLeft = Math.round(daysLeft);
         gamesOrdered[gameData.name] = gameData;
     }
-    return gamesOrdered.sort(function(first, second) {
+    return gamesOrdered.sort(function (first, second) {
         return first.daysLeft - second.daysLeft;
     });
 
@@ -1341,7 +1342,7 @@ function orderedGamesLending(lender) {
         /* console.log(daysLeft) */
         gamesOrdered.push(gameData);
     }
-    return gamesOrdered.sort(function(first, second) {
+    return gamesOrdered.sort(function (first, second) {
         return first.daysLeft - second.daysLeft;
     });
 
@@ -1368,6 +1369,15 @@ function getRentalStatus(lender, borrower, game) {
     }
 
 }
+
+function getRentalDuration(lender, borrower, game) {
+
+    if (json.rental_history.lenders[lender].games[game].borrowers[borrower] !== undefined) {
+        return json.rental_history.lenders[lender].games[game].borrowers[borrower].duration
+    }
+
+}
+
 
 //------------------------------------------------
 //------------------------------------------------
