@@ -17,6 +17,7 @@ $red: #b22222;
 		background: rgba($orange, 0.8)!important;
 	}
     font-size: 12px;
+    font-family: 'Rubik', sans-serif;
     margin: 4px;
     cursor: pointer;
     background: #dfdfdf;
@@ -46,6 +47,7 @@ $red: #b22222;
                 top: 50%;
                 transform: translate(-50%, -55%);
                 font-size: 16px;
+                font-family: 'Rubik', sans-serif;
             }
         }
     }
@@ -80,6 +82,7 @@ $red: #b22222;
             text-align: center;
             top: 18px;
             font-size: 11px;
+            font-family: 'Rubik', sans-serif;
             transform: translate(-50%, 0);
             &[for="year-max"] {
                 top: -18px;

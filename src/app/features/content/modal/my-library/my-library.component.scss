@@ -163,6 +163,7 @@ $red: #b22222;
         color: $orange;
         font-size: 20px;
         font-weight: bold;
+        font-family: 'Rubik', sans-serif;
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -173,6 +174,7 @@ $red: #b22222;
     }
     .description {
         font-size: 12px;
+        font-family: 'Rubik', sans-serif;
     }
 }
 
@@ -235,6 +237,7 @@ $red: #b22222;
     top: 20px;
     color: $orange;
     font-weight: bold;
+    font-family: 'Rubik', sans-serif;
     transition-duration: 0.2s;
     &:hover {
         background: $orange;

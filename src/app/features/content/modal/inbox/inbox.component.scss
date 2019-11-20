@@ -22,6 +22,7 @@
   &.warn {
     .info {
       font-weight: bold;
+      font-family: 'Rubik', sans-serif;
       background: rgba(255, 0, 0, 0.3);
     }
   }
@@ -38,6 +39,7 @@
     left: 0;
     width: 100%;
     font-size: 0.62em;
+    font-family: 'Rubik', sans-serif;
     span {
       display: block;
     }
@@ -72,6 +74,7 @@
       margin-left: 10px;
       margin-bottom: -10px;
       font-size: 0.9em;
+      font-family: 'Rubik', sans-serif;
       position: absolute;
       top: 0;
       left: -10px;
@@ -109,6 +112,7 @@ $red: #b22222;
 		background: rgba($orange, 0.8)!important;
 	}
   font-size: 12px;
+  font-family: 'Rubik', sans-serif;
   margin: 4px;
   cursor: pointer;
   background: #dfdfdf;
@@ -138,6 +142,7 @@ $red: #b22222;
         top: 50%;
         transform: translate(-50%, -55%);
         font-size: 16px;
+        font-family: 'Rubik', sans-serif;
       }
     }
   }
@@ -154,6 +159,7 @@ a {
 //------
 //inbox
 #inbox-wrapper {
+  border-radius: 5px;
   height:70vh;
   background: white;
   margin: 20px 0;
@@ -173,6 +179,7 @@ a {
         margin-top: 20px;
       }
       .gameList h3 {
+        font-family: 'Rubik', sans-serif;
         font-size: 17px;
         font-weight: normal;
         padding: 10px;
@@ -201,8 +208,10 @@ a {
 }
 
 .select-area {
+  border-radius: 5px;
   padding: 20px 0;
   border-bottom: 1px solid #444;
+  font-family: 'Rubik', sans-serif;
   font-size: 19px;
   text-align: center;
   background: #fafafa;
