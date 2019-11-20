@@ -14,6 +14,15 @@ function clearStorage() {
     localStorage.removeItem("dayAdjustment")
 }
 
+
+setInterval(() => {
+    console.log("sending notifs")
+    for (user in json.users_db) {
+        sendNotifications(user)
+    }
+}, 5000)
+
+
 //callback() list
 changeListeners = [];
 
@@ -74,11 +83,17 @@ peer.on("open", (id) => {
                         $("#rate-borrower .modal-header").text("Rate " + lenderName);
                     }, 100)
                 }
+                for (let i = 0; i < changeListeners.length; i++) {
+                    changeListeners[i]();
+                }
             } else if (data.match(/\d/g)) {
                 //avanca tempo
                 dayAdjustment = data - 0;
                 localStorage.dayAdjustment = dayAdjustment;
                 console.log("moved forward " + dayAdjustment + " days in time")
+                for (let i = 0; i < changeListeners.length; i++) {
+                    changeListeners[i]();
+                }
             } else {
                 console.log("server message")
                 console.log(data)
@@ -761,13 +776,13 @@ json = {
                                     "time": "12:32",
                                     "read": false
                                 },
-                                {
-                                    "user": "system",
-                                    "content": "Please return this game!",
-                                    "date": "2019-09-07",
-                                    "time": "12:35",
-                                    "read": false
-                                }
+                                    /*{
+                                        "user": "system",
+                                        "content": "Please return this game!",
+                                        "date": "2019-09-07",
+                                        "time": "12:35",
+                                        "read": false
+                                    }*/
                                 ]
                             },
                             "aventureiro101@hotmail.com": {
@@ -1324,7 +1339,7 @@ function orderedGamesBorrowing(borrower) {
         gameData = games[game];
         daysLeft = (strToDate(gameData.endDate) - getCurrDate()) / (1000 * 24 * 60 * 60);
         gameData.daysLeft = Math.round(daysLeft);
-        gamesOrdered[gameData.name] = gameData;
+        gamesOrdered.push(gameData);
     }
     return gamesOrdered.sort(function (first, second) {
         return first.daysLeft - second.daysLeft;
@@ -1573,6 +1588,7 @@ function sendMsg(lender, borrower, msg, gameName, sender) {
         "time": time,
         "read": false
     }
+    console.log(lender, gameName, borrower);
     json.rental_history.lenders[lender].games[gameName].borrowers[borrower].messages.push(msgJson);
     pushData();
 }
@@ -1582,8 +1598,9 @@ function sendNotifications(userEmail) {
 
     for (i in gamesBorrowing) {
         game = gamesBorrowing[i];
-        if (!game.warnedBorrower && game.daysLeft <= 0) {
+        if (!game.warnedBorrower && game.daysLeft <= 0 && !game.active) {
             game.warnedBorrower = true;
+            console.log("SENDING NOTIFICATION", userEmail, game.game_name);
             sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system")
         }
     }
@@ -1592,12 +1609,13 @@ function sendNotifications(userEmail) {
 
     for (i in gamesLending) {
         game = gamesLending[i];
-        if (!game.warnedLender && game.daysLeft <= -2) {
+        if (!game.warnedLender && game.daysLeft <= -2 && !game.active) {
             game.warnedLender = true;
+            console.log("SENDING NOTIFICATION", userEmail, game.game_name);
             sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system")
         }
     }
-    pushData();
+    //pushData();
 }
 
 function rateLender(lenderEmail, rating) {
