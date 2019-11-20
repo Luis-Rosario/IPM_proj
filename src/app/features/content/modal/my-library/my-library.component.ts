@@ -38,14 +38,15 @@ export class LibraryComponent implements OnInit {
   consoleHTMLBackup: String = "";
   autocompleted: boolean = false;
 
+
   constructor(private sessionQuery: SessionQuery) { }
 
-  clearDropDown(){
+  clearDropDown() {
     let str = ""
     let consoles = getConsoles();
-    for(let i = 0;i<consoles.length;i++){
+    for (let i = 0; i < consoles.length; i++) {
       let console_ = consoles[i];
-      str+= " <option value="+console_.replace(/ /g,"")+">"+console_+"</option>";
+      str += " <option value=" + console_.replace(/ /g, "") + ">" + console_ + "</option>";
     }
     $("#new-game-modal .select-console select").html(str);
     $(".selectpicker").selectpicker("refresh");
@@ -68,11 +69,11 @@ export class LibraryComponent implements OnInit {
     //select console
     this.clearDropDown();
     setTimeout(() => {
-      console.log(window["aa"] = gameInfo.console,window["bb"]=this.consoles);
+      console.log(window["aa"] = gameInfo.console, window["bb"] = this.consoles);
       let excluded = this.consoles.filter((c) => { return !gameInfo.console.includes(c) })
       console.log(excluded);
       excluded.forEach(e => {
-        let clist = Array.from(document.querySelectorAll("#new-game-modal .select-console option")).filter((c)=>{
+        let clist = Array.from(document.querySelectorAll("#new-game-modal .select-console option")).filter((c) => {
           return $(c).text() == e;
         });
         $(clist).remove();
@@ -108,15 +109,15 @@ export class LibraryComponent implements OnInit {
       console.log(userText);
       $("#new-game-modal #games-list").find("option").each(function () {
         if ($(this).val() == userText) {
-          setTimeout(()=>{
+          setTimeout(() => {
             self.fillGameInfo(getGameData(userText));
-          },200);
-        } else{
-          if(self.autocompleted){
+          }, 200);
+        } else {
+          if (self.autocompleted) {
             console.log("clear ti");
-            setTimeout(()=>{
+            setTimeout(() => {
               self.clearDropDown();
-            },400)
+            }, 400)
 
           }
           console.log("autofalse")
@@ -174,42 +175,70 @@ export class LibraryComponent implements OnInit {
     let name = (<HTMLInputElement>document.getElementById("name")).value;
     let year = (<HTMLInputElement>document.getElementById("year")).value;
     let categories = [];
+    console.log(this.isFormValid())
 
-    for (var i = 0; i < $("#new-game-modal .pill.active").length; i++) {
-      var el = $("#new-game-modal .pill.active")
-        .eq(i)
-        .text();
-      categories.push(el);
+    if (this.isFormValid()) {
+      console.log("E")
+      for (var i = 0; i < $("#new-game-modal .pill.active").length; i++) {
+        var el = $("#new-game-modal .pill.active")
+          .eq(i)
+          .text();
+        categories.push(el);
+      }
+
+      var platform = $("#new-game-modal .select-console select option:selected").text();
+      var range = $("#new-game-modal .duration-range")
+        .val()
+        .split(",");
+      range[0] -= 0;
+      range[1] -= 0;
+
+      var jsonGame = {
+        user_email: this.user,
+        game_name: name,
+        year: year,
+        category: categories,
+        console: platform,
+        image_url: $("#new-game-modal #image.hidden").length ? "assets/llamma.png" : $("#new-game-modal #image").attr("src"),
+        duration_range: range,
+        active: true,
+        warned: false,
+        endDate: ""
+      };
+      addGame(this.user, jsonGame);
+      console.log(platform);
+
+      this.ngOnInit();
+      showToast("Game successfully added")
     }
 
-    var platform = $("#new-game-modal .select-console select option:selected").text();
-    var range = $("#new-game-modal .duration-range")
-      .val()
-      .split(",");
-    range[0] -= 0;
-    range[1] -= 0;
-
-    var jsonGame = {
-      user_email: this.user,
-      game_name: name,
-      year: year,
-      category: categories,
-      console: platform,
-      image_url: $("#new-game-modal #image.hidden").length ? "assets/llamma.png" : $("#new-game-modal #image").attr("src"),
-      duration_range: range,
-      active: true,
-      warned: false,
-      endDate: ""
-    };
-    addGame(this.user, jsonGame);
-    console.log(platform);
-
-    this.ngOnInit();
-    showToast("Game successfully added")
   }
 
   handleChange() {
     this.lendingGames = [];
     this.ngOnInit();
+  }
+
+  isFormValid() {
+    $(".error-message").addClass("hidden");
+
+    let game_name = (<HTMLInputElement>(document.querySelector(".game-name"))).validity.valid;
+    let year = (<HTMLInputElement>(document.querySelector(".year"))).validity.valid;
+
+    if (!game_name){
+      $(document.querySelector(".game-name").parentElement).find(".error-message").removeClass("hidden")
+    }
+  
+    if (!year){
+      $(document.querySelector(".year").parentElement).find(".error-message").removeClass("hidden")
+    }
+    
+
+    return year && game_name
+  }
+
+  hiddeErrorMessages(){
+    console.log("S")
+    $(".error-message").addClass("hidden");
   }
 }
