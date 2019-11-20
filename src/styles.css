@@ -104,8 +104,14 @@ img {
     max-width: 100%;
 }
 
-a {
+body a {
     cursor: pointer;
+    color:#ec6233
+}
+
+body a:hover, body a:focus{
+    /**/
+    color:#ec6233;
 }
 
 .login-parent .content {

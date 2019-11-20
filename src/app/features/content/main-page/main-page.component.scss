@@ -157,6 +157,7 @@ router-outlet {
         width: 100%;
         justify-content: stretch;
         margin: auto;
+        margin-top:10px;
     }
     .group {
         background: white;
@@ -176,10 +177,9 @@ router-outlet {
             position: absolute;
             top: 0;
             left: -10px;
-            width: 40%;
+            width: 100%;
             padding: 5px 15px;
             background: #F2F2F2;
-            box-shadow: inset -20px 0 20px -10px white;
             z-index: 2;
         }
         .caroussel {
