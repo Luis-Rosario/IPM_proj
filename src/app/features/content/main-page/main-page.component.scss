@@ -1,4 +1,5 @@
-body {
+
+.body {
     color: #222222;
     box-sizing: border-box;
 }
@@ -10,83 +11,15 @@ body {
     display: inline-block;
 }
 
-.nav {
-    border: 1px solid gainsboro;
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 20px;
-    background: white;
-    .norm-input {
-        opacity: 0;
-    }
-    .abs-input {
-        position: absolute;
-        top: 58px;
-        max-width: 500px;
-        width: 40vw;
-        left: 50%;
-        transform: translate(-50%, 0);
-        font-size: 1em;
-        line-height: 1.5em;
-        padding: 10px 30px;
-        border: 1px solid gainsboro;
-        border-radius: 50px;
-    }
-    .navbar-brand {
-        color: #222222;
-        display: flex;
-        align-items: center;
-        .logo {
-            margin-right: 15px;
-        }
-    }
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    .right-hand {
-        display: flex;
-        align-items: center;
-    }
-    .links {
-        display: flex;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        left: 50%;
-        font-size: 0.9em;
-        transform: translate(-55%, 0);
-        top: 20px;
-        li {
-            list-style-type: none;
-            display: inline-block;
-            padding: 5px 20px;
-            text-align: center;
-            a {
-                color: #666666;
-            }
-            &:first-child {
-                border-right: 1px solid gainsboro;
-            }
-        }
-    }
-    .user-info {
-        margin-left: 20px;
-        position: relative;
-        .row {
-            display: block;
-            text-align: right;
-            position: relative;
-            &.user {}
-            &.points {
-                font-size: 0.8em;
-                position: absolute;
-                bottom: -15px;
-                right: 0;
-            }
-        }
+.container {
+    background: #1f1d1b;
+    color: rgb(255, 240, 234);
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+
+    .link {
+        color: #ec620f;
+        font-size: 16px;
     }
 }
 
