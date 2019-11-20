@@ -135,6 +135,7 @@ a {
     position: absolute!important;
     left: 0;
     top: 0;
+    left: 330px;
     width: 170px!important;
     height: 100%;
     display: flex;

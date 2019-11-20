@@ -1,9 +1,9 @@
 <div class="nav">
     <div class="input-wrapper">
+        <input type="text" placeholder="Search for a game..." class="abs-input" #search (keyup)="searchGame()" />
         <select class="selectpicker" data-width="170px" title="All consoles" multiple data-actions-box="true">
             <option *ngFor="let console of this.consoles">{{console}}</option>
         </select>
-        <input type="text" placeholder="Search for a game..." class="abs-input" #search (keyup)="searchGame()" />
     </div>
     <div class="navbar-brand">
         <a routerLink="/home" routerLinkActive="active">

@@ -23,6 +23,7 @@ $red: #b22222;
         opacity: 0;
     }
     .input-wrapper {
+        font-family: 'Rubik', sans-serif;
         position: absolute;
         top: 58px;
         max-width: 500px;
@@ -33,12 +34,12 @@ $red: #b22222;
         background: white;
         .abs-input {
             font-size: 1em;
+            font-family: 'Rubik', sans-serif;
             line-height: 1.5em;
             padding: 10px 30px;
             border: 1px solid gainsboro;
             border-radius: 50px;
             width: 100%;
-            padding-left: 180px;
         }
         //bootstrap-select no styles.css porque autismo do angular
     }
