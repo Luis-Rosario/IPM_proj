@@ -70,7 +70,7 @@ body {
     border: 2px solid #eee;
     border-radius: 10px;
     display: inline-block;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 .pill.interactive:not(.active):hover {
@@ -106,12 +106,13 @@ img {
 
 body a {
     cursor: pointer;
-    color:#ec6233
+    color: #ec6233
 }
 
-body a:hover, body a:focus{
+body a:hover,
+body a:focus {
     /**/
-    color:#ec6233;
+    color: #ec6233;
 }
 
 .login-parent .content {
@@ -121,15 +122,16 @@ body a:hover, body a:focus{
     padding-top: 40px!important;
 }
 
-.trending-section .game-card > label,
-.result-list .game-card > label {
+.trending-section .game-card>label,
+.result-list .game-card>label {
     display: none!important;
 }
 
 
 /*hide second select*/
 
-.btn-group.bootstrap-select>.dropdown-toggle,.nav .input-wrapper > .bootstrap-select > .btn-group.bootstrap-select {
+.btn-group.bootstrap-select>.dropdown-toggle,
+.nav .input-wrapper>.bootstrap-select>.btn-group.bootstrap-select {
     display: none!important;
     visibility: hidden!important;
     height: 0!important;
@@ -152,8 +154,8 @@ body a:hover, body a:focus{
     box-shadow: 1px 0 6px -4px rgba(0, 0, 0, 0.5);
 }
 
-.nav .input-wrapper .dropdown-menu.show{
-    width:220px!important;
+.nav .input-wrapper .dropdown-menu.show {
+    width: 220px!important;
 }
 
 
@@ -240,42 +242,54 @@ datalist {
 
 /*stars*/
 
-  /* Rating Star Widgets Style */
-  .rating-stars ul {
-    list-style-type:none;
-    padding:0;
-    
-    -moz-user-select:none;
-    -webkit-user-select:none;
-  }
-  .rating-stars ul > li.star {
-    display:inline-block;
-    
-  }
-  
-  /* Idle State of the stars */
-  .rating-stars ul > li.star > i.fa {
-    font-size:2.5em; /* Change the size of the stars */
-    color:#ccc; /* Color on idle state */
-  }
-  
-  /* Hover state of the stars */
-  .rating-stars ul > li.star.hover > i.fa {
-    color:#FFCC36;
-  }
-  
-  /* Selected state of the stars */
-  .rating-stars ul > li.star.selected > i.fa {
-    color:#FF912C;
-  }
-  
+
+/* Rating Star Widgets Style */
+
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.rating-stars ul>li.star {
+    display: inline-block;
+}
+
+
+/* Idle State of the stars */
+
+.rating-stars ul>li.star>i.fa {
+    font-size: 2.5em;
+    /* Change the size of the stars */
+    color: #ccc;
+    /* Color on idle state */
+}
+
+
+/* Hover state of the stars */
+
+.rating-stars ul>li.star.hover>i.fa {
+    color: #FFCC36;
+}
+
+
+/* Selected state of the stars */
+
+.rating-stars ul>li.star.selected>i.fa {
+    color: #FF912C;
+}
 
 .error-message {
-    color: #B22222;
+    color: #B22222!important;
     font-size: 0.9rem;
     font-family: 'Rubik', sans-serif;
 }
 
-.error-message.hidden{
-    display:none!important;
+.error-message b {
+    color: inherit;
+}
+
+.error-message.hidden {
+    display: none!important;
 }
