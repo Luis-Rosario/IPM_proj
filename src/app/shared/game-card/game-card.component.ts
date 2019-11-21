@@ -84,6 +84,17 @@ export class GameCardComponent implements OnInit {
   }
 
   openModal(ev) {
+    let distanceFilter = $(".result-filter .distance-range").val() - 0;
+    let durationFilter = $(".result-filter .loan-range").val() - 0;
+
+    console.log(distanceFilter, durationFilter)
+    console.log(window["aa"] = this.durationSelect.nativeElement)
+    console.log(window["bb"] = this.distanceSelect.nativeElement)
+    if (durationFilter)
+      $($(this.durationSelect.nativeElement).find("option")[Math.round(durationFilter)]).attr("selected", "selected")
+    if (distanceFilter)
+      $($(this.distanceSelect.nativeElement).find("option")[Math.round(distanceFilter / 50)]).attr("selected", "selected")
+
     if (
       !$(ev.target.parentElement.parentElement.parentElement).hasClass(
         "non-click"
