@@ -293,3 +293,14 @@ datalist {
 .error-message.hidden {
     display: none!important;
 }
+
+/*eye pass*/
+.pass-wrapper{
+    position:relative;
+}
+.pass-wrapper i{
+    position: absolute;
+    right: 8px;
+    color: #222;
+    top: 2px;
+}

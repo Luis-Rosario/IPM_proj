@@ -1,9 +1,30 @@
+function passwordEyeHandler() {
+    $(".fa-eye, .fa-eye-slash").click(function () {
+        let pass = $(this).parent().find('input:password');
+        let txt = $(this).parent().find('input:text');
+        console.log(pass.length, txt.length, pass[0], txt[0])
+        if (pass.length) {
+            console.log("pass")
+            pass.prop({ type: "text" });
+        }
+        else if (txt.length) {
+            console.log("txt")
+            txt.prop({ type: "password" });
+        }
+
+        $(this).toggleClass("fa-eye");
+        $(this).toggleClass("fa-eye-slash")
+
+    })
+
+}
+
 var pagesFunctions = {
-    updateNavPicker: function(consoles) {
+    updateNavPicker: function (consoles) {
         console.log("updating navbar picker")
         $(".nav .selectpicker").selectpicker('val', consoles);
     },
-    gamecard: function() {
+    gamecard: function () {
         setTimeout(() => {
             /*$(".rent-btn").click(ev => {
               let modal = ev.target;
@@ -15,7 +36,7 @@ var pagesFunctions = {
               }
               $(modal).modal("show");
             });*/
-            $("game-card .game-card").click(function() {
+            $("game-card .game-card").click(function () {
                 $(this)
                     .parent()
                     .find(".game-page.modal")
@@ -23,7 +44,7 @@ var pagesFunctions = {
             });
         }, 10);
     },
-    profile: function() {
+    profile: function () {
         function resizeInput() {
             $(this).attr("size", $(this).val().length + 1);
         }
@@ -34,48 +55,48 @@ var pagesFunctions = {
             .each(resizeInput);
         $("app-profile  .edit-btn").click(() => {
             console.log(222);
-            $("input").each(function() {
+            $("input").each(function () {
                 console.log($(this));
                 resizeInput.bind(this)();
             });
         });
     },
-    browse: function() {
+    browse: function () {
         var el = document.querySelector(".duration-range");
         if (el) multirange(el);
         el = document.querySelector(".year-range");
         if (el) multirange(el);
     },
-    libCard: function() {
-        $(document).ready(function() {
+    libCard: function () {
+        $(document).ready(function () {
             console.log("liba");
-            $("lib-card .game-card .delete-btn").click(function() {
+            $("lib-card .game-card .delete-btn").click(function () {
                 $(this)
                     .parent()
                     .parent()
                     .find(".delete-modal")
                     .modal("show");
             });
-            $("lib-card .game-card .show-btn").click(function() {
+            $("lib-card .game-card .show-btn").click(function () {
                 $(this)
                     .parent()
                     .parent()
                     .find(".show-modal")
                     .modal("show");
             });
-            $("lib-card .game-card .return-btn").click(function() {
+            $("lib-card .game-card .return-btn").click(function () {
                 $(this)
                     .parent()
                     .parent()
                     .find(".return-modal")
                     .modal("show");
             });
-            $("lib-card .game-card .btn.return").click(function() {
+            $("lib-card .game-card .btn.return").click(function () {
                 $(".modal").modal("hide");
             });
         });
     },
-    libraryPage: function() {
+    libraryPage: function () {
 
         function handler(th) {
             var $input = $(th).hasClass("ghost") ? $(".duration-range") : $(th);
@@ -110,7 +131,7 @@ var pagesFunctions = {
         }
 
         setTimeout(() => {
-            $(".pill.interactive").click(function() {
+            $(".pill.interactive").click(function () {
                 $(this).toggleClass("active");
             });
             /* 
@@ -118,7 +139,7 @@ var pagesFunctions = {
                     $("#new-game-modal").modal("toggle");
                   });
              */
-            $("input").on("input", function() {
+            $("input").on("input", function () {
                 var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
                 handler(this);
             });
@@ -127,7 +148,7 @@ var pagesFunctions = {
             var el = document.querySelector(".game-modal .duration-range");
             if (el) multirange(el);
 
-            $("input").on("input", function() {
+            $("input").on("input", function () {
                 var $input = $(this).hasClass("ghost") ? $(".duration-range") : $(this);
                 handler(this);
             });
@@ -143,7 +164,7 @@ function nestedDepth($el) {
     return 1 + nestedDepth($el.parent());
 }
 
-document.addEventListener("keydown", function(ev) {
+document.addEventListener("keydown", function (ev) {
     if (ev.code == "Escape") {
         //close modals if 
         if ($(".modal:visible").length) {
@@ -173,7 +194,7 @@ document.addEventListener("keydown", function(ev) {
 
 });
 
-document.addEventListener("click", function(ev) {
+document.addEventListener("click", function (ev) {
     let bell = document.querySelector(".nav .fa-bell");
     let notifList = document.querySelector(".notifications")
     if (!(ev.path.includes(bell) || ev.path.includes(notifList))) {
@@ -187,18 +208,18 @@ function showToast(text) {
     var x = document.getElementById("snackbar");
     x.className = "show";
     x.innerHTML = text;
-    setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
 setTimeout(() => {
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         /* 1. Visualizing things on Hover - See next part for action on click */
-        $('#stars li').on('mouseover', function() {
+        $('#stars li').on('mouseover', function () {
             var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
 
             // Now highlight all the stars that's not after the current hovered star
-            $(this).parent().children('li.star').each(function(e) {
+            $(this).parent().children('li.star').each(function (e) {
                 if (e < onStar) {
                     $(this).addClass('hover');
                 } else {
@@ -206,15 +227,15 @@ setTimeout(() => {
                 }
             });
 
-        }).on('mouseout', function() {
-            $(this).parent().children('li.star').each(function(e) {
+        }).on('mouseout', function () {
+            $(this).parent().children('li.star').each(function (e) {
                 $(this).removeClass('hover');
             });
         });
 
 
         /* 2. Action to perform on click */
-        $('#stars li').on('click', function() {
+        $('#stars li').on('click', function () {
             var onStar = parseInt($(this).data('value'), 10); // The star currently selected
             var stars = $(this).parent().children('li.star');
 

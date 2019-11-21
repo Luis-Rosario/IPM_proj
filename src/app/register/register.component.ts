@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 declare const addUser: any;
 declare const showToast;
 declare const getUser: any;
+declare const passwordEyeHandler;
 
 @Component({
   selector: 'app-register',
@@ -25,27 +26,28 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    passwordEyeHandler();
   }
 
 
   register() {
     //logic to update the JSON object
     /*   */
-    this.noMatch=false;
-    if(this.form.controls['password'].value != this.form.controls['PasswordConfim'].value ){
+    this.noMatch = false;
+    if (this.form.controls['password'].value != this.form.controls['PasswordConfim'].value) {
       this.noMatch = true;
     }
 
     this.emailAlreadyExists = !!(getUser(this.form.controls['email'].value));
-    
+
     /* console.log(this.form) */
-    this.submited= false;
-    if(this.form.valid && !this.noMatch){
+    this.submited = false;
+    if (this.form.valid && !this.noMatch) {
       showToast("Resgistered successfully");
       addUser(this.form.value)
       this.router.navigateByUrl('/login');
     }
-    else{this.submited= true;}
+    else { this.submited = true; }
   }
 
   cancel() {
@@ -61,7 +63,7 @@ export class RegisterComponent implements OnInit {
       gender: '',
       street_address: '',
       postal_code1: '',
-      postal_code2: '', 
+      postal_code2: '',
       city: '',
       email: '',
       password: '',
