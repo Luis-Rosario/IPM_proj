@@ -66,7 +66,7 @@ export class MainPageComponent implements OnInit {
 
       index++;
     }
-    /* console.log(myBorrowedGamesJSON ) */
+  
   }
 
   getLending() {
@@ -76,12 +76,16 @@ export class MainPageComponent implements OnInit {
     let keys = Object.keys(myGamesJSON);
 
     for (game of keys) {
+     if(!(myGamesJSON[game].active)){
+       console.log(myGamesJSON[game])
+
       this.gamesLending[index] = game;
       this.lendingGamesInfo.set(game, myGamesJSON[game]);
 
       index++;
+     }
     }
-    console.log(this.lendingGamesInfo)
+    console.log(this.lendingGamesInfo.get("1"))
   }
 
   handleChange() {

@@ -1,52 +1,52 @@
 <div class="row p">
-  <div class="col-3 result-filter">
-    <h4>Filter Results</h4>
-    <div class="row">
-      <div class="col-12">
-        <h5>Genre</h5>
-        <div class="categories">
-          <h6 class="pill interactive" *ngFor="let cat of this.categories">{{cat}}</h6>
+    <div class="col-3 result-filter">
+        <h4>Filter Results</h4>
+        <div class="row">
+            <div class="col-12">
+                <h5>Genre</h5>
+                <div class="categories">
+                    <h6 class="pill interactive" *ngFor="let cat of this.categories">{{cat}}</h6>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h5>Console</h5>
+                <div class="consoles">
+                    <h6 class="pill interactive" *ngFor="let console of this.consoles">{{console}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Release year</h5>
+                <div class="input-group year-group">
+                    <input type="range" class="year-range" multiple min="1990" max="2019" value="1990,2019" step="1" />
+                    <label for="year-min"></label>
+                    <label for="year-max"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Loan Duration</h5>
+                <div class="input-group">
+                    <input type="range" class="loan-range" name="points" min="0" max="10" value="0" />
+                    <label for="loan"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Maximum distance</h5>
+                <div class="input-group">
+                    <input type="range" class="distance-range" name="points" min="0" max="300" step="50" value="0" />
+                    <label for="distance"></label>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <div class="col-12">
-        <h5>Console</h5>
-        <div class="consoles">
-          <h6 class="pill interactive" *ngFor="let console of this.consoles">{{console}}</h6>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h5>Release year</h5>
-        <div class="input-group year-group">
-          <input type="range" class="year-range" multiple min="1990" max="2019" value="1990,2019" step="1" />
-          <label for="year-min"></label>
-          <label for="year-max"></label>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h5>Loan Duration</h5>
-        <div class="input-group">
-          <input type="range" class="loan-range" name="points" min="0" max="10" value="0" />
-          <label for="loan"></label>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h5>Maximum distance</h5>
-        <div class="input-group">
-          <input type="range" class="distance-range" name="points" min="0" max="300" step="50" value="0" />
-          <label for="distance"></label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <browse-results class="col-9" [searchTerm]="this.filter.gameName" [games]="this.results"></browse-results>
+    <browse-results class="col-9" [searchTerm]="this.filter.gameName" [games]="this.results"></browse-results>
 </div>
