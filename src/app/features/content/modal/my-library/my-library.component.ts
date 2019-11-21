@@ -208,6 +208,8 @@ export class LibraryComponent implements OnInit {
       addGame(this.user, jsonGame);
       console.log(platform);
 
+      $("#new-game-modal").modal("toggle");
+
       this.ngOnInit();
       showToast("Game successfully added")
     }
