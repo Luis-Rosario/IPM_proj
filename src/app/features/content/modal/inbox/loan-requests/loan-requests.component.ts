@@ -18,6 +18,7 @@ export class LoanRequestsComponent implements OnInit {
   @Input() messages: any;
   @Input() game: any;
   @Input() lender: any;
+  @Input() queryParam:any;
   @Output() selectedPerson = new EventEmitter();
 
   users: any[] = [];
@@ -41,20 +42,32 @@ export class LoanRequestsComponent implements OnInit {
 
   main() {
     /*    console.log(this.game) */
-    if ($(".user.active").length) {
+
+   /* if (!$(".user.active").length) {
       var email = $(".user.active").attr("id");
       var event = { target: $(".user.active")[0] }
       this.selectRequest(email, event);
-    }
+    }*/
+  
     /*  console.log(this.lender) */
   }
 
   ngOnInit() {
     this.getUsers();
 
+    this.selectedPerson
     this.gameDescription = getGameDescription(this.game.game_name)
     console.log(this.gameDescription)
-    onDataChange(this.main.bind(this))
+    onDataChange(this.main.bind(this));
+    setTimeout(()=>{
+
+      if(!this.queryParam){
+        if (!$(".info-col .user.active").length) {
+          $(document.querySelector(".info-col .user")).click()
+        }
+      }     
+     
+    },300);
     //very important function best function ever makes everything work :)
     setInterval(() => { }, 400);
   }

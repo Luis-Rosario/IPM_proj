@@ -29,7 +29,7 @@
     </div>
 
     <div class="col-5 info-col">
-        <loan-requests *ngIf="messages !== undefined && game !== undefined" [messages]="messages" [game]="game" [lender]="(showBorrowed=='false') ? true: false" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
+        <loan-requests *ngIf="messages !== undefined && game !== undefined" [queryParam]="this.queryParam" [messages]="messages" [game]="game" [lender]="(showBorrowed=='false') ? true: false" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
     </div>
 
     <div class=" col-4 chat-col">
