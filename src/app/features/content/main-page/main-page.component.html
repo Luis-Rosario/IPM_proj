@@ -42,8 +42,10 @@
         </div>
         <div class="group borrow">
           <div class="row"><span>Games Borrowed</span></div>
-
           <div class="caroussel">
+              <div *ngIf="this.gamesBorrowed.length == 0" class="no-results">
+                  Currently you dont have any games borrowed
+                </div>
             <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
               <game-card
                 [gameName]="game"

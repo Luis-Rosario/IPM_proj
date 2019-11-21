@@ -60,7 +60,7 @@ export class LoanRequestsComponent implements OnInit {
     console.log(this.gameDescription)
     onDataChange(this.main.bind(this));
     setTimeout(()=>{
-
+      console.log(this.queryParam)
       if(!this.queryParam){
         if (!$(".info-col .user.active").length) {
           $(document.querySelector(".info-col .user")).click()

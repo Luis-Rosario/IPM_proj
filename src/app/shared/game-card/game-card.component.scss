@@ -5,144 +5,143 @@ $lightGrey: #f7f7f7;
 $green: #5aac44;
 $red: #b22222;
 .game-card {
-  display: inline-block;
-  width: 130px;
-  height: 180px;
-  background-color: #eee;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  position:relative;
-  label{
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    left: 50%;
-    padding: 5px;
-    transform: translate(-50%, 0);
-    width: 100%;
-    text-align: center;
-    background: rgba(215, 212, 212, 0.7);
-    backdrop-filter: blur(2px);
-    z-index:3;
-    b{
-        &.over-info{
-            color:$red;
+    display: inline-block;
+    width: 130px;
+    height: 180px;
+    background-color: #eee;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    label {
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        left: 50%;
+        padding: 5px;
+        transform: translate(-50%, 0);
+        width: 100%;
+        text-align: center;
+        background: rgba(215, 212, 212, 0.7);
+        backdrop-filter: blur(2px);
+        z-index: 3;
+        b {
+            &.over-info {
+                color: $red;
+            }
+            letter-spacing:1px;
         }
-        letter-spacing:1px;
     }
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  &.non-owner {
-    cursor: pointer;
-    &:hover {
-      transform: scale(0.98);
+    img {
+        width: 100%;
+        height: 100%;
     }
-  }
+    &.non-owner {
+        cursor: pointer;
+        &:hover {
+            transform: scale(0.98);
+        }
+    }
 }
 
 ////////
 .content {
-  margin-top: 60px;
-  padding: 50px 30px;
-  background: #fafafa;
-  min-height: 100vh;
-  width: 100%;
+    margin-top: 60px;
+    padding: 50px 30px;
+    background: #fafafa;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .section {
-  margin-top: 15px;
-  .row.first {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
-    border-bottom: 1px solid #444444;
-  }
+    margin-top: 15px;
+    .row.first {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-bottom: 1px solid #444444;
+    }
 }
 
 .game {
-  background: #eeeeee;
-  width: 85px;
-  height: 110px;
-  border-radius: 1px;
-  position: relative;
-  &.warn {
+    background: #eeeeee;
+    width: 85px;
+    height: 110px;
+    border-radius: 1px;
+    position: relative;
+    &.warn {
+        .info {
+            font-weight: bold;
+            background: rgba(255, 0, 0, 0.3);
+        }
+    }
+    &.almost {
+        .info {
+            background: rgba(255, 210, 150, 1);
+        }
+    }
     .info {
-      font-weight: bold;
-      background: rgba(255, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.1);
+        padding: 6px 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 0.62em;
+        span {
+            display: block;
+        }
     }
-  }
-  &.almost {
-    .info {
-      background: rgba(255, 210, 150, 1);
-    }
-  }
-  .info {
-    background: rgba(0, 0, 0, 0.1);
-    padding: 6px 3px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    font-size: 0.62em;
-    span {
-      display: block;
-    }
-  }
 }
 
 .caroussel {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 2px 10px 2px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 2px 10px 2px;
 }
 
-.trending-section {
-}
+.trending-section {}
 
 .activity-section {
-  .group-group {
-    display: flex;
-    width: 100%;
-    justify-content: stretch;
-    margin: auto;
-  }
-  .group {
-    background: white;
-    padding: 5px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-left: 0;
-    display: inline-block;
-    flex: 1 1 auto;
-    border: 1px solid #eeeeee;
-    position: relative;
-    padding-top: 22px;
-    span {
-      margin-left: 10px;
-      margin-bottom: -10px;
-      font-size: 0.9em;
-      position: absolute;
-      top: 0;
-      left: -10px;
-      width: 40%;
-      padding: 5px 15px;
-      background: #f2f2f2;
-      box-shadow: inset -20px 0 20px -10px white;
-      z-index: 2;
+    .group-group {
+        display: flex;
+        width: 100%;
+        justify-content: stretch;
+        margin: auto;
     }
-    .caroussel {
-      justify-content: flex-start;
-      padding-left: 15px;
-      .game {
-        margin-right: 30px;
-      }
+    .group {
+        background: white;
+        padding: 5px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-left: 0;
+        display: inline-block;
+        flex: 1 1 auto;
+        border: 1px solid #eeeeee;
+        position: relative;
+        padding-top: 22px;
+        span {
+            margin-left: 10px;
+            margin-bottom: -10px;
+            font-size: 0.9em;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 40%;
+            padding: 5px 15px;
+            background: #f2f2f2;
+            box-shadow: inset -20px 0 20px -10px white;
+            z-index: 2;
+        }
+        .caroussel {
+            justify-content: flex-start;
+            padding-left: 15px;
+            .game {
+                margin-right: 30px;
+            }
+        }
+        .row {
+            margin: 5px;
+        }
     }
-    .row {
-      margin: 5px;
-    }
-  }
 }
 
 //general
@@ -153,194 +152,201 @@ $lightGrey: #f7f7f7;
 $green: #5aac44;
 $red: #b22222;
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 //generalizar isto, por num css alto-nivel
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
-    &:not(.interactive){
-		border: 2px solid rgba($orange, 0.5)!important;
-		background: rgba($orange, 0.8)!important;
-	}
-  font-size: 12px;
-  margin: 4px;
-  cursor: pointer;
-  background: #dfdfdf;
-  padding: 2px 10px;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  display: inline-block;
-  &.interactive:not(.active) {
-    &:hover {
-      border-color: rgba($orange, 0.5);
-      background: rgba($orange, 0.1);
+    &:not(.interactive) {
+        border: 2px solid rgba($orange, 0.5)!important;
+        background: rgba($orange, 0.8)!important;
     }
-  }
-  &.active {
-    border: 2px solid rgba($orange, 0.5);
-    background: rgba($orange, 0.8);
-    &.interactive:hover {
-      border-color: rgba($red, 0.5);
-      background: rgba($red, 0.2);
-      position: relative;
-      color: rgba(0, 0, 0, 0.2);
-      &:after {
-        content: "x";
-        color: $red;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -55%);
-        font-size: 16px;
-      }
+    font-size: 12px;
+    margin: 4px;
+    cursor: pointer;
+    background: #dfdfdf;
+    padding: 2px 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    display: inline-block;
+    &.interactive:not(.active) {
+        &:hover {
+            border-color: rgba($orange, 0.5);
+            background: rgba($orange, 0.1);
+        }
     }
-  }
+    &.active {
+        border: 2px solid rgba($orange, 0.5);
+        background: rgba($orange, 0.8);
+        &.interactive:hover {
+            border-color: rgba($red, 0.5);
+            background: rgba($red, 0.2);
+            position: relative;
+            color: rgba(0, 0, 0, 0.2);
+            &:after {
+                content: "x";
+                color: $red;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -55%);
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 //----
 .game-page {
-  background: rgba(0, 0, 0, 0.5);
-  .modal-content {
-    max-width: 80vw !important;
-    max-height:80vh;
-    background: white;
-    position: fixed;
-    top: 10vh;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    *{
-      max-height:80vh;
-    }
-  }
-  .game-info {
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: -5px;
-      margin-bottom: 15px;
-    }
-    .img-col {
-      display: flex;
-      align-items: center;
-      img {
-        max-width: 100%;
-      }
-    }
-  }
-  .game-col {
-    padding: 40px 80px;
-    .filter-section {
-      margin-top: 50px;
-      padding: 25px 0 20px 0;
-      border-top: 3px solid #ddd;
-    }
-  }
-  .game-col,.users-col{
-    overflow:auto;
-  }
-  .users-col {
-    padding: 0;
-    padding-right: 15px;
-    border-left: 1px solid gainsboro;
-    .user-name {
-      font-weight: bold;
-    }
-    .user {
-      border-bottom: 1px solid gainsboro;
-      padding: 10px 20px;
-      position: relative;
-      .star-rating {
-        font-weight: bold;
-      }
-      .fa-star {
-        font-size: 10px;
-        padding-left: 5px;
-        padding-right: 2px;
-        position: relative;
-        top: -3px;
-        color: #f7af09;
-      }
-      .loan-count {
-        margin-left: 2px;
-        font-weight: bold;
-      }
-      .rent-btn {
-        position: absolute;
-        right: 10px;
-        bottom: 4px;
-        border: 2px solid $orange;
-        font-weight: bold;
-        color: orange;
-        font-size: 13px;
-        padding: 2px 10px;
-        transition-duration: 0.3s;
-        &:hover {
-          padding: 2px 5px 2px 15px;
-          background: rgba($orange, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    .modal-content {
+        max-width: 80vw !important;
+        max-height: 80vh;
+        background: white;
+        position: fixed;
+        top: 10vh;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        * {
+            max-height: 80vh;
         }
-      }
     }
-  }
+    .game-info {
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -5px;
+            margin-bottom: 15px;
+        }
+        .img-col {
+            display: flex;
+            align-items: center;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+    .game-col {
+        padding: 40px 80px;
+        .filter-section {
+            margin-top: 50px;
+            padding: 25px 0 20px 0;
+            border-top: 3px solid #ddd;
+        }
+    }
+    .game-col,
+    .users-col {
+        overflow: auto;
+    }
+    .users-col {
+        padding: 0;
+        padding-right: 15px;
+        border-left: 1px solid gainsboro;
+        .user-name {
+            font-weight: bold;
+        }
+        .user {
+            border-bottom: 1px solid gainsboro;
+            padding: 10px 20px;
+            position: relative;
+            .star-rating {
+                font-weight: bold;
+            }
+            .fa-star {
+                font-size: 10px;
+                padding-left: 5px;
+                padding-right: 2px;
+                position: relative;
+                top: -3px;
+                color: #f7af09;
+            }
+            .loan-count {
+                margin-left: 2px;
+                font-weight: bold;
+            }
+            .rent-btn {
+                position: absolute;
+                right: 10px;
+                bottom: 4px;
+                border: 2px solid $orange;
+                font-weight: bold;
+                color: orange;
+                font-size: 13px;
+                padding: 2px 10px;
+                transition-duration: 0.3s;
+                &:hover {
+                    padding: 2px 5px 2px 15px;
+                    background: rgba($orange, 0.2);
+                }
+            }
+        }
+    }
 }
 
 .message-page.modal {
-  background: white;
-  width: 75%;
-  height: 75%;
-  transform: translate(-50%, -50%);
-  padding: 30px !important;
-  top: 50%;
-  left: 50%;
-  z-index: 99;
-  max-width:500px;
-  max-height:300px!important;
-  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.5);
-  .modal-content {
-    border: none !important;
-    position:absolute;
-    top:0;
-    height:100%;
-    textarea{
-      padding:20px;
-      width:100%;
-    }
-    .modal-body{
-      button{
-        background:$orange;
-        padding:10px 20px;
-        color:white;
-        border:2px solid $orange;
-        align-self:flex-end;
-        &:hover,&:focus{
-          background:rgba($orange,0.3);
-          color:$orange;
+    background: white;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    padding: 30px !important;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    max-width: 500px;
+    max-height: 300px!important;
+    box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.5);
+    .modal-content {
+        border: none !important;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        textarea {
+            padding: 20px;
+            width: 100%;
         }
-      }
-      .row{
-        height:100%;
-        .col-12{
-          display:flex;
-          flex-direction:column;
-          textarea{
-            flex:1;
-            margin-bottom:20px;
-            resize:none;
-          }
+        .modal-body {
+            button {
+                background: $orange;
+                padding: 10px 20px;
+                color: white;
+                border: 2px solid $orange;
+                align-self: flex-end;
+                &:hover,
+                &:focus {
+                    background: rgba($orange, 0.3);
+                    color: $orange;
+                }
+            }
+            .row {
+                height: 100%;
+                .col-12 {
+                    display: flex;
+                    flex-direction: column;
+                    textarea {
+                        flex: 1;
+                        margin-bottom: 20px;
+                        resize: none;
+                    }
+                }
+            }
         }
-      }
     }
-  }
+}
+
+.list-lender-title {
+    text-align: center;
+    padding-top: 5px;
 }
