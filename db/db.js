@@ -1100,20 +1100,20 @@ function markChatAsRead(chat) {
 }
 
 function getLendingMessages(userId, game) {
-    messages = {}
-    borrowers = json.rental_history.lenders[userId].games[game].borrowers
+    var messages = {}
+    var borrowers = json.rental_history.lenders[userId].games[game].borrowers
     for (borrower in borrowers) {
-        messages[borrower] = json.rental_history.lenders[userId].games[game].borrowers[borrower].messages
+        messages[borrower] = json.rental_history.lenders[userId].games[game].borrowers[borrower].messages.filter(msg => { return msg.user != "system-borrow" })
     }
     return messages
 }
 
 function getBorrowingMessages(userId, game) {
-    messages = {}
+    var messages = {}
     for (lender in json.rental_history.lenders) {
         if (json.rental_history.lenders[lender].games[game] !== undefined) {
             if (json.rental_history.lenders[lender].games[game].borrowers[userId] !== undefined)
-                messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages
+                messages[lender] = json.rental_history.lenders[lender].games[game].borrowers[userId].messages.filter(msg => { return msg.user != "system-lender" })
         }
 
     }
@@ -1498,6 +1498,8 @@ function markGameAsReturned(lenderEmail, gameName) {
         }
     }
     let game = getGameInfo(lenderEmail, gameName);
+    game.warnedLender = false;
+    game.warnedBorrower = false;
     game.active = true;
 
     let msg = "return-" + lenderEmail + "/" + borrowerMail;
@@ -1594,25 +1596,25 @@ function sendMsg(lender, borrower, msg, gameName, sender) {
 }
 
 function sendNotifications(userEmail) {
-    gamesBorrowing = orderedGamesBorrowing(userEmail)
+    var gamesBorrowing = orderedGamesBorrowing(userEmail)
 
     for (i in gamesBorrowing) {
-        game = gamesBorrowing[i];
+        let game = gamesBorrowing[i];
         if (!game.warnedBorrower && game.daysLeft <= 0 && !game.active) {
             game.warnedBorrower = true;
             console.log("SENDING NOTIFICATION", userEmail, game.game_name);
-            sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system")
+            sendMsg(game.user_email, userEmail, "The rental period is over. Don't forget to return this game!", game.game_name, "system-borrow")
         }
     }
 
-    gamesLending = orderedGamesLending(userEmail)
+    var gamesLending = orderedGamesLending(userEmail)
 
     for (i in gamesLending) {
-        game = gamesLending[i];
+        let game = gamesLending[i];
         if (!game.warnedLender && game.daysLeft <= -2 && !game.active) {
             game.warnedLender = true;
             console.log("SENDING NOTIFICATION", userEmail, game.game_name);
-            sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system")
+            sendMsg(userEmail, getBorrower(userEmail, game.game_name), "Has this game been returned? Don't forget to mark this game as returned!", game.game_name, "system-lender")
         }
     }
     //pushData();

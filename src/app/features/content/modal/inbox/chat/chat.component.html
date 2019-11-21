@@ -42,7 +42,7 @@
 </div>
 <div class="chat-list ">
     <div *ngFor="let message of chat"
-        [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me' : ( message.user == 'system' ? 'chat-bubble system' : 'chat-bubble other') ">
+        [ngClass]="((message.user=='lender' && lender) || (message.user=='borrower' && !lender))? 'chat-bubble me' : ( (message.user == 'system-lender' || message.user == 'system-borrow') ? 'chat-bubble system' : 'chat-bubble other') ">
         <div class="text ">{{message.content}}</div>
     </div>
 

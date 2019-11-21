@@ -8,6 +8,8 @@ declare const onDataChange: any;
 declare const getRentalStatus: any;
 declare const getGameDescription: any;
 declare const getRentalDuration: any;
+declare const getBorrowingMessages: any;
+declare const getLendingMessages: any;
 
 @Component({
   selector: 'loan-requests',
@@ -62,7 +64,7 @@ export class LoanRequestsComponent implements OnInit {
     let self = this;
     function clickFirst() {
       console.log(self.queryParam)
-      if (!this.queryParam) {
+      if (!self.queryParam) {
         if (!$(".info-col .user.active").length) {
           if (document.querySelector(".info-col .user"))
             $(document.querySelector(".info-col .user")).click()
@@ -119,10 +121,10 @@ export class LoanRequestsComponent implements OnInit {
     }
 
     if (this.lender)
-      this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name)
+      this.chatMessages = getLendingMessages(this.sessionQuery.getValue().email, this.game.game_name)[userRequest]
 
     if (!this.lender)
-      this.chatMessages = getChat(userRequest, this.sessionQuery.getValue().email, this.game.game_name)
+      this.chatMessages = getBorrowingMessages(this.sessionQuery.getValue().email, this.sessionQuery.getValue().email, this.game.game_name)[userRequest];
 
     this.selectedPerson.emit([this.chatMessages, userRequest])
     setTimeout(() => {

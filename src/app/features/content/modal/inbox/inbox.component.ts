@@ -36,7 +36,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   chatMessages: any;
   game: any;
 
-  queryParam:any;
+  queryParam: any;
   user: any;
   targetPerson: any;
 
@@ -134,14 +134,14 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
       event.target.classList.add("active")
 
     if (this.showBorrowed === 'true') {
-
+      console.log("?A".repeat(200), this.user, game)
       this.messages = getBorrowingMessages(this.user, game)
       /* console.log(this.messages) */
       this.game = this.borrowingGamesInfo.get(game)
     }
 
     else {
-      console.log(this.user, game)
+      console.log("?A".repeat(200), this.user, game)
       this.messages = getLendingMessages(this.user, game)
       /*   console.log(this.messages) */
       this.game = this.lendingGamesInfo.get(game)
