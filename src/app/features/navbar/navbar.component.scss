@@ -11,18 +11,19 @@ $red: #b22222;
 }
 
 .nav {
-    border: 1px solid gainsboro;
     position: fixed;
     z-index: 9;
     top: 0;
     left: 0;
     width: 100%;
     padding: 15px 20px;
-    background: #d8dcdf;
+    background: #ec620f;
+    font-family: 'Rubik', sans-serif;
     .norm-input {
         opacity: 0;
     }
     .input-wrapper {
+        font-family: 'Rubik', sans-serif;
         position: absolute;
         top: 58px;
         max-width: 500px;
@@ -33,12 +34,12 @@ $red: #b22222;
         background: white;
         .abs-input {
             font-size: 1em;
+            font-family: 'Rubik', sans-serif;
             line-height: 1.5em;
             padding: 10px 30px;
             border: 1px solid gainsboro;
             border-radius: 50px;
             width: 100%;
-            padding-left: 180px;
         }
         //bootstrap-select no styles.css porque autismo do angular
     }
@@ -46,7 +47,7 @@ $red: #b22222;
         a {
             color: inherit;
         }
-        color:#222222;
+        color:#1f1d1b;
         display:flex;
         align-items:center;
         padding:0;
@@ -67,20 +68,20 @@ $red: #b22222;
         padding: 0;
         position: absolute;
         left: 50%;
-        font-size: 0.9em;
+        font-size: 1em;
         transform: translate(-55%, 0);
         top: 20px;
+        font-family: 'Rubik', sans-serif;
         li {
             list-style-type: none;
             display: inline-block;
             padding: 5px 20px;
             text-align: center;
             border-right: 1px solid gainsboro;
-            text-shadow: 0 0px 3px #ffffffb8;
             a {
-                color: #666666;
+                color: #1f1d1b;
                 &.active {
-                    color: $darkOrange;
+                    color:rgb(255, 240, 234);
                 }
             }
             &:last-child {
@@ -95,10 +96,14 @@ $red: #b22222;
             display: block;
             text-align: center;
             position: relative;
-            &.user {}
+            &.user {
+                color: #1f1d1b;
+                font-family: 'Rubik', sans-serif;
+            }
             &.points {
                 font-size: 0.8em;
                 font-weight: 500;
+                font-family: 'Rubik', sans-serif;
                 position: absolute;
                 bottom: -16px;
                 right: 30px;
@@ -109,20 +114,22 @@ $red: #b22222;
         }
     }
     .fa-bell {
+        padding-right: 25px;
         position: relative;
         &.clicked {
-            color: #666;
-            opacity: 0.6;
+            color:  #464442;
+            opacity: 0.8;
         }
         &:not(.active) {
             &:after {
                 display: none;
+                color: #1f1d1b
             }
         }
         &:after {
             content: attr(data-content);
-            color: white;
-            font-family: sans-serif;
+            color: #1f1d1b;
+            font-family: 'Rubik', sans-serif;
             font-size: 14px;
             padding: 3px 5px;
             border-radius: 50%;
@@ -130,11 +137,11 @@ $red: #b22222;
             top: 0;
             right: 0;
             transform: translate(60%, -60%);
-            background: red;
+            background: rgb(255, 240, 234);
         }
     }
     .fa-coins {
-        color:#c16f1c;
+        color:rgb(255, 230, 0);
     }
     .notifications {
         display: flex;
@@ -151,17 +158,19 @@ $red: #b22222;
         z-index:99;
         transform: translate(-50%, 0);
         width: 300px;
-        background: white;
+        background: #1f1d1b;
         border-radius: 5px 5px 13px 13px;
-        box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 3px 5px -2px rgb(255, 240, 234);
         li.unread {
             order: 1;
+            color: #ec620f;
             &,
             * {
                 font-weight: bold!important;
             }
         }
         li.read {
+            color: rgb(255, 240, 234);
             order: 2;
         }
         li a {
@@ -172,7 +181,7 @@ $red: #b22222;
             transition-duration: 0.2s;
             &:hover,
             &:focus {
-                background: #FAFAFA;
+                background: black;
                 transform: scale(1.02);
             }
         }
@@ -210,7 +219,7 @@ $red: #b22222;
                 content: 'Logout';
                 font-weight: 500;
                 letter-spacing: 0.5px;
-                font-family: sans-serif;
+                font-family: 'Rubik', sans-serif;
                 position: absolute;
                 top: -50%;
                 right: 50%;

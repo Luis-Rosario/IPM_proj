@@ -7,6 +7,7 @@ declare const markChatAsRead;
 declare const showToast;
 declare const getRentalStatus;
 declare const getRentalDuration;
+declare const onDataChange;
 declare const $: any;
 declare const getUser: any;
 
@@ -32,6 +33,15 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
     this.isLoanPast();
     markChatAsRead(this.chat);
+    onDataChange(() => {
+      console.log("chat datachange hook")
+      setTimeout(() => {
+        document.querySelector(".chat-list").scrollTo(0, 1000000);
+      }, 200)
+      setTimeout(() => {
+        document.querySelector(".chat-list").scrollTo(0, 1000000);
+      }, 1000)
+    })
     this.targetPersonName = getUser(this.targetPerson).first_name + " " + getUser(this.targetPerson).last_name;
   }
 

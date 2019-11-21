@@ -17,21 +17,20 @@
 
         <div class="activity-section section">
             <div class="row first">
-                <span>Games I'm Borrowing / Lending</span>
+                <span>My Games</span> <span style="margin-right: 250px;">Borrowed Games</span>
             </div>
             <div class="group-group row">
+                <br>
                 <div class="group lent">
-                    <div class="row"><span>Games Lent</span></div>
-
                     <div class="caroussel">
                         <div class="game lent" *ngFor="let game of gamesLending">
-                            <lib-card [gameName]="this.lendingGamesInfo.get(gamesLending[game]).game_name" [gameInfo]="this.lendingGamesInfo.get(gamesLending[game])" (change)="handleChange()"></lib-card>
+                            <lib-card [gameName]="this.lendingGamesInfo.get(gamesLending[game]).game_name"
+                                [gameInfo]="this.lendingGamesInfo.get(gamesLending[game])" (change)="handleChange()">
+                            </lib-card>
                         </div>
                     </div>
                 </div>
                 <div class="group borrow">
-                    <div class="row"><span>Games Borrowed</span></div>
-
                     <div class="caroussel">
 
                         <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
