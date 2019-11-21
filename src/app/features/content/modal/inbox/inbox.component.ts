@@ -36,6 +36,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
   chatMessages: any;
   game: any;
 
+  queryParam:any;
   user: any;
   targetPerson: any;
 
@@ -53,7 +54,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
 
     this._route.queryParams.subscribe(params => {
       if (!$.isEmptyObject(params)) {
-
+        this.queryParam = true;
         this.game = params.game;
         this.targetPerson = params.otherUser
 
