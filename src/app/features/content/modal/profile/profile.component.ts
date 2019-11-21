@@ -37,7 +37,9 @@ export class ProfileComponent implements OnInit {
   updateProfile() {
     
     if (this.formValidation()) {
+      console.log("s")
       if (document.querySelector(".container.editable")) {
+        console.log("d")
         let editObj = {
           
           email: this.email,
@@ -150,18 +152,19 @@ export class ProfileComponent implements OnInit {
     let expiration_date1 = (<HTMLInputElement>(
       document.querySelector("#card-exp1-input")
     )).validity.valid;
+
     if(!expiration_date1)
       $(document.querySelector("#card-exp1-input").parentElement).find(".error-message").removeClass("hidden")
 
     let expiration_date2 = (<HTMLInputElement>(
       document.querySelector("#card-exp2-input")
     )).validity.valid;
+
     if(!expiration_date2)
       $(document.querySelector("#card-exp2-input").parentElement).find(".error-message").removeClass("hidden")
 
-    let security_code = (<HTMLInputElement>(
-      document.querySelector("#card-cvv-input")
-    )).validity.valid;
+    let security_code = (<HTMLInputElement>(document.querySelector("#card-cvv-input"))).validity.valid;
+
     if(!security_code)
       $(document.querySelector("#card-cvv-input").parentElement).find(".error-message").removeClass("hidden")
 
