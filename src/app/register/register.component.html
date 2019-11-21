@@ -146,10 +146,11 @@
                     <h6 class="subtitles ">Credit Card Number</h6>
                     <input id="card" type="text" class="boxElem-single" formControlName="card_number" required
                         minlength="16" maxlength="16">
-                    <div *ngIf="this.form.controls['card_number'].invalid && submited" class="error-message">
+                    <div *ngIf="this.form.controls['card_number'].invalid && submited" class="error-message"
+                        style="width:200%">
                         <b
                             *ngIf="this.form.controls['card_number'].value.length != 16 && this.form.controls['card_number'].value.length > 0 ">Insert
-                            a valid credit card number</b>
+                            a valid credit card number (16 digits)</b>
                         <b
                             *ngIf="this.form.controls['card_number'].invalid && this.form.controls['card_number'].value.length == 0">Required
                             field</b>

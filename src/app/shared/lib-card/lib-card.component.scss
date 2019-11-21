@@ -135,7 +135,7 @@ $red: #b22222;
             display:none;
         }
     }
-    &:after{
+    &:not(.active):after{
         content:'';
         padding:10px;
         border-radius:50%;
@@ -144,9 +144,6 @@ $red: #b22222;
         top:0;
         right:0;
         transform: translate(50%,-50%);
-        background:$green;
-    }
-    &:not(.active):after{
         background:$orange;
     }
     label{

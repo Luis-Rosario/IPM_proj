@@ -181,6 +181,11 @@ datalist {
     font-size: 17px;
 }
 
+#snackbar.error{
+    background:#eaa5a5;
+    color:#b22222;
+}
+
 #snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -304,3 +309,5 @@ datalist {
     color: #222;
     top: 2px;
 }
+
+/*toast*/

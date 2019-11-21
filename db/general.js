@@ -204,9 +204,12 @@ document.addEventListener("click", function (ev) {
 })
 
 
-function showToast(text) {
+function showToast(text, extraClass) {
     var x = document.getElementById("snackbar");
-    x.className = "show";
+    if (extraClass)
+        x.className = "show " + extraClass;
+    else
+        x.className = "show";
     x.innerHTML = text;
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
