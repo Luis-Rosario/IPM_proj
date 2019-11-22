@@ -25,7 +25,7 @@ export class LibCardComponent implements OnInit {
   constructor(private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
-    /* console.log(this.gameName, this.gameInfo) */
+    console.log(this.gameName, this.gameInfo)
 
  /*    console.log(this.gameInfo); */
     var els = document.querySelectorAll(".pill");

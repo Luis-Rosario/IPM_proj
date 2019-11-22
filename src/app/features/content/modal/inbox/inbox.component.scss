@@ -1,101 +1,102 @@
 * {
-  color: #222222;
-  box-sizing: border-box;
+    color: #222222;
+    box-sizing: border-box;
 }
 
 .section {
-  margin-top: 15px;
-  .row.first {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
-    border-bottom: 1px solid #444444;
-  }
+    margin-top: 15px;
+    .row.first {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-bottom: 1px solid #444444;
+    }
 }
 
 .game {
-  background: #eeeeee;
-  width: 85px;
-  height: 110px;
-  border-radius: 1px;
-  position: relative;
-  &.warn {
+    background: #eeeeee;
+    width: 85px;
+    height: 110px;
+    border-radius: 1px;
+    position: relative;
+    &.warn {
+        .info {
+            font-weight: bold;
+            background: rgba(255, 0, 0, 0.3);
+        }
+    }
+    &.almost {
+        .info {
+            background: rgba(255, 210, 150, 1);
+        }
+    }
     .info {
-      font-weight: bold;
-      background: rgba(255, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.1);
+        padding: 6px 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 0.62em;
+        span {
+            display: block;
+        }
     }
-  }
-  &.almost {
-    .info {
-      background: rgba(255, 210, 150, 1);
-    }
-  }
-  .info {
-    background: rgba(0, 0, 0, 0.1);
-    padding: 6px 3px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    font-size: 0.62em;
-    span {
-      display: block;
-    }
-  }
 }
 
 .caroussel {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 2px 10px 2px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 2px 10px 2px;
 }
 
 .activity-section {
-  .group-group {
-    display: flex;
-    width: 100%;
-    justify-content: stretch;
-    margin: auto;
-  }
-  .group {
-    background: white;
-    padding: 5px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-left: 0;
-    display: inline-block;
-    flex: 1 1 auto;
-    border: 1px solid #eeeeee;
-    position: relative;
-    padding-top: 22px;
-    span {
-      margin-left: 10px;
-      margin-bottom: -10px;
-      font-size: 0.9em;
-      position: absolute;
-      top: 0;
-      left: -10px;
-      width: 40%;
-      padding: 5px 15px;
-      background: #f2f2f2;
-      box-shadow: inset -20px 0 20px -10px white;
-      z-index: 2;
+    .group-group {
+        display: flex;
+        width: 100%;
+        justify-content: stretch;
+        margin: auto;
     }
-    .caroussel {
-      justify-content: flex-start;
-      padding-left: 15px;
-      .game {
-        margin-right: 30px;
-      }
+    .group {
+        background: white;
+        padding: 5px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-left: 0;
+        display: inline-block;
+        flex: 1 1 auto;
+        border: 1px solid #eeeeee;
+        position: relative;
+        padding-top: 22px;
+        span {
+            margin-left: 10px;
+            margin-bottom: -10px;
+            font-size: 0.9em;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 40%;
+            padding: 5px 15px;
+            background: #f2f2f2;
+            box-shadow: inset -20px 0 20px -10px white;
+            z-index: 2;
+        }
+        .caroussel {
+            justify-content: flex-start;
+            padding-left: 15px;
+            .game {
+                margin-right: 30px;
+            }
+        }
+        .row {
+            margin: 5px;
+        }
     }
-    .row {
-      margin: 5px;
-    }
-  }
 }
 
 //-----------------------------------------------
 $orange: #fbab5b;
+$faintOrange: #f3aa5a69;
 $grey: #494a4b;
 $white: #ffffff;
 $lightGrey: #f7f7f7;
@@ -104,128 +105,129 @@ $red: #b22222;
 //generalizar isto, por num css alto-nivel
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
-    &:not(.interactive){
-		border: 2px solid rgba($orange, 0.5)!important;
-		background: rgba($orange, 0.8)!important;
-	}
-  font-size: 12px;
-  margin: 4px;
-  cursor: pointer;
-  background: #dfdfdf;
-  padding: 2px 10px;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  display: inline-block;
-  &.interactive:not(.active) {
-    &:hover {
-      border-color: rgba($orange, 0.5);
-      background: rgba($orange, 0.1);
+    &:not(.interactive) {
+        border: 2px solid rgba($orange, 0.5)!important;
+        background: rgba($orange, 0.8)!important;
     }
-  }
-  &.active {
-    border: 2px solid rgba($orange, 0.5);
-    background: rgba($orange, 0.8);
-    &.interactive:hover {
-      border-color: rgba($red, 0.5);
-      background: rgba($red, 0.2);
-      position: relative;
-      color: rgba(0, 0, 0, 0.2);
-      &:after {
-        content: "x";
-        color: $red;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -55%);
-        font-size: 16px;
-      }
+    font-size: 12px;
+    margin: 4px;
+    cursor: pointer;
+    background: #dfdfdf;
+    padding: 2px 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    display: inline-block;
+    &.interactive:not(.active) {
+        &:hover {
+            border-color: rgba($orange, 0.5);
+            background: rgba($orange, 0.1);
+        }
     }
-  }
+    &.active {
+        border: 2px solid rgba($orange, 0.5);
+        background: rgba($orange, 0.8);
+        &.interactive:hover {
+            border-color: rgba($red, 0.5);
+            background: rgba($red, 0.2);
+            position: relative;
+            color: rgba(0, 0, 0, 0.2);
+            &:after {
+                content: "x";
+                color: $red;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -55%);
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 //------
 //inbox
 #inbox-wrapper {
-  height:70vh;
-  background: white;
-  margin: 20px 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  > * {
-    border-right: 1px solid #eee;
-    padding: 20px;
-    &:last-child {
-      border-right: none;
-    }
-    &.chat-col {
-      padding: 0;
-    }
-    &.games-col {
-      padding: 0;
-      .gameList {
-        margin-top: 20px;
-      }
-      .gameList h3 {
-        font-size: 17px;
-        font-weight: normal;
-        padding: 10px;
-        border-bottom: 1px solid gainsboro;
-        cursor: pointer;
-        &.active {
-          border-bottom-color: $orange;
-          border-bottom-width: 2px;
-          color: $orange;
-          font-weight: 600;
+    height: 70vh;
+    background: white;
+    margin: 20px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    >* {
+        border-right: 1px solid #eee;
+        padding: 20px;
+        &:last-child {
+            border-right: none;
         }
-        &:not(.active) {
-          &:hover {
-            border-bottom-color: rgba($orange, 0.5);
-            border-bottom-width: 1px;
-          }
+        &.chat-col {
+            padding: 0;
         }
-      }
+        &.games-col {
+            padding: 0;
+            .gameList {
+                margin-top: 20px;
+            }
+            .gameList h3 {
+                font-size: 17px;
+                font-weight: normal;
+                padding: 10px;
+                border-bottom: 1px solid gainsboro;
+                cursor: pointer;
+                &.active {
+                    border-bottom-color: $orange;
+                    border-bottom-width: 2px;
+                    color: $orange;
+                    font-weight: 600;
+                }
+                &:not(.active) {
+                    &:hover {
+                        border-bottom-color: rgba($orange, 0.5);
+                        border-bottom-width: 1px;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 
-.info-col,.games-col{
-  height:100%;
-  overflow:auto;
+.info-col,
+.games-col {
+    height: 100%;
+    overflow: auto;
 }
 
 .select-area {
-  padding: 20px 0;
-  border-bottom: 1px solid #444;
-  font-size: 19px;
-  text-align: center;
-  background: #fafafa;
-  border: 1px solid gainsboro;
-  select {
-    background: transparent;
-    border-bottom: 1.5px solid #444;
-    margin-left: 5px;
-  }
+    padding: 20px 0;
+    border-bottom: 1px solid #444;
+    font-size: 19px;
+    text-align: center;
+    background: #fafafa;
+    border: 1px solid gainsboro;
+    select {
+        background: transparent;
+        border-bottom: 1.5px solid #444;
+        margin-left: 5px;
+    }
 }
 
 select {
-  border: none;
-  padding-left: 5px;
+    border: none;
+    padding-left: 5px;
 }
 
 chat {
-  > * {
-    padding: 20px;
-  }
-  height: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+    >* {
+        padding: 20px;
+    }
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }

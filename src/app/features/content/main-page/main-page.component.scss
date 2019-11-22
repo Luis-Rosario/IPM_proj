@@ -94,7 +94,7 @@ router-outlet {
     margin-top: 60px;
     padding: 50px 30px;
     background: #FAFAFA;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
     width: 100%;
 }
 

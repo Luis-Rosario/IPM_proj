@@ -17,13 +17,14 @@
                         <img style="max-width:150px;width:100%;" src="{{ this.gameInfo.image_url }}" alt=" " />
                     </div>
                     <div class="col-8 text-col ">
-                        <h4>{{ this.gameInfo.game_name }}</h4>
+                        <h4 style="margin-bottom:20px"><b>{{ this.gameInfo.game_name }}</b> ({{this.gameInfo.console}})</h4>
                         <!--this changed, tem de se por aqui um ngFor-->
-                        <div class="categories ">
+                        <div class="categories">
                             <div class="pill active" *ngFor="let cat of this.gameInfo.category">
                                 {{ cat }}
                             </div>
                         </div>
+                        <div> <b>Release year:</b> {{ this.gameInfo.year }}</div>
                         <h6>{{this.gameDescription}}</h6>
                     </div>
                 </div>
@@ -61,16 +62,14 @@
             </div>
             <div class="col-3 users-col " *ngIf="this.url !== '/user/library'">
                 <h5 class="list-lender-title">Available Lenders:</h5>
-                <h4 class="error-message" *ngIf="this.lendersOfGame.length == 0">No lenders found that match the
-                    selected criteria</h4>
+                <h4 class="error-message" *ngIf="this.lendersOfGame.length == 0">No lenders found that match the selected criteria</h4>
                 <div class="user" *ngFor="let lender of this.lendersOfGame">
                     <div class="user-info ">
                         <div class="user-name">
                             {{ lender.first_name }} {{ lender.last_name }}
                         </div>
                         <div class="user-ratings ">
-                            <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i
-                                class="fas fa-star "></i> /
+                            <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i class="fas fa-star "></i> /
                             <span class="loan-count">{{ lender.total_lent }}</span> Loans
                         </div>
                         <a class="rent-btn " (click)="openMessageModal($event)">→</a>
@@ -81,17 +80,14 @@
                                 <h5 class="modal-title">
                                     Say something to lender
                                 </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                    (click)="closeModal($event)">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <div class="row ">
                                     <div class="col-12 ">
-                                        <textarea type="text"
-                                            placeholder="Say something like: 'Hi! I'd like to borrow your game!'"
-                                            (keydown)="textareaInput($event)"></textarea>
+                                        <textarea type="text" placeholder="Say something like: 'Hi! I'd like to borrow your game!'" (keydown)="textareaInput($event)"></textarea>
                                         <div class="error-message textarea-error-msg hidden">Message cannot be empty
                                         </div>
                                         <button (click)="modalClick($event)" [attr.data-user]="lender.email">

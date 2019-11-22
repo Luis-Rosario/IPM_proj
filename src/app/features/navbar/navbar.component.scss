@@ -1,4 +1,5 @@
 $orange: #fbab5b;
+$faintOrange: #f3aa5a69;
 $darkOrange: #e88d31;
 $grey: #494a4b;
 $white: #ffffff;
@@ -110,6 +111,7 @@ $red: #b22222;
     }
     .fa-bell {
         position: relative;
+        margin-right: 10px;
         &.clicked {
             color: #666;
             opacity: 0.6;
@@ -134,20 +136,20 @@ $red: #b22222;
         }
     }
     .fa-coins {
-        color:#c16f1c;
+        color: #c16f1c;
     }
     .notifications {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
-        max-height:500px;
-        overflow:auto;
+        max-height: 500px;
+        overflow: auto;
         &.hidden {
             display: none;
         }
         position: absolute;
-        top: 75%;
-        right:0;
+        right: -150px;
+        top: 81px;
         z-index:99;
         transform: translate(-50%, 0);
         width: 300px;
@@ -198,7 +200,7 @@ $red: #b22222;
         }
         .time {
             font-size: 11px;
-            padding-top:5px;
+            padding-top: 5px;
         }
     }
     .logout {

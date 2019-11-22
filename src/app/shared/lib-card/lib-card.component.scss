@@ -1,4 +1,5 @@
 $orange: #fbab5b;
+$faintOrange: #f3aa5a69;
 $grey: #494a4b;
 $white: #ffffff;
 $lightGrey: #f7f7f7;
@@ -27,7 +28,7 @@ $red: #b22222;
     margin-top: 60px;
     padding: 50px 30px;
     background: #fafafa;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
     width: 100%;
 }
 
@@ -130,24 +131,24 @@ $red: #b22222;
     position: relative;
     margin: 10px;
     //overflow: hidden;
-    &.active{
-        label{
-            display:none;
+    &.active {
+        label {
+            display: none;
         }
     }
-    &:not(.active):after{
-        content:'';
-        padding:10px;
-        border-radius:50%;
-        position:absolute;
-        z-index:2;
-        top:0;
-        right:0;
-        transform: translate(50%,-50%);
-        background:$orange;
-        z-index:4;
+    &:not(.active):after {
+        content: '';
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        background: $orange;
+        z-index: 4;
     }
-    label{
+    label {
         position: absolute;
         bottom: 0;
         margin: 0;
@@ -158,10 +159,10 @@ $red: #b22222;
         text-align: center;
         background: rgba(215, 212, 212, 0.7);
         backdrop-filter: blur(2px);
-        z-index:3;
-        b{
-            &.over-info{
-                color:$red;
+        z-index: 3;
+        b {
+            &.over-info {
+                color: $red;
             }
             letter-spacing:1px;
         }
@@ -224,6 +225,7 @@ $red: #b22222;
 }
 
 $orange: #fbab5b;
+$faintOrange: #f3aa5a69;
 $grey: #494a4b;
 $white: #ffffff;
 $lightGrey: #f7f7f7;
@@ -258,7 +260,7 @@ $red: #b22222;
         width: 650px;
     }
     .game-info>* {
-        min-height:320px;
+        min-height: 320px;
         padding: 40px;
     }
     img {
@@ -277,13 +279,16 @@ $red: #b22222;
     }
 }
 
-
+.categories {
+    margin-left: -5px;
+    padding-bottom: 5px;
+}
 
 .pill {
-    &:not(.interactive){
-		border: 2px solid rgba($orange, 0.5)!important;
-		background: rgba($orange, 0.8)!important;
-	}
+    &:not(.interactive) {
+        border: 2px solid rgba($orange, 0.5)!important;
+        background: rgba($orange, 0.8)!important;
+    }
     font-size: 12px;
     margin: 4px;
     cursor: pointer;
