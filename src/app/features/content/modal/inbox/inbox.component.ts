@@ -58,6 +58,24 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
         this.game = params.game;
         this.targetPerson = params.otherUser
 
+        let setActives = () => {
+          let userBtn = document.querySelector("*[id='" + params.otherUser + "']");
+          if (userBtn)
+            $(userBtn).addClass("active");
+
+          let game_els = document.querySelectorAll(".gameList h3");
+          let matches = Array.from(game_els).filter((ell) => {
+            return $(ell).text().trim() == params.game
+          })
+          let match = matches[0];
+          if (match)
+            $(match).addClass("active");
+        }
+        setActives();
+        setTimeout(setActives, 10);
+        setTimeout(setActives, 100);
+        setTimeout(setActives, 300);
+
         if (params.myRole == "borrower") {
           this.select.nativeElement.value = true;
           this.showBorrowed = 'true';
