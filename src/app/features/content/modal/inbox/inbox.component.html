@@ -12,8 +12,8 @@
         </select>
         </div>
 
-        <div *ngIf="showBorrowed === 'true'" class="col-12">
-            <div class="gameList col-12" *ngFor="let game of borrowingGames">
+        <div *ngIf="showBorrowed === 'true'">
+            <div class="gameList" *ngFor="let game of borrowingGames">
                 <h3 (click)=selectGame(game,$event)>{{game}}</h3>
                 <!-- meter as classes active <h3 class="active"  -->
             </div>

@@ -5,6 +5,9 @@ declare const pagesFunctions: any;
 declare const editUser: any;
 declare const showToast: any;
 declare const $:any;
+declare const clearStorage:any
+declare const pushData:any
+declare const isConnectedToServer:any
 
 @Component({
   selector: "app-profile",
@@ -32,6 +35,9 @@ export class ProfileComponent implements OnInit {
         }
       });
     pagesFunctions.profile();
+    setInterval(()=>{
+      $("#peerjs-status").text(isConnectedToServer ? "YES" : "NO")
+    },500);
   }
 
   updateProfile() {
@@ -175,5 +181,14 @@ export class ProfileComponent implements OnInit {
   }, 100)
   
   /*   */
+  }
+
+  clearCache(){
+    clearStorage();
+    pushData();
+    setTimeout(()=>{
+      window.location.reload();
+    },1000)
+  
   }
 }

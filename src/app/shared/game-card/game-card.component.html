@@ -11,13 +11,14 @@
     <!-- (click)="openModal($event)" -->
     <div class="modal-content">
         <div class="row ">
-            <div class="col-9 game-col ">
+            <div class="col-8 game-col " style="min-height: 50vh;">
                 <div class="game-info row ">
                     <div class="col-3 img-col ">
                         <img style="max-width:150px;width:100%;" src="{{ this.gameInfo.image_url }}" alt=" " />
                     </div>
                     <div class="col-8 text-col ">
-                        <h4 style="margin-bottom:20px"><b>{{ this.gameInfo.game_name }}</b> ({{this.gameInfo.console}})</h4>
+                        <h4 style="margin-bottom:20px"><b>{{ this.gameInfo.game_name }}</b> ({{this.gameInfo.console}})
+                        </h4>
                         <!--this changed, tem de se por aqui um ngFor-->
                         <div class="categories">
                             <div class="pill active" *ngFor="let cat of this.gameInfo.category">
@@ -28,41 +29,49 @@
                         <h6>{{this.gameDescription}}</h6>
                     </div>
                 </div>
-                <div class="filter-section" *ngIf="this.url !== '/user/library'">
-                    <div class="form-group">
-                        <label for=" ">Loan Duration:</label>
-                        <select name=" " id="duration-select" #durationselect (change)="this.filterLenders()">
-                            <option value="0 " selected>Any</option>
-                            <option value="1 ">1 week</option>
-                            <option value="2 ">2 weeks</option>
-                            <option value="3 ">3 weeks</option>
-                            <option value="4 ">4 weeks</option>
-                            <option value="5 ">5 weeks</option>
-                            <option value="6 ">6 weeks</option>
-                            <option value="7 ">7 weeks</option>
-                            <option value="8 ">8 weeks</option>
-                            <option value="9 ">9 weeks</option>
-                            <option value="10 ">10 weeks</option>
-                        </select>
-                        <div class="error-message loan-error-msg hidden">Required field</div>
-                    </div>
-                    <div class="form-group">
-                        <label for=" ">Maximum Distance:</label>
-                        <select name=" " id="distance-select" #distanceselect (change)="this.filterLenders()">
-                            <option value="0 " selected>Any</option>
-                            <option value="50 ">50 kms</option>
-                            <option value="100 ">100 kms</option>
-                            <option value="150 ">150 kms</option>
-                            <option value="200 ">200 kms</option>
-                            <option value="250 ">250 kms</option>
-                            <option value="300 ">300 kms</option>
-                        </select>
-                    </div>
-                </div>
             </div>
-            <div class="col-3 users-col " *ngIf="this.url !== '/user/library'">
+            <div class="col-4 users-col " *ngIf="this.url !== '/user/library'">
+                <div class="filter-section" *ngIf="this.url !== '/user/library'" style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for=" "><b>Loan Duration</b></label>
+                                <select name=" " id="duration-select" #durationselect (change)="this.filterLenders()">
+                                    <option value="0 " selected>Any</option>
+                                    <option value="1 ">1 week</option>
+                                    <option value="2 ">2 weeks</option>
+                                    <option value="3 ">3 weeks</option>
+                                    <option value="4 ">4 weeks</option>
+                                    <option value="5 ">5 weeks</option>
+                                    <option value="6 ">6 weeks</option>
+                                    <option value="7 ">7 weeks</option>
+                                    <option value="8 ">8 weeks</option>
+                                    <option value="9 ">9 weeks</option>
+                                    <option value="10 ">10 weeks</option>
+                                </select>
+                                <div class="error-message loan-error-msg hidden">Required field</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for=" "><b>Maximum Distance</b></label>
+                                <select name=" " id="distance-select" #distanceselect (change)="this.filterLenders()">
+                                    <option value="0 " selected>Any</option>
+                                    <option value="50 ">50 kms</option>
+                                    <option value="100 ">100 kms</option>
+                                    <option value="150 ">150 kms</option>
+                                    <option value="200 ">200 kms</option>
+                                    <option value="250 ">250 kms</option>
+                                    <option value="300 ">300 kms</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
                 <h5 class="list-lender-title">Available Lenders:</h5>
-                <h4 class="error-message" *ngIf="this.lendersOfGame.length == 0">No lenders found that match the selected criteria</h4>
+                <h4 class="error-message text-center" style="margin-top: 20px;" *ngIf="this.lendersOfGame.length == 0">No lenders found that match the selected criteria</h4>
                 <div class="user" *ngFor="let lender of this.lendersOfGame">
                     <div class="user-info ">
                         <div class="user-name">

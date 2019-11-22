@@ -221,9 +221,13 @@ a {
             border-bottom-color: $orange;
             border-bottom-width: 2px;
             color: $orange;
+            background: #f5f5f5;
             span:not(.status-message) {
                 color: inherit;
             }
+        }
+        &:hover {
+            background: #f5f5f5;
         }
     }
 }

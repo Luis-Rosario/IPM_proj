@@ -1,15 +1,21 @@
 <html>
-  <head> </head>
-  <body>
+
+<head> </head>
+
+<body>
     <div id="my-id"></div>
-    <input type="text" id="other-id" />
-    <a id="go">Connect</a>
+    <input type="text" id="other-id" placeholder="days to advance" />
+    <!--  <a id="go">Connect</a>
     <p>-</p>
-    <input type="text" id="msg" />
-    <a id="msg-go">Send msg</a>
+    <input type="text" id="msg" /> -->
+    <button type="button" id="msg-go">Press to go "x" days in time</button>
+    <p><label style="color:red">note: several presses wont accumulate. The new date will just be current date + x</label></p>
+    <p><label style="color:red">note: the input is just a simple number</label></p>
+    <p><label style="color:red">note: only works if there are app tabs open and they are connected to this pseudo-server</label></p>
     <ul id="list"></ul>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.0.4/peerjs.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

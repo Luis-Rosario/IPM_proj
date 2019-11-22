@@ -1,50 +1,48 @@
 <div class="content">
-  <div class="container">
-    <div class="trending-section section">
-      <div class="row first">
-        <span class="title">Trending</span>
-        <a [routerLink]="['/browse']" [queryParams]="getAllGames" routerLinkActive="active" class="link">See all
+    <div class="container">
+        <div class="trending-section section">
+            <div class="row first">
+                <span class="title">Trending</span>
+                <a [routerLink]="['/browse']" [queryParams]="getAllGames" routerLinkActive="active" class="link">See all
           games</a>
-      </div>
-      <div class="caroussel">
-        <div *ngFor="let game of featuredGames">
-          <game-card *ngIf="game !== undefined" [gameName]="game.game_name" [gameInfo]="game"></game-card>
+            </div>
+            <div class="caroussel">
+                <div *ngFor="let game of featuredGames">
+                    <game-card *ngIf="game !== undefined" [gameName]="game.game_name" [gameInfo]="game"></game-card>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="activity-section section">
-      <div class="row first">
-        <span>My Games</span>
-        <!--  <span style="margin-right: 250px;">Borrowed Games</span> -->
-      </div>
-      <div class="group-group row">
-        <br />
-        <div class="group lent">
-          <div class="row"><span>Games Lent</span></div>
-          <div class="caroussel">
-            <div *ngIf="this.gamesLending.length == 0">
-              Currently you dont have any games lent
+        <div class="activity-section section">
+            <div class="row first">
+                <!--  <span style="margin-right: 250px;">Borrowed Games</span> -->
             </div>
-            <div class="game lent" *ngFor="let game of gamesLending">
-              <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name"
-                [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
-              </lib-card>
+            <div class="group-group row">
+                <br />
+                <div class="group lent">
+                    <div class="row"><span>Games Lent</span></div>
+                    <div class="caroussel">
+                        <div *ngIf="this.gamesLending.length == 0">
+                            Currently you dont have any games lent
+                        </div>
+                        <div class="game lent" *ngFor="let game of gamesLending">
+                            <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
+                            </lib-card>
+                        </div>
+                    </div>
+                </div>
+                <div class="group borrow">
+                    <div class="row"><span>Games Borrowed</span></div>
+                    <div class="caroussel">
+                        <div *ngIf="this.gamesBorrowed.length == 0" class="no-results">
+                            Currently you dont have any games borrowed
+                        </div>
+                        <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
+                            <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="group borrow">
-          <div class="row"><span>Games Borrowed</span></div>
-          <div class="caroussel">
-            <div *ngIf="this.gamesBorrowed.length == 0" class="no-results">
-              Currently you dont have any games borrowed
-            </div>
-            <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
-              <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

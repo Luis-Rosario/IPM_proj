@@ -243,11 +243,12 @@ a {
     }
     .game-col {
         padding: 40px 80px;
-        .filter-section {
-            margin-top: 50px;
-            padding: 25px 0 20px 0;
-            border-top: 3px solid #ddd;
-        }
+    }
+    .filter-section {
+        margin-bottom: 20px;
+        padding: 25px 0 20px 0;
+        border-top: 3px solid #ddd;
+        background: gainsboro;
     }
     .game-col,
     .users-col {
@@ -356,4 +357,8 @@ a {
 .categories {
     margin-left: -5px;
     padding-bottom: 5px;
+}
+
+.filter-section select {
+    width: 90%;
 }
