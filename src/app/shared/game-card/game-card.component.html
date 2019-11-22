@@ -37,17 +37,17 @@
                             <div class="form-group">
                                 <label for=" "><b>Loan Duration</b></label>
                                 <select name=" " id="duration-select" #durationselect (change)="this.filterLenders()">
-                                    <option value="0 " selected>Any</option>
-                                    <option value="1 ">1 week</option>
-                                    <option value="2 ">2 weeks</option>
-                                    <option value="3 ">3 weeks</option>
-                                    <option value="4 ">4 weeks</option>
-                                    <option value="5 ">5 weeks</option>
-                                    <option value="6 ">6 weeks</option>
-                                    <option value="7 ">7 weeks</option>
-                                    <option value="8 ">8 weeks</option>
-                                    <option value="9 ">9 weeks</option>
-                                    <option value="10 ">10 weeks</option>
+                                    <option value="0" selected>Select</option>
+                                    <option value="1">1 week</option>
+                                    <option value="2">2 weeks</option>
+                                    <option value="3">3 weeks</option>
+                                    <option value="4">4 weeks</option>
+                                    <option value="5">5 weeks</option>
+                                    <option value="6">6 weeks</option>
+                                    <option value="7">7 weeks</option>
+                                    <option value="8">8 weeks</option>
+                                    <option value="9">9 weeks</option>
+                                    <option value="10">10 weeks</option>
                                 </select>
                                 <div class="error-message loan-error-msg hidden">Required field</div>
                             </div>
@@ -70,38 +70,44 @@
 
 
                 </div>
-                <h5 class="list-lender-title">Available Lenders:</h5>
-                <h4 class="error-message text-center" style="margin-top: 20px;" *ngIf="this.lendersOfGame.length == 0">No lenders found that match the selected criteria</h4>
-                <div class="user" *ngFor="let lender of this.lendersOfGame">
-                    <div class="user-info ">
-                        <div class="user-name">
-                            {{ lender.first_name }} {{ lender.last_name }}
-                        </div>
-                        <div class="user-ratings ">
-                            <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i class="fas fa-star "></i> /
-                            <span class="loan-count">{{ lender.total_lent }}</span> Loans
-                        </div>
-                        <a class="rent-btn " (click)="openMessageModal($event)">→</a>
-                    </div>
-                    <div class="message-page modal" id="message-modal" role="dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">
-                                    Say something to lender
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+
+                <h5 *ngIf="this.selectedLoanDuration" class="list-lender-title">Available Lenders:</h5>
+                <h4 class="error-message text-center" style="margin-top: 20px;" *ngIf="this.lendersOfGame.length == 0">
+                    No lenders found that match the selected criteria</h4>
+                <div *ngIf="!this.selectedLoanDuration" class="text-center" style="padding: 20px;"> <b>Select for how long you'd like to borrow {{this.gameInfo.game_name }}</b> </div>
+                <div *ngIf="this.selectedLoanDuration">
+
+                    <div class="user" *ngFor="let lender of this.lendersOfGame">
+                        <div class="user-info ">
+                            <div class="user-name">
+                                {{ lender.first_name }} {{ lender.last_name }}
                             </div>
-                            <div class="modal-body">
-                                <div class="row ">
-                                    <div class="col-12 ">
-                                        <textarea type="text" placeholder="Say something like: 'Hi! I'd like to borrow your game!'" (keydown)="textareaInput($event)"></textarea>
-                                        <div class="error-message textarea-error-msg hidden">Message cannot be empty
+                            <div class="user-ratings ">
+                                <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i class="fas fa-star "></i> /
+                                <span class="loan-count">{{ lender.total_lent }}</span> Loans
+                            </div>
+                            <a class="rent-btn " (click)="openMessageModal($event)">→</a>
+                        </div>
+                        <div class="message-page modal" id="message-modal" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        Say something to lender
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row ">
+                                        <div class="col-12 ">
+                                            <textarea type="text" placeholder="Say something like: 'Hi! I'd like to borrow your game!'" (keydown)="textareaInput($event)"></textarea>
+                                            <div class="error-message textarea-error-msg hidden">Message cannot be empty
+                                            </div>
+                                            <button (click)="modalClick($event)" [attr.data-user]="lender.email">
+                                                Send Message
+                                            </button>
                                         </div>
-                                        <button (click)="modalClick($event)" [attr.data-user]="lender.email">
-                                            Send Message
-                                        </button>
                                     </div>
                                 </div>
                             </div>

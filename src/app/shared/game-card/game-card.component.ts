@@ -30,7 +30,7 @@ export class GameCardComponent implements OnInit {
   url: any = "";
   gameOwner: any;
   lendingDaysLeft: any;
-
+  selectedLoanDuration: any=false;
   constructor(private router: Router, private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
@@ -133,11 +133,16 @@ export class GameCardComponent implements OnInit {
       this.loanDuration = Number(
         (<HTMLInputElement>this.durationSelect.nativeElement).value
       );
+      if(this.loanDuration == 0){
+        this.selectedLoanDuration = false;
+      }
+      
       this.maxDistance = Number(
         (<HTMLInputElement>this.distanceSelect.nativeElement).value
       );
       if (this.loanDuration > 0) {
         $(".loan-error-msg").addClass("hidden");
+        this.selectedLoanDuration = true;
       }
       this.lendersOfGame = getActiveGameLenders(
         this.gameName,

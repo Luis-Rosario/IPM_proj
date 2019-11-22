@@ -191,6 +191,17 @@ a {
             color: white;
         }
     }
+    &#mark-returned {
+        background: rgba($orange, 0.28);
+        /* opacity: 0.8; */
+        color: $orange;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background: $orange;
+            color: white;
+        }
+    }
 }
 
 .chat-list {
@@ -314,6 +325,36 @@ a {
     }
     &.refuse-loan-modal {
         .btn {
+            background: rgba($red, 0.28);
+            color: $red;
+            &:hover,
+            &:focus {
+                background: $red;
+                color: white;
+            }
+        }
+    }
+}
+
+.mark-returned-modal {
+    .modal-dialog {
+        margin-top: 180px;
+    }
+    .btn {
+        width: 60%;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition-duration: 0.2s;
+        &#accept {
+            background: rgba(#6ab357, 0.28);
+            color: #6ab357;
+            &:hover,
+            &:focus {
+                background: #6ab357;
+                color: white;
+            }
+        }
+        &#refuse {
             background: rgba($red, 0.28);
             color: $red;
             &:hover,
