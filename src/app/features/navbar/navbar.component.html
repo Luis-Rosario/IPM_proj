@@ -69,7 +69,7 @@
                 <b>{{ userInfo.first_name }} {{ userInfo.last_name }}</b>
                 <i class="fas fa-power-off logout" (click)="logout()"></i>
             </div>
-            <div class="row points">{{ userInfo.llama_points }} <i class="fas fa-coins"></i></div>
+            <div class="row points" (click)="reedemPoints()">{{ userInfo.llama_points }} <i class="fas fa-coins"></i></div>
         </div>
 
 

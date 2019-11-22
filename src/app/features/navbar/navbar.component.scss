@@ -135,8 +135,12 @@ $red: #b22222;
             background: red;
         }
     }
-    .fa-coins {
+    .fa-coins,
+    .points {
         color: #c16f1c;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .notifications {
         display: flex;
@@ -221,6 +225,7 @@ $red: #b22222;
                 font-size: 12px;
                 padding: 4px 8px;
             }
+            cursor: pointer;
         }
     }
 }

@@ -74,7 +74,7 @@
                 <h5 *ngIf="this.selectedLoanDuration" class="list-lender-title">Available Lenders:</h5>
                 <h4 class="error-message text-center" style="margin-top: 20px;" *ngIf="this.lendersOfGame.length == 0">
                     No lenders found that match the selected criteria</h4>
-                <div *ngIf="!this.selectedLoanDuration" class="text-center" style="padding: 20px;"> <b>Select for how long you'd like to borrow {{this.gameInfo.game_name }}</b> </div>
+                <div *ngIf="!this.selectedLoanDuration" class="text-center" style="padding: 20px; color: #7d7d7d"> Select for how long you'd like to borrow {{this.gameInfo.game_name }} </div>
                 <div *ngIf="this.selectedLoanDuration">
 
                     <div class="user" *ngFor="let lender of this.lendersOfGame">

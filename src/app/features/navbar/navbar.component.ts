@@ -14,6 +14,8 @@ declare const getUser: any;
 declare const getNotifications;
 declare const onDataChange;
 declare const $: any;
+declare const showToast:any;
+
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -140,5 +142,9 @@ export class NavbarComponent implements OnInit {
 
     return $(".bootstrap-select select").val();
 
+  }
+
+  reedemPoints(){
+    showToast("Not implemented, Coming Soon")
   }
 }
