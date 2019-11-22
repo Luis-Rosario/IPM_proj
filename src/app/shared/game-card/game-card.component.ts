@@ -4,7 +4,7 @@ import * as bootstrap from "node_modules/bootstrap/js/dist/";
 import { Router } from "@angular/router";
 import { SessionQuery } from "src/app/core/state/session.query";
 
-declare const getGameLenders;
+declare const getActiveGameLenders;
 declare const getDistanceByUser;
 declare const pagesFunctions;
 declare const createRentalProposal;
@@ -139,14 +139,14 @@ export class GameCardComponent implements OnInit {
       if (this.loanDuration > 0) {
         $(".loan-error-msg").addClass("hidden");
       }
-      this.lendersOfGame = getGameLenders(
+      this.lendersOfGame = getActiveGameLenders(
         this.gameName,
         this.sessionQuery.getValue().email,
         {
           distance: this.maxDistance,
           duration: this.loanDuration
         }
-      );
+      )
     }, 10);
 
 

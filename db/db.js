@@ -1,5 +1,5 @@
 var peer = new Peer();
-var serverID = "lleme-play-server"
+var serverID = "lleme-play-server-22"
 
 if (localStorage.dayAdjustment) {
     dayAdjustment = localStorage.dayAdjustment - 0;
@@ -1093,9 +1093,14 @@ function getChat(userId1, userId2, game, isLender) {
 }
 
 //chat got from getChat
-function markChatAsRead(chat) {
+function markChatAsReadLender(chat) {
     for (let i = 0; i < chat.length; i++)
-        chat[i].read = true;
+        chat[i].read_lender = true;
+    pushData();
+}
+function markChatAsReadBorrower(chat) {
+    for (let i = 0; i < chat.length; i++)
+        chat[i].read_borrower = true;
     pushData();
 }
 
@@ -1126,13 +1131,14 @@ function getBorrowingMessages(userId, game) {
 function getNotifications(userEmail) {
     notifications = []
 
-
+    //como lender
     for (game in json.rental_history.lenders[userEmail].games) {
         for (borrower in json.rental_history.lenders[userEmail].games[game].borrowers) {
-            last = json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages.length - 1
+            let msgs = json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages.filter(msg => { return msg.user != "system-borrow" })
+            last = msgs.length - 1
             if (last >= 0) {
                 objNotif = {}
-                msg = json.rental_history.lenders[userEmail].games[game].borrowers[borrower].messages[last]
+                msg = msgs[last]
                 objNotif.user = userEmail
                 objNotif.otherUser = borrower
                 objNotif.game = game
@@ -1144,21 +1150,23 @@ function getNotifications(userEmail) {
                 if (msg.user == "lender") {
                     objNotif.read = true
                 } else {
-                    objNotif.read = msg.read
+                    objNotif.read = !!msg.read_lender
                 }
                 notifications.push(objNotif)
             }
         }
     }
 
+    //como borrower
     for (lender in json.rental_history.lenders) {
         for (game in json.rental_history.lenders[lender].games) {
             for (borrower in json.rental_history.lenders[lender].games[game].borrowers) {
                 if (borrower == userEmail) {
-                    last = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages.length - 1
+                    let msgs = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages.filter(msg => { return msg.user != "system-lender" })
+                    last = msgs.length - 1
                     if (last >= 0) {
                         objNotif = {}
-                        msg = json.rental_history.lenders[lender].games[game].borrowers[borrower].messages[last]
+                        msg = msgs[last]
                         objNotif.user = userEmail
                         objNotif.otherUser = lender
                         objNotif.game = game
@@ -1168,10 +1176,14 @@ function getNotifications(userEmail) {
                         objNotif.myRole = "borrower"
 
                         if (msg.user == "borrower") {
+                            console.log("it is borrower")
                             objNotif.read = true
                         } else {
-                            objNotif.read = msg.read
+                            console.log("it is not")
+                            console.log(msg)
+                            objNotif.read = !!msg.read_borrower
                         }
+                        console.log(objNotif)
                         notifications.push(objNotif)
                     }
                 }
@@ -1261,6 +1273,31 @@ function getGameLenders(gameName, loggedUserEmail, filterObj) {
     borrower = filterObj.byUser;
     filtered_game_rentals = json.game_rentals.filter((game) => {
         return game.game_name == gameName && game.user_email != loggedUserEmail
+    })
+    /*     console.log(filtered_game_rentals) */
+    for (i = 0; i < filtered_game_rentals.length; i++) {
+        gameRental = filtered_game_rentals[i];
+        lender = gameRental.user_email;
+        /*  console.log(lender) */
+
+        //console.log(filterObj.consoles, gameRental.console)
+        respectsFilters =
+            ((filterObj.distance - 0) ? getDistanceByUser(lender, loggedUserEmail) <= filterObj.distance : true) &&
+            ((filterObj.duration - 0) ? ((gameRental.duration_range[0] <= filterObj.duration) && (gameRental.duration_range[1] >= filterObj.duration)) : true);
+
+        if (respectsFilters) {
+            users.push(getUser(gameRental.user_email));
+        }
+    }
+    /*   console.log("returning", users); */
+    return users;
+}
+function getActiveGameLenders(gameName, loggedUserEmail, filterObj) {
+    /*   console.log("filtering lenderUsers with", filterObj); */
+    users = [];
+    borrower = filterObj.byUser;
+    filtered_game_rentals = json.game_rentals.filter((game) => {
+        return game.game_name == gameName && game.user_email != loggedUserEmail && game.active
     })
     /*     console.log(filtered_game_rentals) */
     for (i = 0; i < filtered_game_rentals.length; i++) {

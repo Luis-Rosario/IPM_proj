@@ -3,7 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 declare const sendMsg;
 declare const acceptRental;
 declare const refuseRental;
-declare const markChatAsRead;
+declare const markChatAsReadBorrower;
+declare const markChatAsReadLender;
 declare const showToast;
 declare const getRentalStatus;
 declare const getRentalDuration;
@@ -32,7 +33,11 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.isLoanPast();
-    markChatAsRead(this.chat);
+    if (this.lender)
+      markChatAsReadLender(this.chat);
+    else
+      markChatAsReadBorrower(this.chat);
+
     onDataChange(() => {
       console.log("chat datachange hook")
       setTimeout(() => {

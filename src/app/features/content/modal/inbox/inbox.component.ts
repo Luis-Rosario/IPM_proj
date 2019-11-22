@@ -154,7 +154,7 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.targetPerson = chat[1];
     setTimeout(() => {
       this.chatComponent.isLoanPast();
-    }, 1)
+    }, 10);
     //this.chatComponent.ngOnInit();
   }
 

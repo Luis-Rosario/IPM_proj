@@ -1,4 +1,4 @@
-var peer = new Peer("lleme-play-server");
+var peer = new Peer("lleme-play-server-2");
 
 function handleData(data, person) {
   console.log(data);
@@ -31,7 +31,7 @@ function connected(conn) {
   console.log("other connected to me");
 
   //ignore, test stuff
-  $("#msg-go").click(function() {
+  $("#msg-go").click(function () {
     var value = $("#msg").val();
     sendMsg(conn, value);
   });
