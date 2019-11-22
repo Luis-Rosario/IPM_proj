@@ -1,15 +1,15 @@
 .navbar {
-  width: 100vw;
-  min-height: 40px;
-  background: #444;
+    width: 100vw;
+    min-height: 40px;
+    background: #444;
 }
 
 .content {
-  padding: 50px 30px;
-  background: #fafafa;
-  min-height: 100vh;
-  width: 100%;
-  &.space-nav {
-    margin-top: 80px;
-  }
+    padding: 50px 30px;
+    background: #fafafa;
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    &.space-nav {
+        margin-top: 80px;
+    }
 }

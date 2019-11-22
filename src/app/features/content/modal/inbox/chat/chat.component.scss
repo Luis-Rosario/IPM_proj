@@ -97,6 +97,7 @@
 }
 
 $orange: #fbab5b;
+$faintOrange: #f3aa5a69;
 $grey: #494a4b;
 $white: #ffffff;
 $lightGrey: #f7f7f7;
@@ -105,10 +106,10 @@ $red: #b22222;
 //generalizar isto, por num css alto-nivel
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
-    &:not(.interactive){
-		border: 2px solid rgba($orange, 0.5)!important;
-		background: rgba($orange, 0.8)!important;
-	}
+    &:not(.interactive) {
+        border: 2px solid rgba($orange, 0.5)!important;
+        background: rgba($orange, 0.8)!important;
+    }
     font-size: 12px;
     margin: 4px;
     cursor: pointer;
@@ -211,9 +212,9 @@ a {
         float: left;
         clear: both;
         border-radius: 8px;
-        .text{
-            text-align:left;
-            hyphens:auto;
+        .text {
+            text-align: left;
+            hyphens: auto;
         }
         &.me {
             float: right;
@@ -242,12 +243,12 @@ a {
                 border-radius: 8px;
                 padding: 20px;
                 width: 80%;
-                background: #f3aa5a69;
+                background: $faintOrange;
                 margin: auto;
                 /* border: 5px solid #fbab5b; */
                 background: white;
                 font-size: 1.1em;
-                box-shadow: 0 0 2px 2px #fbab5b;
+                box-shadow: 0 0 2px 2px $orange;
                 font-weight: bold;
                 text-align: center;
             }
@@ -294,32 +295,33 @@ a {
     }
 }
 
-.accept-loan-modal,.refuse-loan-modal{
-   .modal-dialog{
-        margin-top:180px;
+.accept-loan-modal,
+.refuse-loan-modal {
+    .modal-dialog {
+        margin-top: 180px;
     }
-    .btn{
-        padding:10px 20px;
-        font-weight:500;
+    .btn {
+        padding: 10px 20px;
+        font-weight: 500;
         background: rgba(#6ab357, 0.28);
-        color:#6ab357;
-        width:100%;
-        transition-duration:0.2s;
-        &:hover,&:focus{
+        color: #6ab357;
+        width: 100%;
+        transition-duration: 0.2s;
+        &:hover,
+        &:focus {
             background: #6ab357;
-            color:white;
+            color: white;
         }
     }
-
-    &.refuse-loan-modal{
-        .btn{
+    &.refuse-loan-modal {
+        .btn {
             background: rgba($red, 0.28);
-            color:$red;
-            &:hover,&:focus{
+            color: $red;
+            &:hover,
+            &:focus {
                 background: $red;
-                color:white;
+                color: white;
             }
         }
     }
-
 }
