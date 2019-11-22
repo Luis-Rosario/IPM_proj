@@ -1086,10 +1086,10 @@ function strToDate(date) {
     return new Date(date[0], date[1] - 1, date[2]);
 }
 
-function getChat(userId1, userId2, game) {
+function getChat(userId1, userId2, game, isLender) {
     console.log(userId1, userId2)
 
-    return json.rental_history.lenders[userId1].games[game].borrowers[userId2].messages
+    return json.rental_history.lenders[userId1].games[game].borrowers[userId2].messages.filter(msg => { return msg.user != (!isLender ? "system-lender" : "system-borrow") })
 }
 
 //chat got from getChat
@@ -1117,6 +1117,7 @@ function getBorrowingMessages(userId, game) {
         }
 
     }
+    console.log("yey", messages)
     return messages
 }
 

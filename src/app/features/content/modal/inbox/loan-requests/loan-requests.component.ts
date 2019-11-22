@@ -121,11 +121,10 @@ export class LoanRequestsComponent implements OnInit {
     }
 
     if (this.lender)
-      this.chatMessages = getLendingMessages(this.sessionQuery.getValue().email, this.game.game_name)[userRequest]
+      this.chatMessages = getChat(this.sessionQuery.getValue().email, userRequest, this.game.game_name, true)
 
     if (!this.lender)
-      this.chatMessages = getBorrowingMessages(this.sessionQuery.getValue().email, this.sessionQuery.getValue().email, this.game.game_name)[userRequest];
-
+      this.chatMessages = getChat(userRequest, this.sessionQuery.getValue().email, this.game.game_name, false)
     this.selectedPerson.emit([this.chatMessages, userRequest])
     setTimeout(() => {
       document.querySelector(".chat-list").scrollTo(0, 1000000)
