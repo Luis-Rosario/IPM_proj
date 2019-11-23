@@ -6,6 +6,7 @@ declare const getUser;
 declare const showToast;
 declare const json;
 declare const passwordEyeHandler;
+declare const $: any;
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,10 @@ export class LoginComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     passwordEyeHandler();
+    $("#goDark").addClass("active");
+    $("#goLight").removeClass("active")
+    $("html").css("filter", "invert(0)")
+    $("#root-body").removeClass("dark-mode")
   }
 
   ngOnChanges() {

@@ -118,6 +118,10 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.sessionService.logout();
     this.router.navigateByUrl("/login");
+    $("#goDark").addClass("active");
+    $("#goLight").removeClass("active")
+    $("html").css("filter", "invert(0)")
+    $("#root-body").removeClass("dark-mode")
   }
 
   toggleNotifications() {

@@ -6,6 +6,7 @@ declare const addUser: any;
 declare const showToast;
 declare const getUser: any;
 declare const passwordEyeHandler;
+declare const $: any;
 
 @Component({
   selector: 'app-register',
@@ -27,6 +28,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     passwordEyeHandler();
+    $("#goDark").addClass("active");
+    $("#goLight").removeClass("active")
+    $("html").css("filter", "invert(0)")
+    $("#root-body").removeClass("dark-mode")
   }
 
 
