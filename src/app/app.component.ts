@@ -31,6 +31,21 @@ export class AppComponent {
     },200); */
   }
 
+  goDark() {
+    $("#goLight").addClass("active")
+    $("#goDark").removeClass("active")
+    $("html").css("filter", "invert(1)")
+    $("#root-body").addClass("dark-mode")
+  }
+
+  goLight() {
+    $("#goDark").addClass("active");
+    $("#goLight").removeClass("active")
+    $("html").css("filter", "invert(0)")
+    $("#root-body").removeClass("dark-mode")
+  }
+
+
 
   isLogged(): Boolean {
     return this.sessionQuery.getValue().logged;

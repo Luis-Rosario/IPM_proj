@@ -35,13 +35,16 @@
 
     <ul class="links">
         <li>
-            <a routerLink="/user/library" routerLinkActive="active" [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
+            <a routerLink="/user/library" routerLinkActive="active"
+                [ngClass]=" this.url.includes('libary') ? 'active' : ''"><b>My Library</b></a>
         </li>
         <li>
-            <a routerLink="/user/profile" routerLinkActive="active" [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
+            <a routerLink="/user/profile" routerLinkActive="active"
+                [ngClass]=" this.url.includes('profile') ? 'active' : ''"><b>My Account</b></a>
         </li>
         <li>
-            <a routerLink="/user/inbox" routerLinkActive="active" [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
+            <a routerLink="/user/inbox" routerLinkActive="active"
+                [ngClass]=" this.url.includes('inbox') ? 'active' : ''"><b>Inbox</b></a>
         </li>
     </ul>
     <div class="right-hand">
@@ -69,7 +72,8 @@
                 <b>{{ userInfo.first_name }} {{ userInfo.last_name }}</b>
                 <i class="fas fa-power-off logout" (click)="logout()"></i>
             </div>
-            <div class="row points" (click)="reedemPoints()">{{ userInfo.llama_points }} <i class="fas fa-coins"></i></div>
+            <div class="row points" (click)="reedemPoints()">{{ userInfo.llama_points }} <i class="fas fa-coins"></i>
+            </div>
         </div>
 
 

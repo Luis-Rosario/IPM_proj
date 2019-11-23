@@ -22,12 +22,12 @@
     &.warn {
         .info {
             font-weight: bold;
-            background: rgba(255, 0, 0, 0.3);
+            background: var(--redB);
         }
     }
     &.almost {
         .info {
-            background: rgba(255, 210, 150, 1);
+            background: var(--lightOrange);
         }
     }
     .info {
@@ -107,8 +107,8 @@ $red: #b22222;
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
     &:not(.interactive) {
-        border: 2px solid rgba($orange, 0.5)!important;
-        background: rgba($orange, 0.8)!important;
+        border: 2px solid var(--orangeB)!important;
+        background: var(--orangeC)!important;
     }
     font-size: 12px;
     margin: 4px;
@@ -120,21 +120,21 @@ $red: #b22222;
     display: inline-block;
     &.interactive:not(.active) {
         &:hover {
-            border-color: rgba($orange, 0.5);
-            background: rgba($orange, 0.1);
+            border-color: var(--orangeB);
+            background: var(--orangeA);
         }
     }
     &.active {
-        border: 2px solid rgba($orange, 0.5);
-        background: rgba($orange, 0.8);
+        border: 2px solid var(--orangeB);
+        background: var(--orangeC);
         &.interactive:hover {
-            border-color: rgba($red, 0.5);
-            background: rgba($red, 0.2);
+            border-color: var(--redA);
+            background: var(--redC);
             position: relative;
             color: rgba(0, 0, 0, 0.2);
             &:after {
                 content: "x";
-                color: $red;
+                color:  var(--red);
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -171,35 +171,35 @@ a {
     }
     border-radius:0px 0px 60px 60px;
     &#accept {
-        background: rgba(#6ab357, 0.28);
+        background: var(--darkGreenB);
         /*  opacity: 0.8; */
-        color: #6ab357;
+        color: var(--darkGreen);
         transition-duration: 0.2s;
         cursor: pointer;
         &:hover {
-            background: #6ab357;
+            background: var(--darkGreen);
             color: white;
         }
     }
     &#refuse {
-        background: rgba($red, 0.28);
+        background: var(--redB);
         /* opacity: 0.8; */
-        color: $red;
+        color:  var(--red);
         transition-duration: 0.2s;
         cursor: pointer;
         &:hover {
-            background: $red;
+            background:  var(--red);
             color: white;
         }
     }
     &#mark-returned {
-        background: rgba($orange, 0.28);
+        background: var(--orangeD);
         /* opacity: 0.8; */
-        color: $orange;
+        color:  var(--orange);
         transition-duration: 0.2s;
         cursor: pointer;
         &:hover {
-            background: $orange;
+            background:  var(--orange);
             color: white;
         }
     }
@@ -229,13 +229,13 @@ a {
         }
         &.me {
             float: right;
-            background: $orange;
+            background:  var(--orange);
             margin-right: 20px;
             text-align: right;
             &:after {
                 border-left: none;
                 border-right: 16px solid transparent;
-                border-bottom: 16px solid $orange;
+                border-bottom: 16px solid  var(--orange);
                 left: 100%;
                 margin-left: -6px;
             }
@@ -254,12 +254,12 @@ a {
                 border-radius: 8px;
                 padding: 20px;
                 width: 80%;
-                background: $faintOrange;
+                background:  var(--faintOrange);
                 margin: auto;
                 /* border: 5px solid #fbab5b; */
                 background: white;
                 font-size: 1.1em;
-                box-shadow: 0 0 2px 2px $orange;
+                box-shadow: 0 0 2px 2px  var(--orange);
                 font-weight: bold;
                 text-align: center;
             }
@@ -314,23 +314,23 @@ a {
     .btn {
         padding: 10px 20px;
         font-weight: 500;
-        background: rgba(#6ab357, 0.28);
-        color: #6ab357;
+        background: var(--darkGreenB);
+        color: var(--darkGreen);
         width: 100%;
         transition-duration: 0.2s;
         &:hover,
         &:focus {
-            background: #6ab357;
+            background: var(--darkGreen);
             color: white;
         }
     }
     &.refuse-loan-modal {
         .btn {
-            background: rgba($red, 0.28);
-            color: $red;
+            background: var(--redB);
+            color:  var(--red);
             &:hover,
             &:focus {
-                background: $red;
+                background:  var(--red);
                 color: white;
             }
         }
@@ -347,20 +347,20 @@ a {
         font-weight: 500;
         transition-duration: 0.2s;
         &#accept {
-            background: rgba(#6ab357, 0.28);
-            color: #6ab357;
+            background: var(--darkGreenB);
+            color: var(--darkGreen);
             &:hover,
             &:focus {
-                background: #6ab357;
+                background: var(--darkGreen);
                 color: white;
             }
         }
         &#refuse {
-            background: rgba($red, 0.28);
-            color: $red;
+            background: var(--redB);
+            color:  var(--red);
             &:hover,
             &:focus {
-                background: $red;
+                background:  var(--red);
                 color: white;
             }
         }

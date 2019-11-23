@@ -11,7 +11,7 @@ declare const getRentalDuration;
 declare const onDataChange;
 declare const $: any;
 declare const getUser: any;
-declare const markGameAsReturned:any;
+declare const markGameAsReturned: any;
 
 @Component({
   selector: 'chat',
@@ -34,11 +34,11 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   
+
     this.isLoanPast();
     console.log(this.game)
     this.showReturnBanner = (!this.game.active && this.loanState == 'accepted')
-    console.log(!this.game.active , this.loanState)
+    console.log(!this.game.active, this.loanState)
     if (this.lender)
       markChatAsReadLender(this.chat);
     else
@@ -53,6 +53,8 @@ export class ChatComponent implements OnInit {
         document.querySelector(".chat-list").scrollTo(0, 1000000);
       }, 1000)
     })
+
+    setTimeout(() => { }, 10);
     this.targetPersonName = getUser(this.targetPerson).first_name + " " + getUser(this.targetPerson).last_name;
   }
 
@@ -93,7 +95,7 @@ export class ChatComponent implements OnInit {
     $(".refuse-loan-modal").modal("show");
   }
 
-  returnModal(){
+  returnModal() {
     $(".mark-returned-modal").modal("show");
   }
 
@@ -107,7 +109,7 @@ export class ChatComponent implements OnInit {
     showToast("Accepted Loan")
   }
 
-  markReturned(){
+  markReturned() {
     markGameAsReturned(this.loggedUser, this.game.game_name)
     this.showReturnBanner = false;
     this.acceptedRental.emit({ lender: this.loggedUser, borrower: this.targetPerson, game: this.game.game_name })

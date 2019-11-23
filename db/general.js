@@ -187,7 +187,7 @@ document.addEventListener("keydown", function (ev) {
         //close notif if
         if ($(".notifications:not(.hidden)").length) {
             $(".notifications").addClass("hidden");
-            $(".fa-bell").removeClass("active");
+            $(".fa-bell").removeClass("clicked");
         }
     }
 
@@ -198,8 +198,10 @@ document.addEventListener("click", function (ev) {
     let bell = document.querySelector(".nav .fa-bell");
     let notifList = document.querySelector(".notifications")
     if (!(ev.path.includes(bell) || ev.path.includes(notifList))) {
-        $(".notifications").addClass("hidden");
-        $(".fa-bell").removeClass("active");
+        if ($(".notifications.hidden").length > 0) {
+            $(".notifications").addClass("hidden");
+            $(".fa-bell").removeClass("active").removeClass("clicked");
+        }
     }
 })
 

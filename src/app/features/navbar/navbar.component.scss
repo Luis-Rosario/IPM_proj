@@ -81,7 +81,7 @@ $red: #b22222;
             a {
                 color: #666666;
                 &.active {
-                    color: $darkOrange;
+                    color:  var(--darkOrange);
                 }
             }
             &:last-child {
@@ -105,7 +105,7 @@ $red: #b22222;
                 right: 30px;
             }
             &.logout {
-                color: red
+                color: var(--red);
             }
         }
     }
@@ -132,12 +132,13 @@ $red: #b22222;
             top: 0;
             right: 0;
             transform: translate(60%, -60%);
-            background: red;
+            background: var(--pureRed);
         }
     }
     .fa-coins,
     .points {
         color: #c16f1c;
+        color: var(--brown);
         &:hover {
             cursor: pointer;
         }
@@ -208,7 +209,7 @@ $red: #b22222;
         }
     }
     .logout {
-        color: $red;
+        color:  var(--red);
         position: relative;
         margin-left: 15px;
         &:hover {

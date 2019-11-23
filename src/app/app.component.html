@@ -4,7 +4,12 @@
     <router-outlet></router-outlet>
 </div> -->
 
-<div [className]="(this.url.includes('/login') || this.url.includes('/register')) ? 'login-parent' : ''">
+<div [className]="(this.url.includes('/login') || this.url.includes('/register')) ? 'login-parent' : ''" id="root-body">
+    <div class="dark-mode-toggles">
+        <i class="fas fa-moon active" id="goDark" (click)="goDark()"></i>
+        <i class="fas fa-sun" id="goLight" (click)="goLight()"></i>
+    </div>
+
     <app-navbar *ngIf="isLogged()"></app-navbar>
     <div [className]="isLogged() ? 'content space-nav' : 'content'">
         <router-outlet></router-outlet>

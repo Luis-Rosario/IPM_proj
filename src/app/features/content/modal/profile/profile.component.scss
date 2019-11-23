@@ -65,7 +65,7 @@ input {
 i.edit-btn {
     margin-left: 15px;
     font-size: 0.85em;
-    color: #e88d31;
+    color: var(--darkOrange);
     cursor: pointer;
 }
 
@@ -108,12 +108,12 @@ i.edit-btn:hover {
         font-weight: bold;
         display: inline-block;
         margin: 30px 0 0 0px;
-        border: 2px solid $orange;
+        border: 2px solid  var(--orange);
         padding: 10px 20px;
-        color: $orange;
+        color:  var(--orange);
         &:hover,
         &:focus {
-            background: $orange;
+            background:  var(--orange);
             color: white;
         }
     }
@@ -125,7 +125,7 @@ i.edit-btn:hover {
         &:hover,
         &:active,
         &:focus {
-            border-color: $orange;
+            border-color:  var(--orange);
         }
     }
 }

@@ -14,3 +14,110 @@
         min-height: calc(100vh - 80px);
     }
 }
+
+/*dark mode-start*/
+::ng-deep #root-body{
+    --orange: #fbab5b;
+    --faintOrange: #f3aa5a69;
+    --darkOrange: #e88d31;
+    --orangeLink:#ec6233;
+    --green: #5aac44;
+    --darkGreen:#6ab357;
+    --darkGreenB:#6ab35747;
+    --red: #b22222;
+    --brown: #c16f1c;
+    --lightOrange:#ffd296;
+    --pureRed:red;
+
+    //10
+    --orangeA:#fbab5b1A;
+    //50
+    --orangeB:#fbab5b80;
+    //80
+    --orangeC:#fbab5bCC;
+    //30
+    --orangeD:#fbab5b4D;
+    //20
+    --orangeE:#fbab5b33;
+    //5
+    --orangeX:#fbab5b0D;
+
+    //50
+    --redA:#b2222280;
+    //30
+    --redB:#b222224D;
+    //20
+    --redC:#b2222233;
+    
+    
+    //30
+    --greenB:#5aac444D;
+}
+::ng-deep #root-body.dark-mode:not(.login-parent){
+    --orange: #105db0!important;
+    --faintOrange: #125fb0!important;
+    --darkOrange: #1782fb!important;
+    --orangeLink: #44b1fb!important;
+    --green: #d866bc!important;
+    --darkGreen:#af59a8!important;
+    --darkGreenB:#af59a847!important;
+    --red: #80fafb!important;
+    --brown: #439bfb!important;
+    --lightOrange:#01336d!important;
+    --pureRed:#76f9fb!important;
+
+    --orangeA:#105db01A!important;
+    --orangeB:#105db080!important;
+    --orangeC:#105db0CC!important;
+    --orangeD:#105db04D!important;
+    --orangeE:#105db033!important;
+    --orangeX:#105db00D!important;
+
+    //50
+    --redA:#80fafb80;
+    //30
+    --redB:#80fafb4D;
+    //20
+    --redC:#80fafb33;
+
+    --greenB: #d866bc4D!important;
+
+    img{
+        filter:invert(1)!important;
+    }
+
+    .dark-mode-toggles{
+        background: #cbcbcb;
+        color: #4c4c4c;
+    }
+}
+
+::ng-deep a {
+    cursor: pointer;
+    &,&:hover,&:focus{
+        color: var(--orangeLink);
+    }
+}
+
+.dark-mode-toggles{
+    position: fixed;
+    bottom:45px;
+    right:45px;
+    font-size:28px;
+    //padding:16px;
+
+    background: #222;
+    color: #FAFAFA;
+    transition-duration:0.5s;
+
+    box-shadow:1px 2px 10px 3px rgba(0,0,0,0.3);
+    border-radius:50%;
+    z-index:5;
+
+    i{
+        padding:16px;
+    }
+
+}
+
+/*dark mode-end*/

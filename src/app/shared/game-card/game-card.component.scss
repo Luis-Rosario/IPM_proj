@@ -26,7 +26,7 @@ $red: #b22222;
         z-index: 3;
         b {
             &.over-info {
-                color: $red;
+                color:  var(--red);
             }
             letter-spacing:1px;
         }
@@ -71,12 +71,12 @@ $red: #b22222;
     &.warn {
         .info {
             font-weight: bold;
-            background: rgba(255, 0, 0, 0.3);
+            background: var(--redB);
         }
     }
     &.almost {
         .info {
-            background: rgba(255, 210, 150, 1);
+            background: var(--lightOrange);
         }
     }
     .info {
@@ -161,8 +161,8 @@ a {
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
     &:not(.interactive) {
-        border: 2px solid rgba($orange, 0.5)!important;
-        background: rgba($orange, 0.8)!important;
+        border: 2px solid var(--orangeB)!important;
+        background: var(--orangeC)!important;
     }
     font-size: 12px;
     margin: 4px;
@@ -174,21 +174,21 @@ a {
     display: inline-block;
     &.interactive:not(.active) {
         &:hover {
-            border-color: rgba($orange, 0.5);
-            background: rgba($orange, 0.1);
+            border-color: var(--orangeB);
+            background: var(--orangeA);
         }
     }
     &.active {
-        border: 2px solid rgba($orange, 0.5);
-        background: rgba($orange, 0.8);
+        border: 2px solid var(--orangeB);
+        background: var(--orangeC);
         &.interactive:hover {
-            border-color: rgba($red, 0.5);
-            background: rgba($red, 0.2);
+            border-color: var(--redA);
+            background: var(--redC);
             position: relative;
             color: rgba(0, 0, 0, 0.2);
             &:after {
                 content: "x";
-                color: $red;
+                color:  var(--red);
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -284,15 +284,15 @@ a {
                 position: absolute;
                 right: 10px;
                 bottom: 4px;
-                border: 2px solid $orange;
+                border: 2px solid  var(--orange);
                 font-weight: bold;
-                color: orange;
+                color: var(--orange);
                 font-size: 13px;
                 padding: 2px 10px;
                 transition-duration: 0.3s;
                 &:hover {
                     padding: 2px 5px 2px 15px;
-                    background: rgba($orange, 0.2);
+                    background: var(--orangeE);
                 }
             }
         }
@@ -322,15 +322,15 @@ a {
         }
         .modal-body {
             button {
-                background: $orange;
+                background:  var(--orange);
                 padding: 10px 20px;
                 color: white;
-                border: 2px solid $orange;
+                border: 2px solid  var(--orange);
                 align-self: flex-end;
                 &:hover,
                 &:focus {
-                    background: rgba($orange, 0.3);
-                    color: $orange;
+                    background: var(--orangeD);
+                    color:  var(--orange);
                 }
             }
             .row {

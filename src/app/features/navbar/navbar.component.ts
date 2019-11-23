@@ -14,7 +14,7 @@ declare const getUser: any;
 declare const getNotifications;
 declare const onDataChange;
 declare const $: any;
-declare const showToast:any;
+declare const showToast: any;
 
 @Component({
   selector: "app-navbar",
@@ -74,8 +74,8 @@ export class NavbarComponent implements OnInit {
 
     setTimeout(() => {
       $(".nav .bootstrap-select select").on("change", () => {
-     /*    console.log("k".repeat(500));
-        console.log(this.router.url) */
+        /*    console.log("k".repeat(500));
+           console.log(this.router.url) */
         if (this.router.url.includes("browse")) {
 
           this.updateFilters();
@@ -88,9 +88,8 @@ export class NavbarComponent implements OnInit {
     //very important function best function ever makes everything work :)
     setInterval(() => { }, 400);
 
-   /*  console.log(this.notifications) */
+    /*  console.log(this.notifications) */
   }
-
   getUser(e) {
     return getUser(e)
   }
@@ -144,7 +143,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  reedemPoints(){
+  reedemPoints() {
     showToast("Not implemented, Coming Soon")
   }
 }

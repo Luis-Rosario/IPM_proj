@@ -22,12 +22,12 @@
     &.warn {
         .info {
             font-weight: bold;
-            background: rgba(255, 0, 0, 0.3);
+            background: var(--redB);
         }
     }
     &.almost {
         .info {
-            background: rgba(255, 210, 150, 1);
+            background: var(--lightOrange);
         }
     }
     .info {
@@ -106,8 +106,8 @@ $red: #b22222;
 //adicionei a opção da class interactive, passar a usar isso na library (efeitos de hover)
 .pill {
     &:not(.interactive) {
-        border: 2px solid rgba($orange, 0.5)!important;
-        background: rgba($orange, 0.8)!important;
+        border: 2px solid var(--orangeB)!important;
+        background: var(--orangeC)!important;
     }
     font-size: 12px;
     margin: 4px;
@@ -119,21 +119,21 @@ $red: #b22222;
     display: inline-block;
     &.interactive:not(.active) {
         &:hover {
-            border-color: rgba($orange, 0.5);
-            background: rgba($orange, 0.1);
+            border-color: var(--orangeB);
+            background: var(--orangeA);
         }
     }
     &.active {
-        border: 2px solid rgba($orange, 0.5);
-        background: rgba($orange, 0.8);
+        border: 2px solid var(--orangeB);
+        background: var(--orangeC);
         &.interactive:hover {
-            border-color: rgba($red, 0.5);
-            background: rgba($red, 0.2);
+            border-color: var(--redA);
+            background: var(--redC);
             position: relative;
             color: rgba(0, 0, 0, 0.2);
             &:after {
                 content: "x";
-                color: $red;
+                color:  var(--red);
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -178,15 +178,15 @@ a {
                 border-bottom: 1px solid gainsboro;
                 cursor: pointer;
                 &.active {
-                    border-bottom-color: $orange;
+                    border-bottom-color:  var(--orange);
                     border-bottom-width: 2px;
-                    color: $orange;
+                    color:  var(--orange);
                     font-weight: 600;
                     background: #f5f5f5;
                 }
                 &:not(.active) {
                     &:hover {
-                        border-bottom-color: rgba($orange, 0.5);
+                        border-bottom-color: var(--orangeB);
                         border-bottom-width: 1px;
                         background: #f5f5f5;
                     }

@@ -116,13 +116,13 @@ router-outlet {
     position: relative;
     &.warn {
         .info {
-            font-weight: bold;
-            background: rgba(255, 0, 0, 0.3);
+            font-weight: bold; 
+            background: var(--redB);
         }
     }
     &.almost {
         .info {
-            background: rgba(255, 210, 150, 1);
+            background: var(--lightOrange);
         }
     }
     .info {
