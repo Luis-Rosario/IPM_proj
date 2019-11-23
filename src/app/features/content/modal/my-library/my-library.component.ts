@@ -86,6 +86,7 @@ export class LibraryComponent implements OnInit {
       }, 100);
     }, 100);
     //select img
+    $("#new-game-modal #image").show();
     $("#new-game-modal #image").attr("src", gameInfo.image_url)
     $("#new-game-modal #image").removeClass("hidden");
   }
@@ -116,6 +117,9 @@ export class LibraryComponent implements OnInit {
           if (self.autocompleted) {
             console.log("clear ti");
             setTimeout(() => {
+              $("#new-game-modal #image").hide();
+              $("#new-game-modal #image").addClass("hidden");
+              $("#new-game-modal #image").attr("src", null)
               self.clearDropDown();
             }, 400)
 
@@ -227,19 +231,19 @@ export class LibraryComponent implements OnInit {
     let game_name = (<HTMLInputElement>(document.querySelector(".game-name"))).validity.valid;
     let year = (<HTMLInputElement>(document.querySelector(".year"))).validity.valid;
 
-    if (!game_name){
+    if (!game_name) {
       $(document.querySelector(".game-name").parentElement).find(".error-message").removeClass("hidden")
     }
-  
-    if (!year){
+
+    if (!year) {
       $(document.querySelector(".year").parentElement).find(".error-message").removeClass("hidden")
     }
-    
+
 
     return year && game_name
   }
 
-  hiddeErrorMessages(){
+  hiddeErrorMessages() {
     console.log("S")
     $(".error-message").addClass("hidden");
   }

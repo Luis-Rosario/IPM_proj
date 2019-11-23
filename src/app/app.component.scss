@@ -90,7 +90,15 @@
         background: #cbcbcb;
         color: #4c4c4c;
     }
+
+    .nav{
+        background:#dfdcd8!important;
+    }
 }
+.login-parent.dark-mode{
+    filter:invert(1)!important;
+}
+
 
 ::ng-deep a {
     cursor: pointer;
@@ -98,11 +106,15 @@
         color: var(--orangeLink);
     }
 }
-
+.login-parent{
+    .dark-mode-toggles{
+        display:none!important;
+    }
+}
 .dark-mode-toggles{
     position: fixed;
     bottom:45px;
-    right:45px;
+    left:45px;
     font-size:28px;
     //padding:16px;
 

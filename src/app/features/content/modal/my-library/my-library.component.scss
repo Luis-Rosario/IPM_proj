@@ -190,6 +190,10 @@ $red: #b22222;
 
 #new-game-modal {
     .form-group {
+        img#image{
+            max-width: 180px;
+            margin: 30px auto 0 auto;
+        }
         >* {
             display: block;
         }
