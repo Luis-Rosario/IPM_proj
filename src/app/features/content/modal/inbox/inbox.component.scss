@@ -176,6 +176,7 @@ a {
                 font-weight: normal;
                 padding: 20px;
                 border-bottom: 1px solid gainsboro;
+                margin-bottom:0;
                 cursor: pointer;
                 &.active {
                     border-bottom-color:  var(--orange);

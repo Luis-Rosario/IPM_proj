@@ -164,7 +164,7 @@ $red: #b22222;
             &.over-info {
                 color:  var(--red);
             }
-            letter-spacing:1px;
+            letter-spacing:0.5px;
         }
     }
     img,
@@ -232,6 +232,9 @@ $lightGrey: #f7f7f7;
 $green: #5aac44;
 $red: #b22222;
 .delete-modal {
+    .modal-dialog{
+        margin-top:180px;
+    }
     .btn.delete {
         border: 2px solid  var(--red);
         color:  var(--red);
@@ -244,6 +247,9 @@ $red: #b22222;
 }
 
 .return-modal {
+    .modal-dialog{
+        margin-top:180px;
+    }
     .btn.return {
         border: 2px solid  var(--orange);
         color:  var(--orange);

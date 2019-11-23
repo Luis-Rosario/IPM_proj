@@ -28,7 +28,7 @@ $red: #b22222;
             &.over-info {
                 color:  var(--red);
             }
-            letter-spacing:1px;
+            letter-spacing:0.5px;
         }
     }
     img {
@@ -274,7 +274,7 @@ a {
                 padding-right: 2px;
                 position: relative;
                 top: -3px;
-                color: #f7af09;
+                color: var(--gold);
             }
             .loan-count {
                 margin-left: 2px;
