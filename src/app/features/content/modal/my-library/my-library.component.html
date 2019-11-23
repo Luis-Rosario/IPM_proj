@@ -40,24 +40,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
+                <div class="form-group" style="float: left;width: 71%;padding-right: 24px;">
                     <datalist id="games-list">
                         <option *ngFor="let gameName of gameNames" value="{{gameName}}">
                     </datalist>
                     <label for="name">Game name</label>
-                    <input type="text" id="name" class="game-name" list="games-list" autocomplete="off" required />
+                    <input style="width:100%;" type="text" id="name" class="game-name" list="games-list"
+                        autocomplete="off" required />
                     <div class="hidden error-message">
                         <b>Required field</b>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="float:left;">
                     <label for="year">Release Year</label><input type="text" class="year" id="year" required
                         maxlength="4" minlength="4" />
                     <div class="hidden error-message">
                         <b>Invalid Input</b>
                     </div>
                 </div>
-                <div class="form-group cat-group">
+                <div class="form-group cat-group" style="width:100%;clear:both;">
                     <label for="cat">Categories</label>
                     <div class="categories">
                         <h6 class="pill interactive" *ngFor="let category of categories">{{category}}</h6>
