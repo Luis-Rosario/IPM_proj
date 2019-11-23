@@ -8,6 +8,7 @@ declare const markChatAsReadLender;
 declare const showToast;
 declare const getRentalStatus;
 declare const getRentalDuration;
+declare const getLendingTo;
 declare const onDataChange;
 declare const $: any;
 declare const getUser: any;
@@ -110,6 +111,16 @@ export class ChatComponent implements OnInit {
   }
 
   markReturned() {
+    let myMail = this.loggedUser
+    let borrower = getLendingTo(myMail)[this.game.game_name];
+    let borrowerName = getUser(borrower).first_name + " " + getUser(borrower).last_name;
+    /* console.log("i marked the game as returned", borrowerName); */
+    setTimeout(() => {
+      $("#rate-borrower").modal("show");
+      $("#rate-borrower").attr("data-email", borrower);
+      $("#rate-borrower").attr("data-type", "borrower");
+      $("#rate-borrower .modal-header").text("Rate " + borrowerName);
+    }, 100)
     markGameAsReturned(this.loggedUser, this.game.game_name)
     this.showReturnBanner = false;
     this.acceptedRental.emit({ lender: this.loggedUser, borrower: this.targetPerson, game: this.game.game_name })
