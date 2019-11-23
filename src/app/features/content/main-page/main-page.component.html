@@ -23,7 +23,7 @@
                     <div class="row"><span>Games Lent</span></div>
                     <div class="caroussel">
                         <div *ngIf="this.gamesLending.length == 0">
-                            Currently you dont have any games lent
+                            Currently, you don't have any games lent!
                         </div>
                         <div class="game lent" *ngFor="let game of gamesLending">
                             <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
@@ -35,7 +35,7 @@
                     <div class="row"><span>Games Borrowed</span></div>
                     <div class="caroussel">
                         <div *ngIf="this.gamesBorrowed.length == 0" class="no-results">
-                            Currently you dont have any games borrowed
+                            Currently, you don't have any borrowed games!
                         </div>
                         <div class="game lent non-click" *ngFor="let game of gamesBorrowed">
                             <game-card [gameName]="game" [gameInfo]="this.borrowingGamesInfo.get(game)"></game-card>

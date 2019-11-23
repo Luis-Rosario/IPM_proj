@@ -269,7 +269,7 @@ setTimeout(() => {
 
 
     function responseMessage(rating) {
-        showToast("Review sent, thanks for your feedback!");
+        showToast("Your review was sent. Thanks for your feedback!");
 
         let personType = $("#rate-borrower").data("type");
         let personEmail = $("#rate-borrower").data("email");

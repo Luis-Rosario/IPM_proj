@@ -144,6 +144,6 @@ export class NavbarComponent implements OnInit {
   }
 
   reedemPoints() {
-    showToast("Not implemented, Coming Soon")
+    showToast("Not implemented... Coming soon!")
   }
 }

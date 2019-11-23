@@ -43,11 +43,11 @@ export class RegisterComponent implements OnInit {
     /* console.log(this.form) */
     this.submited = false;
     if (this.emailAlreadyExists) {
-      //showToast("Email is already taken", "error");
+      //showToast("E-mail address is already in use.", "error");
       this.submited = true;
     }
     else if (this.form.valid && !this.noMatch) {
-      showToast("Resgistered successfully");
+      showToast("Resgistered successfully!");
       addUser(this.form.value)
       this.router.navigateByUrl('/login');
     }

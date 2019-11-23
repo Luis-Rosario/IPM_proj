@@ -84,7 +84,7 @@ export class ProfileComponent implements OnInit {
           )).value
         };
         editUser(editObj);
-        showToast("Profile updated");
+        showToast("Profile updated!");
         let el = document.querySelector(".container.editable");
         setTimeout(() => {
           let el = document.querySelector(".container.editable");

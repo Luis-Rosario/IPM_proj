@@ -215,7 +215,7 @@ export class LibraryComponent implements OnInit {
       $("#new-game-modal").modal("toggle");
 
       this.ngOnInit();
-      showToast("Game successfully added")
+      showToast("Game successfully added!")
     }
 
   }

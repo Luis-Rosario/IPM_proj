@@ -50,8 +50,7 @@ export class LoginComponent implements OnInit, OnChanges {
           this.sessionService.logUser(username);
           setTimeout(() => {
             let userInfo = getUser(username)
-            /*  showToast("Xilema, pls"); */
-            showToast("Welcome back, " + userInfo.first_name + " " + userInfo.last_name);
+            showToast("Welcome back, " + userInfo.first_name + " " + userInfo.last_name + "!");
             this.router.navigate(['home']);
           }, 1); //lol 
         }
