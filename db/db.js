@@ -203,7 +203,7 @@ json = {
             "total_borrowed": 32,
             "total_lent": 20
         },
-        "a@a.com": {
+        "ruizinho@hotmail.com": {
             "email": "ruizinho@hotmail.com",
             "password": "omarenrolanaareia",
 
@@ -427,7 +427,7 @@ json = {
     ],
 
     "game_rentals": [{
-        "user_email": "a@a.com", //ruizinho@gmail.com
+        "user_email": "ruizinho@hotmail.com", //ruizinho@gmail.com
         "game_name": "FIFA 19",
         "year": 2018,
         "category": ["sports", "football"],
@@ -440,7 +440,7 @@ json = {
         "endDate": dateToStr(getRandomDate())
     },
     {
-        "user_email": "a@a.com",
+        "user_email": "ruizinho@hotmail.com",
         "game_name": "Borderlands 3",
         "year": 2019,
         "category": ["action", "adventure"],
@@ -715,7 +715,7 @@ json = {
     ],
 
     "notifications": {
-        "a@a.com": [{
+        "ruizinho@hotmail.com": [{
             "date": "2019-07-07",
             "time": "h:m",
             "game": "Uncharted",
@@ -919,7 +919,7 @@ json = {
                     }
                 }
             },
-            "a@a.com": { //ruizinho@hotmail.com
+            "ruizinho@hotmail.com": { //ruizinho@hotmail.com
                 "games": {
                     "FIFA 19": {
                         "borrowers": {
@@ -970,7 +970,7 @@ json = {
                     },
                     "Minecraft": {
                         "borrowers": {
-                            "a@a.com": {
+                            "ruizinho@hotmail.com": {
                                 "lent": "pending",
                                 "duration": 2,
                                 "messages": [{
