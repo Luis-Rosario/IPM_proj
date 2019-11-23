@@ -232,6 +232,10 @@ a {
             background:  var(--orange);
             margin-right: 20px;
             text-align: right;
+            color:var(--keepBlack);
+            *{
+                color:inherit;
+            }
             &:after {
                 border-left: none;
                 border-right: 16px solid transparent;
