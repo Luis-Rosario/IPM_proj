@@ -270,16 +270,19 @@ datalist {
 
 .rating-stars ul > li.star.hover > i.fa {
   color: #ffcc36;
+  color: var(--starGold);
 }
 
 /* Selected state of the stars */
 
 .rating-stars ul > li.star.selected > i.fa {
   color: #ff912c;
+  color: var(--starGoldDark);
 }
 
 .error-message {
   color: #b22222 !important;
+  color: var(--errorRed) !important;
   font-size: 0.9rem;
   font-family: "Rubik", sans-serif;
 }

@@ -1560,7 +1560,8 @@ function markGameAsReturned(lenderEmail, gameName) {
         json.pending_reviews[borrowerMail] = [];
     }
     json.pending_reviews[borrowerMail].push(lenderEmail)
-    conn.send(msg);
+    if (conn && conn.send)
+        conn.send(msg);
     pushData();
 }
 
