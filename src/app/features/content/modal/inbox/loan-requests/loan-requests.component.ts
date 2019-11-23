@@ -43,6 +43,12 @@ export class LoanRequestsComponent implements OnInit {
   }
 
   main() {
+    setTimeout(() => {
+      if ($(".info-col .user.active").length) {
+        this.selectRequest($(".info-col .user.active").attr("id"), { target: $(".info-col .user.active")[0] })
+      }
+    }, 10)
+
     /*    console.log(this.game) */
 
     /* if (!$(".user.active").length) {
@@ -74,6 +80,7 @@ export class LoanRequestsComponent implements OnInit {
     clickFirst();
     setTimeout(clickFirst, 10);
     setTimeout(clickFirst, 300);
+
     //very important function best function ever makes everything work :)
     setInterval(() => { }, 400);
   }

@@ -11,6 +11,7 @@ declare const getGamesLending: any;
 declare const getGamesBorrowing: any;
 declare const getLendingMessages: any;
 declare const getBorrowingMessages: any;
+declare const onDataChange: any;
 
 
 @Component({
@@ -94,6 +95,11 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
         }, 1);
       }
     });
+
+    onDataChange(() => {
+
+    });
+    setTimeout(() => { }, 100);
 
   }
 
