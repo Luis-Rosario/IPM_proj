@@ -72,6 +72,6 @@ export class LibCardComponent implements OnInit {
   // }
 
   closeModal() {
-    $(".modal").fadeOut();
+    $(".modal").modal("hide");
   }
 }
