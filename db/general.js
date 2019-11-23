@@ -198,9 +198,9 @@ document.addEventListener("click", function (ev) {
     let bell = document.querySelector(".nav .fa-bell");
     let notifList = document.querySelector(".notifications")
     if (!(ev.path.includes(bell) || ev.path.includes(notifList))) {
-        if ($(".notifications.hidden").length > 0) {
+        if ($(".notifications.hidden").length == 0) {
             $(".notifications").addClass("hidden");
-            $(".fa-bell").removeClass("active").removeClass("clicked");
+            $(".fa-bell").removeClass("clicked");
         }
     }
 })
