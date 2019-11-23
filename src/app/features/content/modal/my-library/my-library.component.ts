@@ -229,14 +229,14 @@ export class LibraryComponent implements OnInit {
     $(".error-message").addClass("hidden");
 
     let game_name = (<HTMLInputElement>(document.querySelector(".game-name"))).validity.valid;
-    let year = (<HTMLInputElement>(document.querySelector(".year"))).validity.valid;
+    let year = (<HTMLInputElement>(document.querySelector("#year"))).validity.valid;
 
     if (!game_name) {
       $(document.querySelector(".game-name").parentElement).find(".error-message").removeClass("hidden")
     }
 
     if (!year) {
-      $(document.querySelector(".year").parentElement).find(".error-message").removeClass("hidden")
+      $(document.querySelector("#year").parentElement).find(".error-message").removeClass("hidden")
     }
 
 
