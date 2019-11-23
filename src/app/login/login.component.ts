@@ -4,6 +4,7 @@ import { SessionService } from '../core/state/session.service';
 
 declare const getUser;
 declare const showToast;
+declare const json;
 declare const passwordEyeHandler;
 
 @Component({
@@ -50,7 +51,21 @@ export class LoginComponent implements OnInit, OnChanges {
           this.sessionService.logUser(username);
           setTimeout(() => {
             let userInfo = getUser(username)
+            /*  showToast("Xilema, pls"); */
             showToast("Welcome back, " + userInfo.first_name + " " + userInfo.last_name + "!");
+            setTimeout(() => {
+              if (json && json.pending_reviews && json.pending_reviews[username]) {
+                let review = json.pending_reviews[username].pop();
+                if (review) {
+                  let lenderName = getUser(review).first_name + " " + getUser(review).last_name;
+                  $("#rate-borrower").modal("show");
+                  $("#rate-borrower").attr("data-email", review);
+                  $("#rate-borrower").attr("data-type", "lender");
+                  $("#rate-borrower .modal-header").text("Rate " + lenderName);
+                }
+              }
+            }, 200)
+
             this.router.navigate(['home']);
           }, 1); //lol 
         }

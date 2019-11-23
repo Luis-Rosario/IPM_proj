@@ -88,6 +88,7 @@ peer.on("open", (id) => {
                         $("#rate-borrower").attr("data-email", lender);
                         $("#rate-borrower").attr("data-type", "lender");
                         $("#rate-borrower .modal-header").text("Rate " + lenderName);
+
                     }, 100)
                 }
                 for (let i = 0; i < changeListeners.length; i++) {
@@ -110,6 +111,9 @@ peer.on("open", (id) => {
 });
 
 json = {
+    "pending_reviews": {
+
+    },
     "consoles": ["PS4", "Nintendo Switch", "PC", "Xbox One", "Xbox 360", "PS3", "PSP"],
 
     "categories": ["sports", "football", "cooking", "co-op", "action", "adventure", "fighting", "sandbox", "survival", "simulation", "fps"],
@@ -1548,9 +1552,14 @@ function markGameAsReturned(lenderEmail, gameName) {
     game.warnedLender = false;
     game.warnedBorrower = false;
     game.active = true;
-
+    //send through peerjs
     let msg = "return-" + lenderEmail + "/" + borrowerMail;
     console.log("sent return msg:" + msg)
+    //save 
+    if (!json.pending_reviews[borrowerMail]) {
+        json.pending_reviews[borrowerMail] = [];
+    }
+    json.pending_reviews[borrowerMail].push(lenderEmail)
     conn.send(msg);
     pushData();
 }

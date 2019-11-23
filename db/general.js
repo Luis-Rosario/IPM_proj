@@ -260,6 +260,26 @@ setTimeout(() => {
             } else {
                 msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
             }
+
+            let meName = $(".user-info .user b").text();
+            if (json && json.pending_reviews) {
+                for (let email in json.pending_reviews) {
+                    if (getUser && getUser(email)) {
+                        let bName = getUser(email).first_name + " " + getUser(email).last_name;
+                        let lender = null
+                        if (meName == bName && (lender = json.pending_reviews[email].pop())) {
+                            let lenderName = getUser(lender).first_name + " " + getUser(lender).last_name;
+                            setTimeout(() => {
+                                $("#rate-borrower").modal("show");
+                                $("#rate-borrower").attr("data-email", lender);
+                                $("#rate-borrower").attr("data-type", "lender");
+                                $("#rate-borrower .modal-header").text("Rate " + lenderName);
+                            }, 1200)
+                        }
+                    }
+                }
+                let mine = json.pending_reviews
+            }
             responseMessage(ratingValue);
 
         });
