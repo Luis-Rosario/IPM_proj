@@ -68,8 +68,9 @@
         </ul>
 
         <div class="user-info">
-            <div class="row user">
-                <b>{{ userInfo.first_name }} {{ userInfo.last_name }}</b>
+            <div class="user">
+                <a routerLink="/user/profile" style="color:#212529!important;"><b>{{ userInfo.first_name }}
+                        {{ userInfo.last_name }}</b></a>
                 <i class="fas fa-power-off logout" (click)="logout()"></i>
             </div>
             <div class="row points" (click)="reedemPoints()">{{ userInfo.llama_points }} <i class="fas fa-coins"></i>
