@@ -26,13 +26,12 @@
                             </div>
                         </div>
                         <div> <b>Release year:</b> {{ this.gameInfo.year }}</div>
-                        <h6>{{this.gameDescription}}</h6>
+                        <h6 style="font-weight: 400;">{{this.gameDescription}}</h6>
                     </div>
                 </div>
             </div>
             <div class="col-4 users-col " *ngIf="this.url !== '/user/library'">
-                <div class="filter-section" *ngIf="this.url !== '/user/library'"
-                    style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
+                <div class="filter-section" *ngIf="this.url !== '/user/library'" style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -85,8 +84,7 @@
                                 {{ lender.first_name }} {{ lender.last_name }}
                             </div>
                             <div class="user-ratings ">
-                                <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i
-                                    class="fas fa-star "></i> /
+                                <span class="star-rating">{{ lender.lender_rating.toFixed(1) }}</span><i class="fas fa-star "></i> /
                                 <span class="loan-count">{{ lender.total_lent }}</span> Loans
                             </div>
                             <a class="rent-btn " (click)="openMessageModal($event)">→</a>
@@ -97,17 +95,14 @@
                                     <h5 class="modal-title">
                                         Say something to lender
                                     </h5>
-                                    <button type="button" class="close" onclick='$(".message-page").modal("hide")'
-                                        aria-label="Close" (click)="closeModal($event)">
+                                    <button type="button" class="close" onclick='$(".message-page").modal("hide")' aria-label="Close" (click)="closeModal($event)">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="row ">
                                         <div class="col-12 ">
-                                            <textarea type="text"
-                                                placeholder="Say something like: 'Hi! I'd like to borrow your game!'"
-                                                (keydown)="textareaInput($event)"></textarea>
+                                            <textarea type="text" placeholder="Say something like: 'Hi! I'd like to borrow your game!'" (keydown)="textareaInput($event)"></textarea>
                                             <div class="error-message textarea-error-msg hidden">Message cannot be empty
                                             </div>
                                             <button (click)="modalClick($event)" [attr.data-user]="lender.email">

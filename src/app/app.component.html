@@ -5,7 +5,7 @@
 </div> -->
 
 <div [className]="(this.url.includes('/login') || this.url.includes('/register')) ? 'login-parent' : ''" id="root-body">
-    <div class="dark-mode-toggles">
+    <div class="dark-mode-toggles" style="margin-top: -15px;">
         <i class="fas fa-moon active" id="goDark" (click)="goDark()"></i>
         <i class="fas fa-sun" id="goLight" (click)="goLight()"></i>
     </div>
