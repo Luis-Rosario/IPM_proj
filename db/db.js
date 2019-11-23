@@ -204,8 +204,8 @@ json = {
             "total_lent": 20
         },
         "a@a.com": {
-            "email": "a@a.com", //ruizinho@hotmail.com
-            "password": "a", //"omarenrolanaareia",
+            "email": "ruizinho@hotmail.com",
+            "password": "omarenrolanaareia",
 
             "first_name": "Rui",
             "last_name": "Mar",
