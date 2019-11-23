@@ -5,6 +5,7 @@ declare const $: any;
 declare const deleteGame;
 declare const pagesFunctions: any;
 declare const markGameAsReturned;
+declare const showToast;
 declare const getGameDescription: any;
 declare const getLendingTo: any;
 declare const getUser: any;
@@ -27,7 +28,7 @@ export class LibCardComponent implements OnInit {
   ngOnInit() {
     console.log(this.gameName, this.gameInfo)
 
- /*    console.log(this.gameInfo); */
+    /*    console.log(this.gameInfo); */
     var els = document.querySelectorAll(".pill");
     for (let i = 0; i < els.length; i++) {
       els[i].classList.toggle("active");
@@ -53,7 +54,8 @@ export class LibCardComponent implements OnInit {
       $("#rate-borrower").attr("data-type", "borrower");
       $("#rate-borrower .modal-header").text("Rate " + borrowerName);
     }, 100)
-    markGameAsReturned(this.sessionQuery.getValue().email, this.gameName)
+    markGameAsReturned(this.sessionQuery.getValue().email, this.gameName);
+    showToast("Game Returned");
     this.change.emit();
   }
 
