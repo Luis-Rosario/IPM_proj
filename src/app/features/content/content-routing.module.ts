@@ -4,16 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { BrowsePageComponent } from './browse-page/browse-page.component';
 
-const routes: Routes = [
-  {
-    path: 'home', component: MainPageComponent,
-  },
-  {
-    path: 'browse', component: BrowsePageComponent,
-  },
-  { 
-    path: 'user', loadChildren: './modal/modal.module#ModalModule',
-  }
+const routes: Routes = [{
+  path: '', redirectTo: 'home',pathMatch: 'full' 
+},
+{
+  path: 'home', component: MainPageComponent,
+},
+{
+  path: 'browse', component: BrowsePageComponent,
+},
+{
+  path: 'user', loadChildren: './modal/modal.module#ModalModule',
+}
 ];
 
 
