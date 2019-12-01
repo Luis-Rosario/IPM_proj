@@ -30,8 +30,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 users-col " *ngIf="this.url !== '/user/library'">
-                <div class="filter-section" *ngIf="this.url !== '/user/library'" style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
+
+            <div class="col-4 users-col " *ngIf="this.url !== '/user/library' && !borrowedGame">
+                <div class="filter-section" *ngIf="this.url !== '/user/library' && !borrowedGame" style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -116,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            <div class="loan-info" *ngIf="this.url === '/user/library'">
+            <div class="loan-info" *ngIf="this.url === '/user/library' || this.borrowedGame">
                 <label><b>Game owner:</b> {{this.gameOwner.first_name}} {{this.gameOwner.last_name}}</label>
                 <div>
                     <label><b>Loan ending date:</b> {{this.gameInfo.endDate}} (<b

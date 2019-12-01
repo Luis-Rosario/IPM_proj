@@ -31,6 +31,8 @@ export class GameCardComponent implements OnInit {
   gameOwner: any;
   lendingDaysLeft: any;
   selectedLoanDuration: any = false;
+  borrowedGame: any = false;
+
   constructor(private router: Router, private sessionQuery: SessionQuery) { }
 
   ngOnInit() {
@@ -103,8 +105,10 @@ export class GameCardComponent implements OnInit {
       $(ev.target.parentElement.parentElement)
         .find(".game-page")
         .fadeToggle();
+        this.borrowedGame = false;
     } else {
-      this.router.navigateByUrl("/user/library");
+     // this.router.navigateByUrl("/user/library");
+     this.borrowedGame = true;
     }
   }
 
