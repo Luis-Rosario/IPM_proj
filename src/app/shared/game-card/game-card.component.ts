@@ -105,11 +105,12 @@ export class GameCardComponent implements OnInit {
       $(ev.target.parentElement.parentElement)
         .find(".game-page")
         .fadeToggle();
-        this.borrowedGame = false;
+      this.borrowedGame = false;
     } else {
-     // this.router.navigateByUrl("/user/library");
-     this.borrowedGame = true;
+      // this.router.navigateByUrl("/user/library");
+      this.borrowedGame = true;
     }
+    this.filterLenders()
   }
 
   openMessageModal(ev) {
