@@ -161,8 +161,8 @@ export class GameCardComponent implements OnInit {
 
   }
 
-  closeModal(ev) {
-    //$(".modal").modal("hide");
+  closeModal() {
+    $(".modal").modal("hide");
   }
 
   getLoanInfo(userName) {

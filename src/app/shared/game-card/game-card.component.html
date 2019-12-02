@@ -32,6 +32,9 @@
             </div>
 
             <div class="col-4 users-col " *ngIf="this.url !== '/user/library' && !borrowedGame">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+                        <span _ngcontent-ejy-c4="" aria-hidden="true" style="margin:0 10px;">×</span>
+                </button>
                 <div class="filter-section" *ngIf="this.url !== '/user/library' && !borrowedGame" style="padding: 30px 15px; border-bottom: 1px solid gainsboro;">
                     <div class="row">
                         <div class="col-6">
