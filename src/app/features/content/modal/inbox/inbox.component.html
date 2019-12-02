@@ -6,33 +6,61 @@
         <div class="select-area">
             <span>Games I am:</span>
             <select #select (change)="changeSelect()" data-width="auto">
-            <!-- class="selectpicker" -->
-            <option value="true" selected>Borrowing</option>
-            <option value="false">Lending</option>
-        </select>
+                <!-- class="selectpicker" -->
+                <option value="true" selected>Borrowing</option>
+                <option value="false">Lending</option>
+            </select>
         </div>
 
         <div *ngIf="showBorrowed === 'true'">
             <div class="gameList" *ngFor="let game of borrowingGames">
                 <h3 (click)=selectGame(game,$event)>{{game}}</h3>
                 <!-- meter as classes active <h3 class="active"  -->
+
+            </div>
+            <div class="msg text-center" *ngIf=" this.borrowingGames.length==0 ">
+                You are not borrowing any games right now
             </div>
         </div>
 
-        <div *ngIf="showBorrowed === 'false'">
-            <div class="gameList" *ngFor="let game of lendingGames">
+        <div *ngIf="showBorrowed==='false' ">
+            <div class="gameList " *ngFor="let game of lendingGames ">
                 <h3 (click)=selectGame(game,$event)>{{game}}</h3>
-                <!-- meter as classes active <h3 class="active"  -->
+                <!-- meter as classes active <h3 class="active "  -->
+
+            </div>
+            <div class="msg text-center" *ngIf="this.lendingGames.length==0 ">
+                You are not lending any games right now
             </div>
         </div>
 
     </div>
 
-    <div class="col-5 info-col">
-        <loan-requests *ngIf="messages !== undefined && game !== undefined" [queryParam]="this.queryParam" [messages]="messages" [game]="game" [lender]="(showBorrowed=='false') ? true: false" (selectedPerson)="handleSelectedRequest($event)"></loan-requests>
+    <div class="col-5 info-col ">
+        <loan-requests *ngIf="messages !==undefined && game !==undefined " [queryParam]="this.queryParam " [messages]="messages " [game]="game " [lender]="(showBorrowed=='false' ) ? true: false " (selectedPerson)="handleSelectedRequest($event) "></loan-requests>
+        <!--   <div *ngIf="showBorrowed === 'true'">
+            <div class="msg text-center" *ngIf="this.borrowingGames.length==0 ">
+                No lending requests :(
+            </div>
+        </div>
+        <div *ngIf="showBorrowed === 'false'">
+            <div class="msg text-center" *ngIf="this.lendingGames.length==0 ">
+                No borrow requests :(
+            </div>
+        </div> -->
     </div>
 
-    <div class=" col-4 chat-col">
-        <chat *ngIf="chatMessages !== undefined" [chat]="chatMessages" [lender]="(showBorrowed=='false') ? true: false" [loggedUser]="this.user" [targetPerson]="this.targetPerson" [game]="this.game" (acceptedRental)="refreshLoanRequest()"></chat>
+    <div class=" col-4 chat-col ">
+        <chat *ngIf="chatMessages !==undefined " [chat]="chatMessages " [lender]="(showBorrowed=='false' ) ? true: false " [loggedUser]="this.user " [targetPerson]="this.targetPerson " [game]="this.game " (acceptedRental)="refreshLoanRequest() "></chat>
+        <!--    <div *ngIf="showBorrowed === 'false'">
+            <div class="msg text-center" *ngIf="this.lendingGames.length==0 ">
+                Go lend a game so that you can chat with someone :)
+            </div>
+            <div *ngIf="showBorrowed === 'true'">
+                <div class="msg text-center" *ngIf="this.borrowingGames.length==0 ">
+                    Go ask for a game so that you can chat with someone :)
+                </div>
+            </div>
+        </div> -->
     </div>
 </div>

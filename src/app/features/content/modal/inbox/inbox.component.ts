@@ -51,6 +51,8 @@ export class InboxComponent implements OnInit/* ,AfterViewInit */ {
     this.user = this.sessionQuery.getValue().email;
     this.getLendingGames();
     this.getBorrowingGames();
+    console.log(this.borrowingGames.length == 0)
+    console.log(this.lendingGames.length == 0)
     this.changeSelect();
 
     this._route.queryParams.subscribe(params => {
