@@ -312,7 +312,7 @@ $red: #b22222;
     &.active {
         border: 2px solid var(--orangeB);
         background: var(--orangeC);
-        &:hover {
+        &.interactive:hover {
             border-color: var(--redA);
             background: var(--redC);
             position: relative;
