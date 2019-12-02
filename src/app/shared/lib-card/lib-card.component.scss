@@ -145,7 +145,7 @@ $red: #b22222;
         top: 0;
         right: 0;
         transform: translate(50%, -50%);
-        background:  var(--darkOrange);
+        background: var(--darkOrange);
         z-index: 4;
     }
     label {
@@ -162,7 +162,7 @@ $red: #b22222;
         z-index: 3;
         b {
             &.over-info {
-                color:  var(--red);
+                color: var(--red);
             }
             letter-spacing:0.5px;
         }
@@ -232,30 +232,30 @@ $lightGrey: #f7f7f7;
 $green: #5aac44;
 $red: #b22222;
 .delete-modal {
-    .modal-dialog{
-        margin-top:180px;
+    .modal-dialog {
+        margin-top: 180px;
     }
     .btn.delete {
-        border: 2px solid  var(--red);
-        color:  var(--red);
+        border: 2px solid var(--red);
+        color: var(--red);
         transition-duration: 0.2s;
         &:hover {
-            background:  var(--red);
+            background: var(--red);
             color: white;
         }
     }
 }
 
 .return-modal {
-    .modal-dialog{
-        margin-top:180px;
+    .modal-dialog {
+        margin-top: 180px;
     }
     .btn.return {
-        border: 2px solid  var(--orange);
-        color:  var(--orange);
+        border: 2px solid var(--orange);
+        color: var(--orange);
         transition-duration: 0.2s;
         &:hover {
-            background:  var(--orange);
+            background: var(--orange);
             color: white;
         }
     }
@@ -319,7 +319,7 @@ $red: #b22222;
             color: rgba(0, 0, 0, 0.2);
             &:after {
                 content: "x";
-                color:  var(--red);
+                color: var(--red);
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -327,5 +327,15 @@ $red: #b22222;
                 font-size: 16px;
             }
         }
+    }
+}
+
+.cancel {
+    background: white;
+    color: #222;
+    border: 1px solid gainsboro;
+    &:hover,
+    &:focus {
+        background: #EEE;
     }
 }

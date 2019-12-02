@@ -7,17 +7,16 @@
 .title {
     display: inline-block;
     position: relative;
-    top:6px;
-    margin-left:15px;
+    top: 6px;
+    margin-left: 15px;
     color: #ec620f;
     font-family: 'Rubik', sans-serif;
 }
 
-
-.box-title{
-    margin-bottom:15px;
-    color:#ec620f;
-    margin-left:12px;
+.box-title {
+    margin-bottom: 15px;
+    color: #ec620f;
+    margin-left: 12px;
     font-family: 'Rubik', sans-serif;
 }
 
@@ -34,7 +33,7 @@
     background: #1f1d1be0;
     padding: 25px;
     box-shadow: 1px 1px 5px 2px rgba(13, 13, 13, 0.2);
-    border-radius:10px; 
+    border-radius: 10px;
     //opacity: 0.95;
     color: rgb(255, 240, 234);
     font-family: 'Rubik', sans-serif;
@@ -48,7 +47,7 @@
     margin: 15px;
     //box-shadow: 0 1px 2px #ec620f;
     background: #22211e;
-    border:1px solid #131313;
+    border: 1px solid #131313;
     padding: 20px;
 }
 
@@ -73,18 +72,18 @@ label {
 .boxElem {
     width: 246px;
     color: #1f1d1b;
-    background:rgb(255, 240, 234);
+    background: rgb(255, 240, 234);
     font-family: 'Rubik', sans-serif;
 }
 
 .boxElem-single {
     width: 516px;
-    background:rgb(255, 240, 234);
+    background: rgb(255, 240, 234);
     font-family: 'Rubik', sans-serif;
 }
 
 .button-parent {
-    text-align: right;
+    text-align: left;
     .button {
         box-shadow: inset 0px 1px 0px 0px #f9c6a6;
         background-color: #ec620f;
@@ -95,11 +94,8 @@ label {
         color: #ffffff;
         font-family: 'Rubik', sans-serif;
         font-size: 18px;
-        font-weight: bold;
         padding: 9px 36px;
-        text-decoration: none;
-        text-shadow: 0px 1px 0px #ec620f;
-        &:hover{
+        &:hover {
             background-color: #ff9344;
         }
         &:active {
@@ -110,7 +106,7 @@ label {
 }
 
 .button-cancel {
-    text-align: left;
+    text-align: right;
     .button {
         box-shadow: inset 0px 1px 0px 0px rgb(193, 87, 87);
         background-color: #B22222;
@@ -121,11 +117,8 @@ label {
         color: #ffffff;
         font-family: 'Rubik', sans-serif;
         font-size: 18px;
-        font-weight: bold;
         padding: 9px 36px;
-        text-decoration: none;
-        text-shadow: 0px 1px 0px #B22222;
-        &:hover{
+        &:hover {
             background-color: rgb(193, 87, 87);
         }
         &:active {
@@ -134,6 +127,7 @@ label {
         }
     }
 }
+
 .error-message {
     color: #B22222;
     font-size: 0.9rem;

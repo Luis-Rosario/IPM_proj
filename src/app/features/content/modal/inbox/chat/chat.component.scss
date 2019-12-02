@@ -134,7 +134,7 @@ $red: #b22222;
             color: rgba(0, 0, 0, 0.2);
             &:after {
                 content: "x";
-                color:  var(--red);
+                color: var(--red);
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -161,7 +161,7 @@ a {
     top: 0;
     left: 15px;
     z-index: 3;
-    background:white;
+    background: white;
 }
 
 .chat-button {
@@ -184,22 +184,22 @@ a {
     &#refuse {
         background: var(--redB);
         /* opacity: 0.8; */
-        color:  var(--red);
+        color: var(--red);
         transition-duration: 0.2s;
         cursor: pointer;
         &:hover {
-            background:  var(--red);
+            background: var(--red);
             color: white;
         }
     }
     &#mark-returned {
         background: var(--orangeD);
         /* opacity: 0.8; */
-        color:  var(--orange);
+        color: var(--orange);
         transition-duration: 0.2s;
         cursor: pointer;
         &:hover {
-            background:  var(--orange);
+            background: var(--orange);
             color: white;
         }
     }
@@ -229,17 +229,17 @@ a {
         }
         &.me {
             float: right;
-            background:  var(--orange);
+            background: var(--orange);
             margin-right: 20px;
             text-align: right;
-            color:var(--keepBlack);
-            *{
-                color:inherit;
+            color: var(--keepBlack);
+            * {
+                color: inherit;
             }
             &:after {
                 border-left: none;
                 border-right: 16px solid transparent;
-                border-bottom: 16px solid  var(--orange);
+                border-bottom: 16px solid var(--orange);
                 left: 100%;
                 margin-left: -6px;
             }
@@ -258,12 +258,12 @@ a {
                 border-radius: 8px;
                 padding: 20px;
                 width: 80%;
-                background:  var(--faintOrange);
+                background: var(--faintOrange);
                 margin: auto;
                 /* border: 5px solid #fbab5b; */
                 background: white;
                 font-size: 1.1em;
-                box-shadow: 0 0 2px 2px  var(--orange);
+                box-shadow: 0 0 2px 2px var(--orange);
                 font-weight: bold;
                 text-align: center;
             }
@@ -331,17 +331,22 @@ a {
     &.refuse-loan-modal {
         .btn {
             background: var(--redB);
-            color:  var(--red);
+            color: var(--red);
             &:hover,
             &:focus {
-                background:  var(--red);
+                background: var(--red);
                 color: white;
             }
         }
     }
 }
 
-.mark-returned-modal {
+.mark-returned-modal,
+.accept-loan-modal,
+.refuse-loan-modal {
+    .col-6 {
+        padding: 10px 0;
+    }
     .modal-dialog {
         margin-top: 180px;
     }
@@ -361,11 +366,20 @@ a {
         }
         &#refuse {
             background: var(--redB);
-            color:  var(--red);
+            color: var(--red);
             &:hover,
             &:focus {
-                background:  var(--red);
+                background: var(--red);
                 color: white;
+            }
+        }
+        &#cancel {
+            background: white;
+            color: #222;
+            border: 1px solid gainsboro;
+            &:hover,
+            &:focus {
+                background: #EEE;
             }
         }
     }

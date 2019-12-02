@@ -148,4 +148,8 @@ export class ChatComponent implements OnInit {
 
   }
 
+  closeModal(){
+    $(".modal").modal("hide")
+  }
+  
 }

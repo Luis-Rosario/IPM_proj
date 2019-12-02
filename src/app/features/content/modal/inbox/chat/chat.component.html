@@ -7,8 +7,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body clearfix">
-                <button type="button" class="btn pull-right" (click)="this.acceptLoan()">Accept Loan</button>
+            <div class="modal-body clearfix row">
+                <!--    <button type="button" class="btn pull-right" (click)="this.acceptLoan()">Accept Loan</button> -->
+                <div class="modal-body col-6 text-center">
+                    <button type="button" class="btn" id="accept" (click)="this.acceptLoan()">Accept Loan</button>
+                </div>
+                <div class="modal-body col-6 text-center">
+                    <button type="button" class="btn" id="cancel" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
@@ -23,8 +29,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <button type="button" class="btn" (click)="this.refuseLoan()">Refuse Loan</button>
+            <div class="modal-body row">
+                <div class="modal-body col-6 text-center">
+                    <button type="button" class="btn" id="refuse" (click)="this.acceptLoan()">Refuse Loan</button>
+                </div>
+                <div class="modal-body col-6 text-center">
+                    <button type="button" class="btn" id="cancel" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
