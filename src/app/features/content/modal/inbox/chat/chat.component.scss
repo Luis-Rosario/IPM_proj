@@ -203,6 +203,17 @@ a {
             color: white;
         }
     }
+    &#mark-cancel {
+        background: #DDD;
+        /* opacity: 0.8; */
+        color: #222;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background: #444;
+            color:#EEE;
+        }
+    }
 }
 
 .chat-list {
@@ -341,6 +352,7 @@ a {
     }
 }
 
+.mark-cancel-modal,
 .mark-returned-modal,
 .accept-loan-modal,
 .refuse-loan-modal {

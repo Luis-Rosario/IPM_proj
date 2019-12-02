@@ -1540,6 +1540,11 @@ function deleteGame(userId, game_name) {
     pushData();
 }
 
+function markGameAsCanceled(lenderEmail, borrowEmail, gameName) {
+    json.rental_history.lenders[lenderEmail].games[gameName].borrowers[borrowEmail].lent = "past"
+    pushData();
+}
+
 function markGameAsReturned(lenderEmail, gameName) {
     let borrowerMail = getUser(getLendingTo(lenderEmail)[gameName]).email;
     let borrowers = json.rental_history.lenders[lenderEmail].games[gameName].borrowers
