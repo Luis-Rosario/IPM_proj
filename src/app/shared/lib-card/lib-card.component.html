@@ -55,6 +55,28 @@
                 <div class="modal-header">
                     <h5 class="modal-title">
                         {{ this.gameInfo.game_name }}
+                        <span *ngIf="!this.gameInfo.active" id="orange-label" style="
+                        font-weight: 400;
+                        font-size: 13px;
+                        margin-left: 11px;
+                    ">(<span class="orange-ball" style="
+                        padding: 6px;
+                        display: inline-block;
+                        border-radius: 50%;
+                        /* position: absolute; */
+                        /* z-index: 2; */
+                        /* top: 0; */
+                        /* right: 0; */
+                        transform: translate(50%, -50%);
+                        background:  var(--darkOrange);
+                        z-index: 4;
+                        margin-right: 15px;
+                        position: relative;
+                        top: 7px;
+                        /* margin-left: -5px; */
+                        "></span>Game currently lent<span style="
+                        margin-left: 5px;
+                    ">)</span></span>
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
             <span aria-hidden="true">&times;</span>

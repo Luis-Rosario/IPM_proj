@@ -2,40 +2,17 @@
     <div class="my-games">
         <div class="title-row">
             <div class="title">My Games
-                <span *ngIf="someGameLent" id="orange-label" style="
-                    font-weight: 400;
-                    font-size: 13px;
-                    margin-left: 11px;
-                ">(<span class="orange-ball" style="
-                    padding: 6px;
-                    display: inline-block;
-                    border-radius: 50%;
-                    /* position: absolute; */
-                    /* z-index: 2; */
-                    /* top: 0; */
-                    /* right: 0; */
-                    transform: translate(50%, -50%);
-                    background:  var(--darkOrange);
-                    z-index: 4;
-                    margin-right: 15px;
-                    position: relative;
-                    top: 7px;
-                    /* margin-left: -5px; */
-                    "></span>Game currently lent<span style="
-                    margin-left: 5px;
-                ">)</span></span>
+
 
             </div>
         </div>
         <div class="card-list">
-            <div class="game-card new-game" data-target="#new-game-modal" data-toggle="modal"
-                (click)=this.hiddeErrorMessages()>
+            <div class="game-card new-game" data-target="#new-game-modal" data-toggle="modal" (click)=this.hiddeErrorMessages()>
                 <a class="new-game-btn">+</a>
                 <div class="description">Add Game</div>
             </div>
             <div *ngFor="let game of lendingGames" [className]="isAvailable(game) ? 'available' : 'unavailable'">
-                <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name"
-                    [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
+                <lib-card [gameName]="this.lendingGamesInfo.get(game).game_name" [gameInfo]="this.lendingGamesInfo.get(game)" (change)="handleChange()">
                 </lib-card>
             </div>
         </div>
@@ -45,13 +22,10 @@
             <div class="title">Borrowed Games</div>
         </div>
         <div *ngFor="let game of borrowingGames">
-            <game-card class="non-owner game-card" [gameName]="this.borrowingGamesInfo.get(game).game_name"
-                [gameInfo]="this.borrowingGamesInfo.get(game)">
+            <game-card class="non-owner game-card" [gameName]="this.borrowingGamesInfo.get(game).game_name" [gameInfo]="this.borrowingGamesInfo.get(game)">
             </game-card>
         </div>
-        <p style="text-align: center; margin-top:50px;color: #666!important;font-size: 18px;"
-            *ngIf="borrowingGames.length == 0">Currently, you don't have any borrowed games! Go ask
-            for some! :)</p>
+        <p style="text-align: center; margin-top:50px;color: #666!important;font-size: 18px;" *ngIf="borrowingGames.length == 0">Currently, you don't have any borrowed games! Go ask for some! :)</p>
     </div>
 </div>
 <div class="game-modal modal" id="new-game-modal">
@@ -69,15 +43,13 @@
                         <option *ngFor="let gameName of gameNames" value="{{gameName}}">
                     </datalist>
                     <label for="name">Game name</label>
-                    <input style="width:100%;" type="text" id="name" class="game-name" list="games-list"
-                        autocomplete="off" required />
+                    <input style="width:100%;" type="text" id="name" class="game-name" list="games-list" autocomplete="off" required />
                     <div class="hidden error-message">
                         <b>Required field</b>
                     </div>
                 </div>
                 <div class="form-group" style="float:left;">
-                    <label for="year">Release Year</label><input type="text" class="year" id="year" required
-                        maxlength="4" minlength="4" />
+                    <label for="year">Release Year</label><input type="text" class="year" id="year" required maxlength="4" minlength="4" />
                     <div class="hidden error-message">
                         <b>Invalid Input</b>
                     </div>
