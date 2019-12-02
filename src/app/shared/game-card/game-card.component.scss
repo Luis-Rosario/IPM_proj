@@ -213,6 +213,12 @@ a {
 
 //----
 .game-page {
+    &.game-page-short{
+        .modal-content{
+            max-height: 400px!important;
+            max-width: 800px!important;
+        }
+    }
     background: rgba(0, 0, 0, 0.5);
     .modal-content {
         max-width: 80vw !important;
