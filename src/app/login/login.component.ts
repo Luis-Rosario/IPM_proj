@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit, OnChanges {
                 if (review) {
                   let lenderName = getUser(review).first_name + " " + getUser(review).last_name;
                   $("#rate-borrower").modal("show");
+                  $("#rate-borrower .error-message").hide();
                   $("#rate-borrower").attr("data-email", review);
                   $("#rate-borrower").attr("data-type", "lender");
                   $("#rate-borrower .modal-header").text("Rate " + lenderName);

@@ -15,9 +15,18 @@
         <router-outlet></router-outlet>
         <div id="snackbar"></div>
         <div class="modal" id="rate-lender">
+            <div class="cover-modal" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                bottom: 0;
+            " onclick="$('#lender-error-req').show()"></div>
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">Rate lender</div>
+                    <div class="modal-header">Rate lender
+
+                    </div>
                     <div class="modal-body">
                         <section class='rating-widget'>
 
@@ -42,11 +51,21 @@
                                 </ul>
                             </div>
                         </section>
+                        <p class="error-message text-center" id="lender-error-req"><b>Rating users is required.</b>
+
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal" id="rate-borrower">
+            <div class="cover-modal" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                bottom: 0;
+            " onclick="$('#borrow-error-req').show()"></div>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">Rate borrower</div>
@@ -74,6 +93,9 @@
                                 </ul>
                             </div>
                         </section>
+                        <p class="error-message text-center" id="borrow-error-req"><b>Rating users is required.</b>
+
+                        </p>
                     </div>
                 </div>
             </div>

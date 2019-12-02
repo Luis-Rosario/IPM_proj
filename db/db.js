@@ -85,6 +85,7 @@ peer.on("open", (id) => {
                     let lenderName = getUser(lender).first_name + " " + getUser(lender).last_name;
                     setTimeout(() => {
                         $("#rate-borrower").modal("show");
+                        $("#rate-borrower .error-message").hide();
                         $("#rate-borrower").attr("data-email", lender);
                         $("#rate-borrower").attr("data-type", "lender");
                         $("#rate-borrower .modal-header").text("Rate " + lenderName);

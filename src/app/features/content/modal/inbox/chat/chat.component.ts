@@ -123,6 +123,7 @@ export class ChatComponent implements OnInit {
     /* console.log("i marked the game as returned", borrowerName); */
     setTimeout(() => {
       $("#rate-borrower").modal("show");
+      $("#rate-borrower .error-message").hide();
       $("#rate-borrower").attr("data-email", borrower);
       $("#rate-borrower").attr("data-type", "borrower");
       $("#rate-borrower .modal-header").text("Rate " + borrowerName);

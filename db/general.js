@@ -167,7 +167,7 @@ function nestedDepth($el) {
 document.addEventListener("keydown", function (ev) {
     if (ev.code == "Escape") {
         //close modals if 
-        if ($(".modal:visible").length) {
+        if ($(".modal:visible").length && ($("#rate-borrower:visible").length == 0)) {
             console.log("closing modals");
             let max = -1;
             let el = null;
@@ -182,6 +182,10 @@ document.addEventListener("keydown", function (ev) {
             window.eee = el;
             $(el).modal("hide");
             //$(".modal:visible").modal("close");
+        }
+
+        else if (($("#rate-borrower:visible").length)) {
+            $(".modal:visible .error-message").show()
         }
 
         //close notif if
@@ -271,6 +275,7 @@ setTimeout(() => {
                             let lenderName = getUser(lender).first_name + " " + getUser(lender).last_name;
                             setTimeout(() => {
                                 $("#rate-borrower").modal("show");
+                                $("#rate-borrower .error-message").hide();
                                 $("#rate-borrower").attr("data-email", lender);
                                 $("#rate-borrower").attr("data-type", "lender");
                                 $("#rate-borrower .modal-header").text("Rate " + lenderName);
