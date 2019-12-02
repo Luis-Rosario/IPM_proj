@@ -1,7 +1,31 @@
 <div class="section library-page">
     <div class="my-games">
         <div class="title-row">
-            <div class="title">My Games</div>
+            <div class="title">My Games
+                <span *ngIf="someGameLent" id="orange-label" style="
+                    font-weight: 400;
+                    font-size: 13px;
+                    margin-left: 11px;
+                ">(<span class="orange-ball" style="
+                    padding: 6px;
+                    display: inline-block;
+                    border-radius: 50%;
+                    /* position: absolute; */
+                    /* z-index: 2; */
+                    /* top: 0; */
+                    /* right: 0; */
+                    transform: translate(50%, -50%);
+                    background:  var(--darkOrange);
+                    z-index: 4;
+                    margin-right: 15px;
+                    position: relative;
+                    top: 7px;
+                    /* margin-left: -5px; */
+                    "></span>Game currently lent<span style="
+                    margin-left: 5px;
+                ">)</span></span>
+
+            </div>
         </div>
         <div class="card-list">
             <div class="game-card new-game" data-target="#new-game-modal" data-toggle="modal"

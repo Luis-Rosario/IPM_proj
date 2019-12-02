@@ -27,6 +27,7 @@ declare const json: any;
 export class LibraryComponent implements OnInit {
   lendingGamesInfo: Map<String, any> = new Map();
   lendingGames: String[] = [];
+  someGameLent: boolean = false;
 
   borrowingGamesInfo: Map<String, any> = new Map();
   borrowingGames: String[] = [];
@@ -151,6 +152,9 @@ export class LibraryComponent implements OnInit {
     for (game of keys) {
       this.lendingGames[index] = game;
       this.lendingGamesInfo.set(game, myGamesJSON[game]);
+      if (!myGamesJSON[game].active) {
+        this.someGameLent = true;
+      }
       /* console.log(this.lendingGames) */
       index++;
     }
